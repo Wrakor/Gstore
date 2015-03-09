@@ -45,3 +45,8 @@ body {
 #footer .text-muted {
   margin: 20px 0;
 }
+
+.list-inline.go-right {
+  float: right;
+  padding: 8px 0px;
+}
