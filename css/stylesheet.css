@@ -13,44 +13,6 @@
 }
 
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
-}
-body {
-  /* Margin bottom by footer height */
-  /* margin-bottom: 60px; */
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  background-color: #f5f5f5;
-}
-
-
-/* Custom page CSS
--------------------------------------------------- */
-/* Not required for template or sticky footer method. */
-
-#footer {
-  width: auto;
-  max-width: 680px;
-  padding: 0 15px;
-}
-#footer .text-muted {
-  margin: 20px 0;
-}
-
-.list-inline.go-right {
-  float: right;
-  padding: 8px 0px;
-}
-
 /* Credit to bootsnipp.com for the css for the color graph */
 .colorgraph {
   height: 5px;
@@ -116,6 +78,26 @@ footer hr{
     border-style: inset;
 }
 
+footer .container span{
+    font-size:30px;
+    color:white;
+    padding: 0 5px 5px 0;
+}
+
 footer .container:last-child{
     text-align:right;
+}
+
+/* social icons */
+.icon-facebook:hover{
+    color:#3b5998;
+}
+.icon-google__x2B_:hover{
+    color:#db4437;
+}
+.icon-twitter-1:hover{
+    color:#55acee;
+}
+.icon-youtube:hover{
+    color:#e52d27;
 }
