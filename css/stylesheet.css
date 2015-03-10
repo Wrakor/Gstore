@@ -1,10 +1,13 @@
 @import url("../webfontkit-OpenSans/stylesheet.css");
 
-#title
+.brand,
 {
 	font-family: 'open_sans';
-	font-size: 24px;
 }
+.navbar-brand{
+    font-size: 24px;
+}
+
 
 .breadcrumb
 {
@@ -78,7 +81,7 @@ footer hr{
     border-style: inset;
 }
 
-footer .container span{
+footer [class^="icon-"] {
     font-size:30px;
     color:white;
     padding: 0 5px 5px 0;
