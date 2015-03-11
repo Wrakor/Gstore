@@ -1,7 +1,6 @@
 @import url("../webfontkit-OpenSans/stylesheet.css");
 
-.brand,
-{
+.brand{
 	font-family: 'open_sans';
 }
 .navbar-brand{
@@ -34,6 +33,17 @@
     display: block;
  }
 
+.side-menu .glyphicon{
+    padding-right:10px;
+}
+
+.view-modes{
+    font-size: 30px;
+}
+
+.view-modes li.active a{
+    color:#777;
+}
 
 /* .product-list */
 
@@ -58,6 +68,9 @@
     color:gold;
 }
 
+.product-list .caption{
+    height:120px;
+}
 .product-list .caption .pull-right{
     margin-top:39px;
 }
