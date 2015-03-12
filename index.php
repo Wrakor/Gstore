@@ -220,10 +220,14 @@
 
 
 <?php include_once "footer.php"; ?>
-<!-- jQuery -->
-<script src="js/jquery.min.js"></script>
-<!-- Bootstrap Core JavaScript -->
+
+<script src="https://code.jquery.com/jquery.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
+
+<!-- jQuery
+<script src="js/jquery.min.js"></script>
+<!-- Bootstrap Core JavaScript
+<script src="bootstrap/js/bootstrap.min.js"></script>-->
 </body>
 </html>
 

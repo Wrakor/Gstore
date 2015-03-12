@@ -47,21 +47,8 @@
 
 /* .product-list */
 
-.media.product-list{
-    border-radius: 4px;
-    border-radius: 4px;
-    transition: padding 2.5s ease;
-    transition: background-color 1.5s ease;
-    transition: color 1.5s ease;
-}
-
-.media.product-list:hover{
-    transition: padding 10.5s linear;
-    transition: background-color 1.5s ease;
-    transition: color 0.5s ease;
-    padding:10px;
-    background-color:goldenrod;
-    color:white;
+.product-list .ratings{
+    min-width:107px;w
 }
 
 .product-list .ratings .glyphicon{
@@ -116,4 +103,11 @@ footer .container:last-child{
 }
 .icon-youtube:hover{
     color:#e52d27;
+}
+
+
+/* Modals */
+#signup .modal-content
+{
+    padding: 10px 20px;
 }

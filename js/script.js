@@ -63,3 +63,7 @@ $(function () {
         init();
     });
 });
+
+$(document).ready(function(){
+    $('#login').modal(options);
+});
