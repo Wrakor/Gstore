@@ -1,22 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<?php include_once "head.php"; ?>
-<body>
+<?php include_once "open.php"; ?>
 <?php include_once "nav.php"; ?>
 
 
 <!-- Page Content -->
 <div class="container">
     <div class="row">
+
+        <!-- Left side -->
         <div class="col-md-3">
 
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search for...">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-                        </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
             </div>
+
             <br><br>
+
             <p class="lead">Categories</p>
             <div class="list-group">
                 <a href="" class="list-group-item">Adventure</a>
@@ -28,10 +29,13 @@
                 <a href="" class="list-group-item active">RPG</a>
                 <a href="" class="list-group-item">Simulation</a>
             </div>
+
         </div>
 
+        <!-- Right side -->
         <div class="col-md-9">
 
+            <!-- Crumbs -->
             <div class="row">
                 <div class="col-md-offset-1">
                     <ol class="breadcrumb">
@@ -39,11 +43,11 @@
                         <li class="active">RPG</li>
                     </ol>
                 </div>
-
             </div>
 
-
+            <!-- Product List -->
             <div class="row">
+
                 <div class="col-md-offset-1">
                     <h2>RPG <small>short for role-playing games...</small>
                         <ul class="view-modes list-inline pull-right">
@@ -52,7 +56,9 @@
                             <li class=""><a href="products3.php"> <span class="glyphicon glyphicon-list"></span></a></li>
                         </ul>
                     </h2>
+
                     <hr class="colorgraph">
+
                     <div class="container-fluid">
 
                         <?php include_once "itemlist2.php"; ?>
@@ -73,19 +79,11 @@
 
                 </div>
             </div>
-        </div>
 
-
-    </div>
-</div>
-</div>
-<!-- /.container -->
+        </div><!-- /.col-md-9 -->
+    </div><!-- /.row -->
+</div><!-- /.container -->
 
 
 <?php include_once "footer.php"; ?>
-<!-- jQuery -->
-<script src="js/jquery.min.js"></script>
-<!-- Bootstrap Core JavaScript -->
-<script src="bootstrap/js/bootstrap.min.js"></script>
-</body>
-</html>
+<?php include_once "close.php"; ?>

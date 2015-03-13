@@ -59,6 +59,10 @@ nav.navbar .badge{
 
 /* .product-list */
 
+.product-list th + td{
+    min-width: 68px;
+}
+
 .product-list .ratings{
     min-width:107px;w
 }
