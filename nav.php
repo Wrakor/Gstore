@@ -1,7 +1,8 @@
 <!-- Navigation -->
-
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
     <div class="container">
+
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -10,8 +11,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand brand" href="index2.php">G<b>STORE</b></a>
+            <a class="navbar-brand brand" href="index.php">G<b>STORE</b></a>
         </div>
+
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
@@ -39,19 +41,18 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href=""> <span class="glyphicon glyphicon-shopping-cart"></span> Cart </a></li>
-                <li><a href="profile.php"> <span class="glyphicon glyphicon-user"></span> Profile </a></li>
-                <li><a href="#" data-toggle="modal" data-target="#login"> <span class="glyphicon glyphicon-lock"></span> Login </a></li>
-                <li><a href=""> <span class="glyphicon glyphicon-off"></span> Logout </a></li>
+                <li><a href="cart.php"><span class="badge">2</span><span class="glyphicon glyphicon-shopping-cart"></span> Cart </a></li>
+                <li><a href="profile.php"><span class="glyphicon glyphicon-user"></span> Profile </a></li>
+                <li><a href="#" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-lock"></span> Login </a></li>
+                <li><a href="" data-toggle="modal" data-target="#logout"><span class="glyphicon glyphicon-off"></span> Logout </a></li>
             </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-</nav>
+        </div><!-- /.navbar-collapse -->
 
-<?php ?>
+    </div><!-- /.container -->
+</nav><!-- / navigation -->
 
+
+<!-- modal dialog for login -->
 <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="smallModal" aria-hidden="true">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
@@ -83,10 +84,10 @@
 
         </div>
     </div>
-</div>
+</div><!-- /.modal for #login -->
 
-<?php ?>
 
+<!-- modal dialog for signup/register -->
 <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="normalModal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -112,6 +113,7 @@
                 <div class="form-group">
                     <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" tabindex="4">
                 </div>
+
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group">
@@ -124,6 +126,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col-xs-4 col-sm-3 col-md-3">
                                 <span class="button-checkbox">
@@ -139,9 +142,34 @@
                 <hr class="colorgraph">
                 <div class="row text-center">
                     <div class="col-md-12"><input type="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
-                </div><br>
+                </div>
+                <br>
             </form>
 
         </div>
     </div>
-</div>
+</div> <!-- /.modal for #signup -->
+
+
+<!-- modal dialog for logout -->
+<div class="modal fade" id="logout" tabindex="-1" role="dialog" aria-labelledby="smallModal" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Do you really want to logout?</h3>
+                </div>
+                <div class="panel-body">
+                    <form accept-charset="UTF-8" role="form">
+                        <fieldset>
+                            <input class="btn btn-lg btn-success btn-block" type="submit" href="#" value="Yes">
+                            <input class="btn btn-lg btn-danger btn-block" href="#" value="No, not yet!">
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div><!-- /.modal for #logout -->

@@ -1,3 +1,6 @@
+<!-- product list in big format -->
+<!-- Can be with just images -->
+
 <div class="col-sm-4 col-lg-4 col-md-4 product-list">
     <div class="thumbnail">
         <img src="./img/320x150" alt="">

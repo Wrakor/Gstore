@@ -1,12 +1,15 @@
 @import url("../webfontkit-OpenSans/stylesheet.css");
 
+/* tables */
+.borderless tbody tr td,
+.borderless tbody tr th,
+.borderless thead tr th {
+    border: none;
+}
+
 .brand{
 	font-family: 'open_sans';
 }
-.navbar-brand{
-    font-size: 24px;
-}
-
 
 .breadcrumb
 {
@@ -29,6 +32,15 @@
 
 
 /* nav-bar */
+.navbar-brand{
+    font-size: 24px;
+}
+
+nav.navbar .badge{
+    color:#222;
+    background-color:#fff;
+}
+
 .dropdown:hover .dropdown-menu {
     display: block;
  }
@@ -62,6 +74,11 @@
     margin-top:39px;
 }
 
+.product-list .media-heading > a{
+    float:right;
+    color:red;
+}
+
 footer{
     padding: 30px 0 60px 0;
     border-style: solid;
@@ -87,7 +104,7 @@ footer [class^="icon-"] {
     padding: 0 5px 5px 0;
 }
 
-footer .container:last-child{
+footer .container .row > :last-child{
     text-align:right;
 }
 
@@ -110,4 +127,9 @@ footer .container:last-child{
 #signup .modal-content
 {
     padding: 10px 20px;
+}
+
+/* forms */
+form .confirm div+div{
+    margin-top:10px;
 }
