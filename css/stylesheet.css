@@ -184,3 +184,8 @@ footer .container .row > :last-child{
 form .confirm div+div{
     margin-top:10px;
 }
+
+p {
+	text-align: justify; 
+	text-justify: inter-word;	
+}
