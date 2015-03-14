@@ -86,7 +86,7 @@
 
 <div class="col-sm-4 col-lg-4 col-md-4 product-list">
     <div class="thumbnail thumbnail-full">
-        <img src="img/g5.jpg" alt="">
+        <img src="img/g6.jpg" alt="">
         <div class="caption caption-below">
             <h4><a href="">Creativerse</a></h4>
             <p>
