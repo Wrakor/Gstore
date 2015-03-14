@@ -9,5 +9,13 @@
         <script src="startbootstrap-sb-admin-1.0.2/js/plugins/morris/morris.min.js"></script>
         <script src="startbootstrap-sb-admin-1.0.2/js/plugins/morris/morris-data.js"></script>
 
+        <!-- Flot Charts JavaScript -->
+        <!--[if lte IE 8]><script src="startbootstrap-sb-admin-1.0.2/js/plugins/flot/js/excanvas.min.js"></script><![endif]-->
+        <script src="startbootstrap-sb-admin-1.0.2/js/plugins/flot/jquery.flot.js"></script>
+        <script src="startbootstrap-sb-admin-1.0.2/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+        <script src="startbootstrap-sb-admin-1.0.2/js/plugins/flot/jquery.flot.resize.js"></script>
+        <script src="startbootstrap-sb-admin-1.0.2/js/plugins/flot/jquery.flot.pie.js"></script>
+        <script src="startbootstrap-sb-admin-1.0.2/js/plugins/flot/flot-data.js"></script>
+
     </body>
 </html>

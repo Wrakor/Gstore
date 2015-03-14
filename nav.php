@@ -17,10 +17,11 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
+
+                <!-- Games -->
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Games <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="">Free to Play</a></li>
                         <li><a href="">All Games</a></li>
                         <li><hr></li>
                         <li role="presentation" class="dropdown-header"><b>By Category</b></li>
@@ -39,6 +40,22 @@
                         <li><a href="">Linux</a></li>
                     </ul>
                 </li>
+
+                <!-- Related Products -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Related Products <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="">All Products</a></li>
+                        <li><hr></li>
+                        <li role="presentation" class="dropdown-header"><b>By Category</b></li>
+                        <li><a href="">Collectibles</a></li>
+                        <li><a href="">Wearables</a></li>
+                        <li><a href="">Toys</a></li>
+                        <li><a href="">Card Games</a></li>
+                        <li><a href="">Board Games</a></li>
+                    </ul>
+                </li>
+
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="backoffice.php"><span class="glyphicon glyphicon-lock"></span> Admin </a></li>

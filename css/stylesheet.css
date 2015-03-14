@@ -5,6 +5,10 @@
   height: 500px;
 }
 
+.container .slide-image {
+    max-height:300px;
+}
+
 /* container */
 .container.container-full {
     margin: -20px auto -50px auto;
@@ -13,10 +17,34 @@
 }
 
 /* tables */
+
+.search + .table-responsive {
+    margin-top:20px;
+}
+
 .borderless tbody tr td,
 .borderless tbody tr th,
 .borderless thead tr th {
     border: none;
+}
+
+.table th:first-child,
+.table td:first-child{
+    text-align:center;
+}
+
+.table th input[type="checkbox"],
+.table td input[type="checkbox"]{
+    cursor:pointer;
+}
+
+.table th:hover {
+    background-color:#ddd;
+}
+
+.table th > a{
+    text-decoration:none;
+    color: #333;
 }
 
 .brand{
@@ -185,7 +213,10 @@ form .confirm div+div{
     margin-top:10px;
 }
 
+/*
 p {
 	text-align: justify; 
 	text-justify: inter-word;	
 }
+
+*/

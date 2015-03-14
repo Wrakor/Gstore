@@ -47,13 +47,13 @@
                         </ol>
                         <div class="carousel-inner">
                             <div class="item">
-                                <img class="slide-image" src="./img/800x300" alt="">
+                                <img class="slide-image" src="img/g5b.jpg" alt="">
                             </div>
                             <div class="item active">
-                                <img class="slide-image" src="./img/800x300" alt="">
+                                <img class="slide-image" src="img/g2b.jpg" alt="">
                             </div>
                             <div class="item">
-                                <img class="slide-image" src="./img/800x300" alt="">
+                                <img class="slide-image" src="img/g3b.jpg" alt="">
                             </div>
                         </div>
                         <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
@@ -65,7 +65,7 @@
             <div class="row">
 
                 <!-- Product List -->
-                <?php include_once "itemlist1.php"; ?>
+                <?php include_once "itemlist.php"; ?>
 
             </div>
         </div><!-- Right side -->
