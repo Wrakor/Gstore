@@ -124,6 +124,9 @@
 									</tr>
 									</tbody>
 								</table>
+								<button type="button" class="btn btn-lg btn-success btn-block" type="submit" href="#">
+									<span class="glyphicon glyphicon-plus"></span>Add Review
+								</button>
                     		</div>
 						</div>
 					</div>
