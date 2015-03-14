@@ -53,21 +53,20 @@
                     <div class="container-fluid">
 						<div class="row">
 							<!-- Product Image -->
-							<div class="col-md-9">
+							<div class="col-md-8">
 								<img class="col-md-12" src="http://cdn.escapistmagazine.com/media/global/images/library/deriv/692/692427.jpg" alt=""><br>
 							</div>
 							<!-- Product Price and Buttons-->
-							<div class="col-md-3"><br>
+							<div class="col-md-4"><br>
 							<span class="glyphicon glyphicon-star-empty pull-right"></span>
 								<div class="text-center">
 									
-									<h2>54,99€</h2> 
-									<span class="glyphicon glyphicon-star"></span>
-									<span class="glyphicon glyphicon-star"></span>
-									<span class="glyphicon glyphicon-star"></span>
-									<span class="glyphicon glyphicon-star"></span>
-									<span class="glyphicon glyphicon-star-empty"></span>
-								</div><br>
+									<h1>54,99€</h1>
+                                    <h4>SCORE 4.5 / 5 <span class="glyphicon glyphicon-star"></span></h4>
+
+
+								</div>
+                                <br>
 								<button type="button" class="btn btn-lg btn-success btn-block" type="submit" href="#">
 									<span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart
 								</button>
@@ -83,8 +82,62 @@
 								<p>	Darkest Dungeon is a challenging gothic roguelike turn-based RPG about the psychological stresses of adventuring. Recruit, train, and lead a team of flawed heroes against unimaginable horrors, stress, famine, disease, and the ever-encroaching dark. Can you keep your heroes together when all hope is lost?</p>
 							</div>
                        	</div>
-						
-						<!-- Reviews -->
+
+
+
+                        <h2>Rate & Submit your Review</h2>
+                        <hr>
+                        <form>
+
+                            <h3>Rate
+                                <div class="rating">
+                                    <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                                </div>
+                            </h3>
+                            <textarea class="form-control" rows="3"></textarea>
+                            <button type="button" class="btn btn-lg btn-success btn-block" type="submit" href="#">
+                                Submit Review
+                            </button>
+                        </form>
+
+
+                        <h2>Reviews</h2>
+                        <hr>
+
+                        <!-- Comments -->
+                        <div class="row">
+
+                            <!-- comment sample -->
+                            <div class="col-sm-2">
+                                <div class="thumbnail">
+                                    <img data-src="holder.js/140x140" class="img-responsive user-photo" alt="140x140"  src="img/michael_knight.jpg" data-holder-rendered="true">
+                                </div><!-- /thumbnail -->
+                            </div><!-- /col-sm-1 -->
+
+                            <div class="col-sm-10">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <div class="rate-system">
+                                            <span class="glyphicon glyphicon-star"></span>
+                                            <span class="glyphicon glyphicon-star"></span>
+                                            <span class="glyphicon glyphicon-star"></span>
+                                            <span class="glyphicon glyphicon-star"></span>
+                                            <span class="glyphicon glyphicon-star"></span>
+                                        </div>
+
+                                        <strong>mknight31</strong> <span class="text-muted">commented 5 days ago</span>
+                                    </div>
+                                    <div class="panel-body">
+                                        Almost better than pac-man!<br>
+                                        KITT pick me up!
+                                    </div><!-- /panel-body -->
+                                </div><!-- /panel panel-default -->
+                            </div><!-- /col-sm-5 -->
+
+
+                        </div><!-- /row -->
+
+						<!-- Reviews
 						<div class="row">
 							<h3>Reviews </h3>
 							<div class="table-responsive">
@@ -125,7 +178,8 @@
 									</tbody>
 								</table>
                     		</div>
-						</div>
+						</div>  Reviews -->
+
 					</div>
 				</div>
 			</div>
