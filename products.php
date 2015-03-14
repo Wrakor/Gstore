@@ -61,7 +61,7 @@
 
                     <div class="container-fluid">
 
-                        <?php include_once "itemlist1.php"; ?>
+                        <?php include_once "itemlist.php"; ?>
 
                     </div>
 

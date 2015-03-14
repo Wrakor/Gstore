@@ -1,5 +1,17 @@
 @import url("../webfontkit-OpenSans/stylesheet.css");
 
+/* carousel */
+.container.container-full .slide-image {
+  height: 500px;
+}
+
+/* container */
+.container.container-full {
+    margin: -20px auto -50px auto;
+    width: 100%;
+    padding:0;
+}
+
 /* tables */
 .borderless tbody tr td,
 .borderless tbody tr th,
@@ -11,8 +23,7 @@
 	font-family: 'open_sans';
 }
 
-.breadcrumb
-{
+.breadcrumb{
 	padding: 8px 0px;
 	background-color: transparent;
 }
@@ -69,6 +80,42 @@ nav.navbar .badge{
 
 .product-list .ratings .glyphicon{
     color:gold;
+}
+
+.product-list .thumbnail.thumbnail-full{
+    position:relative;
+    margin-bottom:90px;
+}
+
+.product-list .thumbnail .caption.caption-below,
+.product-list .thumbnail .caption.caption-br{
+    height:auto;
+    padding:0;
+    margin:0;
+    position:absolute;
+    z-index:1;
+}
+
+.product-list .thumbnail .caption.caption-below{
+    bottom:-58px;
+    left:0;
+}
+
+.product-list .thumbnail .caption.caption-below * {
+    margin: 5px 0 0 0;
+}
+
+.product-list .thumbnail .caption.caption-br{
+    padding:5px 10px;
+    bottom:0;
+    right:0;
+    color:white;
+    background:black;
+}
+
+.product-list .thumbnail .caption.caption-br *{
+    margin:0;
+
 }
 
 .product-list .caption{
