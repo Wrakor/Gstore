@@ -66,4 +66,7 @@ $(function () {
 
 $(document).ready(function(){
     $('#login').modal(options);
+
+    $('.datepicker').datepicker();
 });
+

@@ -29,6 +29,9 @@
     <!-- Pictonic Icons CSS -->
     <link rel="stylesheet" href="pictonic/css/pictonic.css">
 
+    <!-- Datepicker CSS -->
+    <link rel="stylesheet" href="datepicker/css/datepicker.css">
+
     <!-- Our Version CSS -->
     <link href="css/stylesheet.css" rel="stylesheet">
 

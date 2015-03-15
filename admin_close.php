@@ -17,5 +17,8 @@
         <script src="startbootstrap-sb-admin-1.0.2/js/plugins/flot/jquery.flot.pie.js"></script>
         <script src="startbootstrap-sb-admin-1.0.2/js/plugins/flot/flot-data.js"></script>
 
+        <!-- Datepicker JavaScript -->
+        <script src="datepicker/js/bootstrap-datepicker.js"></script>
+
     </body>
 </html>
