@@ -10,7 +10,7 @@
                 <div class="list-group side-menu">
                     <a href="profile.php" class="list-group-item"><span class="glyphicon glyphicon-list-alt"></span>Personal Information</a>
                     <a href="orderhistory.php" class="list-group-item"><span class="glyphicon glyphicon-euro"></span>Order History</a>
-                    <a href="wishlist.php" class="list-group-item"><span class="glyphicon glyphicon-gift"></span>Wishlist</a>
+                    <a href="wishlist.php" class="list-group-item"><span class="glyphicon glyphicon-heart"></span>Wishlist</a>
                     <a href="favorites.php" class="list-group-item active"><span class="glyphicon glyphicon-star"></span>Favorites</a>
                     <a href="settings.php" class="list-group-item"><span class="glyphicon glyphicon-cog"></span>Settings</a>
                 </div>

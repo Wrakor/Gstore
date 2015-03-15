@@ -16,6 +16,10 @@
     padding:0;
 }
 
+input + input {
+    margin-top:10px;
+}
+
 /* tables */
 
 .search + .table-responsive {
@@ -28,19 +32,18 @@
     border: none;
 }
 
+/*
 .table th:first-child,
 .table td:first-child{
     text-align:center;
 }
+*/
 
 .table th input[type="checkbox"],
 .table td input[type="checkbox"]{
     cursor:pointer;
 }
 
-.table th:hover {
-    background-color:#ddd;
-}
 
 .table th > a{
     text-decoration:none;
@@ -274,13 +277,14 @@ form .rating{
 
 
 /* Product Comment from BootSnipp */
-.thumbnail {
+.comment .thumbnail {
     padding:0px;
 }
-.panel {
+.comment  .panel {
 	position:relative;
 }
-.panel>.panel-heading:after,.panel>.panel-heading:before{
+.comment .panel>.panel-heading:after,
+.comment .panel>.panel-heading:before{
 	position:absolute;
 	top:11px;left:-16px;
 	right:100%;
@@ -292,13 +296,13 @@ form .rating{
 	border-style:solid solid outset;
 	pointer-events:none;
 }
-.panel>.panel-heading:after{
+.comment .panel>.panel-heading:after{
 	border-width:7px;
 	border-right-color:#f7f7f7;
 	margin-top:1px;
 	margin-left:2px;
 }
-.panel>.panel-heading:before{
+.comment .panel>.panel-heading:before{
 	border-right-color:#ddd;
 	border-width:8px;
 }

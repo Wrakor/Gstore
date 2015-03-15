@@ -36,14 +36,13 @@
                 <div class="row">
                     <div class="col-md-offset-1">
 
-                        <h2><span class="glyphicon glyphicon-shopping-cart"></span>Cart</h2>
+                        <h2>Shopping Cart<small> with products you are about to buy</small></h2>
+
                         <hr class="colorgraph">
                         <div class="container-fluid">
                             <?php include_once "cartItemList.php"; ?>
 							
-							<button type="button" class="btn btn-lg btn-success btn-block" type="submit" href="#">
-									<span class="glyphicon glyphicon-ok"></span>Checkout
-								</button>
+							<button type="button" class="btn btn-lg btn-success btn-block" type="submit" href="#">Proceed to Checkout</button>
                         </div>
                     </div>
                 </div>
