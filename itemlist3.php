@@ -4,15 +4,16 @@
 
     <!-- Table -->
     <table class="table table-hover">
-        <!--<thead>
+        <thead>
 
         <tr>
-            <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
+            <th>Name <span class="glyphicon glyphicon-collapse-down"></span></th>
+            <th>OS <span class="glyphicon glyphicon-triangle-bottom"></span></th>
+            <th>Categories <span class="glyphicon glyphicon-triangle-bottom"></th>
+            <th>Rating <span class="glyphicon glyphicon-triangle-bottom"></th>
+            <th>Price <span class="glyphicon glyphicon-triangle-bottom"></th>
         </tr>
-        </thead>-->
+        </thead>
         <tbody>
 
             <tr>
@@ -21,7 +22,7 @@
                     <span class="icon-os-win-03"></span>
                     <span class="icon-os-apple"></span>
                 </td>
-                <td>Dark Fantasy, RPG, Roguelike</td>
+                <td><span class="label label-info">RPG</span></td>
                 <td>
                     <div class="ratings">
                         <span class="glyphicon glyphicon-star"></span>
@@ -41,7 +42,7 @@
                     <span class="icon-os-apple"></span>
                     <span class="icon-os-linux_1_"></span>
                 </td>
-                <td>Early Access, Shooter, Co-op, Action, RPG</td>
+                <td><span class="label label-info">RPG</span> <span class="label label-danger">Action</span></td>
                 <td>
                     <div class="ratings">
                         <span class="glyphicon glyphicon-star"></span>
@@ -60,7 +61,7 @@
                     <span class="icon-os-win-03"></span>
                     <span class="icon-os-apple"></span>
                 </td>
-                <td>RPG, MMO, Open World</td>
+                <td><span class="label label-info">RPG</span> <span class="label label-warning">Massive Multiplayer</span></td>
                 <td>
                     <div class="ratings">
                         <span class="glyphicon glyphicon-star"></span>
@@ -80,7 +81,7 @@
                     <span class="icon-os-apple"></span>
                     <span class="icon-os-linux_1_"></span>
                 </td>
-                <td>Shooter, Co-op, Action, RPG, Hack & Slash</td>
+                <td><span class="label label-info">RPG</span> <span class="label label-danger">Action</span></td>
                 <td>
                     <div class="ratings">
                         <span class="glyphicon glyphicon-star"></span>
@@ -100,7 +101,7 @@
                     <span class="icon-os-apple"></span>
                     <span class="icon-os-linux_1_"></span>
                 </td>
-                <td>RPG, Action-RPG, Hack & Slash, Co-op</td>
+                <td><span class="label label-info">RPG</span> <span class="label label-danger">Action</span></td>
                 <td>
                     <div class="ratings">
                         <span class="glyphicon glyphicon-star"></span>
@@ -119,7 +120,7 @@
                     <span class="icon-os-win-03"></span>
                     <span class="icon-os-apple"></span>
                 </td>
-                <td>Early Access, Sandbox, Adventure, Construction, RPG</td>
+                <td><span class="label label-info">RPG</span> <span class="label label-success">Adventure</span></td>
                 <td>
                     <div class="ratings">
                         <span class="glyphicon glyphicon-star"></span>

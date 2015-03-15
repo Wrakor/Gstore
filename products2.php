@@ -55,6 +55,20 @@
                             <li class="active"><a href="products2.php"> <span class="glyphicon glyphicon-th-list"></span></a></li>
                             <li class=""><a href="products3.php"> <span class="glyphicon glyphicon-list"></span></a></li>
                         </ul>
+
+                        <ul class="view-modes view-modes-small list-inline pull-right">
+                            <li class="active"><a href="products.php"> <span class="glyphicon glyphicon glyphicon-collapse-down"></span></a></li>
+                            <li class=""><a href="products2.php"> <span class="glyphicon glyphicon glyphicon-menu-up"></span></a></li>
+                            <li class="">
+                                <select class="form-control">
+                                    <option>Sort By</option>
+                                    <option>Name</option>
+                                    <option>OS</option>
+                                    <option>Rating</option>
+                                    <option>Price</option>
+                                </select>
+                            </li>
+                        </ul>
                     </h2>
 
                     <hr class="colorgraph">

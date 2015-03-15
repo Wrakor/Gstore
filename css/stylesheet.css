@@ -94,6 +94,12 @@ nav.navbar .badge{
 .view-modes{
     font-size: 30px;
 }
+.view-modes.view-modes-small{
+    font-size: 20px;
+}
+.view-modes + .view-modes{
+    margin-right: 30px;
+}
 
 .view-modes li.active a{
     color:#777;
@@ -118,8 +124,13 @@ nav.navbar .badge{
     margin-bottom:90px;
 }
 
+.product-list .media-body{
+    position:relative;
+}
+
 .product-list .thumbnail .caption.caption-below,
-.product-list .thumbnail .caption.caption-br{
+.product-list .thumbnail .caption.caption-br,
+.product-list .media-body .caption.caption-tr{
     height:auto;
     padding:0;
     margin:0;
@@ -144,9 +155,16 @@ nav.navbar .badge{
     background:black;
 }
 
+.product-list .media-body .caption.caption-tr{
+    padding:0px 10px;
+    top:0;
+    right:0;
+    color:white;
+    background:black;
+}
+
 .product-list .thumbnail .caption.caption-br *{
     margin:0;
-
 }
 
 .product-list .caption{
@@ -154,6 +172,10 @@ nav.navbar .badge{
 }
 .product-list .caption .pull-right{
     margin-top:39px;
+}
+
+.product-list .caption.caption-tr .pull-right {
+    margin-top:5px;
 }
 
 .product-list .media-heading > a{

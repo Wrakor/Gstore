@@ -8,6 +8,9 @@
         </a>
     </div>
     <div class="media-body">
+        <div class="caption caption-tr">
+            <h3 class="pull-right">18,99€</h3>
+        </div>
         <h4 class="media-heading">Darkest Dungeon</h4>
         <span class="icon-os-win-03"></span>
         <span class="icon-os-apple"></span>
@@ -22,6 +25,9 @@
         </a>
     </div>
     <div class="media-body">
+        <div class="caption caption-tr">
+            <h3 class="pull-right">18,99€</h3>
+        </div>
         <h4 class="media-heading">Borderlands 2 Game of the Year</h4>
         <span class="icon-os-win-03"></span>
         <span class="icon-os-apple"></span>
@@ -37,6 +43,9 @@
         </a>
     </div>
     <div class="media-body">
+        <div class="caption caption-tr">
+            <h3 class="pull-right">18,99€</h3>
+        </div>
         <h4 class="media-heading">The Elder Scrolls Online</h4>
         <span class="icon-os-win-03"></span>
         <span class="icon-os-apple"></span>
@@ -51,6 +60,9 @@
         </a>
     </div>
     <div class="media-body">
+        <div class="caption caption-tr">
+            <h3 class="pull-right">18,99€</h3>
+        </div>
         <h4 class="media-heading">Borderlands: The Pre-Sequel</h4>
         <span class="icon-os-win-03"></span>
         <span class="icon-os-apple"></span>
@@ -66,6 +78,9 @@
         </a>
     </div>
     <div class="media-body">
+        <div class="caption caption-tr">
+            <h3 class="pull-right">18,99€</h3>
+        </div>
         <h4 class="media-heading">Torchlight II</h4>
         <span class="icon-os-win-03"></span>
         <span class="icon-os-apple"></span>
@@ -81,6 +96,9 @@
         </a>
     </div>
     <div class="media-body">
+        <div class="caption caption-tr">
+            <h3 class="pull-right">18,99€</h3>
+        </div>
         <h4 class="media-heading">Creativerse</h4>
         <span class="icon-os-win-03"></span>
         <span class="icon-os-apple"></span>

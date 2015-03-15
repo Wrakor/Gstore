@@ -15,7 +15,7 @@
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
 
-        <!-- Top of Inbox
+        <!-- Top of Inbox -->
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
             <ul class="dropdown-menu message-dropdown">
@@ -69,9 +69,9 @@
                 </li>
             </ul>
         </li>
-        -->
 
-        <!-- Alert Messages
+
+        <!-- Alert Messages -->
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
             <ul class="dropdown-menu alert-dropdown">
@@ -99,7 +99,7 @@
                 </li>
             </ul>
         </li>
-        -->
+
 
         <li><a href="index.php"><i class="fa fa-desktop"></i> Return to Store</a></li>
         <li class="dropdown">
