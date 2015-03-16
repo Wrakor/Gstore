@@ -21,12 +21,12 @@
                     <div class="col-lg-1">
 
                         <div class="btn-group-vertical" role="group" aria-label="...">
-                            <a type="button" class="btn btn-success" href="admin_create_user.php">
+                            <a type="button" class="btn btn-success" href="admin_create_product.php">
                                 <span class="fa-stack fa-lg">
                                   <i class="fa fa-plus fa-stack-2x"></i>
                                 </span>
                             </a>
-                            <a type="button" class="btn btn-warning" href="admin_edit_user.php">
+                            <a type="button" class="btn btn-warning" href="admin_edit_product.php">
                                 <span class="fa-stack fa-lg">
                                   <i class="fa fa-edit fa-stack-2x"></i>
                                 </span>
