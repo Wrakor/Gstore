@@ -6,31 +6,8 @@
 <div class="container">
     <div class="row">
 
-        <!-- Left side -->
-        <div class="col-md-3">
-
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-                </span>
-            </div>
-
-            <br><br>
-
-            <p class="lead">Categories</p>
-            <div class="list-group">
-                <a href="" class="list-group-item">Adventure</a>
-                <a href="" class="list-group-item">Action</a>
-                <a href="" class="list-group-item">Racing</a>
-                <a href="" class="list-group-item">Sports</a>
-                <a href="" class="list-group-item">Strategy</a>
-                <a href="" class="list-group-item">Massive Multiplayer</a>
-                <a href="" class="list-group-item active">RPG</a>
-                <a href="" class="list-group-item">Simulation</a>
-            </div>
-
-        </div>
+        <!-- Left Side -->
+        <?php include_once "templates/common/categoryColumn.html" ?>
 
         <!-- Right side -->
         <div class="col-md-9">

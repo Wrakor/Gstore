@@ -30,7 +30,7 @@
             <div class="row">
 
                 <div class="col-md-offset-1">
-                    <h2>RPG <small>short for role-playing games...</small>
+                    <h2>Games <small> All you can find on our store</small>
 
                         <ul class="view-modes list-inline pull-right">
                             <li class="active"><a href="products.php"> <span class="glyphicon glyphicon-th"></span></a></li>
@@ -58,7 +58,7 @@
                     <div class="container-fluid">
 
                         <?php 
-							$products = listProducts();
+							$products = listAllGames();
 							
 							foreach ($products as $row) {
 								echo 
@@ -66,7 +66,7 @@
 										<div class="thumbnail thumbnail-full">
 											<img src="' . $row['externallink'] . '" alt="">
 											<div class="caption caption-below">
-												<h4><a href="">' . $row['name'] . '</a></h4>
+												<h4><a href="viewProduct.php?id=' . $row['id'] . '">' . $row['name'] . '</a></h4>
 												<p>
 													<span class="icon-os-win-03"></span>
 													<span class="icon-os-apple"></span>
