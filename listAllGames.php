@@ -1,5 +1,9 @@
-<?php include_once "templates/common/open.php"; ?>
-<?php include_once "templates/common/nav.php"; ?>
+<?php 
+	include_once "./config/init.php";
+	include_once "templates/common/open.php";
+	include_once "templates/common/nav.php"; 
+	include_once "./database/products.php";
+?>
 
 
 <!-- Page Content -->
@@ -76,7 +80,28 @@
 
                     <div class="container-fluid">
 
-                        <?php include_once "itemlist.php"; ?>
+                        <?php 
+							$products = listProducts();
+							
+							foreach ($products as $row) {
+								echo 
+									'<div class="col-sm-4 col-lg-4 col-md-4 product-list">
+										<div class="thumbnail thumbnail-full">
+											<img src="' . $row['externallink'] . '" alt="">
+											<div class="caption caption-below">
+												<h4><a href="">' . $row['name'] . '</a></h4>
+												<p>
+													<span class="icon-os-win-03"></span>
+													<span class="icon-os-apple"></span>
+												</p>
+											</div>
+											<div class="caption caption-br">
+												<h3 class="pull-right">' . $row['price'] . '€</h3>
+											</div>
+										</div>
+									</div>';
+							}
+						?>
 
                     </div>
 

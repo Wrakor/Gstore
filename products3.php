@@ -1,5 +1,5 @@
-<?php include_once "open.php"; ?>
-<?php include_once "nav.php"; ?>
+<?php include_once "templates/common/open.php"; ?>
+<?php include_once "templates/common/nav.php"; ?>
 
 
     <!-- Page Content -->
@@ -85,5 +85,5 @@
     </div><!-- /.container -->
 
 
-<?php include_once "footer.php"; ?>
-<?php include_once "close.php"; ?>
+<?php include_once "templates/common/footer.php"; ?>
+<?php include_once "templates/common/close.php"; ?>

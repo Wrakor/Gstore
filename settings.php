@@ -2,7 +2,7 @@
 <html lang="en">
 <?php include_once "head.php"; ?>
 <body>
-<?php include_once "nav.php"; ?>
+<?php include_once "templates/common/nav.php"; ?>
 
 <!-- Page Content -->
 <div class="container">
@@ -33,7 +33,7 @@
 </div><!-- /.container -->
 
 
-<?php include_once "footer.php"; ?>
+<?php include_once "templates/common/footer.php"; ?>
 <!-- jQuery -->
 <script src="js/jquery.min.js"></script>
 <!-- Bootstrap Core JavaScript -->
