@@ -1,5 +1,9 @@
-<?php include_once "templates/common/open.php"; ?>
-<?php include_once "templates/common/nav.php"; ?>
+<?php 
+	include_once "./config/init.php";
+	include_once "templates/common/open.php"; 
+	include_once "templates/common/nav.php"; 
+	include_once "./database/products.php"; 
+?>
 
  <!-- Left side -->
 <div class="container">
@@ -93,6 +97,12 @@
                     <hr>
 
                     <!-- Comments -->
+					
+					<?php 
+						$reviews = getReviews($_GET['id']);
+
+						foreach( $reviews as $row) {
+						echo '
                     <div class="row comment">
 
                         <!-- comment sample -->
@@ -105,7 +115,7 @@
                         <div class="col-sm-11">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <div class="rate-system">
+                                    <div class="rate-system">' . $row['score'] . '
                                         <span class="glyphicon glyphicon-star"></span>
                                         <span class="glyphicon glyphicon-star"></span>
                                         <span class="glyphicon glyphicon-star"></span>
@@ -113,15 +123,14 @@
                                         <span class="glyphicon glyphicon-star"></span>
                                     </div>
 
-                                    <strong>mknight31</strong> <span class="text-muted">commented 5 days ago</span>
+                                    <strong>' . $row['username'] . '</strong> <span class="text-muted">commented 5 days ago</span>
                                 </div>
-                                <div class="panel-body">
-                                    Almost better than pac-man!<br>
-                                    KITT pick me up!
+                                <div class="panel-body">' . $row['comment'] . '                                    
                                 </div><!-- /panel-body -->
                             </div><!-- /panel panel-default -->
                         </div><!-- /col-sm-5 -->
-                    </div><!-- /row -->
+                    </div><!-- /row -->'; }
+					?>
 
                 </div>
             </div>

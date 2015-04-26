@@ -22,7 +22,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Games <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="">All Games</a></li>
+                        <li><a href="listAllGames.php">All Games</a></li>
                         <li><hr></li>
                         <li role="presentation" class="dropdown-header"><b>By Category</b></li>
                         <li><a href="">Adventure</a></li>

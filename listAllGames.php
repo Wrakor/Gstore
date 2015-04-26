@@ -59,12 +59,12 @@
 
                         <?php 
 							$products = listAllGames();
-							
+
 							foreach ($products as $row) {
 								echo 
 									'<div class="col-sm-4 col-lg-4 col-md-4 product-list">
 										<div class="thumbnail thumbnail-full">
-											<img src="' . $row['externallink'] . '" alt="">
+											<img src="' . $row['externallink'] . '" style="max-height: 127px" alt="">
 											<div class="caption caption-below">
 												<h4><a href="viewProduct.php?id=' . $row['id'] . '">' . $row['name'] . '</a></h4>
 												<p>
