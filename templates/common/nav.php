@@ -11,7 +11,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand brand" href="/index.php">G<b>STORE</b></a>
+            <a class="navbar-brand brand" href="/~lbaw1433/index.php">G<b>STORE</b></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
