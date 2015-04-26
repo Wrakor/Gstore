@@ -11,7 +11,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand brand" href="index.php">G<b>STORE</b></a>
+            <a class="navbar-brand brand" href="/index.php">G<b>STORE</b></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -22,7 +22,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Games <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="listAllGames.php">All Games</a></li>
+                        <li><a href="/proto/listAllGames.php">All Games</a></li>
                         <li><hr></li>
                         <li role="presentation" class="dropdown-header"><b>By Category</b></li>
                         <li><a href="">Adventure</a></li>
@@ -58,9 +58,9 @@
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="backoffice.php"><span class="glyphicon glyphicon-lock"></span> Admin </a></li>
-                <li><a href="cart.php"><span class="badge">2</span><span class="glyphicon glyphicon-shopping-cart"></span> Cart </a></li>
-                <li><a href="profile.php"><span class="glyphicon glyphicon-user"></span> Profile </a></li>
+                <li><a href="/backoffice.php"><span class="glyphicon glyphicon-lock"></span> Admin </a></li>
+                <li><a href="/cart.php"><span class="badge">2</span><span class="glyphicon glyphicon-shopping-cart"></span> Cart </a></li>
+                <li><a href="/profile.php"><span class="glyphicon glyphicon-user"></span> Profile </a></li>
                 <li><a href="#" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
                 <li><a href="" data-toggle="modal" data-target="#logout"><span class="glyphicon glyphicon-off"></span> Logout </a></li>
             </ul>
