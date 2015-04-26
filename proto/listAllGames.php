@@ -1,8 +1,8 @@
 <?php 
-	include_once "./config/init.php";
-	include_once "templates/common/open.php";
-	include_once "templates/common/nav.php"; 
-	include_once "./database/products.php";
+	include_once "../config/init.php";
+	include_once "../templates/common/open.php";
+	include_once "../templates/common/nav.php"; 
+	include_once "../database/products.php";
 ?>
 
 
@@ -11,7 +11,7 @@
     <div class="row">
 
         <!-- Left Side -->
-        <?php include_once "templates/common/categoryColumn.html" ?>
+        <?php include_once "../templates/common/categoryColumn.html" ?>
 		
         <!-- Right side -->
         <div class="col-md-9">
@@ -102,5 +102,5 @@
 </div><!-- /.container -->
 
 
-<?php include_once "templates/common/footer.php"; ?>
-<?php include_once "templates/common/close.php"; ?>
+<?php include_once "../templates/common/footer.php"; ?>
+<?php include_once "../templates/common/close.php"; ?>

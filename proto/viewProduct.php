@@ -1,8 +1,8 @@
 <?php 
-	include_once "./config/init.php";
-	include_once "templates/common/open.php"; 
-	include_once "templates/common/nav.php"; 
-	include_once "./database/products.php"; 
+	include_once "../config/init.php";
+	include_once "../templates/common/open.php"; 
+	include_once "../templates/common/nav.php"; 
+	include_once "../database/products.php"; 
 ?>
 
  <!-- Left side -->
@@ -108,7 +108,7 @@
                         <!-- comment sample -->
                         <div class="col-sm-1">
                             <div class="thumbnail">
-                                <img data-src="holder.js/140x140" class="img-responsive user-photo" alt="140x140"  src="img/michael_knight.jpg" data-holder-rendered="true">
+                                <img data-src="holder.js/140x140" class="img-responsive user-photo" alt="140x140"  src="../img/michael_knight.jpg" data-holder-rendered="true">
                             </div><!-- /thumbnail -->
                         </div><!-- /col-sm-1 -->
 
@@ -188,5 +188,5 @@
 	</div>
 </div>
 
-<?php include_once "templates/common/footer.php"; ?>
-<?php include_once "templates/common/close.php"; ?>
+<?php include_once "../templates/common/footer.php"; ?>
+<?php include_once "../templates/common/close.php"; ?>
