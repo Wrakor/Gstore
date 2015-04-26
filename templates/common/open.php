@@ -12,16 +12,16 @@
         <title>GSTORE</title>
 
         <!-- Bootstrap Core CSS -->
-        <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <link href="/~lbaw1433/bootstrap/css/bootstrap.css" rel="stylesheet">
 
         <!-- Shop Template CSS -->
-        <link href="/css/shop-homepage.css" rel="stylesheet">
+        <link href="/~lbaw1433/css/shop-homepage.css" rel="stylesheet">
 
         <!-- Pictonic Icons CSS -->
-        <link rel="/stylesheet" href="pictonic/css/pictonic.css">
+        <link rel="/~lbaw1433/stylesheet" href="pictonic/css/pictonic.css">
 
         <!-- Our Version CSS -->
-        <link href="/css/stylesheet.css" rel="stylesheet">
+        <link href="/~lbaw1433/css/stylesheet.css" rel="stylesheet">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
