@@ -98,7 +98,7 @@
                         <!-- comment sample -->
                         <div class="col-sm-1">
                             <div class="thumbnail">
-                                <img data-src="holder.js/140x140" class="img-responsive user-photo" alt="140x140"  src="../img/michael_knight.jpg" data-holder-rendered="true">
+                                <img data-src="holder.js/140x140" class="img-responsive user-photo" alt="140x140"  src="../../img/michael_knight.jpg" data-holder-rendered="true">
                             </div><!-- /thumbnail -->
                         </div><!-- /col-sm-1 -->
 
