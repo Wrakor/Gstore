@@ -50,7 +50,7 @@
 
                 <div class="col-sm-4 col-lg-4 col-md-4 product-list">
                     <div class="thumbnail thumbnail-full">
-                        <img src="{$BASE_URL}{$product.media}" style="height: 127px" alt="">
+                        <img src="{$product.externallink}" style="height: 127px" alt="">
                         <div class="caption caption-below">
                             <h4><a href="{$BASE_URL}pages/products/viewProduct.php?id={$product.id}">{$product.name}</a></h4>
                             <p>

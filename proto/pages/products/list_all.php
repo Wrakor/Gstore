@@ -20,7 +20,7 @@ echo "</pre>";*/
   
   foreach ($products as $key => $product)
   {
-    unset($media);
+   /* unset($media);
 
       //$products[$key]['platforms'] = getGamePlatforms($product['id']);
 
@@ -33,7 +33,7 @@ echo "</pre>";*/
 	  
 	  
 
-    $products[$key]['media'] = $media;
+    $products[$key]['media'] = $media;*/
   }
   
   $smarty->assign('products', $products);
