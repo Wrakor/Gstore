@@ -59,7 +59,7 @@
 
                         <?php 
 							$products = listAllGames();
-
+						
 							foreach ($products as $row) {
 								echo 
 									'<div class="col-sm-4 col-lg-4 col-md-4 product-list">
