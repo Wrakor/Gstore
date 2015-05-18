@@ -9,9 +9,9 @@
         <div class="col-md-3">
             <p class="lead">My Account</p>
             <div class="list-group side-menu">
-                <a href="{$BASE_URL}pages/users/user.php" class="list-group-item"><span class="glyphicon glyphicon-list-alt"></span>Personal Information</a>
+                <a href="user.php" class="list-group-item"><span class="glyphicon glyphicon-list-alt"></span>Personal Information</a>
                 <a href="orderhistory.php" class="list-group-item"><span class="glyphicon glyphicon-euro"></span>Order History</a>
-                <a href="{$BASE_URL}pages/users/wishlist.php" class="list-group-item active"><span class="glyphicon glyphicon-heart"></span>Wishlist</a>
+                <a href="wishlist.php" class="list-group-item active"><span class="glyphicon glyphicon-heart"></span>Wishlist</a>
                 <a href="favorites.php" class="list-group-item"><span class="glyphicon glyphicon-star"></span>Favorites</a>
                 <a href="settings.php" class="list-group-item"><span class="glyphicon glyphicon-cog"></span>Settings</a>
             </div>
@@ -61,4 +61,3 @@
 
 
 {include file='common/footer.tpl'}
-<?php include_once "templates/common/close.php"; ?>

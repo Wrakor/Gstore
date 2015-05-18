@@ -42,4 +42,13 @@ function deleteFromFavorites($productid) {
     $stmt = $conn->prepare($query);
     $stmt->execute(array($productid));
 }
+
+function getBuyOrders($user_id) {
+    global $conn;
+    $query = 'SELECT Buyorder.id, orderdate, totalprice, status.name FROM Buyorder, Status WHERE Status.id = Buyorder.status_id AND client_id = ?';
+    $stmt = $conn->prepare($query);
+    $stmt->execute(array($user_id));
+
+    return $stmt->fetchAll();
+}
 ?>
