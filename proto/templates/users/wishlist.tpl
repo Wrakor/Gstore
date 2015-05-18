@@ -30,7 +30,7 @@
                             <a class="list-group-item glyphicon glyphicon-th-list" href=""></a>
                             <a class="list-group-item glyphicon glyphicon-list" href=""></a>
                         </div>
-                    </div> 
+                    </div>
                         {foreach $wishlist as $product}
                         <div class="media product-list">
                             <div class="media-left media-top">
@@ -43,7 +43,8 @@
                                     <span><a href="{$BASE_URL}/pages/products/item.php?id={$product['id']}">{$product['name']}</a> </span>
                                     <span class="icon-os-win-03"></span>
                                     <span class="icon-os-apple"></span>
-                                    <a href="" style="margin-right: 15px"><span class="glyphicon glyphicon-remove pull-right"></span></a></h4>
+                                    <a href="{$BASE_URL}actions/users/deleteFromWishlist.php?id={$product['id']}"
+                                       style="margin-right: 15px"><span class="glyphicon glyphicon-remove pull-right"></span></a></h4>
 
                                 <p>{$product['description']}</p>
                             </div>

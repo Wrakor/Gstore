@@ -1,6 +1,6 @@
 <?php
 include_once('../../config/init.php');
-include_once($BASE_DIR .'database/userprofileinfo.php');
+include_once($BASE_DIR .'database/userprofile.php');
 
 if(isset($_SESSION["username"])){
     $userinfo = getUserInfo($_SESSION['username']);
