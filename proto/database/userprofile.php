@@ -26,4 +26,20 @@ function deleteFromWishlist($productid) {
     $stmt = $conn->prepare($query);
     $stmt->execute(array($productid));
 }
+
+function getFavorites($user_id) {
+    global $conn;
+    $query = 'SELECT Product.*, Media.externallink FROM Product, Game, Media, Favorites WHERE Product.id = Game.product_id AND Product.medianum = Media.id AND Game.product_id = Favorites.product_id AND Favorites.client_id = ?';
+    $stmt = $conn->prepare($query);
+    $stmt->execute(array($user_id));
+
+    return $stmt->fetchAll();
+}
+
+function deleteFromFavorites($productid) {
+    global $conn;
+    $query = 'DELETE FROM Favorites WHERE product_id = ?';
+    $stmt = $conn->prepare($query);
+    $stmt->execute(array($productid));
+}
 ?>
