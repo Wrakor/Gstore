@@ -7,82 +7,44 @@
 <div class="col-md-9">
 
     <!-- Crumbs -->
-    <div class="row">
-        <div class="col-md-offset-1">
-            <ol class="breadcrumb">
-                <li><a href="#">Home</a></li>
-            </ol>
-        </div>
-    </div>
+    <ol class="breadcrumb">
+        <li><a href="{$BASE_URL}">Home</a></li>
+        <li class="active">{$data.title[0].name}</li>
+    </ol>
+
 
     <!-- Product List -->
-    <div class="row">
+    <h2>{$data.title[0].name} <small> {$data.title[0].note}</small></h2>
 
-        <div class="col-md-offset-1">
-            <h2>Products <small> All you can find in our store</small>
+    <hr class="colorgraph">
 
-                <ul class="view-modes list-inline pull-right">
-                    <li class="active"><a href=""> <span class="glyphicon glyphicon-th"></span></a></li>
-                    <li class=""><a href=""> <span class="glyphicon glyphicon-th-list"></span></a></li>
-                    <li class=""><a href=""> <span class="glyphicon glyphicon-list"></span></a></li>
-                </ul>
+            <div id="data" class="container-fluid">
 
-                <ul class="view-modes view-modes-small list-inline pull-right">
-                    <li class="active"><a href="products.php"> <span class="glyphicon glyphicon glyphicon-collapse-down"></span></a></li>
-                    <li class=""><a href="products2.php"> <span class="glyphicon glyphicon glyphicon-menu-up"></span></a></li>
-                    <li class="">
-                        <select class="form-control">
-                            <option>Sort By</option>
-                            <option>Name</option>
-                            <option>OS</option>
-                            <option>Rating</option>
-                            <option>Price</option>
-                        </select>
-                    </li>
-                </ul>
-            </h2>
-
-            <hr class="colorgraph">
-
-            <div class="container-fluid">
-
-                {foreach $products as $product}
-
-                <div class="col-sm-4 col-lg-4 col-md-4 product-list">
-                    <div class="thumbnail thumbnail-full">
-                        <img src="{$product.externallink}" style="height: 127px" alt="">
-                        <div class="caption caption-below">
-                            <h4><a href="{$BASE_URL}pages/products/viewProduct.php?id={$product.id}">{$product.name}</a></h4>
-                            <p>
-                                {foreach $product['platforms'] as $platform}
-                                    <span class="{if $platform eq 'Windows'}icon-os-win-03{elseif $platform eq 'Mac'}icon-os-apple{else}icon-os-linux_1_{/if}"></span>
-                                {/foreach}
-                            </p>
-                        </div>
-                        <div class="caption caption-br">
-                            <h3 class="pull-right">{$product.price}&#8364;</h3>
-                        </div>
-                    </div>
+                <div class="list-group view-modes">
+                    <a class="list-group-item glyphicon glyphicon-th disabled" href=""></a>
+                    <a class="list-group-item glyphicon glyphicon-th-list" href=""></a>
+                    <a class="list-group-item glyphicon glyphicon-list" href=""></a>
+                    <a class="list-group-item glyphicon glyphicon-menu-up" href=""></a>
+                    <a class="list-group-item glyphicon glyphicon-menu-down" href=""></a>
                 </div>
 
-                {/foreach}
 
             </div>
-<!--
-            <nav class="center-block text-center">
-                <ul class="pagination pagination-lg">
-                    <li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-                </ul>
-            </nav>
--->
-        </div>
-    </div>
+
+    <!--
+                <nav class="center-block text-center">
+                    <ul class="pagination pagination-lg">
+                        <li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                    </ul>
+                </nav>
+    -->
+
 
 </div>
 

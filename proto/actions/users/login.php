@@ -14,13 +14,9 @@
   
   if (isLoginCorrect($username, $password)) {
     $_SESSION['username'] = $username;
-    $_SESSION['success_messages'][] = 'Login successful'; 
-
-    $message = "deu";
-echo "<script type='text/javascript'>alert('$message');</script>";
-  
+    $_SESSION['success_messages'][] = 'Login successful';
   } else {
-    $_SESSION['error_messages'][] = 'Login failed';  
+    $_SESSION['error_messages'][] = 'Login failed';
   }
   //header('Location: ' . $_SERVER['HTTP_REFERER']);
     header("Location: $BASE_URL".'index.php');

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-04-27 08:43:11
+<?php /* Smarty version Smarty-3.1.15, created on 2015-05-14 18:07:18
          compiled from "/opt/lbaw/lbaw1433/public_html/proto/templates/common/nav.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1942999480553dda7f9eb809-09937145%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b4b2cd1c375b66428dc11894cff0cf1bd63a2c89' => 
     array (
       0 => '/opt/lbaw/lbaw1433/public_html/proto/templates/common/nav.tpl',
-      1 => 1430112468,
+      1 => 1431616030,
       2 => 'file',
     ),
   ),
@@ -15,13 +15,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_553dda7fa1c4b4_80454427',
   'variables' => 
   array (
+    'BASE_URL' => 0,
+    'data' => 0,
+    'category' => 0,
+    'platform' => 0,
     'USERNAME' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_553dda7fa1c4b4_80454427',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_553dda7fa1c4b4_80454427')) {function content_553dda7fa1c4b4_80454427($_smarty_tpl) {?><!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -36,7 +40,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand brand" href="index.php">G<b>STORE</b></a>
+            <a class="navbar-brand brand" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+">G<b>STORE</b></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -47,22 +52,39 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Games <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="">All Games</a></li>
+                        <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/products/list.php?games">All Games</a></li>
                         <li><hr></li>
                         <li role="presentation" class="dropdown-header"><b>By Category</b></li>
-                        <li><a href="">Adventure</a></li>
-                        <li><a href="">Action</a></li>
-                        <li><a href="">Racing</a></li>
-                        <li><a href="">Sports</a></li>
-                        <li><a href="">Strategy</a></li>
-                        <li><a href="">Massive Multiplayer</a></li>
-                        <li><a href="">RPG</a></li>
-                        <li><a href="">Simulation</a></li>
+
+                        <?php  $_smarty_tpl->tpl_vars['category'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['category']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['data']->value['gameCategories']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['category']->key => $_smarty_tpl->tpl_vars['category']->value) {
+$_smarty_tpl->tpl_vars['category']->_loop = true;
+?>
+
+                            <li class="<?php if (!isset($_smarty_tpl->tpl_vars['data']->value['title'][0]['plat'])&&$_smarty_tpl->tpl_vars['category']->value['id']==$_smarty_tpl->tpl_vars['data']->value['title'][0]['id']) {?>active<?php }?>"><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/products/list.php?cat=<?php echo $_smarty_tpl->tpl_vars['category']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['category']->value['name'];?>
+</a></li>
+
+                        <?php } ?>
+
                         <li><hr></li>
                         <li role="presentation" class="dropdown-header"><b>By Operative System</b></li>
-                        <li><a href="">Windows</a></li>
-                        <li><a href="">Mac OSX</a></li>
-                        <li><a href="">Linux</a></li>
+
+                        <?php  $_smarty_tpl->tpl_vars['platform'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['platform']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['data']->value['gamePlatforms']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['platform']->key => $_smarty_tpl->tpl_vars['platform']->value) {
+$_smarty_tpl->tpl_vars['platform']->_loop = true;
+?>
+
+                            <li class="<?php if ($_smarty_tpl->tpl_vars['platform']->value['id']==$_smarty_tpl->tpl_vars['data']->value['title'][0]['plat']) {?>active<?php }?>"><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/products/list.php?plat=<?php echo $_smarty_tpl->tpl_vars['platform']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['platform']->value['name'];?>
+</a></li>
+
+                        <?php } ?>
                     </ul>
                 </li>
 
@@ -70,14 +92,23 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Related Products <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="">All Products</a></li>
+                        <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/products/list.php?related">All Related Products</a></li>
                         <li><hr></li>
                         <li role="presentation" class="dropdown-header"><b>By Category</b></li>
-                        <li><a href="">Collectibles</a></li>
-                        <li><a href="">Wearables</a></li>
-                        <li><a href="">Toys</a></li>
-                        <li><a href="">Card Games</a></li>
-                        <li><a href="">Board Games</a></li>
+
+                        <?php  $_smarty_tpl->tpl_vars['category'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['category']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['data']->value['relatedProductCategories']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['category']->key => $_smarty_tpl->tpl_vars['category']->value) {
+$_smarty_tpl->tpl_vars['category']->_loop = true;
+?>
+
+                            <li class="<?php if (!isset($_smarty_tpl->tpl_vars['data']->value['title'][0]['plat'])&&$_smarty_tpl->tpl_vars['category']->value['id']==$_smarty_tpl->tpl_vars['data']->value['title'][0]['id']) {?>active<?php }?>"><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/products/list.php?cat=<?php echo $_smarty_tpl->tpl_vars['category']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['category']->value['name'];?>
+</a></li>
+
+                        <?php } ?>
                     </ul>
                 </li>
 

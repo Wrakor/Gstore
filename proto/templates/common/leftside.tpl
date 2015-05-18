@@ -16,15 +16,18 @@
             <br><br>
 
             <!-- Side Menu -->
-            <p class="lead">Categories</p>
+            <p class="lead">Game Categories</p>
             <div class="list-group">
-                <a href="" class="list-group-item">Adventure</a>
-                <a href="" class="list-group-item">Action</a>
-                <a href="" class="list-group-item">Racing</a>
-                <a href="" class="list-group-item">Sports</a>
-                <a href="" class="list-group-item">Strategy</a>
-                <a href="" class="list-group-item">Massive Multiplayer</a>
-                <a href="" class="list-group-item">RPG</a>
-                <a href="" class="list-group-item">Simulation</a>
+
+                {foreach $data.gameCategories as $category}
+
+                <a href="{$BASE_URL}pages/products/list.php?cat={$category.id}" class="list-group-item hvr-bounce-to-right {if !isset($data.title[0].plat) && $category.id == $data.title[0].id}active{/if}">{$category.name}</a>
+
+                {/foreach}
             </div>
+
+            <button id="lol">ajax request test</button>
+
         </div>
+
+

@@ -1,4 +1,4 @@
-$(function () {
+/*$(function () {
     $('.button-checkbox').each(function () {
 
         // Settings
@@ -68,5 +68,51 @@ $(document).ready(function(){
     $('#login').modal(options);
 
     $('.datepicker').datepicker();
-});
+});*/
 
+
+
+function generate(type, text) {
+
+    var n = noty({
+        text        : text,
+        type        : type,
+        dismissQueue: true,
+        layout      : 'topRight',
+        closeWith   : ['hover','click'],
+        theme       : 'relax',
+        maxVisible  : 10,
+        animation   : {
+            open  : 'animated bounceInRight',
+            close : 'animated bounceOutRight',
+            easing: 'swing',
+            speed : 500
+        }
+    });
+    console.log('html: ' + n.options.id);
+}
+
+function generateAll() {
+    // generate('warning', "ola trollllllllllllllz");
+    // generate('error', notification_html[1]);
+    //generate('information', notification_html[2]);
+    generate('success', "ohohohho!!!");
+//            generate('notification');
+//            generate('success');
+}
+
+function checkWebStorage() {
+    if(typeof(Storage) !== "undefined") {
+        generate('success', "WebStorage is working!");
+    } else {
+        generate('Error', "Sorry! WebStorage is not supported on your browser.");
+    }
+}
+
+$(document).ready(function () {
+
+    setTimeout(function() {
+        checkWebStorage();
+    }, 500);
+
+});

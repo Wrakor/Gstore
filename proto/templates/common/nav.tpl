@@ -11,7 +11,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand brand" href="index.php">G<b>STORE</b></a>
+            <a class="navbar-brand brand" href="{$BASE_URL}">G<b>STORE</b></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -22,22 +22,24 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Games <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="">All Games</a></li>
+                        <li><a href="{$BASE_URL}pages/products/list.php?games">All Games</a></li>
                         <li><hr></li>
                         <li role="presentation" class="dropdown-header"><b>By Category</b></li>
-                        <li><a href="">Adventure</a></li>
-                        <li><a href="">Action</a></li>
-                        <li><a href="">Racing</a></li>
-                        <li><a href="">Sports</a></li>
-                        <li><a href="">Strategy</a></li>
-                        <li><a href="">Massive Multiplayer</a></li>
-                        <li><a href="">RPG</a></li>
-                        <li><a href="">Simulation</a></li>
+
+                        {foreach $data.gameCategories as $category}
+
+                            <li class="{if !isset($data.title[0].plat) && $category.id == $data.title[0].id}active{/if}"><a href="{$BASE_URL}pages/products/list.php?cat={$category.id}">{$category.name}</a></li>
+
+                        {/foreach}
+
                         <li><hr></li>
                         <li role="presentation" class="dropdown-header"><b>By Operative System</b></li>
-                        <li><a href="">Windows</a></li>
-                        <li><a href="">Mac OSX</a></li>
-                        <li><a href="">Linux</a></li>
+
+                        {foreach $data.gamePlatforms as $platform}
+
+                            <li class="{if $platform.id == $data.title[0].plat}active{/if}"><a href="{$BASE_URL}pages/products/list.php?plat={$platform.id}">{$platform.name}</a></li>
+
+                        {/foreach}
                     </ul>
                 </li>
 
@@ -45,14 +47,15 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Related Products <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="">All Products</a></li>
+                        <li><a href="{$BASE_URL}pages/products/list.php?related">All Related Products</a></li>
                         <li><hr></li>
                         <li role="presentation" class="dropdown-header"><b>By Category</b></li>
-                        <li><a href="">Collectibles</a></li>
-                        <li><a href="">Wearables</a></li>
-                        <li><a href="">Toys</a></li>
-                        <li><a href="">Card Games</a></li>
-                        <li><a href="">Board Games</a></li>
+
+                        {foreach $data.relatedProductCategories as $category}
+
+                            <li class="{if !isset($data.title[0].plat) && $category.id == $data.title[0].id}active{/if}"><a href="{$BASE_URL}pages/products/list.php?cat={$category.id}">{$category.name}</a></li>
+
+                        {/foreach}
                     </ul>
                 </li>
 

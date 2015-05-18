@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-04-27 08:43:11
+<?php /* Smarty version Smarty-3.1.15, created on 2015-05-17 05:12:59
          compiled from "/opt/lbaw/lbaw1433/public_html/proto/templates/common/header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:134496409553dda7f9adfa0-85889781%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '3e2af3ac5908eae4c59c2a0f81e223ead777cd1a' => 
     array (
       0 => '/opt/lbaw/lbaw1433/public_html/proto/templates/common/header.tpl',
-      1 => 1430108789,
+      1 => 1431828761,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_553dda7f9e6a61_83448596',
   'variables' => 
   array (
     'BASE_URL' => 0,
@@ -22,10 +24,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'error' => 0,
     'SUCCESS_MESSAGES' => 0,
     'success' => 0,
+    'sucess' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_553dda7f9e6a61_83448596',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_553dda7f9e6a61_83448596')) {function content_553dda7f9e6a61_83448596($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="en">
@@ -52,9 +53,24 @@ lib/bootstrap-shop/style.css" rel="stylesheet">
     <link  href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 lib/pictonic/css/pictonic.css" rel="stylesheet">
 
+    <!-- NOTY -->
+    <link href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+lib/noty/animate.css" rel="stylesheet">
+    <link href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+lib/noty/buttons.css" rel="stylesheet">
+
+    <!-- Hover.css -->
+    <link href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+lib/hover.css/hover-min.css" rel="stylesheet">
+
+    <!-- Dynatable.css -->
+    <link href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+lib/dynatable/jquery.dynatable.css" rel="stylesheet">
+
     <!-- Our Version CSS -->
     <link href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 css/style.css" rel="stylesheet">
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -62,6 +78,19 @@ css/style.css" rel="stylesheet">
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <script type="text/javascript">
+
+        function GetDirectory()
+        {
+            console.log("cenas2", arguments);
+//            strFile = document.FileForm.filename.value;
+//            intPos = strFile.lastIndexOf("\\");
+//            strDirectory = strFile.substring(0, intPos);
+//            alert(strDirectory);
+//            document.FileForm.Directory.value = strDirectory;
+        }
+    </script>
 
 </head>
 
@@ -87,6 +116,8 @@ $_smarty_tpl->tpl_vars['success']->_loop = true;
 ?>
         <div class="success"><?php echo $_smarty_tpl->tpl_vars['success']->value;?>
 <a class="close" href="#">X</a></div>
+        <script>generate("success",<?php echo $_smarty_tpl->tpl_vars['sucess']->value;?>
+);</script>
     <?php } ?>
 </div>
 

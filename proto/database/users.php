@@ -26,4 +26,15 @@
     $stmt->execute(array($username, $password/*sha1($password)*/));
     return $stmt->fetch() == true;
   }
+
+
+function updatePassword($username, $password) {
+    global $conn;
+    $stmt = $conn->prepare("UPDATE utilizador
+                            SET password= ?
+                            WHERE username = ?");
+    return $stmt->execute(array($password, $username/*sha1($password)*/));
+}
+
+
 ?>

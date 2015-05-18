@@ -1,9 +1,38 @@
-<?php 
-	include_once "../config/init.php";
-	include_once "../templates/common/open.php"; 
-	include_once "../templates/common/nav.php"; 
-	include_once "../database/products.php"; 
-?>
+<?php /* Smarty version Smarty-3.1.15, created on 2015-05-14 19:37:20
+         compiled from "/opt/lbaw/lbaw1433/public_html/proto/templates/products/viewProduct.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:2106566219554fad2bbd75a2-41543287%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    'bb4316b0691e3c868f8a3d537f3edacd1029bc99' => 
+    array (
+      0 => '/opt/lbaw/lbaw1433/public_html/proto/templates/products/viewProduct.tpl',
+      1 => 1431621438,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '2106566219554fad2bbd75a2-41543287',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_554fad2bd84420_49599079',
+  'variables' => 
+  array (
+    'BASE_URL' => 0,
+    'data' => 0,
+    'product' => 0,
+    'reviews' => 0,
+    'row' => 0,
+  ),
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_554fad2bd84420_49599079')) {function content_554fad2bd84420_49599079($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('common/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
+
+<?php echo $_smarty_tpl->getSubTemplate ('common/nav.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
+
 
  <!-- Left side -->
 <div class="container">
@@ -20,17 +49,16 @@
                     <!-- Crumbs -->
                     <ol class="breadcrumb">
                         <li><a href="#">Home</a></li>
-                        <li><a href="#"> Category </a></li>
-                        <li class="active">Game Title</li>
+                        <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+/pages/products/list.php?<?php if (count($_smarty_tpl->tpl_vars['data']->value['product']['platforms'])>0) {?>games<?php } else { ?>related<?php }?>"><?php if (count($_smarty_tpl->tpl_vars['data']->value['product']['platforms'])>0) {?>Games<?php } else { ?>Related Products<?php }?></a></li>
+                        <li class="active"><?php echo $_smarty_tpl->tpl_vars['data']->value['product']['name'];?>
+</li>
                     </ol>
 
                     <!-- Product Information -->
-					
-					<?php 
-						$product = getProduct($_GET['id']);
-
-						echo 
-							'<h2>' . $product['name'] . '</h2>					
+										 
+					<h2> <?php echo $_smarty_tpl->tpl_vars['product']->value['name'];?>
+ </h2>					
 
                     <hr class="colorgraph">
                 </div>
@@ -40,7 +68,8 @@
                 <div class="col-md-9">
 
                     <a href="#" class="thumbnail">
-                        <img class="" src="' . $product['externallink'] . '" alt="">
+                        <img class="" src=" <?php echo $_smarty_tpl->tpl_vars['data']->value['product']['externallink'];?>
+" alt="">
                     </a>
 				</div><!-- /.col-md-9 -->
 
@@ -54,8 +83,10 @@
                     </h3>
                     <div class="text-center">
 
-                        <h1>' . $product['price'] . '€</h1>
-                        <h4>SCORE ' . $product['score'] .' / 5 <span style="color:gold;" class="glyphicon glyphicon-star"></span></h4>
+                        <h1> <?php echo $_smarty_tpl->tpl_vars['data']->value['product']['price'];?>
+ €</h1>
+                        <h4>SCORE <?php echo $_smarty_tpl->tpl_vars['data']->value['product']['score'];?>
+  / 5 <span class="glyphicon glyphicon-star"></span></h4>
 
 
                     </div>
@@ -76,7 +107,8 @@
             <div class="row">
                 <div class="col-md-12">
 
-                    <p>	' . $product['description'] . '</p>'; ?>
+                    <p> <?php echo $_smarty_tpl->tpl_vars['product']->value['description'];?>
+ </p> 
                     <br>
                     <h2>Submit your Review</h2>
                     <hr>
@@ -98,24 +130,25 @@
 
                     <!-- Comments -->
 					
-					<?php 
-						$reviews = getReviews($_GET['id']);
-
-						foreach( $reviews as $row) {
-						echo '
+					<?php  $_smarty_tpl->tpl_vars['row'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['row']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['reviews']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['row']->key => $_smarty_tpl->tpl_vars['row']->value) {
+$_smarty_tpl->tpl_vars['row']->_loop = true;
+?>
                     <div class="row comment">
 
                         <!-- comment sample -->
                         <div class="col-sm-1">
                             <div class="thumbnail">
-                                <img data-src="holder.js/140x140" class="img-responsive user-photo" alt="140x140"  src="../img/michael_knight.jpg" data-holder-rendered="true">
+                                <img data-src="holder.js/140x140" class="img-responsive user-photo" alt="140x140"  src="../../img/michael_knight.jpg" data-holder-rendered="true">
                             </div><!-- /thumbnail -->
                         </div><!-- /col-sm-1 -->
 
                         <div class="col-sm-11">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <div class="rate-system">' . $row['score'] . '
+                                    <div class="rate-system"> <?php echo $_smarty_tpl->tpl_vars['row']->value['score'];?>
+
                                         <span class="glyphicon glyphicon-star"></span>
                                         <span class="glyphicon glyphicon-star"></span>
                                         <span class="glyphicon glyphicon-star"></span>
@@ -123,15 +156,16 @@
                                         <span class="glyphicon glyphicon-star"></span>
                                     </div>
 
-                                    <strong>' . $row['username'] . '</strong> <span class="text-muted">commented 5 days ago</span>
+                                    <strong> <?php echo $_smarty_tpl->tpl_vars['row']->value['username'];?>
+ </strong> <span class="text-muted">commented 5 days ago</span>
                                 </div>
-                                <div class="panel-body">' . $row['comment'] . '                                    
+                                <div class="panel-body"> <?php echo $_smarty_tpl->tpl_vars['row']->value['comment'];?>
+                                    
                                 </div><!-- /panel-body -->
                             </div><!-- /panel panel-default -->
                         </div><!-- /col-sm-5 -->
-                    </div><!-- /row -->'; }
-					?>
-
+                    </div><!-- /row --> 
+					<?php } ?>
                 </div>
             </div>
 
@@ -188,5 +222,6 @@
 	</div>
 </div>
 
-<?php include_once "../templates/common/footer.php"; ?>
-<?php include_once "../templates/common/close.php"; ?>
+<?php echo $_smarty_tpl->getSubTemplate ('common/footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
+<?php }} ?>

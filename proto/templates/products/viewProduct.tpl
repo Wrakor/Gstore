@@ -18,8 +18,8 @@
                     <!-- Crumbs -->
                     <ol class="breadcrumb">
                         <li><a href="#">Home</a></li>
-                        <li><a href="#"> Category </a></li>
-                        <li class="active">Game Title</li>
+                        <li><a href="{$BASE_URL}/pages/products/list.php?{if count($data.product.platforms)>0}games{else}related{/if}">{if count($data.product.platforms)>0}Games{else}Related Products{/if}</a></li>
+                        <li class="active">{$data.product['name']}</li>
                     </ol>
 
                     <!-- Product Information -->
@@ -34,7 +34,7 @@
                 <div class="col-md-9">
 
                     <a href="#" class="thumbnail">
-                        <img class="" src=" {$product['externallink']}" alt="">
+                        <img class="" src=" {$data.product['externallink']}" alt="">
                     </a>
 				</div><!-- /.col-md-9 -->
 
@@ -48,8 +48,8 @@
                     </h3>
                     <div class="text-center">
 
-                        <h1> {$product['price']} €</h1>
-                        <h4>SCORE {$product['score']}  / 5 <span style="color:gold;" class="glyphicon glyphicon-star"></span></h4>
+                        <h1> {$data.product['price']} €</h1>
+                        <h4>SCORE {$data.product['score']}  / 5 <span class="glyphicon glyphicon-star"></span></h4>
 
 
                     </div>
@@ -177,5 +177,4 @@
 	</div>
 </div>
 
-<?php include_once "../templates/common/footer.php"; ?>
-<?php include_once "../templates/common/close.php"; ?>
+{include file='common/footer.tpl'}
