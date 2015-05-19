@@ -24,6 +24,18 @@
         $title[0]['name'] = "Related Products";
         $title[0]['note'] = "All the goodies!";
     }
+    else if ( isset($_GET['name']) )
+    {
+        $result = getProductsThatContain( $_GET['name'] );
+
+        if (count($result) == 1)
+        {
+            header("Location: $BASE_URL".'pages/products/item.php?id='. $result[0]['id']);
+        }
+
+        $title[0]['name'] = "Search results";
+        $title[0]['note'] = "for: '".$_GET['name']."'";
+    }
     else {
         $products = array_merge( getAllGames() , getAllRelatedProducts() );
         $title[0]['name'] = "All Products";

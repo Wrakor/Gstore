@@ -1,4 +1,31 @@
-</div><!-- /.row -->
+<?php /* Smarty version Smarty-3.1.15, created on 2015-05-19 11:29:10
+         compiled from "/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/common/footer.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:12779900475559d583360fb2-84981273%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    'c759683c02de4d079de9f0860e2326c33fda896e' => 
+    array (
+      0 => '/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/common/footer.tpl',
+      1 => 1432027747,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '12779900475559d583360fb2-84981273',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_5559d5833c3774_35894525',
+  'variables' => 
+  array (
+    'BASE_URL' => 0,
+    'USERNAME' => 0,
+    'data' => 0,
+  ),
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_5559d5833c3774_35894525')) {function content_5559d5833c3774_35894525($_smarty_tpl) {?></div><!-- /.row -->
 </div><!-- /.container -->
 </div><!-- /.row -->
 </div><!-- /.container -->
@@ -14,10 +41,14 @@
             <div class="col-md-2">
                 <ul>
                     <li>Information<li>
-                    <li><a href="{$BASE_URL}pages/information/info.php?about">About us</a></li>
-                    <li><a href="{$BASE_URL}pages/information/info.php?delivery">Delivery Information</a></li>
-                    <li><a href="{$BASE_URL}pages/information/info.php?privacy">Privacy Policy</a></li>
-                    <li><a href="{$BASE_URL}pages/information/info.php?terms">Terms & Conditions</a></li>
+                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/information/info.php?about">About us</a></li>
+                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/information/info.php?delivery">Delivery Information</a></li>
+                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/information/info.php?privacy">Privacy Policy</a></li>
+                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/information/info.php?terms">Terms & Conditions</a></li>
                 </ul>
             </div>
 
@@ -25,16 +56,19 @@
             <div class="col-md-2">
                 <ul>
                     <li>Customer Service<li>
-                    <li><a href="{$BASE_URL}pages/information/info.php?contact">Contact Us</a></li>
-                    <li><a href="{$BASE_URL}pages/information/info.php?returns">Returns</a></li>
-                    <li><a href="{$BASE_URL}pages/information/info.php?sitemap">Site Map</a></li>
+                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/information/info.php?contact">Contact Us</a></li>
+                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/information/info.php?returns">Returns</a></li>
+                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/information/info.php?sitemap">Site Map</a></li>
                 </ul>
             </div>
 
             <!-- account -->
 
             <div class="col-md-2">
-                {if $USERNAME}
+                <?php if ($_smarty_tpl->tpl_vars['USERNAME']->value) {?>
                 <ul>
                     <li>My Account<li>
                     <li><a href="profile.php">Profile</a></li>
@@ -43,7 +77,7 @@
                     <li><a href="favorites.php">Favorites</a></li>
                     <li><a href="settings.php">Settings</a></li>
                 </ul>
-                {/if}
+                <?php }?>
             </div>
 
 
@@ -74,14 +108,15 @@
         <div class="row">
             <div class="col-md-6"></div>
             <div class="col-md-6">
-                © 2015 <span class="brand">G<b>STORE</b></span>. <a href="{$BASE_URL}pages/information/info.php?license">MIT License</a>.
+                © 2015 <span class="brand">G<b>STORE</b></span>. <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/information/info.php?license">MIT License</a>.
             </div>
         </div>
 
     </div><!-- /.container -->
 </footer><!-- /footer -->
 
-{literal}
+
     <script id="view1-template" type="text/x-handlebars-template">
         {{#each this}}
         <a class="col-sm-4 col-lg-4 col-md-4 product-list view-1 hvr-bounce-to-top" href="/~lbaw1433/proto/pages/products/item.php?id={{id}}">
@@ -100,9 +135,9 @@
         </a>
         {{/each}}
     </script>
-{/literal}
 
-{literal}
+
+
     <script id="view2-template" type="text/x-handlebars-template">
         {{#each this}}
         <a class="col-sm-12 col-lg-12 col-md-12 product-list view-2 hvr-bounce-to-top" href="/~lbaw1433/proto/pages/products/item.php?id={{id}}">
@@ -121,46 +156,60 @@
         </a>
         {{/each}}
     </script>
-{/literal}
+
 
 <!-- jQuery -->
-<script src="{$BASE_URL}lib/jquery/jquery.min.js"></script>
+<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+lib/jquery/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="{$BASE_URL}lib/bootstrap/js/bootstrap.js"></script>
+<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+lib/bootstrap/js/bootstrap.js"></script>
 
 <!-- NOTY -->
-<script src="{$BASE_URL}lib/noty/jquery.noty.packaged.min.js"></script>
+<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+lib/noty/jquery.noty.packaged.min.js"></script>
 
 <!-- Dynatable.js -->
-<script src="{$BASE_URL}lib/dynatable/jquery.dynatable.js"></script>
+<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+lib/dynatable/jquery.dynatable.js"></script>
 
 <!-- Dynatable.js -->
-<script src="{$BASE_URL}lib/handlebars/handlebars-v3.0.3.js"></script>
+<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+lib/handlebars/handlebars-v3.0.3.js"></script>
 
-<script src="{$BASE_URL}lib/typeahead/typeahead.js"></script>
+<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+lib/typeahead/typeahead.js"></script>
 
 <!-- Custom script 3 :: dynatable -->
-<script src="{$BASE_URL}js/dyna.js"></script>
+<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+js/dyna.js"></script>
 
 <!-- Custom script 1:: modals -->
-<script src="{$BASE_URL}js/script.js"></script>
+<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+js/script.js"></script>
 
 <!-- Custom script 2 :: forms -->
-<script src="{$BASE_URL}js/script2.js"></script>
+<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+js/script2.js"></script>
 
 <!-- Custom script 3 :: localstorage -->
-<script src="{$BASE_URL}js/script3.js"></script>
-<script src="{$BASE_URL}js/script4.js"></script>
+<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+js/script3.js"></script>
+<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+js/script4.js"></script>
 
-<script src="{$BASE_URL}js/builder.js"></script>
+<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+js/builder.js"></script>
 
-<script src="{$BASE_URL}js/search.js"></script>
+<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+js/search.js"></script>
 
 
 <!-- Custom -->
 <script>
-    var data = {json_encode($data)};
+    var data = <?php echo json_encode($_smarty_tpl->tpl_vars['data']->value);?>
+;
     store(data);
 
 </script>
@@ -168,4 +217,4 @@
 
 
 </body>
-</html>
+</html><?php }} ?>

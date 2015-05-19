@@ -4,6 +4,7 @@ html body{
     padding-top:50px;
     background: url(//cdn.shopify.com/s/files/1/0322/2265/t/4/assets/bg_image.jpg?99668 ) repeat center top;
 }
+body.modal-open{overflow-y:auto}
 
 body > .container {
     padding-top:20px;
@@ -108,14 +109,14 @@ a[class*="hvr-"]:nth-of-type(8n+6):before{ background:#c49cde; }
 a[class*="hvr-"]:nth-of-type(8n+7):before{ background:#669ae1; }
 a[class*="hvr-"]:nth-of-type(8n+8):before{ background:#62c2e4; }
 
-a[class*="hvr-"]:nth-of-type(8n+1):hover{  }
+a[class*="hvr-"]:nth-of-type(8n+1):hover{ color:#4e443c; }
 a[class*="hvr-"]:nth-of-type(8n+2):hover{ color:#4e443c; }
-a[class*="hvr-"]:nth-of-type(8n+3):hover{  }
-a[class*="hvr-"]:nth-of-type(8n+4):hover{  }
-a[class*="hvr-"]:nth-of-type(8n+5):hover{  }
-a[class*="hvr-"]:nth-of-type(8n+6):hover{  }
-a[class*="hvr-"]:nth-of-type(8n+7):hover{  }
-a[class*="hvr-"]:nth-of-type(8n+8):hover{  }
+a[class*="hvr-"]:nth-of-type(8n+3):hover{ color:#4e443c; }
+a[class*="hvr-"]:nth-of-type(8n+4):hover{ color:#4e443c; }
+a[class*="hvr-"]:nth-of-type(8n+5):hover{ color:#4e443c; }
+a[class*="hvr-"]:nth-of-type(8n+6):hover{ color:#4e443c; }
+a[class*="hvr-"]:nth-of-type(8n+7):hover{ color:#4e443c; }
+a[class*="hvr-"]:nth-of-type(8n+8):hover{ color:#4e443c; }
 
 /* nav-bar */
 .navbar-brand{
@@ -171,22 +172,33 @@ nav.navbar .badge{
 
 /* .product-list */
 .product-list.view-1{ height: 260px; }
+.product-list.view-1 img{ height: 127px; }
+a.product-list.view-1 p{display:none; color:#3c3c3c;}
+
+.product-list.view-2{ height: auto; }
+.product-list.view-2 img{ width: 90px; height: 90px;}
+.product-list.view-2 .thumbnail.thumbnail-full{ width: 92px; height: 92px; float: left; margin-right: 20px;margin-bottom:10px}
+a.product-list.view-2 h4{margin-top: 0;}
+a.product-list.view-2 p{color:#3c3c3c; font-size: 11px;}
+a.product-list.view-2 h3{
+    height:auto;
+    padding:5px 10px;
+    margin:0;
+    position:absolute;
+    z-index:1;
+    top:0px;
+    right:0px;
+    color:white;
+    background:black;
+    border-top-right-radius: 2px;
+}
 
 .product-list{
     padding-top: 20px;
     padding-bottom: 20px;
 }
-a.product-list .platforms span{
-    color:#333;
-}
-/*
-.product-list:hover{
-    background-color: #2098D1;
-}
-*/
-.product-list:hover .thumbnail{
-    border-color: #333;
-}
+a.product-list .platforms span{ color:#333; }
+.product-list:hover .thumbnail{ border-color: #333; }
 
 
 .product-list th + td{
@@ -222,30 +234,6 @@ a.product-list.view-1 h3{
     border-bottom-right-radius: 2px;
 }
 
-
-.product-list .media-body .caption.caption-tr{
-    padding:0px 10px;
-    top:0;
-    right:0;
-    color:white;
-    background:black;
-}
-
-.product-list .caption{
-    height:120px;
-}
-.product-list .caption .pull-right{
-    margin-top:39px;
-}
-
-.product-list .caption.caption-tr .pull-right {
-    margin-top:5px;
-}
-
-.product-list .media-heading > a{
-    float:right;
-    color:red;
-}
 
 body > footer{
     padding: 30px 0 60px 0;
@@ -390,3 +378,49 @@ form .rating{
 	border-right-color:#ddd;
 	border-width:8px;
 }
+
+
+/* Live search */
+.navbar-form input.typeahead{
+    width: 400px;
+    margin-top:0;
+}
+.twitter-typeahead .tt-menu.tt-open {width: 100%;}
+.twitter-typeahead .tt-menu.tt-open .tt-dataset{
+
+    margin-top:5px;
+    background-color:white;
+    width:100%;
+    -webkit-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+    border-radius: 2px 2px 2px 2px;
+    -moz-border-radius: 2px 2px 2px 2px;
+    -webkit-border-radius: 2px 2px 2px 2px;
+}
+
+.twitter-typeahead .tt-menu.tt-open .tt-dataset .tt-suggestion:first-child
+{
+    border-width: 0;
+}
+
+.twitter-typeahead .tt-menu.tt-open .tt-dataset .tt-suggestion
+{
+    padding: 10px;
+    border-width: 1px 0 0 0;
+    text-color:#666;
+    border-color:#999;
+    border-style:solid;
+}
+.twitter-typeahead .tt-menu.tt-open .tt-dataset .tt-suggestion.tt-cursor{
+    background-color: #337ab7;
+    color:white;
+}
+
+.twitter-typeahead .tt-menu.tt-open .tt-dataset .tt-suggestion:hover
+{
+    background-color:#666;
+    color:white;
+    cursor:default;
+}
+

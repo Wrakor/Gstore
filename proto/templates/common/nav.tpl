@@ -60,6 +60,7 @@
                 </li>
 
             </ul>
+
             <ul class="nav navbar-nav navbar-right">
                 <!--
                 <li><a href="backoffice.php"><span class="glyphicon glyphicon-lock"></span> Admin </a></li>
@@ -71,7 +72,16 @@
                 {else}
                     {include file='common/menu_logged_out.tpl'}
                 {/if}
+
+                <li class="search-button"><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
             </ul>
+
+            <form class="navbar-form navbar-right hide" role="search">
+                <div id="typeahead-products" class="form-group">
+                    <input id="typeahead" type="text" class="form-control typeahead" placeholder="Search for..." data-provide="typeahead">
+                </div>
+            </form>
+
         </div><!-- /.navbar-collapse -->
 
     </div><!-- /.container -->

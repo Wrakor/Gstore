@@ -5,16 +5,6 @@
         <!-- Left Side -->
         <div class="col-md-3">
 
-            <!-- Search -->
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-                </span>
-            </div>
-
-            <br><br>
-
             <!-- Side Menu -->
             <p class="lead">Game Categories</p>
             <div class="list-group">

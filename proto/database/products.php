@@ -1,5 +1,14 @@
 <?php
 
+function getAllProductNames() {
+    global $conn;
+    $query = 'SELECT Product.name FROM Product';
+    $stmt = $conn->prepare($query);
+    $stmt->execute();
+
+    return $stmt->fetchAll();
+}
+
 function getAllProducts() {
     global $conn;
     $query = 'SELECT Product.* FROM Product';
@@ -62,6 +71,15 @@ function getProduct($id) {
     $stmt->execute(array($id));
 
     return $stmt->fetch();
+}
+
+function getProductsThatContain($string) {
+    global $conn;
+
+    $stmt = $conn->prepare("SELECT Product.* FROM Product WHERE Product.name ILIKE '%' || ? || '%' ");
+    $stmt->execute(array($string));
+
+    return $stmt->fetchAll();
 }
 
 function getAllGamePlatforms() {

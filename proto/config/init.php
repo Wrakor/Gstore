@@ -8,9 +8,31 @@
     $SCHEMA = "teste";
     $SUB_FOLDER = 'proto/';
 
-    $BASE_DIR = '/opt/lbaw/lbaw1433/public_html/' . $SUB_FOLDER;
-    $BASE_URL = '/~lbaw1433/' . $SUB_FOLDER;
+    if( strcmp($_SERVER['SERVER_NAME'],'gnomo.fe.up.pt')==0 )
+    {
 
+        $BASE_DIR = '/opt/lbaw/lbaw1433/public_html/' . $SUB_FOLDER;
+        $BASE_URL = '/~lbaw1433/' . $SUB_FOLDER;
+
+        //echo "<pre>"; var_dump($_SERVER); echo "</pre>";
+    }
+    else if (strcmp($_SERVER['SERVER_NAME'],'localhost')==0)
+    {
+
+        $BASE_DIR = "/Users/jrsc/BitBucket/lbaw1433/src/" . $SUB_FOLDER;
+        $BASE_URL = '/' . $SUB_FOLDER;
+
+        //echo "localhost";
+        //echo "<pre>"; var_dump($_SERVER); echo "</pre>";
+    }
+    else
+    {
+        $BASE_DIR = '/' . $SUB_FOLDER;
+        $BASE_URL = '/' . $SUB_FOLDER;
+
+        echo "erro";
+        echo "<pre>"; var_dump($_SERVER); echo "</pre>";
+    }
 
     $conn = new PDO('pgsql:host=vdbm.fe.up.pt;dbname=lbaw1433', 'lbaw1433', 'jK116op5');
     $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
