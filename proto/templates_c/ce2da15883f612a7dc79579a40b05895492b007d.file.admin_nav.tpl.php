@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-05-20 18:47:36
+<?php /* Smarty version Smarty-3.1.15, created on 2015-05-20 18:56:08
          compiled from "/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/common/admin_nav.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1441939918555c556fcd3a67-66068684%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ce2da15883f612a7dc79579a40b05895492b007d' => 
     array (
       0 => '/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/common/admin_nav.tpl',
-      1 => 1432140443,
+      1 => 1432140786,
       2 => 'file',
     ),
   ),
@@ -19,8 +19,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'unifunc' => 'content_555c556fcd9be2_30399766',
   'variables' => 
   array (
-    'data' => 0,
     'BASE_URL' => 0,
+    'data' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -35,7 +35,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand brand" href="backoffice.php">G<b>STORE</b>Admin</a>
+        <a class="navbar-brand brand" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/admin/dashboard.php">G<b>STORE</b>Admin</a>
     </div>
 
     <!-- Top Menu Items -->

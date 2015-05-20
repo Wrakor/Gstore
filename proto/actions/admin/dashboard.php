@@ -15,9 +15,15 @@ else if (isset($_GET['orders']))
 
 
 else if (isset($_GET['sold']))
-    echo json_encode( getMostSoldItems(5) );
+    if (isset($_GET['more']))
+        echo json_encode( getMostSoldItems(20) );
+    else
+        echo json_encode( getMostSoldItems(5) );
 
 else if (isset($_GET['transactions']))
-    echo json_encode( getRecentTransactions(5) );
+    if (isset($_GET['more']))
+        echo json_encode( getRecentTransactions(20) );
+    else
+        echo json_encode( getRecentTransactions(5) );
 
 ?>

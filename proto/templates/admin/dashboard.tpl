@@ -108,7 +108,7 @@
 
                 </div>
                 <div class="text-right">
-                    <a href="#">View All Products <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="#" id="sold-view-all">View More <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
         </div>
@@ -141,7 +141,7 @@
                     </a>
                 </div>
                 <div class="text-right">
-                    <a href="#">View All Activity <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="#">View More <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
         </div>
@@ -175,7 +175,7 @@
                     </table>
                 </div>
                 <div class="text-right">
-                    <a href="#">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="#" id="transactions-view-all">View More <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
         </div>
