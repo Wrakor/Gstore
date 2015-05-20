@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-05-20 21:11:32
+<?php /* Smarty version Smarty-3.1.15, created on 2015-05-20 21:41:24
          compiled from "/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/admin/dashboard.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2130666216555c556f9c82d5-11549954%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8d6e2efe1e6e4ca053105a2a3d3dd60224c896b8' => 
     array (
       0 => '/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/admin/dashboard.tpl',
-      1 => 1432149089,
+      1 => 1432150845,
       2 => 'file',
     ),
   ),
@@ -148,9 +148,11 @@ pages/products/item.php?id=<?php echo $_smarty_tpl->tpl_vars['item']->value['id'
                     <?php } ?>
 
                 </div>
+
                 <div class="text-right">
-                    <a href="#" id="sold-view-all">View All <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="#" id="sold-view-all">View More <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
+
             </div>
         </div>
     </div>

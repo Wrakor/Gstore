@@ -107,9 +107,11 @@
                     {/foreach}
 
                 </div>
+
                 <div class="text-right">
                     <a href="#" id="sold-view-all">View More <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
+
             </div>
         </div>
     </div>

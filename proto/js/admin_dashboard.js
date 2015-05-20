@@ -4,9 +4,7 @@ var view_sold = Handlebars.compile(template_sold);  
 var template_transactions= $('#transactions-template').html();
 var view_transactions = Handlebars.compile(template_transactions);  
 
-
-function update_all() {
-
+function update_online () {
     $.getJSON("../../actions/admin/dashboard.php?online", function(data){
 
         $('#online').empty();
@@ -14,7 +12,9 @@ function update_all() {
 
         //console.log(data);
     });
+};
 
+function update_today() {
     $.getJSON("../../actions/admin/dashboard.php?today", function(data){
 
         $('#today').empty();
@@ -22,7 +22,9 @@ function update_all() {
 
         //console.log(data);
     });
+};
 
+function update_orders() {
     $.getJSON("../../actions/admin/dashboard.php?orders", function(data){
 
         $('#orders').empty();
@@ -30,8 +32,10 @@ function update_all() {
 
         //console.log(data);
     });
+};
 
-    if ( $('#sold').hasClass('more') )
+function update_sold() {
+    if ( $('#sold').hasClass('more') ) {
         $.getJSON("../../actions/admin/dashboard.php?sold&more", function (data) {
 
             $('#sold').empty();
@@ -39,7 +43,8 @@ function update_all() {
 
             //console.log(data);
         });
-    else
+    }
+    else {
         $.getJSON("../../actions/admin/dashboard.php?sold", function (data) {
 
             $('#sold').empty();
@@ -47,26 +52,43 @@ function update_all() {
 
             //console.log(data);
         });
+    }
+};
 
-    if ( $('#sold').hasClass('more') )
-        $.getJSON("../../actions/admin/dashboard.php?transactions&more", function(data){
+function update_events() {
+
+};
+
+function update_transactions() {
+    if ( $('#transactions').hasClass('more') ) {
+        $.getJSON("../../actions/admin/dashboard.php?transactions&more", function (data) {
 
             $('#transactions').empty();
             $('#transactions').append(view_transactions(data));
 
             //console.log(data);
         });
-    else
-        $.getJSON("../../actions/admin/dashboard.php?transactions", function(data){
+    }
+    else {
+        $.getJSON("../../actions/admin/dashboard.php?transactions", function (data) {
 
             $('#transactions').empty();
             $('#transactions').append(view_transactions(data));
 
             //console.log(data);
         });
+    }
+};
 
+function update_all() {
 
+    update_online();
+    update_today();
+    update_orders();
 
+    update_sold();
+    update_events();
+    update_transactions();
 }
 
 $( document ).ready(function() {
