@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-05-18 22:03:48
+<?php /* Smarty version Smarty-3.1.15, created on 2015-05-21 00:08:44
          compiled from "/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/common/nav.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:5778342545559d58317e962-45028700%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b43c823ded8f6cf6f13c3d2ae92da05eb73791c9' => 
     array (
       0 => '/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/common/nav.tpl',
-      1 => 1431979425,
+      1 => 1432159717,
       2 => 'file',
     ),
   ),
@@ -23,6 +23,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'data' => 0,
     'category' => 0,
     'platform' => 0,
+    'ADMIN' => 0,
     'USERNAME' => 0,
   ),
   'has_nocache_code' => false,
@@ -116,10 +117,13 @@ pages/products/list.php?cat=<?php echo $_smarty_tpl->tpl_vars['category']->value
 
             <ul class="nav navbar-nav navbar-right">
                 <!--
-                <li><a href="backoffice.php"><span class="glyphicon glyphicon-lock"></span> Admin </a></li>
                 <li><a href="cart.php"><span class="badge">2</span><span class="glyphicon glyphicon-shopping-cart"></span> Cart </a></li>
-                <li><a href="profile.php"><span class="glyphicon glyphicon-user"></span> Profile </a></li>
                 -->
+                <?php if ($_smarty_tpl->tpl_vars['ADMIN']->value) {?>
+                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/admin/dashboard.php"><span class="glyphicon glyphicon-lock"></span> Backoffice </a></li>
+                <?php }?>
+
                 <?php if ($_smarty_tpl->tpl_vars['USERNAME']->value) {?>
                     <?php echo $_smarty_tpl->getSubTemplate ('common/menu_logged_in.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 

@@ -63,10 +63,12 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <!--
-                <li><a href="backoffice.php"><span class="glyphicon glyphicon-lock"></span> Admin </a></li>
                 <li><a href="cart.php"><span class="badge">2</span><span class="glyphicon glyphicon-shopping-cart"></span> Cart </a></li>
-                <li><a href="profile.php"><span class="glyphicon glyphicon-user"></span> Profile </a></li>
                 -->
+                {if $ADMIN}
+                    <li><a href="{$BASE_URL}pages/admin/dashboard.php"><span class="glyphicon glyphicon-lock"></span> Backoffice </a></li>
+                {/if}
+
                 {if $USERNAME}
                     {include file='common/menu_logged_in.tpl'}
                 {else}

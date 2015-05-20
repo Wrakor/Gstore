@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-05-20 15:54:12
+<?php /* Smarty version Smarty-3.1.15, created on 2015-05-20 22:47:46
          compiled from "/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/common/admin_header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2105155417555c556fc99659-71872417%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c7e005a19e16b7ee5dfbb4244b950a20d701e77c' => 
     array (
       0 => '/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/common/admin_header.tpl',
-      1 => 1432130049,
+      1 => 1432154853,
       2 => 'file',
     ),
   ),
@@ -20,6 +20,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'BASE_URL' => 0,
+    'data' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -63,6 +64,12 @@ lib/pictonic/css/pictonic.css" rel="stylesheet">
     <!-- Datepicker CSS -->
     <link href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 lib/datepicker/css/datepicker.css">
+
+    <?php if (isset($_smarty_tpl->tpl_vars['data']->value['nav']['users'])) {?>
+        <!-- Datatables CSS -->
+        <link href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+lib/datatables.js/jquery.dataTables.css" rel="stylesheet">
+    <?php }?>
 
     <!-- Our Version CSS -->
     <link href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>

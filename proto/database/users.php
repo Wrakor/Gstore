@@ -36,5 +36,15 @@ function updatePassword($username, $password) {
     return $stmt->execute(array($password, $username/*sha1($password)*/));
 }
 
+function isAdmin($username) {
+    global $conn;
+    $stmt = $conn->prepare("SELECT Utilizador.*, Admin.admin_type
+                            FROM Utilizador
+                            LEFT JOIN Admin
+                            ON Utilizador.id = Admin.user_id
+                            WHERE Utilizador.username = ?");
+    $stmt->execute(array($username));
+    return $stmt->fetch() == true;
+}
 
 ?>

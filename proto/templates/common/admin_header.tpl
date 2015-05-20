@@ -32,6 +32,11 @@
     <!-- Datepicker CSS -->
     <link href="{$BASE_URL}lib/datepicker/css/datepicker.css">
 
+    {if isset($data.nav.users)}
+        <!-- Datatables CSS -->
+        <link href="{$BASE_URL}lib/datatables.js/jquery.dataTables.css" rel="stylesheet">
+    {/if}
+
     <!-- Our Version CSS -->
     <link href="{$BASE_URL}css/admin_style.css" rel="stylesheet">
 

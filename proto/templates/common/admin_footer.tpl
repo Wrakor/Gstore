@@ -1,3 +1,4 @@
+{if isset($data.nav.dashboard) }
 {literal}
 <script id="sold-template" type="text/x-handlebars-template">
 
@@ -10,7 +11,6 @@
 
 </script>
 {/literal}
-
 
 {literal}
     <script id="transactions-template" type="text/x-handlebars-template">
@@ -25,7 +25,7 @@
 
     </script>
 {/literal}
-
+{/if}
 
 
 <!-- jQuery -->
@@ -34,14 +34,21 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="{$BASE_URL}lib/bootstrap/js/bootstrap.js"></script>
 
-<!-- Handlebars.js -->
-<script src="{$BASE_URL}lib/handlebars/handlebars-v3.0.3.js"></script>
-
 <!-- Datepicker JavaScript -->
 <script src="{$BASE_URL}lib/datepicker/js/bootstrap-datepicker.js"></script>
 
-<!-- Custom javascript -->
-<script src="{$BASE_URL}js/admin_dashboard.js"></script>
+{if isset($data.nav.dashboard) }
+    <!-- Handlebars.js -->
+    <script src="{$BASE_URL}lib/handlebars/handlebars-v3.0.3.js"></script>
+
+    <!-- Custom javascript -->
+    <script src="{$BASE_URL}js/admin_dashboard.js"></script>
+{/if}
+
+{if isset($data.nav.users) }
+    <script src="{$BASE_URL}lib/datatables.js/jquery.dataTables.min.js"></script>
+    <script src="{$BASE_URL}js/admin_users.js"></script>
+{/if}
 
 </body>
 </html>

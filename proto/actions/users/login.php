@@ -18,6 +18,13 @@
         $_SESSION['username'] = $username;
         $_SESSION['success_messages'][] = 'Login successful';
 
+        $temp = isAdmin('username');
+
+        if ( is_array($temp)  )
+        {
+            $_SESSION['admin'] = $temp;
+        }
+
     } else {
         $_SESSION['error_messages'][] = 'Login failed';
     }

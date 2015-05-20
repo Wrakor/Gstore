@@ -9,7 +9,7 @@
     $data['orders'] = getNewOrders();
 
     $data['sold'] = getMostSoldItems(5);
-
+    // falta o events
     $data['transactions'] = getRecentTransactions(5);
 
     //echo "<pre>"; var_dump($data['online']); echo "</pre>";
