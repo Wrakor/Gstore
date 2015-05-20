@@ -135,9 +135,10 @@
 <!-- Dynatable.js -->
 <script src="{$BASE_URL}lib/dynatable/jquery.dynatable.js"></script>
 
-<!-- Dynatable.js -->
+<!-- Handlebars.js -->
 <script src="{$BASE_URL}lib/handlebars/handlebars-v3.0.3.js"></script>
 
+<!-- Typeahead.js -->
 <script src="{$BASE_URL}lib/typeahead/typeahead.js"></script>
 
 <!-- Custom script 3 :: dynatable -->

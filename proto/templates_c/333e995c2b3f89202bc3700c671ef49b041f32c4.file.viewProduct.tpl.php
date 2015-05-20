@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-05-19 11:39:04
+<?php /* Smarty version Smarty-3.1.15, created on 2015-05-19 20:30:49
          compiled from "/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/products/viewProduct.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1321818724555b04b825a9e7-92556001%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '333e995c2b3f89202bc3700c671ef49b041f32c4' => 
     array (
       0 => '/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/products/viewProduct.tpl',
-      1 => 1431625038,
+      1 => 1432060230,
       2 => 'file',
     ),
   ),
@@ -15,17 +15,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_555b04b856f524_44712303',
   'variables' => 
   array (
     'BASE_URL' => 0,
     'data' => 0,
-    'product' => 0,
-    'reviews' => 0,
     'row' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_555b04b856f524_44712303',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_555b04b856f524_44712303')) {function content_555b04b856f524_44712303($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('common/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
@@ -57,8 +55,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
                     <!-- Product Information -->
 										 
-					<h2> <?php echo $_smarty_tpl->tpl_vars['product']->value['name'];?>
- </h2>					
+					<h2> <?php echo $_smarty_tpl->tpl_vars['data']->value['product']['name'];?>
+ </h2>
 
                     <hr class="colorgraph">
                 </div>
@@ -107,8 +105,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <div class="row">
                 <div class="col-md-12">
 
-                    <p> <?php echo $_smarty_tpl->tpl_vars['product']->value['description'];?>
- </p> 
+                    <p> <?php echo $_smarty_tpl->tpl_vars['data']->value['product']['description'];?>
+ </p>
                     <br>
                     <h2>Submit your Review</h2>
                     <hr>
@@ -131,7 +129,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     <!-- Comments -->
 					
 					<?php  $_smarty_tpl->tpl_vars['row'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['row']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['reviews']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+ $_from = $_smarty_tpl->tpl_vars['data']->value['reviews']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['row']->key => $_smarty_tpl->tpl_vars['row']->value) {
 $_smarty_tpl->tpl_vars['row']->_loop = true;
 ?>
@@ -160,7 +158,7 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
  </strong> <span class="text-muted">commented 5 days ago</span>
                                 </div>
                                 <div class="panel-body"> <?php echo $_smarty_tpl->tpl_vars['row']->value['comment'];?>
-                                    
+
                                 </div><!-- /panel-body -->
                             </div><!-- /panel panel-default -->
                         </div><!-- /col-sm-5 -->

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-05-19 11:29:10
+<?php /* Smarty version Smarty-3.1.15, created on 2015-05-20 18:35:47
          compiled from "/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/common/footer.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:12779900475559d583360fb2-84981273%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c759683c02de4d079de9f0860e2326c33fda896e' => 
     array (
       0 => '/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/common/footer.tpl',
-      1 => 1432027747,
+      1 => 1432136645,
       2 => 'file',
     ),
   ),
@@ -174,10 +174,11 @@ lib/noty/jquery.noty.packaged.min.js"></script>
 <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 lib/dynatable/jquery.dynatable.js"></script>
 
-<!-- Dynatable.js -->
+<!-- Handlebars.js -->
 <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 lib/handlebars/handlebars-v3.0.3.js"></script>
 
+<!-- Typeahead.js -->
 <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 lib/typeahead/typeahead.js"></script>
 

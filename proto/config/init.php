@@ -1,6 +1,6 @@
 <?php
-    session_set_cookie_params(3600, '/~lbaw1433');
-    session_start();
+session_set_cookie_params(3600, '/~lbaw1433');
+session_start();
 
     error_reporting(E_ERROR | E_WARNING); // E_NOTICE by default
 
