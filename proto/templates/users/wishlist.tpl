@@ -41,8 +41,15 @@
                             <div class="media-body">
                                 <h4 class="media-heading">
                                     <span><a href="{$BASE_URL}/pages/products/item.php?id={$product['id']}">{$product['name']}</a> </span>
-                                    <span class="icon-os-win-03"></span>
+                                    {if in_array("Mac", $platforms[$product['id']])}
                                     <span class="icon-os-apple"></span>
+                                    {/if}
+                                    {if in_array("Windows", $platforms[$product['id']])}
+                                    <span class="icon-os-win-03"></span>
+                                    {/if}
+                                    {if in_array("Linux", $platforms[$product['id']])}
+                                        <span class="icon-os-linux"></span>
+                                    {/if}
                                     <a href="{$BASE_URL}actions/users/deleteFromWishlist.php?id={$product['id']}"
                                        style="margin-right: 15px"><span class="glyphicon glyphicon-remove pull-right"></span></a></h4>
 
