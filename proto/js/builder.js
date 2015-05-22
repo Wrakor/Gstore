@@ -1,3 +1,5 @@
+var
+
 // Function that renders the list items from our records
 function view1Writer(rowIndex, record, columns, cellWriter) {
 

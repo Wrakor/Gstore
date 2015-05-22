@@ -32,6 +32,10 @@
     <!-- Datepicker CSS -->
     <link href="{$BASE_URL}lib/datepicker/css/datepicker.css">
 
+    <!-- NOTY -->
+    <link href="{$BASE_URL}lib/noty/animate.css" rel="stylesheet">
+    <link href="{$BASE_URL}lib/noty/buttons.css" rel="stylesheet">
+
     {if isset($data.nav.users)}
         <!-- Datatables CSS -->
         <link href="{$BASE_URL}lib/datatables.js/jquery.dataTables.css" rel="stylesheet">

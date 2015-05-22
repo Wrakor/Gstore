@@ -10,8 +10,8 @@ function is_access_client() { return strcmp('Client', $_POST['access'])==0; }
 function check_create_generic() { return isset($_POST['username']) && isset($_POST['email']) && isset($_POST['password']); }
 function check_create_client() { return isset($_POST['first']) && isset($_POST['last']) && isset($_POST['address']) && isset($_POST['postal']); }
 
-function validate_create_generic() {return true;}
-function validate_create_client() {return true;}
+function validate_user_generic() {return true;}
+function validate_user_client() {return true;}
 
 function create(& $msg) {
 
@@ -23,23 +23,30 @@ function create(& $msg) {
 
     if ( $access && $c_generic && $c_client )
     {
-        $v_generic = validate_create_generic();
-        $v_client  = ($access === true) ? validate_create_client() : true;
+        $v_generic = validate_user_generic();
+        $v_client  = ($access === true) ? validate_user_client() : true;
 
         if ($v_generic && $v_client) {
-            // create entry in database for new user
 
-            $msg = "success! ".$_POST['password'];
+            $username = $_POST['username'];
+            $email    = $_POST['email'];
+            $password = $_POST['password'];
 
-            if ($access === true )
-                createClient($_POST['username'],$_POST['email'],$_POST['password'],$_POST['first'],$_POST['last'],$_POST['address'],$_POST['postal']);
-            else
-                createAdmin($_POST['access'],$_POST['username'],$_POST['email'],$_POST['password']);
+            if ($access === true ) {
+                $name       = $_POST['first'].' '.$_POST['last'];
+                $address    = $_POST['address'];
+                $postal4_id = getPostalCodeID(substr($_POST['postal'], 0, 4));
+                $postal3    = substr($_POST['postal'], 5, 7);
 
+                $msg = createClient($username,$email,$password,$name,$address,$postal4_id,$postal3);
+            }
+            else {
+                $msg = createAdmin($_POST['access'],$_POST['username'],$_POST['email'],$_POST['password']);
+            }
         }
-        else $msg = "fields are not valid";
+        else $msg = "Error! fields are not valid.";
     }
-    else $msg = "no required fields";
+    else $msg = "Error! no required fields.";
 }
 
 

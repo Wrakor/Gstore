@@ -41,42 +41,52 @@
                     <form id="form-create-user" name="form-create-user" action="{$BASE_URL}actions/admin/users.php" method="POST" enctype="multipart/form-data">
                         <h2>New User <small> mostly for admin creation.. ofc</small></h2>
                         <hr>
-                        <select class="form-control" name="access" id="access" tabindex="0">
-                            <option id="0">Select Access Level</option>
-                            <option id="1">Client</option>
-                            {foreach $data.admintypes as $type}
-                            <option id="{$type.id + 1}">{$type.name}</option>
-                            {/foreach}
-                        </select>
+                        <div class="form-group has-feedback">
+                            <select class="form-control" name="access" id="access" tabindex="0">
+                                <option id="0">Select Access Level</option>
+                                <option id="1">Client</option>
+                                {foreach $data.admintypes as $type}
+                                <option id="{$type.id + 1}">{$type.name}</option>
+                                {/foreach}
+                            </select>
+                            <p class="help-text hide">This is a sample of a help text!</p>
+                        </div>
                         <hr>
 
-                        <div class="form-group">
+                        <div class="form-group has-feedback">
                             <input type="text" name="username" id="username" class="form-control" placeholder="Display Name" tabindex="1" value="">
+                            <p class="help-text hide">This is a sample of a help text!</p>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group has-feedback">
                             <input type="email" name="email" id="email" class="form-control" placeholder="Email Address" tabindex="2" value="">
+                            <p class="help-text hide">This is a sample of a help text!</p>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group has-feedback">
                             <input type="password" name="password" id="password" class="form-control " placeholder="Password" tabindex="3">
+                            <p class="help-text hide">This is a sample of a help text!</p>
                         </div>
 
                         <hr>
 
                         <div class="form-client hide">
-                            <div class="form-group">
-                                    <input type="text" name="first" id="first" class="form-control " placeholder="First Name" tabindex="4" value="">
+                            <div class="form-group has-feedback">
+                                <input type="text" name="first" id="first" class="form-control " placeholder="First Name" tabindex="4" value="">
+                                <p class="help-text hide">This is a sample of a help text!</p>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group has-feedback">
                                 <input type="text" name="last" id="last" class="form-control" placeholder="Last Name" tabindex="5" value="">
+                                <p class="help-text hide">This is a sample of a help text!</p>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group has-feedback">
                                 <input type="address" name="address" id="address" class="form-control" placeholder="Address" tabindex="6" value="">
+                                <p class="help-text hide">This is a sample of a help text!</p>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group has-feedback">
                                 <input type="postalcode" name="postal" id="postal" class="form-control" placeholder="Postal Code" tabindex="7" value="">
+                                <p class="help-text hide">This is a sample of a help text!</p>
                             </div>
 
                             <hr>

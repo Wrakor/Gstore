@@ -2,21 +2,33 @@
 
 
 
-    function createClient($username,$email,$password,$firstname,$lastname,$address,$postalcode) {
+    function createClient($username,$email,$password,$name,$address,$postal4_id,$postal3) {
         global $conn;
 
-        $name = $firstname.' '.$lastname;
+        try {
+            $conn->query("SET TRANSACTION ISOLATION LEVEL SERIALIZABLE");
+            $conn->beginTransaction();
 
-        $stmt = $conn->prepare("INSERT INTO Utilizador(email, username, password) VALUES (?, ?, ?)");
-        $stmt->execute(array($email, $username,sha1($password)));
+            $stmt = $conn->prepare("INSERT INTO Utilizador(username, email, password) VALUES (?, ?, ?)");
+            $stmt->execute(array($username, $email, $password));
 
-        $stmt = $conn->prepare("SELECT id FROM Utilizador WHERE username = ?");
-        $stmt->execute(array($username));
+            $stmt = $conn->prepare("SELECT id FROM Utilizador WHERE username = ?");
+            $stmt->execute(array($username));
+            $userid = $stmt->fetch()['id'];
 
-        $userid = $stmt->fetch()['id'];
+            $stmt = $conn->prepare("INSERT INTO Client
+                                    VALUES (?,?,?,?,?)");
+            $stmt->execute(array($userid,$name,$address,$postal4_id,$postal3));
 
-        $stmt2 = $conn->prepare("INSERT INTO Client VALUES (?,?,?,?)");
-        $stmt2->execute(array($userid,$name,$address,$postalcode));
+            $conn->commit();
+
+            return "Success! Client created.";
+        }
+        catch (PDOException $e)
+        {
+            $conn->rollBack();
+            return "Error! Client not created.";
+        }
 
         return;
     }
@@ -24,16 +36,29 @@
     function createAdmin($access,$username,$email,$password) {
         global $conn;
 
-        $stmt = $conn->prepare("INSERT INTO Utilizador(email, username, password) VALUES (?, ?, ?)");
-        $stmt->execute(array($email, $username,sha1($password)));
+        try {
+            $conn->query("SET TRANSACTION ISOLATION LEVEL SERIALIZABLE");
+            $conn->beginTransaction();
 
-        $stmt = $conn->prepare("SELECT id FROM Utilizador WHERE username = ?");
-        $stmt->execute(array($username));
+            $stmt = $conn->prepare("INSERT INTO Utilizador(email, username, password) VALUES (?, ?, ?)");
+            $stmt->execute(array($email, $username,sha1($password)));
 
-        $userid = $stmt->fetch()['id'];
+            $stmt = $conn->prepare("SELECT id FROM Utilizador WHERE username = ?");
+            $stmt->execute(array($username));
+            $userid = $stmt->fetch()['id'];
 
-        $stmt2 = $conn->prepare("INSERT INTO Admin VALUES (?,?)");
-        $stmt2->execute(array($userid,$access));
+            $stmt2 = $conn->prepare("INSERT INTO Admin VALUES (?,?)");
+            $stmt2->execute(array($userid,$access));
+
+            $conn->commit();
+
+            return "Success! Admin created.";
+        }
+        catch (PDOException $e)
+        {
+            $conn->rollBack();
+            return "Error! Admin not created.";
+        }
 
         return;
     }
@@ -105,6 +130,24 @@
         $stmt->execute();
 
         return $stmt->fetchAll();
+    }
+
+    function getPostalCodes() {
+        global $conn;
+
+        $stmt = $conn->prepare("SELECT Postalcode.* FROM Postalcode");
+        $stmt->execute();
+
+        return $stmt->fetchAll();;
+    }
+
+    function getPostalCodeID($value) {
+        global $conn;
+
+        $stmt = $conn->prepare("SELECT Postalcode.id FROM Postalcode WHERE Postalcode.code = ?");
+        $stmt->execute(array($value));
+
+        return $stmt->fetch()['id'];
     }
 
 ?>

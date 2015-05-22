@@ -37,6 +37,9 @@
 <!-- Datepicker JavaScript -->
 <script src="{$BASE_URL}lib/datepicker/js/bootstrap-datepicker.js"></script>
 
+<!-- NOTY -->
+<script src="{$BASE_URL}lib/noty/jquery.noty.packaged.min.js"></script>
+
 {if isset($data.nav.dashboard) }
     <!-- Handlebars.js -->
     <script src="{$BASE_URL}lib/handlebars/handlebars-v3.0.3.js"></script>
@@ -49,6 +52,8 @@
     <script src="{$BASE_URL}lib/datatables.js/jquery.dataTables.min.js"></script>
     <script src="{$BASE_URL}js/admin_users.js"></script>
 {/if}
+
+<script src="{$BASE_URL}js/user.form.validation.js"></script>
 
 </body>
 </html>

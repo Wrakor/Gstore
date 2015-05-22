@@ -1,3 +1,23 @@
+function generate(type, text) {
+
+    var n = noty({
+        text        : text,
+        type        : type,
+        dismissQueue: true,
+        layout      : 'topRight',
+        closeWith   : ['hover','click'],
+        theme       : 'relax',
+        maxVisible  : 10,
+        animation   : {
+            open  : 'animated bounceInRight',
+            close : 'animated bounceOutRight',
+            easing: 'swing',
+            speed : 500
+        }
+    });
+    console.log('html: ' + n.options.id);
+}
+
 function toggleForm() {
 
     $(".row.data .table-ops a:first-child, .row.form .table-ops button:last-child").on("click",function () {
@@ -29,23 +49,25 @@ function toggleForm() {
 
 function setup_submit()
 {
-    //Callback handler for form submit event
     $( "#form-create-user" ).submit(function( event ) {
 
-        // Stop form from submitting normally
         event.preventDefault();
 
-        // Get some values from elements on the page:
         var $form = $( this ),
             send = $(this).serialize();
             url  = $form.attr( "action" );
 
-        // Send the data using post
-        var posting = $.post( url , send );
+        var posting = $.post( url, send, null, 'text');
 
-        // Put the results in a div
         posting.done(function( data ) {
-            console.log(data);
+            if ('Success' === data.substr( 0, 7 )) {
+                generate('success', data);
+            }
+            else {
+                generate('warning', data);
+            }
+        }).fail( function(xhr, textStatus, errorThrown) {
+                generate('error',"An error occured!");
         });
     });
 

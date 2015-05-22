@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-05-20 22:47:47
+<?php /* Smarty version Smarty-3.1.15, created on 2015-05-22 21:28:48
          compiled from "/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/common/admin_footer.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1249424758555c556fce15e2-20273609%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '4d217164ae7f9e8d6ad67866383cbafa8cae26a5' => 
     array (
       0 => '/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/common/admin_footer.tpl',
-      1 => 1432154702,
+      1 => 1432322925,
       2 => 'file',
     ),
   ),
@@ -66,6 +66,10 @@ lib/bootstrap/js/bootstrap.js"></script>
 <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 lib/datepicker/js/bootstrap-datepicker.js"></script>
 
+<!-- NOTY -->
+<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+lib/noty/jquery.noty.packaged.min.js"></script>
+
 <?php if (isset($_smarty_tpl->tpl_vars['data']->value['nav']['dashboard'])) {?>
     <!-- Handlebars.js -->
     <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
@@ -82,6 +86,9 @@ lib/datatables.js/jquery.dataTables.min.js"></script>
     <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 js/admin_users.js"></script>
 <?php }?>
+
+<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+js/user.form.validation.js"></script>
 
 </body>
 </html><?php }} ?>

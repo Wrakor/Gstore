@@ -50,13 +50,16 @@ tr td:first-child{
 
 @media (max-width: 990px)
 {
-
-
-
     .table-ops {
         float: right;
     }
     small{
         display: none;
     }
+}
+
+.form-group .help-text {
+    color: red;
+    font-size: 14px;
+    margin: 15px 0 0 15px;
 }
