@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-05-21 00:02:03
+<?php /* Smarty version Smarty-3.1.15, created on 2015-05-22 00:30:00
          compiled from "/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/admin/users.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2031788435555cede4889d16-39722515%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '5795fd1c50aeeb3c98b8bab7a0a0dda051871dbf' => 
     array (
       0 => '/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/admin/users.tpl',
-      1 => 1432159315,
+      1 => 1432247310,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'unifunc' => 'content_555cede4ae0cb3_59418491',
   'variables' => 
   array (
+    'BASE_URL' => 0,
     'data' => 0,
+    'type' => 0,
     'user' => 0,
   ),
   'has_nocache_code' => false,
@@ -38,19 +40,96 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
             <!-- Page Heading -->
             <div class="row">
+
                 <div class="col-lg-12">
                     <h1 class="page-header">
                         User Management <small> taking care of users since..</small>
                     </h1>
                 </div>
+
             </div>
 
-            <div class="row">
+            <div class="row form hide">
+                <div class="col-lg-1 col-md-1">
+
+                    <div class="btn-group-vertical table-ops" role="group">
+                        <button type="button" class="btn btn-success">
+                                <span class="fa-stack fa-lg">
+                                  <i class="fa fa-check fa-stack-2x"></i>
+                                </span>
+                        </button>
+                        <button type="button" class="btn btn-danger">
+                                <span class="fa-stack fa-lg">
+                                  <i class="fa fa-close fa-stack-2x"></i>
+                                </span>
+                        </button>
+                    </div>
+
+                </div>
+                <div class="col-lg-10 col-md-10 col-xs-10">
+
+                    <form id="form-create-user" name="form-create-user" action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+actions/admin/users.php" method="POST" enctype="multipart/form-data">
+                        <h2>New User <small> mostly for admin creation.. ofc</small></h2>
+                        <hr>
+                        <select class="form-control" name="access" id="access" tabindex="0">
+                            <option id="0">Select Access Level</option>
+                            <option id="1">Client</option>
+                            <?php  $_smarty_tpl->tpl_vars['type'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['type']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['data']->value['admintypes']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['type']->key => $_smarty_tpl->tpl_vars['type']->value) {
+$_smarty_tpl->tpl_vars['type']->_loop = true;
+?>
+                            <option id="<?php echo $_smarty_tpl->tpl_vars['type']->value['id']+1;?>
+"><?php echo $_smarty_tpl->tpl_vars['type']->value['name'];?>
+</option>
+                            <?php } ?>
+                        </select>
+                        <hr>
+
+                        <div class="form-group">
+                            <input type="text" name="username" id="username" class="form-control" placeholder="Display Name" tabindex="1" value="">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" id="email" class="form-control" placeholder="Email Address" tabindex="2" value="">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" id="password" class="form-control " placeholder="Password" tabindex="3">
+                        </div>
+
+                        <hr>
+
+                        <div class="form-client hide">
+                            <div class="form-group">
+                                    <input type="text" name="first" id="first" class="form-control " placeholder="First Name" tabindex="4" value="">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" name="last" id="last" class="form-control" placeholder="Last Name" tabindex="5" value="">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="address" name="address" id="address" class="form-control" placeholder="Address" tabindex="6" value="">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="postalcode" name="postal" id="postal" class="form-control" placeholder="Postal Code" tabindex="7" value="">
+                            </div>
+
+                            <hr>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div><!-- /.row -->
+
+            <div class="row data">
 
                 <div class="col-lg-1 col-md-1">
 
-                    <div class="btn-group-vertical" role="group" aria-label="...">
-                        <a type="button" class="btn btn-success" href="admin_create_user.php">
+                    <div class="btn-group-vertical table-ops" role="group">
+                        <a type="button" class="btn btn-success" href="#">
                                 <span class="fa-stack fa-lg">
                                   <i class="fa fa-user-plus fa-stack-2x"></i>
                                 </span>
