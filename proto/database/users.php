@@ -27,7 +27,7 @@
         catch (PDOException $e)
         {
             $conn->rollBack();
-            return "Error! Client not created.";
+            return "DB Error! Client not created.";
         }
 
         return;
@@ -40,14 +40,14 @@
             $conn->query("SET TRANSACTION ISOLATION LEVEL SERIALIZABLE");
             $conn->beginTransaction();
 
-            $stmt = $conn->prepare("INSERT INTO Utilizador(email, username, password) VALUES (?, ?, ?)");
-            $stmt->execute(array($email, $username,sha1($password)));
+            $stmt = $conn->prepare("INSERT INTO Utilizador(username, email, password) VALUES (?, ?, ?)");
+            $stmt->execute(array($username, $email, $password));
 
             $stmt = $conn->prepare("SELECT id FROM Utilizador WHERE username = ?");
             $stmt->execute(array($username));
             $userid = $stmt->fetch()['id'];
 
-            $stmt2 = $conn->prepare("INSERT INTO Admin VALUES (?,?)");
+            $stmt2 = $conn->prepare("INSERT INTO Admin(user_id,admin_type) VALUES (?,?)");
             $stmt2->execute(array($userid,$access));
 
             $conn->commit();
@@ -57,7 +57,7 @@
         catch (PDOException $e)
         {
             $conn->rollBack();
-            return "Error! Admin not created.";
+            return "DB Error! Admin not created.";
         }
 
         return;

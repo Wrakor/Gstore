@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-05-23 01:02:46
+<?php /* Smarty version Smarty-3.1.15, created on 2015-05-23 12:07:21
          compiled from "/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/admin/users.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2031788435555cede4889d16-39722515%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '5795fd1c50aeeb3c98b8bab7a0a0dda051871dbf' => 
     array (
       0 => '/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/admin/users.tpl',
-      1 => 1432335764,
+      1 => 1432375565,
       2 => 'file',
     ),
   ),
@@ -49,7 +49,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
             </div>
 
-            <div class="row form hide">
+            <div class="row form number1" style="display:none">
                 <div class="col-lg-1 col-md-1">
 
                     <div class="btn-group-vertical table-ops" role="group">
@@ -86,44 +86,44 @@ $_smarty_tpl->tpl_vars['type']->_loop = true;
 </option>
                                 <?php } ?>
                             </select>
-                            <p class="help-text hide">This is a sample of a help text!</p>
+                            <p class="help-text hide">Select another option!</p>
                         </div>
                         <hr>
 
                         <div class="form-group has-feedback">
                             <input type="text" name="username" id="username" class="form-control" placeholder="Display Name" tabindex="1" value="">
-                            <p class="help-text hide">This is a sample of a help text!</p>
+                            <p class="help-text hide">At least 2 simple letters/numbers! No spaces allowed.</p>
                         </div>
                         <div class="form-group has-feedback">
                             <input type="email" name="email" id="email" class="form-control" placeholder="Email Address" tabindex="2" value="">
-                            <p class="help-text hide">This is a sample of a help text!</p>
+                            <p class="help-text hide">Incorrect email format!</p>
                         </div>
                         <div class="form-group has-feedback">
                             <input type="password" name="password" id="password" class="form-control " placeholder="Password" tabindex="3">
-                            <p class="help-text hide">This is a sample of a help text!</p>
+                            <p class="help-text hide">At least 6 simple letters/numbers! No spaces allowed.</p>
                         </div>
 
                         <hr>
 
-                        <div class="form-client hide">
+                        <div class="form-client" style="display:none">
                             <div class="form-group has-feedback">
                                 <input type="text" name="first" id="first" class="form-control " placeholder="First Name" tabindex="4" value="">
-                                <p class="help-text hide">This is a sample of a help text!</p>
+                                <p class="help-text hide">At least 1 simple letter!</p>
                             </div>
 
                             <div class="form-group has-feedback">
                                 <input type="text" name="last" id="last" class="form-control" placeholder="Last Name" tabindex="5" value="">
-                                <p class="help-text hide">This is a sample of a help text!</p>
+                                <p class="help-text hide">At least 1 simple letter!</p>
                             </div>
 
                             <div class="form-group has-feedback">
                                 <input type="address" name="address" id="address" class="form-control" placeholder="Address" tabindex="6" value="">
-                                <p class="help-text hide">This is a sample of a help text!</p>
+                                <p class="help-text hide">At least 1 simple letter!</p>
                             </div>
 
                             <div class="form-group has-feedback">
                                 <input type="postalcode" name="postal" id="postal" class="form-control" placeholder="Postal Code" tabindex="7" value="">
-                                <p class="help-text hide">This is a sample of a help text!</p>
+                                <p class="help-text hide">Expecting the following format: NNNN-NNN</p>
                             </div>
 
                             <hr>
@@ -132,7 +132,92 @@ $_smarty_tpl->tpl_vars['type']->_loop = true;
                     </form>
 
                 </div>
-            </div><!-- /.row -->
+            </div><!-- /.row.form.number1 -->
+
+            <div class="row form number2" style="display:none">
+                <div class="col-lg-1 col-md-1">
+
+                    <div class="btn-group-vertical table-ops" role="group">
+                        <button type="button" class="btn btn-success">
+                                <span class="fa-stack fa-lg">
+                                  <i class="fa fa-check fa-stack-2x"></i>
+                                </span>
+                        </button>
+                        <button type="button" class="btn btn-danger">
+                                <span class="fa-stack fa-lg">
+                                  <i class="fa fa-close fa-stack-2x"></i>
+                                </span>
+                        </button>
+                    </div>
+
+                </div>
+                <div class="col-lg-10 col-md-10 col-xs-10">
+
+                    <form id="form-edit-user" name="form-create-user" action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+actions/admin/users.php" method="POST" enctype="multipart/form-data">
+                        <h2>Edit User <small> Editing dat data</small></h2>
+                        <hr>
+                        <div class="form-group has-feedback">
+                            <select class="form-control" name="access" id="access" tabindex="0">
+                                <option id="0">Select Access Level</option>
+                                <option id="1">Client</option>
+                                <?php  $_smarty_tpl->tpl_vars['type'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['type']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['data']->value['admintypes']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['type']->key => $_smarty_tpl->tpl_vars['type']->value) {
+$_smarty_tpl->tpl_vars['type']->_loop = true;
+?>
+                                    <option id="<?php echo $_smarty_tpl->tpl_vars['type']->value['id']+1;?>
+"><?php echo $_smarty_tpl->tpl_vars['type']->value['name'];?>
+</option>
+                                <?php } ?>
+                            </select>
+                            <p class="help-text hide">Select another option!</p>
+                        </div>
+                        <hr>
+
+                        <div class="form-group has-feedback">
+                            <input type="text" name="username" id="username" class="form-control" placeholder="Display Name" tabindex="1" value="">
+                            <p class="help-text hide">At least 2 simple letters/numbers! No spaces allowed.</p>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <input type="email" name="email" id="email" class="form-control" placeholder="Email Address" tabindex="2" value="">
+                            <p class="help-text hide">Incorrect email format!</p>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <input type="password" name="password" id="password" class="form-control " placeholder="Password" tabindex="3">
+                            <p class="help-text hide">At least 6 simple letters/numbers! No spaces allowed.</p>
+                        </div>
+
+                        <hr>
+
+                        <div class="form-client" style="display:none">
+                            <div class="form-group has-feedback">
+                                <input type="text" name="first" id="first" class="form-control " placeholder="First Name" tabindex="4" value="">
+                                <p class="help-text hide">At least 1 simple letter!</p>
+                            </div>
+
+                            <div class="form-group has-feedback">
+                                <input type="text" name="last" id="last" class="form-control" placeholder="Last Name" tabindex="5" value="">
+                                <p class="help-text hide">At least 1 simple letter!</p>
+                            </div>
+
+                            <div class="form-group has-feedback">
+                                <input type="address" name="address" id="address" class="form-control" placeholder="Address" tabindex="6" value="">
+                                <p class="help-text hide">At least 1 simple letter!</p>
+                            </div>
+
+                            <div class="form-group has-feedback">
+                                <input type="postalcode" name="postal" id="postal" class="form-control" placeholder="Postal Code" tabindex="7" value="">
+                                <p class="help-text hide">Expecting the following format: NNNN-NNN</p>
+                            </div>
+
+                            <hr>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div><!-- /.row.form.number2 -->
 
             <div class="row data">
 
@@ -144,7 +229,7 @@ $_smarty_tpl->tpl_vars['type']->_loop = true;
                                   <i class="fa fa-user-plus fa-stack-2x"></i>
                                 </span>
                         </a>
-                        <a type="button" class="btn btn-warning" href="admin_edit_user.php">
+                        <a type="button" class="btn btn-warning" href="#">
                                 <span class="fa-stack fa-lg">
                                   <i class="fa fa-edit fa-stack-2x"></i>
                                 </span>

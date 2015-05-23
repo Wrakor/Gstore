@@ -18,34 +18,58 @@ function generate(type, text) {
     console.log('html: ' + n.options.id);
 }
 
-function toggleForm() {
+function setup_interaction() {
 
-    $(".row.data .table-ops a:first-child, .row.form .table-ops button:last-child").on("click",function () {
-        if ( $(".row.data").hasClass("hide") )
-        {
-            $(".row.form").addClass("hide");
-            $(".row.data").removeClass("hide");
-        }
-        else
-        {
-            $('.row.form .form-client').addClass("hide");
-            $(".row.form select").prop('selectedIndex',0);
-            $(".row.form input").val('');
-            $(".row.form").removeClass("hide");
-            $(".row.data").addClass("hide");
-        }
+    $data  = $('.row.data');
+    $form  = $('.row.form');
+    $form1 = $('.row.form.number1');
+    $form2 = $('.row.form.number2');
+
+    $data.find(".table-ops a:nth-child(1)").on("click",function () {
+        $data.hide();
+        clean($form1);
+        $form1.show();
     });
 
-    $(".row.form select#access").change(function () {
+    $data.find(".table-ops a:nth-child(2)").on("click",function () {
+        $data.hide();
+        clean($form2);
+        $form2.show();
+    });
+
+    $form.find(".table-ops button:last-child").on("click",function () {
+        $form.hide();
+        $data.show();
+    });
+
+    $form1.find("select#access").on("change",function () {
 
         var id = $(this).children(":selected").attr("id");
+        var $extra = $form1.find('.form-client');
 
         if (id == '1')
-            $(".row.form .form-client.hide").removeClass("hide");
+            $extra.show();
         else
-            $('.row.form .form-client').addClass("hide");
+            $extra.hide();
     });
-};
+
+    $form2.find("select#access").on("change",function () {
+
+        var id = $(this).children(":selected").attr("id");
+        var $extra = $form2.find('.form-client');
+
+        if (id == '1')
+            $extra.show();
+        else
+            $extra.hide();
+    });
+}
+
+function clean($form) {
+    $form.find('select').prop('selectedIndex',0);
+    $form.find('input').val('');
+    $form.find('.form-client').hide();
+}
 
 function setup_submit()
 {
@@ -73,6 +97,7 @@ function setup_submit()
 
     $(".row.form .table-ops button:first-child").on('click',function(){
         $( "#form-create-user" ).submit();
+
     });
 };
 
@@ -80,7 +105,7 @@ function setup_submit()
 $(document).ready(function() {
     $('#example').DataTable();
 
-    toggleForm();
+    setup_interaction();
     setup_submit();
 
 });

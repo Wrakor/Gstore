@@ -4,14 +4,36 @@ include_once($BASE_DIR .'database/users.php');
 
 //echo "<pre>"; var_dump($_SESSION); echo "</pre>";
 
-function get_access_level() { return (!isset($_POST['access'])) ? false : ((is_access_client()) ? true : getAdminType($_POST['access'])); }
+function get_access_level() { return (!isset($_POST['access'])) ? false : ((is_access_client()) ? true : getAdminType($_POST['access'])['id']); }
 function is_access_client() { return strcmp('Client', $_POST['access'])==0; }
 
 function check_create_generic() { return isset($_POST['username']) && isset($_POST['email']) && isset($_POST['password']); }
 function check_create_client() { return isset($_POST['first']) && isset($_POST['last']) && isset($_POST['address']) && isset($_POST['postal']); }
 
-function validate_user_generic() {return true;}
-function validate_user_client() {return true;}
+function validate_user_generic() {
+
+    $regex_username = "/^[a-zA-Z0-9]{2,}$/i";
+    $regex_password = "/[a-zA-Z0-9]{6,}$/i";
+
+    return (
+        preg_match($regex_username, $_POST['username'])    &&
+        filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) &&
+        preg_match($regex_password, $_POST['password'])
+    );
+}
+function validate_user_client() {
+
+    $regex_name     = "/^[a-zA-Z]+([ ][a-zA-Z]+)*$/i";
+    $regex_address  = "/^[a-zA-Z]+([ ][a-zA-Z0-9]+)*$/i";
+    $regex_postal   = "/^[0-9]{4}[-][0-9]{3}$/i";
+
+    return (
+        preg_match($regex_name, $_POST['first'])      &&
+        preg_match($regex_name, $_POST['last'])       &&
+        preg_match($regex_address, $_POST['address']) &&
+        preg_match($regex_postal, $_POST['postal'])
+    );
+}
 
 function create(& $msg) {
 
@@ -30,7 +52,7 @@ function create(& $msg) {
 
             $username = $_POST['username'];
             $email    = $_POST['email'];
-            $password = $_POST['password'];
+            $password = sha1($_POST['password']);
 
             if ($access === true ) {
                 $name       = $_POST['first'].' '.$_POST['last'];
@@ -41,12 +63,12 @@ function create(& $msg) {
                 $msg = createClient($username,$email,$password,$name,$address,$postal4_id,$postal3);
             }
             else {
-                $msg = createAdmin($_POST['access'],$_POST['username'],$_POST['email'],$_POST['password']);
+                $msg = createAdmin($access,$username,$email,$password);
             }
         }
-        else $msg = "Error! fields are not valid.";
+        else $msg = "Syntax Error! fields are not valid.";
     }
-    else $msg = "Error! no required fields.";
+    else $msg = "Requirement Error! no required fields.";
 }
 
 
