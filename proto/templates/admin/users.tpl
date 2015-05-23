@@ -205,7 +205,7 @@
                 </div>
 
                 <div class="col-lg-10 col-md-10 col-xs-10">
-                <table id="example" class="display" cellspacing="0" width="100%">
+                <table id="datatable" class="display" cellspacing="0" width="100%">
                 <thead>
                 <tr>
                     <th><input type="checkbox"></th>

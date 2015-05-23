@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-05-23 12:07:21
+<?php /* Smarty version Smarty-3.1.15, created on 2015-05-23 23:20:25
          compiled from "/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/admin/users.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2031788435555cede4889d16-39722515%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '5795fd1c50aeeb3c98b8bab7a0a0dda051871dbf' => 
     array (
       0 => '/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/admin/users.tpl',
-      1 => 1432375565,
+      1 => 1432416010,
       2 => 'file',
     ),
   ),
@@ -249,7 +249,7 @@ $_smarty_tpl->tpl_vars['type']->_loop = true;
                 </div>
 
                 <div class="col-lg-10 col-md-10 col-xs-10">
-                <table id="example" class="display" cellspacing="0" width="100%">
+                <table id="datatable" class="display" cellspacing="0" width="100%">
                 <thead>
                 <tr>
                     <th><input type="checkbox"></th>

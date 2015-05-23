@@ -24,6 +24,7 @@ function setup_interaction() {
     $form  = $('.row.form');
     $form1 = $('.row.form.number1');
     $form2 = $('.row.form.number2');
+    $table = $('#datatable');
 
     $data.find(".table-ops a:nth-child(1)").on("click",function () {
         $data.hide();
@@ -63,6 +64,25 @@ function setup_interaction() {
         else
             $extra.hide();
     });
+
+    $table.find('tbody tr').on('click',function (){
+        var $checkbox = $(this).find('input[type="checkbox"]');
+        toggleCheckbox( $checkbox );
+    });
+
+    $table.find('thead tr input[type="checkbox"], tfoot tr input[type="checkbox"]').on('click',function () {
+        var $checkboxes = $table.find('tbody tr input[type="checkbox"]');
+        $checkboxes.each(function () {
+            toggleCheckbox( $(this) );
+        });
+    });
+}
+
+function toggleCheckbox($checkbox) {
+    if ( $checkbox.is( ":checked" ) )
+        $checkbox.prop( "checked", false );
+    else
+        $checkbox.prop( "checked", true );
 }
 
 function clean($form) {
@@ -103,7 +123,7 @@ function setup_submit()
 
 
 $(document).ready(function() {
-    $('#example').DataTable();
+    $('#datatable').DataTable();
 
     setup_interaction();
     setup_submit();
