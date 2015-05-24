@@ -67,3 +67,8 @@ tr td:first-child{
 table.dataTable.stripe tbody tr.odd, table.dataTable.display tbody tr.active-0{
     background-color: #FCB7A9;
 }
+
+table.dataTable.display tbody tr.odd.active-0 .sorting_1,
+table.dataTable.display tbody tr.even.active-0 .sorting_1{
+    background-color: #fc775f;
+}
