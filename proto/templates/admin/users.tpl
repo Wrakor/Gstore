@@ -38,7 +38,7 @@
                 </div>
                 <div class="col-lg-10 col-md-10 col-xs-10">
 
-                    <form id="form-create-user" name="form-create-user" action="{$BASE_URL}actions/admin/users.php" method="POST" enctype="multipart/form-data">
+                    <form id="form-create-user" name="form-create-user" action="{$BASE_URL}actions/admin/users.php?create" method="POST" enctype="multipart/form-data">
                         <h2>New User <small> mostly for admin creation.. ofc</small></h2>
                         <hr>
                         <div class="form-group has-feedback">
@@ -180,22 +180,22 @@
                 <div class="col-lg-1 col-md-1">
 
                     <div class="btn-group-vertical table-ops" role="group">
-                        <a type="button" class="btn btn-success" href="#">
+                        <button type="button" class="btn btn-success" href="#">
                                 <span class="fa-stack fa-lg">
                                   <i class="fa fa-user-plus fa-stack-2x"></i>
                                 </span>
-                        </a>
-                        <a type="button" class="btn btn-warning" href="#">
+                        </button>
+                        <button type="button" class="btn btn-warning" href="#" action="{$BASE_URL}actions/admin/users.php?edit">
                                 <span class="fa-stack fa-lg">
                                   <i class="fa fa-edit fa-stack-2x"></i>
                                 </span>
-                        </a>
-                        <button type="button" class="btn btn-info">
+                        </button>
+                        <button type="button" class="btn btn-info" action="{$BASE_URL}actions/admin/users.php?active">
                                 <span class="fa-stack fa-lg">
                                   <i class="fa fa-bolt fa-stack-2x"></i>
                                 </span>
                         </button>
-                        <button type="button" class="btn btn-danger">
+                        <button type="button" class="btn btn-danger" action="{$BASE_URL}actions/admin/users.php?inactive">
                                 <span class="fa-stack fa-lg">
                                   <i class="fa fa-ban fa-stack-2x"></i>
                                 </span>
@@ -233,10 +233,10 @@
                 <tbody>
 
                     {foreach $data.users as $user}
-                    <tr id="user-{$user.id}">
+                    <tr id="id-{$user.id}" class="active-{if $user.active == TRUE}1{else}0{/if}">
                         <td><input id="input-{$user.id}" type="checkbox"></td>
                         <td>{$user.id}</td>
-                        <td>{$user.access}</td>
+                        <td>{if !$user.access}Client{else}{$user.access}{/if}</td>
                         <td>{$user.email}</td>
                         <td>{$user.username}</td>
                         <td>{$user.registered}</td>

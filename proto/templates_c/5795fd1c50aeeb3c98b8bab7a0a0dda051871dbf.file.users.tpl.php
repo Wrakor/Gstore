@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-05-23 23:20:25
+<?php /* Smarty version Smarty-3.1.15, created on 2015-05-24 18:28:04
          compiled from "/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/admin/users.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2031788435555cede4889d16-39722515%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '5795fd1c50aeeb3c98b8bab7a0a0dda051871dbf' => 
     array (
       0 => '/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/admin/users.tpl',
-      1 => 1432416010,
+      1 => 1432484878,
       2 => 'file',
     ),
   ),
@@ -69,7 +69,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <div class="col-lg-10 col-md-10 col-xs-10">
 
                     <form id="form-create-user" name="form-create-user" action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-actions/admin/users.php" method="POST" enctype="multipart/form-data">
+actions/admin/users.php?create" method="POST" enctype="multipart/form-data">
                         <h2>New User <small> mostly for admin creation.. ofc</small></h2>
                         <hr>
                         <div class="form-group has-feedback">
@@ -224,22 +224,25 @@ $_smarty_tpl->tpl_vars['type']->_loop = true;
                 <div class="col-lg-1 col-md-1">
 
                     <div class="btn-group-vertical table-ops" role="group">
-                        <a type="button" class="btn btn-success" href="#">
+                        <button type="button" class="btn btn-success" href="#">
                                 <span class="fa-stack fa-lg">
                                   <i class="fa fa-user-plus fa-stack-2x"></i>
                                 </span>
-                        </a>
-                        <a type="button" class="btn btn-warning" href="#">
+                        </button>
+                        <button type="button" class="btn btn-warning" href="#" action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+actions/admin/users.php?edit">
                                 <span class="fa-stack fa-lg">
                                   <i class="fa fa-edit fa-stack-2x"></i>
                                 </span>
-                        </a>
-                        <button type="button" class="btn btn-info">
+                        </button>
+                        <button type="button" class="btn btn-info" action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+actions/admin/users.php?active">
                                 <span class="fa-stack fa-lg">
                                   <i class="fa fa-bolt fa-stack-2x"></i>
                                 </span>
                         </button>
-                        <button type="button" class="btn btn-danger">
+                        <button type="button" class="btn btn-danger" action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+actions/admin/users.php?inactive">
                                 <span class="fa-stack fa-lg">
                                   <i class="fa fa-ban fa-stack-2x"></i>
                                 </span>
@@ -281,14 +284,14 @@ $_smarty_tpl->tpl_vars['type']->_loop = true;
 foreach ($_from as $_smarty_tpl->tpl_vars['user']->key => $_smarty_tpl->tpl_vars['user']->value) {
 $_smarty_tpl->tpl_vars['user']->_loop = true;
 ?>
-                    <tr id="user-<?php echo $_smarty_tpl->tpl_vars['user']->value['id'];?>
-">
+                    <tr id="id-<?php echo $_smarty_tpl->tpl_vars['user']->value['id'];?>
+" class="active-<?php if ($_smarty_tpl->tpl_vars['user']->value['active']==true) {?>1<?php } else { ?>0<?php }?>">
                         <td><input id="input-<?php echo $_smarty_tpl->tpl_vars['user']->value['id'];?>
 " type="checkbox"></td>
                         <td><?php echo $_smarty_tpl->tpl_vars['user']->value['id'];?>
 </td>
-                        <td><?php echo $_smarty_tpl->tpl_vars['user']->value['access'];?>
-</td>
+                        <td><?php if (!$_smarty_tpl->tpl_vars['user']->value['access']) {?>Client<?php } else { ?><?php echo $_smarty_tpl->tpl_vars['user']->value['access'];?>
+<?php }?></td>
                         <td><?php echo $_smarty_tpl->tpl_vars['user']->value['email'];?>
 </td>
                         <td><?php echo $_smarty_tpl->tpl_vars['user']->value['username'];?>

@@ -1,7 +1,5 @@
 <?php
 
-
-
     function createClient($username,$email,$password,$name,$address,$postal4_id,$postal3) {
         global $conn;
 
@@ -132,6 +130,40 @@
         return $stmt->fetchAll();
     }
 
+    function setUserActive($id) {
+        global $conn;
+
+        try {
+            $stmt = $conn->prepare("UPDATE utilizador
+                                SET active = TRUE
+                                WHERE id = ?");
+            $stmt->execute(array($id));
+
+            return "Success! User state updated.";
+        }
+        catch (PDOException $e)
+        {
+            return "DB Error! User state not updated.";
+        }
+    }
+
+    function setUserInactive($id) {
+        global $conn;
+
+        try {
+            $stmt = $conn->prepare("UPDATE utilizador
+                                SET active = FALSE
+                                WHERE id = ?");
+            $stmt->execute(array($id));
+
+            return "Success! User state updated.";
+        }
+        catch (PDOException $e)
+        {
+            return "DB Error! User state not updated.";
+        }
+    }
+
     function getPostalCodes() {
         global $conn;
 
@@ -149,5 +181,7 @@
 
         return $stmt->fetch()['id'];
     }
+
+
 
 ?>

@@ -26,16 +26,79 @@ function setup_interaction() {
     $form2 = $('.row.form.number2');
     $table = $('#datatable');
 
-    $data.find(".table-ops a:nth-child(1)").on("click",function () {
+    $data.find(".table-ops button:nth-child(1)").on("click",function () {
         $data.hide();
         clean($form1);
         $form1.show();
     });
 
-    $data.find(".table-ops a:nth-child(2)").on("click",function () {
+    $data.find(".table-ops button:nth-child(2)").on("click",function () {
         $data.hide();
         clean($form2);
         $form2.show();
+
+        $table.find('tbody tr input:checked').each(function (){
+            var id = $(this).parent().parent().attr('id').substr(3);
+
+            $form2.append('<p>id:' + id + '</p>');
+
+            // apply here edit form for each
+        });
+    });
+
+    $data.find(".table-ops button:nth-child(3)").on("click",function () {
+
+        var button = $(this);
+
+        $table.find('tbody tr input:checked').each(function (){
+            var id = $(this).parent().parent().attr('id').substr(3);
+
+            //generate('information','id:' + id );
+
+            var send = $(this).serialize();
+            var url  = button.attr( "action" );
+
+            var posting = $.post( url, {active:'true', id:id}, null, 'text');
+
+            posting.done(function( data ) {
+                if ('Success' === data.substr( 0, 7 )) {
+                    generate('success', data);
+                }
+                else {
+                    generate('warning', data);
+                }
+            }).fail( function(xhr, textStatus, errorThrown) {
+                generate('error',"An error occured!");
+            });
+        });
+    });
+
+    $data.find(".table-ops button:nth-child(4)").on("click",function () {
+
+        var button = $(this);
+
+        $table.find('tbody tr input:checked').each(function (){
+            var id = $(this).parent().parent().attr('id').substr(3);
+
+            //generate('information','id:' + id );
+
+            var send = $(this).serialize();
+            var url  = button.attr( "action" );
+
+            var posting = $.post( url, {active:'false', id:id}, null, 'text');
+
+            posting.done(function( data ) {
+                if ('Success' === data.substr( 0, 7 )) {
+                    generate('success', data);
+                }
+                else {
+                    generate('warning', data);
+                }
+            }).fail( function(xhr, textStatus, errorThrown) {
+                generate('error',"An error occured!");
+            });
+        });
+
     });
 
     $form.find(".table-ops button:last-child").on("click",function () {
@@ -117,7 +180,6 @@ function setup_submit()
 
     $(".row.form .table-ops button:first-child").on('click',function(){
         $( "#form-create-user" ).submit();
-
     });
 };
 

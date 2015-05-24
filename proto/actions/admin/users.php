@@ -71,6 +71,46 @@ function create(& $msg) {
     else $msg = "Requirement Error! no required fields.";
 }
 
+function check_active_user(){ return isset($_POST['active']) && isset($_POST['id']); }
+function validate_active_user(){ return strcmp($_POST['active'],'true')==0  && is_numeric($_POST['id']); }
+
+function active(& $msg) {
+    $c_active = check_active_user();
+
+    if ( $c_active )
+    {
+        $v_active = validate_active_user();
+
+        if ( $v_active )
+        {
+            $id = (int) $_POST['id'];
+            $msg = setUserActive($id);
+        }
+        else $msg = "Syntax Error! fields are not valid.";
+
+    }
+    else $msg = "Requirement Error! no required fields.";
+}
+
+function validate_inactive_user(){ return strcmp($_POST['active'],'false')==0  && is_numeric($_POST['id']); }
+
+function inactive(& $msg) {
+    $c_inactive = check_active_user();
+
+    if ( $c_inactive )
+    {
+        $v_inactive = validate_inactive_user();
+
+        if ( $v_inactive )
+        {
+            $id = (int) $_POST['id'];
+            $msg = setUserInactive($id);
+        }
+        else $msg = "Syntax Error! fields are not valid.";
+
+    }
+    else $msg = "Requirement Error! no required fields.";
+}
 
 /*
  * Main Block
@@ -78,14 +118,14 @@ function create(& $msg) {
 
 // missing: verify session data is admin-user
 
-if (!isset($_GET['create']))
+if (isset($_GET['create']))
     create($msg);
-else if (!isset($_GET['edit']))
+else if (isset($_GET['edit']))
     ;
-else if (!isset($_GET['enable']))
-    ;
-else if (!isset($_GET['disable']))
-    ;
+else if (isset($_GET['active']))
+    active($msg);
+else if (isset($_GET['inactive']))
+    inactive($msg);
 else
     $msg = "There is no request like that available!";
 

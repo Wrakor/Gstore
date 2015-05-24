@@ -63,3 +63,7 @@ tr td:first-child{
     font-size: 14px;
     margin: 15px 0 0 15px;
 }
+
+table.dataTable.stripe tbody tr.odd, table.dataTable.display tbody tr.active-0{
+    background-color: #FCB7A9;
+}
