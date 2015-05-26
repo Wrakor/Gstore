@@ -88,18 +88,21 @@ function check(regex,$form,element) {
 }
 
 function flag($element) {
-    console.log($element);
-    $element.parent().addClass('has-error');
-    $element.next('.form-control-feedback').removeClass('glyphicon-ok');
-    $element.next('.form-control-feedback').addClass('glyphicon-remove');
-    $element.next('.help-text').removeClass('hide');
+    var $dad = $element.parent();
+    $dad.removeClass('has-success');
+    $dad.addClass('has-error');
+    $dad.find('.form-control-feedback').removeClass('glyphicon-ok');
+    $dad.find('.form-control-feedback').addClass('glyphicon-remove');
+    $dad.find('.help-text').removeClass('hide');
 }
 
 function unflag($element) {
-    $element.parent().removeClass('has-error');
-    $element.next('.form-control-feedback').removeClass('glyphicon-remove');
-    $element.next('.form-control-feedback').addClass('glyphicon-ok');
-    $element.next('.help-text').addClass('hide');
+    var $dad = $element.parent();
+    $dad.removeClass('has-error');
+    $dad.addClass('has-success');
+    $dad.find('.form-control-feedback').removeClass('glyphicon-remove');
+    $dad.find('.form-control-feedback').addClass('glyphicon-ok');
+    $dad.find('.help-text').addClass('hide');
 }
 
 function enableButton($form) { $form.parent().parent().find('.table-ops button:first-child').prop('disabled', false); }

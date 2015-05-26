@@ -1,3 +1,65 @@
+//var template_table = $('#datatable-template').html();
+//var view_table = Handlebars.compile(template_table); 
+
+jQuery.fn.redraw = function() {
+    return this.hide(0, function() {
+        $(this).show();
+    });
+};
+
+
+function update_table() {
+
+    $('#table-template-placeholder').empty();
+
+    $.getJSON("../../actions/admin/users.php?userList", {}
+
+    ).success(function( data ) {
+
+        var table = $('#datatable').DataTable();
+
+        table.clear();
+
+        for (var i=0; i<data.length; i++) {
+            var item = data[i];
+
+            table.row.add([
+                '<input id="input-'+item['id']+'" type="checkbox">',
+                item['id'],
+                (item['access'] == null ) ? 'Client' : item['access'],
+                item['email'],
+                item['username'],
+                item['registered'],
+                item['online'],
+                item['active']
+            ]).draw();
+
+        }
+
+    }).always(function(){
+            var $newRow = $('#table-template-placeholder').find('tr:not([id])');
+            $newRow.each(function(){
+                var id = $(':nth-child(2)', this).html();
+                var active = $(this).find(':last').html();
+                $(this).attr('id',"id-"+active);
+                $(this).addClass("active-"+active);
+            });
+
+            $('#datatable').hide().fadeIn('fast');
+
+
+            /*
+            var sel = document.getElementById('my_id');
+            sel.display='none';
+            sel.offsetHeight; // no need to store this anywhere, the reference is enough
+            sel.display='';
+            */
+    });
+
+
+
+};
+
 function generate(type, text) {
 
     var n = noty({
@@ -26,13 +88,13 @@ function setup_interaction() {
     $form2 = $('.row.form.number2');
     $table = $('#datatable');
 
-    $data.find(".table-ops button:nth-child(1)").on("click",function () {
+    $data.find(".table-ops").on("click",'button:nth-child(1)', function () {
         $data.hide();
         clean($form1);
         $form1.show();
     });
 
-    $data.find(".table-ops button:nth-child(2)").on("click",function () {
+    $data.find(".table-ops").on("click", 'button:nth-child(2)',function () {
         $data.hide();
         clean($form2);
         $form2.show();
@@ -40,18 +102,16 @@ function setup_interaction() {
         $table.find('tbody tr input:checked').each(function (){
             var id = $(this).parent().parent().attr('id').substr(3);
 
-            $form2.append('<p>id:' + id + '</p>');
-
             // apply here edit form for each
         });
     });
 
-    $data.find(".table-ops button:nth-child(3)").on("click",function () {
+    $data.find(".table-ops").on("click", 'button:nth-child(3)', function () {
 
         var button = $(this);
 
         $table.find('tbody tr input:checked').each(function (){
-            var id = $(this).parent().parent().attr('id').substr(3);
+            var id = $(this).attr('id').substr(6);
 
             //generate('information','id:' + id );
 
@@ -60,25 +120,26 @@ function setup_interaction() {
 
             var posting = $.post( url, {active:'true', id:id}, null, 'text');
 
-            posting.done(function( data ) {
+            posting.success(function( data ) {
                 if ('Success' === data.substr( 0, 7 )) {
                     generate('success', data);
+                    update_table();
                 }
                 else {
                     generate('warning', data);
                 }
-            }).fail( function(xhr, textStatus, errorThrown) {
+            }).error( function(xhr, textStatus, errorThrown) {
                 generate('error',"An error occured!");
             });
         });
     });
 
-    $data.find(".table-ops button:nth-child(4)").on("click",function () {
+    $data.find(".table-ops").on("click",'button:nth-child(4)', function () {
 
         var button = $(this);
 
         $table.find('tbody tr input:checked').each(function (){
-            var id = $(this).parent().parent().attr('id').substr(3);
+            var id = $(this).attr('id').substr(6);
 
             //generate('information','id:' + id );
 
@@ -87,26 +148,27 @@ function setup_interaction() {
 
             var posting = $.post( url, {active:'false', id:id}, null, 'text');
 
-            posting.done(function( data ) {
+            posting.success(function( data ) {
                 if ('Success' === data.substr( 0, 7 )) {
                     generate('success', data);
+                    update_table();
                 }
                 else {
                     generate('warning', data);
                 }
-            }).fail( function(xhr, textStatus, errorThrown) {
+            }).error( function(xhr, textStatus, errorThrown) {
                 generate('error',"An error occured!");
             });
         });
 
     });
 
-    $form.find(".table-ops button:last-child").on("click",function () {
+    $form.find(".table-ops").on("click",'button:last-child', function () {
         $form.hide();
         $data.show();
     });
 
-    $form1.find("select#access").on("change",function () {
+    $form1.on("change",'select#access',function () {
 
         var id = $(this).children(":selected").attr("id");
         var $extra = $form1.find('.form-client');
@@ -117,7 +179,7 @@ function setup_interaction() {
             $extra.hide();
     });
 
-    $form2.find("select#access").on("change",function () {
+    $form2.on("change",'select#access',function () {
 
         var id = $(this).children(":selected").attr("id");
         var $extra = $form2.find('.form-client');
@@ -128,12 +190,12 @@ function setup_interaction() {
             $extra.hide();
     });
 
-    $table.find('tbody tr').on('click',function (){
+    $table.find('tbody').on('click', 'tr',function (){
         var $checkbox = $(this).find('input[type="checkbox"]');
         toggleCheckbox( $checkbox );
     });
 
-    $table.find('thead tr input[type="checkbox"], tfoot tr input[type="checkbox"]').on('click',function () {
+    $table.find('thead tr, tfoot tr').on('click','input[type="checkbox"]',function () {
         var $checkboxes = $table.find('tbody tr input[type="checkbox"]');
         $checkboxes.each(function () {
             toggleCheckbox( $(this) );
@@ -166,19 +228,20 @@ function setup_submit()
 
         var posting = $.post( url, send, null, 'text');
 
-        posting.done(function( data ) {
+        posting.success(function( data ) {
             if ('Success' === data.substr( 0, 7 )) {
                 generate('success', data);
+                update_table();
             }
             else {
                 generate('warning', data);
             }
-        }).fail( function(xhr, textStatus, errorThrown) {
+        }).error( function(xhr, textStatus, errorThrown) {
                 generate('error',"An error occured!");
         });
     });
 
-    $(".row.form .table-ops button:first-child").on('click',function(){
+    $(".row.form .table-ops").on('click','button:first-child',function(){
         $( "#form-create-user" ).submit();
     });
 };
@@ -186,6 +249,7 @@ function setup_submit()
 
 $(document).ready(function() {
     $('#datatable').DataTable();
+    update_table();
 
     setup_interaction();
     setup_submit();

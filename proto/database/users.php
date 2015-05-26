@@ -117,7 +117,7 @@
     function getUsers() {
         global $conn;
 
-        $query = 'SELECT Utilizador.*, AdminType.name as access
+        $query = 'SELECT Utilizador.id, Utilizador.email, Utilizador.username, Utilizador.registered, Utilizador.online, Utilizador.active, AdminType.name as access
                   FROM Utilizador
                   LEFT JOIN Admin
                   ON Utilizador.id = Admin.user_id

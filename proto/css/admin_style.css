@@ -64,11 +64,12 @@ tr td:first-child{
     margin: 15px 0 0 15px;
 }
 
-table.dataTable.stripe tbody tr.odd, table.dataTable.display tbody tr.active-0{
+table.dataTable.stripe tbody tr.odd,
+table.dataTable.display tbody tr.active-false{
     background-color: #FCB7A9;
 }
 
-table.dataTable.display tbody tr.odd.active-0 .sorting_1,
-table.dataTable.display tbody tr.even.active-0 .sorting_1{
+table.dataTable.display tbody tr.odd.active-false .sorting_1,
+table.dataTable.display tbody tr.even.active-false .sorting_1{
     background-color: #fc775f;
 }

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-05-24 18:28:04
+<?php /* Smarty version Smarty-3.1.15, created on 2015-05-26 12:56:57
          compiled from "/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/admin/users.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2031788435555cede4889d16-39722515%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '5795fd1c50aeeb3c98b8bab7a0a0dda051871dbf' => 
     array (
       0 => '/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/admin/users.tpl',
-      1 => 1432484878,
+      1 => 1432637726,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'BASE_URL' => 0,
     'data' => 0,
     'type' => 0,
-    'user' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -262,6 +261,7 @@ actions/admin/users.php?inactive">
                     <th>Username</th>
                     <th>Registered</th>
                     <th>Online</th>
+                    <th>Active</th>
                 </tr>
                 </thead>
 
@@ -274,34 +274,13 @@ actions/admin/users.php?inactive">
                     <th>Username</th>
                     <th>Registered</th>
                     <th>Online</th>
+                    <th>Active</th>
                 </tr>
                 </tfoot>
 
-                <tbody>
+                <tbody id="table-template-placeholder">
 
-                    <?php  $_smarty_tpl->tpl_vars['user'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['user']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['data']->value['users']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['user']->key => $_smarty_tpl->tpl_vars['user']->value) {
-$_smarty_tpl->tpl_vars['user']->_loop = true;
-?>
-                    <tr id="id-<?php echo $_smarty_tpl->tpl_vars['user']->value['id'];?>
-" class="active-<?php if ($_smarty_tpl->tpl_vars['user']->value['active']==true) {?>1<?php } else { ?>0<?php }?>">
-                        <td><input id="input-<?php echo $_smarty_tpl->tpl_vars['user']->value['id'];?>
-" type="checkbox"></td>
-                        <td><?php echo $_smarty_tpl->tpl_vars['user']->value['id'];?>
-</td>
-                        <td><?php if (!$_smarty_tpl->tpl_vars['user']->value['access']) {?>Client<?php } else { ?><?php echo $_smarty_tpl->tpl_vars['user']->value['access'];?>
-<?php }?></td>
-                        <td><?php echo $_smarty_tpl->tpl_vars['user']->value['email'];?>
-</td>
-                        <td><?php echo $_smarty_tpl->tpl_vars['user']->value['username'];?>
-</td>
-                        <td><?php echo $_smarty_tpl->tpl_vars['user']->value['registered'];?>
-</td>
-                        <td><?php echo $_smarty_tpl->tpl_vars['user']->value['online'];?>
-</td>
-                    </tr>
-                    <?php } ?>
+
 
                 </tbody>
                 </table>

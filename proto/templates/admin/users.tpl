@@ -215,6 +215,7 @@
                     <th>Username</th>
                     <th>Registered</th>
                     <th>Online</th>
+                    <th>Active</th>
                 </tr>
                 </thead>
 
@@ -227,22 +228,13 @@
                     <th>Username</th>
                     <th>Registered</th>
                     <th>Online</th>
+                    <th>Active</th>
                 </tr>
                 </tfoot>
 
-                <tbody>
+                <tbody id="table-template-placeholder">
 
-                    {foreach $data.users as $user}
-                    <tr id="id-{$user.id}" class="active-{if $user.active == TRUE}1{else}0{/if}">
-                        <td><input id="input-{$user.id}" type="checkbox"></td>
-                        <td>{$user.id}</td>
-                        <td>{if !$user.access}Client{else}{$user.access}{/if}</td>
-                        <td>{$user.email}</td>
-                        <td>{$user.username}</td>
-                        <td>{$user.registered}</td>
-                        <td>{$user.online}</td>
-                    </tr>
-                    {/foreach}
+
 
                 </tbody>
                 </table>

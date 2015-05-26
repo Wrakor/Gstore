@@ -86,7 +86,7 @@ function active(& $msg) {
             $id = (int) $_POST['id'];
             $msg = setUserActive($id);
         }
-        else $msg = "Syntax Error! fields are not valid.";
+        else $msg = "Syntax Error! fields are not valid.".$_POST['id'];
 
     }
     else $msg = "Requirement Error! no required fields.";
@@ -112,6 +112,11 @@ function inactive(& $msg) {
     else $msg = "Requirement Error! no required fields.";
 }
 
+function userList(& $msg) {
+    $list = getUsers();
+    $msg = json_encode( $list );
+}
+
 /*
  * Main Block
  * * * * * * * */
@@ -126,6 +131,8 @@ else if (isset($_GET['active']))
     active($msg);
 else if (isset($_GET['inactive']))
     inactive($msg);
+else if (isset($_GET['userList']))
+    userList($msg);
 else
     $msg = "There is no request like that available!";
 
