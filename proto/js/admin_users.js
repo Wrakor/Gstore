@@ -1,12 +1,6 @@
 //var template_table = $('#datatable-template').html();
 //var view_table = Handlebars.compile(template_table); 
 
-jQuery.fn.redraw = function() {
-    return this.hide(0, function() {
-        $(this).show();
-    });
-};
-
 
 function update_table() {
 
@@ -44,8 +38,6 @@ function update_table() {
                 $(this).attr('id',"id-"+active);
                 $(this).addClass("active-"+active);
             });
-
-            $('#datatable').hide().fadeIn('fast');
 
     });
 
