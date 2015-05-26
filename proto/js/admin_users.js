@@ -47,13 +47,6 @@ function update_table() {
 
             $('#datatable').hide().fadeIn('fast');
 
-
-            /*
-            var sel = document.getElementById('my_id');
-            sel.display='none';
-            sel.offsetHeight; // no need to store this anywhere, the reference is enough
-            sel.display='';
-            */
     });
 
 
@@ -77,7 +70,7 @@ function generate(type, text) {
             speed : 500
         }
     });
-    console.log('html: ' + n.options.id);
+    //console.log('html: ' + n.options.id);
 }
 
 function setup_interaction() {
@@ -190,9 +183,15 @@ function setup_interaction() {
             $extra.hide();
     });
 
-    $table.find('tbody').on('click', 'tr',function (){
-        var $checkbox = $(this).find('input[type="checkbox"]');
-        toggleCheckbox( $checkbox );
+    $table.find('tbody').on('click', 'tr',function (e){
+        if (e.target.type == "checkbox") {
+            e.stopPropagation();
+        }
+        else {
+            //console.log($(this));
+            var $checkbox = $(this).find('input[type="checkbox"]');
+            toggleCheckbox($checkbox);
+        }
     });
 
     $table.find('thead tr, tfoot tr').on('click','input[type="checkbox"]',function () {
