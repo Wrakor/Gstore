@@ -61,6 +61,80 @@
         return;
     }
 
+    function editClient($id,$username,$email,$password,$name,$address,$postal4_id,$postal3) {
+        global $conn;
+
+        try {
+            $conn->query("SET TRANSACTION ISOLATION LEVEL SERIALIZABLE");
+            $conn->beginTransaction();
+
+            if ($password === false)
+            {
+                $stmt = $conn->prepare("UPDATE Utilizador
+                                        SET username=?, email=?
+                                        WHERE id = ?");
+                $stmt->execute(array($username, $email, $id));
+            }
+            else
+            {
+                $stmt = $conn->prepare("UPDATE Utilizador
+                                        SET username=?, email=?, password=?
+                                        WHERE id = ?");
+                $stmt->execute(array($username, $email, $password, $id));
+            }
+
+            $stmt = $conn->prepare("INSERT INTO Client
+                                        VALUES (?,?,?,?,?)");
+            $stmt->execute(array($id,$name,$address,$postal4_id,$postal3));
+
+            $conn->commit();
+
+            return "Success! Client edited.";
+        }
+        catch (PDOException $e)
+        {
+            $conn->rollBack();
+            return "DB Error! Client not edited.";
+        }
+
+        return;
+    }
+
+    function editAdmin($id,$username,$email,$password) {
+        global $conn;
+
+        try {
+            $conn->query("SET TRANSACTION ISOLATION LEVEL SERIALIZABLE");
+            $conn->beginTransaction();
+
+            if ($password === false)
+            {
+                $stmt = $conn->prepare("UPDATE Utilizador
+                                        SET username=?, email=?
+                                        WHERE id = ?");
+                $stmt->execute(array($username, $email, $id));
+            }
+            else
+            {
+                $stmt = $conn->prepare("UPDATE Utilizador
+                                        SET username=?, email=?, password=?
+                                        WHERE id = ?");
+                $stmt->execute(array($username, $email, $password, $id));
+            }
+
+            $conn->commit();
+
+            return "Success! Admin edited.";
+        }
+        catch (PDOException $e)
+        {
+            $conn->rollBack();
+            return "DB Error! Admin not edited.";
+        }
+
+        return;
+    }
+
     function isLoginCorrect($username, $password) {
         global $conn;
 
@@ -89,6 +163,19 @@
                                 ON Utilizador.id = Admin.user_id
                                 WHERE Utilizador.username = ?");
         $stmt->execute(array($username));
+
+        return $stmt->fetch() == true;
+    }
+
+    function isAdminID($id) {
+        global $conn;
+
+        $stmt = $conn->prepare("SELECT Utilizador.*, Admin.admin_type
+                                    FROM Utilizador
+                                    LEFT JOIN Admin
+                                    ON Utilizador.id = Admin.user_id
+                                    WHERE Utilizador.id = ?");
+        $stmt->execute(array($id));
 
         return $stmt->fetch() == true;
     }
@@ -128,6 +215,29 @@
         $stmt->execute();
 
         return $stmt->fetchAll();
+    }
+
+    function getUser($id) {
+        global $conn;
+
+        try {
+            $query = 'SELECT Utilizador.id, Utilizador.email, Utilizador.username, Utilizador.registered, Utilizador.online, Utilizador.active, AdminType.name as access
+                      FROM Utilizador
+                      LEFT JOIN Admin
+                      ON Utilizador.id = Admin.user_id
+                      LEFT JOIN AdminType
+                      ON Admin.admin_type = AdminType.id
+                      WHERE Utilizador.id = ?';
+            $stmt = $conn->prepare($query);
+            $stmt->execute(array($id));
+
+            return $stmt->fetch();
+        }
+        catch(PDOException $e){
+            return "DB Error! Could not get user data. ";
+        }
+
+
     }
 
     function setUserActive($id) {

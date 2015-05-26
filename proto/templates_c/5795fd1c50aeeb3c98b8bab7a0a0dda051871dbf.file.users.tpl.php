@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-05-26 12:56:57
+<?php /* Smarty version Smarty-3.1.15, created on 2015-05-27 00:41:42
          compiled from "/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/admin/users.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2031788435555cede4889d16-39722515%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '5795fd1c50aeeb3c98b8bab7a0a0dda051871dbf' => 
     array (
       0 => '/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/admin/users.tpl',
-      1 => 1432637726,
+      1 => 1432679950,
       2 => 'file',
     ),
   ),
@@ -152,9 +152,9 @@ $_smarty_tpl->tpl_vars['type']->_loop = true;
                 </div>
                 <div class="col-lg-10 col-md-10 col-xs-10">
 
-                    <form id="form-edit-user" name="form-create-user" action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-actions/admin/users.php" method="POST" enctype="multipart/form-data">
-                        <h2>Edit User <small> Editing dat data</small></h2>
+                    <form id="form-edit-user" name="form-edit-user" action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+actions/admin/users.php?edit" method="POST" enctype="multipart/form-data">
+                        <h2>Edit User <small> id:</small></h2>
                         <hr>
                         <div class="form-group has-feedback">
                             <select class="form-control" name="access" id="access" tabindex="0">
@@ -191,27 +191,24 @@ $_smarty_tpl->tpl_vars['type']->_loop = true;
 
                         <div class="form-client" style="display:none">
                             <div class="form-group has-feedback">
-                                <input type="text" name="first" id="first" class="form-control " placeholder="First Name" tabindex="4" value="">
+                                <input type="text" name="name" id="name" class="form-control " placeholder="Name" tabindex="4" value="">
+                                <p class="help-text hide">At least 2 simple letters separated by 1 space!</p>
+                            </div>
+
+                            <div class="form-group has-feedback">
+                                <input type="address" name="address" id="address" class="form-control" placeholder="Address" tabindex="5" value="">
                                 <p class="help-text hide">At least 1 simple letter!</p>
                             </div>
 
                             <div class="form-group has-feedback">
-                                <input type="text" name="last" id="last" class="form-control" placeholder="Last Name" tabindex="5" value="">
-                                <p class="help-text hide">At least 1 simple letter!</p>
-                            </div>
-
-                            <div class="form-group has-feedback">
-                                <input type="address" name="address" id="address" class="form-control" placeholder="Address" tabindex="6" value="">
-                                <p class="help-text hide">At least 1 simple letter!</p>
-                            </div>
-
-                            <div class="form-group has-feedback">
-                                <input type="postalcode" name="postal" id="postal" class="form-control" placeholder="Postal Code" tabindex="7" value="">
+                                <input type="postalcode" name="postal" id="postal" class="form-control" placeholder="Postal Code" tabindex="6" value="">
                                 <p class="help-text hide">Expecting the following format: NNNN-NNN</p>
                             </div>
 
                             <hr>
                         </div>
+
+                        <input type="hidden" id="id" name="id" value="">
 
                     </form>
 
@@ -229,7 +226,7 @@ $_smarty_tpl->tpl_vars['type']->_loop = true;
                                 </span>
                         </button>
                         <button type="button" class="btn btn-warning" href="#" action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-actions/admin/users.php?edit">
+actions/admin/users.php?userData">
                                 <span class="fa-stack fa-lg">
                                   <i class="fa fa-edit fa-stack-2x"></i>
                                 </span>

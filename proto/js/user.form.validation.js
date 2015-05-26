@@ -4,6 +4,8 @@ var regex_email    = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u0
 var regex_address  = new RegExp(/^[a-zA-Z]+([ ][a-zA-Z0-9]+)*$/i);
 var regex_postal   = new RegExp(/^[0-9]{4}[-][0-9]{3}$/i);
 var regex_password = new RegExp(/[a-zA-Z0-9]{6,}$/i);
+var regex_empty    = new RegExp(/^$/i);
+
 
 
 function setup(formName){
@@ -29,14 +31,14 @@ function validate(event)
 
         if (option === 0) {
 
-            console.log('select - 0');
+            //console.log('select - 0');
 
             flag( $select );
             disableButton($form);
         }
         else if (option === 1)
         {
-            console.log('select - 1');
+            //console.log('select - 1');
 
             unflag( $select );
 
@@ -56,7 +58,7 @@ function validate(event)
         }
         else if (option > 1)
         {
-            console.log('select - ' + option);
+            //console.log('select - ' + option);
 
             unflag( $select );
 
@@ -64,6 +66,55 @@ function validate(event)
                 check(regex_name, $form, '#username')     &&
                 check(regex_email, $form, '#email')       &&
                 check(regex_password, $form, '#password')
+            )
+                enableButton($form);
+            else
+                disableButton($form);
+        }
+
+    }
+
+    if (name === '#form-edit-user')
+    {
+        var $select = $form.find('select');
+        var option  = $select.find('option:selected').index('option');
+
+        if (option === 0) {
+
+            //console.log('select - 0');
+
+            flag( $select );
+            disableButton($form);
+        }
+        else if (option === 1)
+        {
+            //console.log('select - 1');
+
+            unflag( $select );
+
+            if (
+                check(regex_username, $form, '#username') &&
+                check(regex_email, $form, '#email')       &&
+                (check(regex_password, $form, '#password') || check(regex_empty, $form, '#password')) &&
+                check(regex_name, $form, '#name')         &&
+                check(regex_address, $form, '#address')   &&
+                check(regex_postal, $form, '#postal')
+
+            )
+                enableButton($form);
+            else
+                disableButton($form);
+        }
+        else if (option > 1)
+        {
+            //console.log('select - ' + option);
+
+            unflag( $select );
+
+            if (
+                check(regex_name, $form, '#username')     &&
+                check(regex_email, $form, '#email')       &&
+                (check(regex_password, $form, '#password') || check(regex_empty, $form, '#password'))
             )
                 enableButton($form);
             else
@@ -111,4 +162,5 @@ function disableButton($form) { $form.parent().parent().find('.table-ops button:
 $(document).ready(function()
 {
     setup('#form-create-user');
+    setup('#form-edit-user');
 });

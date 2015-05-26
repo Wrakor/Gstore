@@ -116,8 +116,8 @@
                 </div>
                 <div class="col-lg-10 col-md-10 col-xs-10">
 
-                    <form id="form-edit-user" name="form-create-user" action="{$BASE_URL}actions/admin/users.php" method="POST" enctype="multipart/form-data">
-                        <h2>Edit User <small> Editing dat data</small></h2>
+                    <form id="form-edit-user" name="form-edit-user" action="{$BASE_URL}actions/admin/users.php?edit" method="POST" enctype="multipart/form-data">
+                        <h2>Edit User <small> id:</small></h2>
                         <hr>
                         <div class="form-group has-feedback">
                             <select class="form-control" name="access" id="access" tabindex="0">
@@ -148,27 +148,24 @@
 
                         <div class="form-client" style="display:none">
                             <div class="form-group has-feedback">
-                                <input type="text" name="first" id="first" class="form-control " placeholder="First Name" tabindex="4" value="">
+                                <input type="text" name="name" id="name" class="form-control " placeholder="Name" tabindex="4" value="">
+                                <p class="help-text hide">At least 2 simple letters separated by 1 space!</p>
+                            </div>
+
+                            <div class="form-group has-feedback">
+                                <input type="address" name="address" id="address" class="form-control" placeholder="Address" tabindex="5" value="">
                                 <p class="help-text hide">At least 1 simple letter!</p>
                             </div>
 
                             <div class="form-group has-feedback">
-                                <input type="text" name="last" id="last" class="form-control" placeholder="Last Name" tabindex="5" value="">
-                                <p class="help-text hide">At least 1 simple letter!</p>
-                            </div>
-
-                            <div class="form-group has-feedback">
-                                <input type="address" name="address" id="address" class="form-control" placeholder="Address" tabindex="6" value="">
-                                <p class="help-text hide">At least 1 simple letter!</p>
-                            </div>
-
-                            <div class="form-group has-feedback">
-                                <input type="postalcode" name="postal" id="postal" class="form-control" placeholder="Postal Code" tabindex="7" value="">
+                                <input type="postalcode" name="postal" id="postal" class="form-control" placeholder="Postal Code" tabindex="6" value="">
                                 <p class="help-text hide">Expecting the following format: NNNN-NNN</p>
                             </div>
 
                             <hr>
                         </div>
+
+                        <input type="hidden" id="id" name="id" value="">
 
                     </form>
 
@@ -185,7 +182,7 @@
                                   <i class="fa fa-user-plus fa-stack-2x"></i>
                                 </span>
                         </button>
-                        <button type="button" class="btn btn-warning" href="#" action="{$BASE_URL}actions/admin/users.php?edit">
+                        <button type="button" class="btn btn-warning" href="#" action="{$BASE_URL}actions/admin/users.php?userData">
                                 <span class="fa-stack fa-lg">
                                   <i class="fa fa-edit fa-stack-2x"></i>
                                 </span>

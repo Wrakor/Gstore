@@ -1,6 +1,11 @@
-//var template_table = $('#datatable-template').html();
-//var view_table = Handlebars.compile(template_table); 
-
+function isJson(str) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
+}
 
 function update_table() {
 
@@ -41,8 +46,6 @@ function update_table() {
 
     });
 
-
-
 };
 
 function generate(type, text) {
@@ -80,14 +83,35 @@ function setup_interaction() {
     });
 
     $data.find(".table-ops").on("click", 'button:nth-child(2)',function () {
-        $data.hide();
-        clean($form2);
-        $form2.show();
 
-        $table.find('tbody tr input:checked').each(function (){
-            var id = $(this).parent().parent().attr('id').substr(3);
+        var button = $(this);
 
-            // apply here edit form for each
+        $table.find('tbody tr input:checked').slice(0,1).each(function (){
+            var id = $(this).attr('id').substr(6);
+
+            //generate('information','id:' + id );
+
+            var send = $(this).serialize();
+            var url  = button.attr( "action" );
+
+            var posting = $.post( url, {edit:'true', id:id}, null, 'text');
+
+            posting.success(function( data ) {
+                if ( isJson(data) ) {
+                    //generate('success', data);
+
+                    $data.hide();
+                    clean($form2);
+                    fill($form2,data);
+                    $form2.show();
+                }
+                else {
+                    generate('warning', data);
+                }
+            }).error( function(xhr, textStatus, errorThrown) {
+                generate('error',"An error occured!");
+            });
+
         });
     });
 
@@ -207,8 +231,52 @@ function clean($form) {
     $form.find('.form-client').hide();
 }
 
+function fill($form,data) {
+
+    var json = JSON.parse(data);
+    var index;
+
+    if (json['access'] == null)
+        index=1;
+    else {
+
+        index = 0;
+
+        $form.find('#access option').each(function(){
+            var value = $(this).val();
+            if (value == json['access'])
+                index = $(this).attr('id');
+        });
+    }
+
+    $form.find('#access').prop('selectedIndex',index);
+    $form.find('#access').change();
+    $form.find('#access').prop('disabled', true);
+
+    $form.find('h2 small').html('id: '+json['id']);
+    $form.find('#username').val(json['username']);
+    $form.find('#username').change();
+    $form.find('#email').val(json['email']);
+    $form.find('#email').change();
+
+    $form.find('#name').val(json['name']);
+    $form.find('#name').change();
+    $form.find('#address').val(json['address']);
+    $form.find('#address').change();
+    $form.find('#postal').val(json['postal']);
+    $form.find('#postal').change();
+
+    $form.find('#id').val(json['id']);
+}
+
 function setup_submit()
 {
+    $data  = $('.row.data');
+    $form  = $('.row.form');
+    $form1 = $('.row.form.number1');
+    $form2 = $('.row.form.number2');
+    $table = $('#datatable');
+
     $( "#form-create-user" ).submit(function( event ) {
 
         event.preventDefault();
@@ -223,6 +291,10 @@ function setup_submit()
             if ('Success' === data.substr( 0, 7 )) {
                 generate('success', data);
                 update_table();
+
+                $form1.hide();
+                clean($form1);
+                $data.show();
             }
             else {
                 generate('warning', data);
@@ -232,8 +304,39 @@ function setup_submit()
         });
     });
 
-    $(".row.form .table-ops").on('click','button:first-child',function(){
+    $(".row.form.number1 .table-ops").on('click','button:first-child',function(){
         $( "#form-create-user" ).submit();
+    });
+
+    $( "#form-edit-user" ).submit(function( event ) {
+
+        event.preventDefault();
+
+        var $form = $( this ),
+            send = $(this).serialize();
+        url  = $form.attr( "action" );
+
+        var posting = $.post( url, send, null, 'text');
+
+        posting.success(function( data ) {
+            if ('Success' === data.substr( 0, 7 )) {
+                generate('success', data);
+                update_table();
+
+                $form2.hide();
+                clean($form2);
+                $data.show();
+            }
+            else {
+                generate('warning', data);
+            }
+        }).error( function(xhr, textStatus, errorThrown) {
+            generate('error',"An error occured!");
+        });
+    });
+
+    $(".row.form.number2 .table-ops").on('click','button:first-child',function(){
+        $( "#form-edit-user" ).submit();
     });
 };
 
