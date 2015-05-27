@@ -25,6 +25,7 @@
         catch (PDOException $e)
         {
             $conn->rollBack();
+            errorLog("createClient",$e);
             return "DB Error! Client not created.";
         }
 
@@ -55,6 +56,7 @@
         catch (PDOException $e)
         {
             $conn->rollBack();
+            errorLog("createAdmin",$e);
             return "DB Error! Admin not created.";
         }
 
@@ -94,6 +96,7 @@
         catch (PDOException $e)
         {
             $conn->rollBack();
+            errorLog("editClient",$e);
             return "DB Error! Client not edited.";
         }
 
@@ -129,6 +132,7 @@
         catch (PDOException $e)
         {
             $conn->rollBack();
+            errorLog("editAdmin",$e);
             return "DB Error! Admin not edited.";
         }
 
@@ -253,6 +257,7 @@
         }
         catch (PDOException $e)
         {
+            errorLog("setUserActive",$e);
             return "DB Error! User state not updated.";
         }
     }
@@ -270,6 +275,7 @@
         }
         catch (PDOException $e)
         {
+            errorLog("setUserInactive",$e);
             return "DB Error! User state not updated.";
         }
     }
