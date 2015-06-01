@@ -58,9 +58,7 @@
                         <span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart
                     </button>
 
-                    <button type="button" class="btn btn-lg btn-primary btn-block" type="submit" href="#">
-                        <span class="glyphicon glyphicon-heart"></span> Add to Wishlist
-                    </button>
+                    <a href="{$BASE_URL}actions/users/addToWishlist.php?id={$data.product.id}" class="btn btn-primary btn-block" role="button"> <span class="glyphicon glyphicon-heart"></span> Add to Wishlist</a>
                 </div>
 
             </div>

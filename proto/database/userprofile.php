@@ -51,4 +51,11 @@ function getBuyOrders($user_id) {
 
     return $stmt->fetchAll();
 }
+
+function addToWishlist($user_id, $product_id) {
+    global $conn;
+    $query = 'INSERT INTO Wishlist(client_id, product_id) VALUES (?, ?)';
+    $stmt = $conn->prepare($query);
+    $stmt->execute(array($user_id, $product_id));
+}
 ?>
