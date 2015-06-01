@@ -58,4 +58,11 @@ function addToWishlist($user_id, $product_id) {
     $stmt = $conn->prepare($query);
     $stmt->execute(array($user_id, $product_id));
 }
+
+function addToFavorites($user_id, $product_id) {
+    global $conn;
+    $query = 'INSERT INTO Favorites(client_id, product_id) VALUES (?, ?)';
+    $stmt = $conn->prepare($query);
+    $stmt->execute(array($user_id, $product_id));
+}
 ?>

@@ -58,7 +58,9 @@
                         <span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart
                     </button>
 
-                    <a href="{$BASE_URL}actions/users/addToWishlist.php?id={$data.product.id}" class="btn btn-primary btn-block" role="button"> <span class="glyphicon glyphicon-heart"></span> Add to Wishlist</a>
+                    <a href="{$BASE_URL}actions/users/addToWishlist.php?id={$data.product.id}" class="btn btn-primary btn-block" role="button"> <span class="glyphicon glyphicon-ok-circle" style="color:white"></span> Add to Wishlist</a>
+
+                    <a href="{$BASE_URL}actions/users/addToFavorites.php?id={$data.product.id}" class="btn btn-danger btn-block" role="button"> <span class="glyphicon glyphicon-heart" style="color:white"></span> Add to Favorites</a>
                 </div>
 
             </div>
