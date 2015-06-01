@@ -27,6 +27,25 @@
 {/literal}
 {/if}
 
+{if isset($data.nav.users) }
+{literal}
+    <script id="datatable-template" type="text/x-handlebars-template">
+
+        {{#each this}}
+        <tr id="id-{{id}}" class="active-{{#if active}}1{{else}}0{{/if}}">
+            <td><input id="input-{{id}}" type="checkbox"></td>
+            <td>{{id}}</td>
+            <td>{{#if access}}{{access}}{{else}}Client{{/if}}</td>
+            <td>{{email}}</td>
+            <td>{{username}}</td>
+            <td>{{registered}}</td>
+            <td>{{online}}</td>
+        </tr>
+        {{/each}}
+
+    </script>
+{/literal}
+{/if}
 
 <!-- jQuery -->
 <script src="{$BASE_URL}lib/jquery/jquery.min.js"></script>
@@ -40,10 +59,10 @@
 <!-- NOTY -->
 <script src="{$BASE_URL}lib/noty/jquery.noty.packaged.min.js"></script>
 
-{if isset($data.nav.dashboard) }
-    <!-- Handlebars.js -->
-    <script src="{$BASE_URL}lib/handlebars/handlebars-v3.0.3.js"></script>
+<!-- Handlebars.js -->
+<script src="{$BASE_URL}lib/handlebars/handlebars-v3.0.3.js"></script>
 
+{if isset($data.nav.dashboard) }
     <!-- Custom javascript -->
     <script src="{$BASE_URL}js/admin_dashboard.js"></script>
 {/if}
@@ -51,9 +70,10 @@
 {if isset($data.nav.users) }
     <script src="{$BASE_URL}lib/datatables.js/jquery.dataTables.min.js"></script>
     <script src="{$BASE_URL}js/admin_users.js"></script>
+    <script src="{$BASE_URL}js/user.form.validation.js"></script>
 {/if}
 
-<script src="{$BASE_URL}js/user.form.validation.js"></script>
+
 
 </body>
 </html>

@@ -4,7 +4,6 @@
 
     unset($data);
 
-    $data['users'] = getUsers();
     $data['admintypes'] = getAdminTypes();
 
     $data['nav']['users'] = true;

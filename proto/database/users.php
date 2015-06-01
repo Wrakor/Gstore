@@ -25,6 +25,7 @@
         catch (PDOException $e)
         {
             $conn->rollBack();
+            errorLog("createClient",$e);
             return "DB Error! Client not created.";
         }
 
@@ -55,7 +56,84 @@
         catch (PDOException $e)
         {
             $conn->rollBack();
+            errorLog("createAdmin",$e);
             return "DB Error! Admin not created.";
+        }
+
+        return;
+    }
+
+    function editClient($id,$username,$email,$password,$name,$address,$postal4_id,$postal3) {
+        global $conn;
+
+        try {
+            $conn->query("SET TRANSACTION ISOLATION LEVEL SERIALIZABLE");
+            $conn->beginTransaction();
+
+            if ($password === false)
+            {
+                $stmt = $conn->prepare("UPDATE Utilizador
+                                        SET username=?, email=?
+                                        WHERE id = ?");
+                $stmt->execute(array($username, $email, $id));
+            }
+            else
+            {
+                $stmt = $conn->prepare("UPDATE Utilizador
+                                        SET username=?, email=?, password=?
+                                        WHERE id = ?");
+                $stmt->execute(array($username, $email, $password, $id));
+            }
+
+            $stmt = $conn->prepare("INSERT INTO Client
+                                        VALUES (?,?,?,?,?)");
+            $stmt->execute(array($id,$name,$address,$postal4_id,$postal3));
+
+            $conn->commit();
+
+            return "Success! Client edited.";
+        }
+        catch (PDOException $e)
+        {
+            $conn->rollBack();
+            errorLog("editClient",$e);
+            return "DB Error! Client not edited.";
+        }
+
+        return;
+    }
+
+    function editAdmin($id,$username,$email,$password) {
+        global $conn;
+
+        try {
+            $conn->query("SET TRANSACTION ISOLATION LEVEL SERIALIZABLE");
+            $conn->beginTransaction();
+
+            if ($password === false)
+            {
+                $stmt = $conn->prepare("UPDATE Utilizador
+                                        SET username=?, email=?
+                                        WHERE id = ?");
+                $stmt->execute(array($username, $email, $id));
+            }
+            else
+            {
+                $stmt = $conn->prepare("UPDATE Utilizador
+                                        SET username=?, email=?, password=?
+                                        WHERE id = ?");
+                $stmt->execute(array($username, $email, $password, $id));
+            }
+
+            $conn->commit();
+
+            return "Success! Admin edited.";
+        }
+        catch (PDOException $e)
+        {
+            $conn->rollBack();
+            errorLog("editAdmin",$e);
+            return "DB Error! Admin not edited.";
         }
 
         return;
@@ -93,6 +171,19 @@
         return $stmt->fetch() == true;
     }
 
+    function isAdminID($id) {
+        global $conn;
+
+        $stmt = $conn->prepare("SELECT Utilizador.*, Admin.admin_type
+                                    FROM Utilizador
+                                    LEFT JOIN Admin
+                                    ON Utilizador.id = Admin.user_id
+                                    WHERE Utilizador.id = ?");
+        $stmt->execute(array($id));
+
+        return $stmt->fetch() == true;
+    }
+
     function getAdminTypes() {
         global $conn;
 
@@ -117,7 +208,7 @@
     function getUsers() {
         global $conn;
 
-        $query = 'SELECT Utilizador.*, AdminType.name as access
+        $query = 'SELECT Utilizador.id, Utilizador.email, Utilizador.username, Utilizador.registered, Utilizador.online, Utilizador.active, AdminType.name as access
                   FROM Utilizador
                   LEFT JOIN Admin
                   ON Utilizador.id = Admin.user_id
@@ -128,6 +219,29 @@
         $stmt->execute();
 
         return $stmt->fetchAll();
+    }
+
+    function getUser($id) {
+        global $conn;
+
+        try {
+            $query = 'SELECT Utilizador.id, Utilizador.email, Utilizador.username, Utilizador.registered, Utilizador.online, Utilizador.active, AdminType.name as access
+                      FROM Utilizador
+                      LEFT JOIN Admin
+                      ON Utilizador.id = Admin.user_id
+                      LEFT JOIN AdminType
+                      ON Admin.admin_type = AdminType.id
+                      WHERE Utilizador.id = ?';
+            $stmt = $conn->prepare($query);
+            $stmt->execute(array($id));
+
+            return $stmt->fetch();
+        }
+        catch(PDOException $e){
+            return "DB Error! Could not get user data. ";
+        }
+
+
     }
 
     function setUserActive($id) {
@@ -143,6 +257,7 @@
         }
         catch (PDOException $e)
         {
+            errorLog("setUserActive",$e);
             return "DB Error! User state not updated.";
         }
     }
@@ -160,6 +275,7 @@
         }
         catch (PDOException $e)
         {
+            errorLog("setUserInactive",$e);
             return "DB Error! User state not updated.";
         }
     }
