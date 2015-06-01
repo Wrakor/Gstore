@@ -7,7 +7,6 @@ var regex_password = new RegExp(/[a-zA-Z0-9]{6,}$/i);
 var regex_empty    = new RegExp(/^$/i);
 
 
-
 function setup(formName){
 
     var $form = $(formName);
