@@ -7,7 +7,7 @@ if ( isset($_GET) ) {
 
     //echo "<pre>"; var_dump($_GET); echo "</pre>";
 
-    $data = getAllProducts();
+    $data = getAllGames();
     $json = json_encode( $data );
 
     echo $json;
