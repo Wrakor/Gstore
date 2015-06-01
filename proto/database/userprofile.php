@@ -65,4 +65,10 @@ function addToFavorites($user_id, $product_id) {
     $stmt = $conn->prepare($query);
     $stmt->execute(array($user_id, $product_id));
 }
+
+function addReview($user_id, $product_id, $score, $comment) {
+    global $conn;
+    $query = 'INSERT INTO Review(user_id, product_id, score, comment) VALUES(?,?,?,?)';
+    $stmt = $conn->prepare($query);
+    $stmt->execute(array($user_id, $product_id, $score, $comment));}
 ?>
