@@ -477,6 +477,7 @@ function getCities(){
         type: "POST",
         data : {district :  $("#districtformselect option:selected").val()},
         success: function (dataCheck) {
+            alert(dataCheck);
             parse = JSON.parse(dataCheck);
             for(var i=0;i<parse.length;i++)
                 $('#cityformselect').append('<option value=\"'+parse[i]["name"]+'\">'+parse[i]["name"]+'</option>');
