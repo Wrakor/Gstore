@@ -9,7 +9,14 @@ $target_dir = $BASE_DIR."database/userimg/";
 $target_file = $target_dir . $user;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
-move_uploaded_file($_FILES["userfile"]["tmp_name"], $target_file);
+
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+    && $imageFileType != "gif" ) {
+    if ($_FILES["fileToUpload"]["size"] < 500000) {
+        move_uploaded_file($_FILES["userfile"]["tmp_name"], $target_file);
+    }
+    }
+
 
 
 

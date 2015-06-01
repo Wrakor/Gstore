@@ -1,8 +1,9 @@
 <?php
-    include_once('../../config/init.php');
-    include_once($BASE_DIR .'database/products.php');
+    include_once('../config/init.php');
+    include_once('/Users/cenas/PhpstormProjects/lbaw/src/proto/database/products.php');
 
-    //echo "<pre>"; var_dump($_SESSION); echo "</pre>";
+    echo "<pre>"; var_dump($BASE_DIR); echo "</pre>";
+echo "<pre>"; var_dump($_SERVER); echo "</pre>";
 
     if( isset($_GET['cat']) ) {
         $products = array_merge( getAllGamesFromGameCategory($_GET['cat']) , getAllRelatedProductsFromRelatedProductCategory($_GET['cat']) );

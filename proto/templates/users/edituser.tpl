@@ -2,6 +2,8 @@
 {include file='common/header.tpl'}
 
 {include file='common/nav.tpl'}
+
+
 <div class="container" xmlns="http://www.w3.org/1999/html">
     <div class="row">
 
@@ -32,28 +34,24 @@
 
                     <div class="row">
                         <div class="col-md-3" style="text-align: center;">
-                            <img data-src="holder.js/140x140" class="img-circle img-thumbnail" alt="140x140" style="width: 140px; height: 140px;" src="{$BASE_URL}database/userimg/{$USERNAME}" onerror="this.src='{$BASE_URL}database/userimg/default';" data-holder-rendered="true">
-                            <form enctype="multipart/form-data" action="{$BASE_URL}actions/users/userimageupload.php" method="POST">
+                            <img id="photousr" data-src="holder.js/140x140" class="img-circle img-thumbnail" alt="140x140"  style="width: 140px; height: 140px;" src="{$BASE_URL}database/userimg/{$USERNAME}" onerror="this.src='{$BASE_URL}database/userimg/default';" data-holder-rendered="true">
                                 <input type="hidden" name="MAX_FILE_SIZE" value="300000" />
                                 <input name="userfile" class="btn btn-info btn-block" id="userfile" type="file" style="display: none;"/>
-                                <input type="submit" class="btn btn-info btn-block" value="Upload" name="submit" />
-                            </form>
+                                <a class="btn btn-info btn-block" onclick="updatePhoto('{$BASE_URL}database/userimg/{$USERNAME}','{$BASE_URL}actions/users/userimageupload.php')">Change photo</a>
                             <!--<a href="profile.php" class="btn btn-info btn-block">Change photo</a>-->
                         </div>
                         <div class="col-md-9">
                             <div class="table-responsive borderless">
                                 <table class="table table-hover">
                                     <tbody>
-
-                                    <tr>
-                                        <th scope="row">Name</th>
-                                        <td>
-                                            <input type="text" name="name" id="name" class="form-control" placeholder="Name" tabindex="1" value="{$data.userinfo[0].name}">
-                                        </td>
-                                    </tr>
                                     <tr>
                                         <th scope="row">Username</th>
                                         <td>{$data.userinfo[0].username}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Name</th>
+                                        <td><input type="text" name="name" id="name" class="form-control" placeholder="Name" tabindex="1" value="{$data.userinfo[0].name}">
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Email</th>
@@ -64,33 +62,47 @@
                                         <td><input type="password" name="newpassword" id="newpassword" class="form-control" placeholder="New Password" tabindex="8"></td>
 
                                     </tr>
+
                                     <tr>
-                                        <th scope="row">Country</th>
+                                        <th scope="row">Address</th>
+                                        <div>
+                                        <td><input type="text" name="address" id="address" class="form-control" placeholder="Address" tabindex="9" value="{$data.userinfo[0].address}"></td>
+                                        </div>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">District</th>
                                         <td>
-                                            <div class="form-group">
-                                                <select class="form-control">
-                                                    <option value="1">Portugal</option>
-                                                    <option value="0">Select Country</option>
-                                                    <option value="2">Spain</option>
+                                            <div class="form-group" width="200px"">
+                                                <select id="districtformselect" class="form-control">
+                                                    <option value="{$data.userinfo[0].district}" selected="selected">{$data.userinfo[0].district}</option>
                                                 </select>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Address</th>
-                                        <td><input type="text" name="address" id="address" class="form-control" placeholder="Address" tabindex="9" value="{$data.userinfo[0].address}"></td>
-                                    </tr>
-                                    <tr>
                                         <th scope="row">City</th>
-                                        <td><input type="text" name="city" id="city" class="form-control" placeholder="City" tabindex="10" value="{$data.userinfo[0].city}"></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">District</th>
-                                        <td><input type="text" name="district" id="district" class="form-control" placeholder="District" tabindex="11" value="{$data.userinfo[0].district}"></td>
+                                        <td>
+                                            <div class="form-group" width="200px">
+                                                <select id="cityformselect" class="form-control">
+                                                    <option value="{$data.userinfo[0].city}" selected="selected">{$data.userinfo[0].city}</option>
+                                                </select>
+                                            </div>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Postal Code</th>
-                                        <td><input type="text" name="postal_code" id="postal_code" class="form-control" placeholder="Postal Code" tabindex="12" value="{$data.userinfo[0].postalcode}"></td>
+                                        <td><div class="form-group" style="width: 70px!important; display:-webkit-inline-box">
+                                                <select id="postalcodeformselect" class="form-control">
+                                                    <option value="{$data.userinfo[0].postalcode}" selected="selected">{$data.userinfo[0].postalcode}</option>
+                                                </select>
+                                                <label style="
+                                                       margin-left: 8px;
+                                                       margin-right: 8px;" > - </label>
+                                                <select id="postalcodeextraformselect" class="form-control">
+                                                    <option value="00" selected="selected">000</option>
+                                                </select>
+                                            </div>
+                                        </td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -110,3 +122,4 @@
 </div><!-- /.container -->
 
 {include file='common/footer.tpl'}
+<script src="{$BASE_URL}js/script4.js"></script>

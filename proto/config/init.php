@@ -8,6 +8,8 @@ session_start();
     $SCHEMA = "teste";
     $SUB_FOLDER = 'proto/';
 
+
+
     if( strcmp($_SERVER['SERVER_NAME'],'gnomo.fe.up.pt')==0 )
     {
 
@@ -18,9 +20,14 @@ session_start();
     }
     else if (strcmp($_SERVER['SERVER_NAME'],'localhost')==0)
     {
+        //$BASE_DIR = "/Users/jrsc/BitBucket/lbaw1433/src/" . $SUB_FOLDER;
+      //  if(!is_dir($BASE_DIR)){
+        $BASE_DIR = "/Users/cenas/PhpstormProjects/lbaw/src".$SUB_FOLDER;
+      //  }
 
-        $BASE_DIR = "/Users/jrsc/BitBucket/lbaw1433/src/" . $SUB_FOLDER;
+
         $BASE_URL = '/' . $SUB_FOLDER;
+
 
         //echo "localhost";
         //echo "<pre>"; var_dump($_SERVER); echo "</pre>";
@@ -33,6 +40,7 @@ session_start();
         echo "erro";
         echo "<pre>"; var_dump($_SERVER); echo "</pre>";
     }
+
 
     $conn = new PDO('pgsql:host=vdbm.fe.up.pt;dbname=lbaw1433', 'lbaw1433', 'jK116op5');
     $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);

@@ -352,6 +352,7 @@ function validateLogin() {
 
 $(document).ready(function()
 {
+
     $('#loginAccount').prop('disabled', true);
     $('#registeraccount').prop('disabled', true);
 
@@ -416,4 +417,70 @@ $(document).ready(function()
         validatePasswordLogin();
         validateLogin();
     });
+
+
 });
+
+
+
+function getDistricts(){
+$.ajax({
+    url : "../../actions/users/getDistrict.php",
+    type: "POST",
+    success: function (dataCheck) {
+        parse = JSON.parse(dataCheck);
+        for(var i=0;i<parse.length;i++)
+            $('#districtformselect').append('<option value=\"'+parse[i]["name"]+'\">'+parse[i]["name"]+'</option>');
+    }
+});
+
+$.ajax({
+    url : "../../actions/users/getCities.php",
+    type: "POST",
+    data : {district :  $("#districtformselect option:selected").val()},
+    success: function (dataCheck) {
+        parse = JSON.parse(dataCheck);
+        for(var i=0;i<parse.length;i++)
+            $('#cityformselect').append('<option value=\"parse[i]["name"]\">'+parse[i]["name"]+'</option>');
+    }
+});
+
+$.ajax({
+    url : "../../actions/users/getCityPostalCodes.php",
+    type: "POST",
+    data : {city :  $("#cityformselect option:selected").val()},
+    success: function (dataCheck) {
+        parse = JSON.parse(dataCheck);
+        for(var i=0;i<parse.length;i++)
+            $('#postalcodeformselect').append('<option value=\"parse[i]["name"]\">'+parse[i]["code"]+'</option>');
+    }
+});
+
+for(var i=0;i<=999;i++){
+    var num = pad2(i);
+    $('#postalcodeextraformselect').append('<option value=\"num\">'+num+'</option>');
+}
+}
+
+function pad2(number) {
+    if(number < 10)
+        return '00'+ number;
+    if(number < 100)
+        return '0' + number;
+    if(number < 1000)
+        return ''+number;
+}
+
+function getCities(){
+    $.ajax({
+        url : "../../actions/users/getCities.php",
+        type: "POST",
+        data : {district :  $("#districtformselect option:selected").val()},
+        success: function (dataCheck) {
+            parse = JSON.parse(dataCheck);
+            for(var i=0;i<parse.length;i++)
+                $('#cityformselect').append('<option value=\"'+parse[i]["name"]+'\">'+parse[i]["name"]+'</option>');
+
+        }
+    });
+}

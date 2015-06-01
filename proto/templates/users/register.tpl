@@ -1,3 +1,4 @@
+
 <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="normalModal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -27,6 +28,22 @@
                     <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" tabindex="4" value="{$FORM_VALUES.email}">
                     <span class="glyphicon form-control-feedback"></span>
                 </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="form-group has-feedback" onchange="getCities()">
+                    <select id="districtformselect" class="form-control">
+                        <option value="District" selected="selected" value="{$FORM_VALUES.district}">District</option>
+                    </select>
+                </div>
+                    </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group has-feedback">
+                            <select id="cityformselect" class="form-control">
+                                <option value="City" selected="selected" value="{$FORM_VALUES.city}">City</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
                <div class="form-group  has-feedback">
                     <input type="text" name="address" id="address" class="form-control input-lg" placeholder="Address" tabindex="4" value="{$FORM_VALUES.address}">
                     <span class="glyphicon form-control-feedback"></span>
@@ -38,7 +55,7 @@
                 </div>
 
 
-                <div class="row">
+                <div class="row" id="contries">
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group has-feedback">
                             <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="5" value="{$FORM_VALUES.password}">
@@ -52,7 +69,6 @@
                         </div>
                     </div>
                 </div>
-
                 <hr class="colorgraph">
                 <div class="row text-center">
                     <div class="col-md-12"><input id="registeraccount" type="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>

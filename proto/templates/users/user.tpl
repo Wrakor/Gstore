@@ -8,7 +8,7 @@
         <div class="col-md-3">
             <p class="lead">My Account</p>
             <div class="list-group side-menu">
-                <a href="user.php" class="list-group-item active"><span class="glyphicon glyphicon-list-alt"></span>Personal Information</a>
+                <a href="{$BASE_DIR}pages/users/user.php" class="list-group-item active"><span class="glyphicon glyphicon-list-alt"></span>Personal Information</a>
                 <a href="orderhistory.php" class="list-group-item"><span class="glyphicon glyphicon-euro"></span>Order History</a>
                 <a href="wishlist.php" class="list-group-item"><span class="glyphicon glyphicon-heart"></span>Wishlist</a>
                 <a href="favorites.php" class="list-group-item"><span class="glyphicon glyphicon-star"></span>Favorites</a>
@@ -23,7 +23,7 @@
 
                     <h2>Profile <small>with your account information.</small>
                         <ul class="view-modes list-inline pull-right">
-                            <li><a href="editprofile.php"><span class="glyphicon glyphicon-pencil"></span></a></li>
+                            <li><a href="{$BASE_URL}/pages/users/edituser.php"><span class="glyphicon glyphicon-pencil"></span></a></li>
                         </ul>
                     </h2>
 
