@@ -2,6 +2,20 @@
 
 {include file='common/nav.tpl'}
 
+<!--<script type="text/javascript">
+
+    window.onload = function() {
+        var submit = document.getElementById("submitreview");
+
+        submit.onclick = function() {
+            var e = document.getElementById("rating");
+            var rating = e.options[e.selectedIndex].value;
+            var text = document.getElementById("textbox").value;
+
+
+        }
+    }
+</script>-->
 
  <!-- Left side -->
 <div class="container">
@@ -58,7 +72,9 @@
                         <span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart
                     </button>
 
-                    <a href="{$BASE_URL}actions/users/addToWishlist.php?id={$data.product.id}" class="btn btn-primary btn-block" role="button"> <span class="glyphicon glyphicon-heart"></span> Add to Wishlist</a>
+                    <a href="{$BASE_URL}actions/users/addToWishlist.php?id={$data.product.id}" class="btn btn-primary btn-block" role="button"> <span class="glyphicon glyphicon-ok-circle" style="color:white"></span> Add to Wishlist</a>
+
+                    <a href="{$BASE_URL}actions/users/addToFavorites.php?id={$data.product.id}" class="btn btn-danger btn-block" role="button"> <span class="glyphicon glyphicon-heart" style="color:white"></span> Add to Favorites</a>
                 </div>
 
             </div>
@@ -70,29 +86,42 @@
 
                     <p> {$data.product.description} </p>
                     <br>
+
+                    <!-- Submit Review -->
                     <h2>Submit your Review</h2>
                     <hr>
-                    <form>
+
+                    <form action="{$base_URL}../../actions/users/addReview.php?id={$data.product.id}" method="post">
                         <h3>Rate
-                            <div class="rating">
+                            <!--<div class="rating">
                                 <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-                            </div>
+                            </div>-->
+                            <select name="rating">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
                         </h3>
-                        <textarea class="form-control" rows="3"></textarea>
-                        <button type="button" class="btn btn-lg btn-success btn-block" type="submit" href="#">
+                        <textarea class="form-control" rows="3" name="description" placeholder="Type your review..."></textarea>
+                        <button class="btn btn-lg btn-success btn-block" type="submit">
                             Submit Review
                         </button>
+                        <!--<a href="#" id="submitreview" class="btn btn-primary btn-success btn-block" role="button"> <span class="glyphicon glyphicon-log-in" style="color:white"></span> Submit Review</a>-->
                     </form>
 
                     <br>
+
+                    <!-- Reviews -->
+
                     <h2>Reviews</h2>
                     <hr>
-
-                    <!-- Comments -->
-					
+					{if empty($data.reviews)}
+                    No reviews yet!
+					{/if}
 					{foreach $data.reviews as $row}
                     <div class="row comment">
-
                         <!-- comment sample -->
                         <div class="col-sm-1">
                             <div class="thumbnail">
@@ -103,15 +132,13 @@
                         <div class="col-sm-11">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <div class="rate-system"> {$row['score']}
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
+                                    <div class="rate-system">
+                                        {for $var=1 to $row['score']}
+                                            <span class="glyphicon glyphicon-star"></span>
+                                        {/for}
                                     </div>
 
-                                    <strong> {$row['username']} </strong> <span class="text-muted">commented 5 days ago</span>
+                                    <strong> {$row['username']} </strong> <span class="text-muted">said </span>
                                 </div>
                                 <div class="panel-body"> {$row['comment']}
                                 </div><!-- /panel-body -->

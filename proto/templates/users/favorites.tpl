@@ -39,7 +39,7 @@
                                 </a>
                             </div>
                             <div class="media-body">
-                                <h4 class="media-heading">
+                                <h4 class="media-heading" style="margin-right: 15px">
                                     <span><a href="{$BASE_URL}pages/products/item.php?id={$product['id']}">{$product['name']}</a> </span>
                                     {if in_array("Mac", $platforms[$product['id']])}
                                         <span class="icon-os-apple"></span>
@@ -50,8 +50,9 @@
                                     {if in_array("Linux", $platforms[$product['id']])}
                                         <span class="icon-os-linux"></span>
                                     {/if}
-                                    <a href="{$BASE_URL}actions/users/deleteFromFavorites.php?id={$product['id']}"
-                                       style="margin-right: 15px"><span class="glyphicon glyphicon-remove pull-right"></span></a></h4>
+                                    <a href="{$BASE_URL}actions/users/deleteFromFavorites.php?id={$product['id']}">
+                                        <span class="glyphicon glyphicon-remove pull-right"></span>
+                                    </a></h4>
 
                                 <p>{$product['description']}</p>
                             </div>
