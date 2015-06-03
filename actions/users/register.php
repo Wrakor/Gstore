@@ -43,13 +43,13 @@
     else $_SESSION['error_messages'][] = 'Error creating user';
     
     $_SESSION['form_values'] = $_POST;
-    //header("Location: $BASE_URL" . 'index.php#regist');
+    header("Location: $BASE_URL" . 'index.php#regist');
     exit;
   }
   $_SESSION['success_messages'][] = 'User registered successfully'; 
   $message2 = "Registado!";
 
-  echo "<script type='text/javascript'>alert('$message2');</script>";
+  //echo "<script type='text/javascript'>alert('$message2');</script>";
 
-  //header("Location: $BASE_URL".'index.php');
+  header("Location: $BASE_URL".'index.php');
 ?>
