@@ -247,6 +247,7 @@ function validatePostalCode(){
     }
     else{
         disableError($('#postalcodeform'));
+        return 1;
     }
 
 };
@@ -259,6 +260,7 @@ function validatePostalCodeExt(){
     }
     else{
         disableError($('#postalextform'));
+        return 1;
     }
 
 };
@@ -268,8 +270,8 @@ function validateRegister() {
     console.log(
         validateFirstName() + " " +
         validateLastName() + " " +
-        //validateUsername() + " " + nao da para avaliar asyncronamente
-        //validateEmail() + " " +
+            //validateUsername() + " " + nao da para avaliar asyncronamente
+            //validateEmail() + " " +
         validateAddress() + " " +
         validatePass1() + " " +
         validatePass2()
@@ -277,22 +279,31 @@ function validateRegister() {
 
     if (
         validateFirstName() == 1
-        &&  validateLastName() == 1
-        //&&  validateUsername() == 1
-        //&&  validateEmail() == 1
-        && validatePostalCode()==1
-        && validatePostalCodeExt() ==1
-        &&  validateAddress() == 1
-        &&  validatePass1() == 1
-        &&  validatePass2() == 1
-    )
-    {
-        $('#registeraccount').removeProp('disabled');
-        return 1;
-    }
+        || validateLastName() == 1
+            //&&  validateUsername() == 1
+            //&&  validateEmail() == 1
+        || validatePostalCode() == 1
+        || validatePostalCodeExt() == 1
+        || validateAddress() == 1
+        || validatePass1() == 1
+        || validatePass2() == 1){
+        if (
+            validateFirstName() == 1
+            && validateLastName() == 1
+                //&&  validateUsername() == 1
+                //&&  validateEmail() == 1
+            && validatePostalCode() == 1
+            && validatePostalCodeExt() == 1
+            && validateAddress() == 1
+            && validatePass1() == 1
+            && validatePass2() == 1
+        ) {
+            $('#registeraccount').removeProp('disabled');
+            return 1;
+        }
 
     $('#registeraccount').prop('disabled', true);
-
+}
     return 0;
 };
 
@@ -394,17 +405,15 @@ $(document).ready(function()
         validateRegister();
     });
 
-    $('#postalcodeform').on('change',function(){
+    $('#postalcodeform').bind('change',function(){
         validatePostalCode();
         validateRegister();
     });
 
-    $('#postalextform').on('change',function(){
+    $('#postalextform').bind('change',function(){
         validatePostalCodeExt();
         validateRegister();
     });
-
-
 
     $('#password').bind('input', function()
     {
