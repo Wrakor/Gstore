@@ -239,6 +239,29 @@ function validatePass2() {
 
     return 0;
 };
+function validatePostalCode(){
+    var postal = $("#postalcodeform option:selected").val();
+
+    if(postal == "-"){
+         enableError($('#postalcodeform'));
+    }
+    else{
+        disableError($('#postalcodeform'));
+    }
+
+};
+
+function validatePostalCodeExt(){
+    var postal = $("#postalextform option:selected").val();
+
+    if(postal == "-"){
+        enableError($('#postalextform'));
+    }
+    else{
+        disableError($('#postalextform'));
+    }
+
+};
 
 function validateRegister() {
 
@@ -257,6 +280,8 @@ function validateRegister() {
         &&  validateLastName() == 1
         //&&  validateUsername() == 1
         //&&  validateEmail() == 1
+        && validatePostalCode()==1
+        && validatePostalCodeExt() ==1
         &&  validateAddress() == 1
         &&  validatePass1() == 1
         &&  validatePass2() == 1
@@ -368,6 +393,17 @@ $(document).ready(function()
         validateAddress();
         validateRegister();
     });
+
+    $('#postalcodeform').on('change',function(){
+        validatePostalCode();
+        validateRegister();
+    });
+
+    $('#postalextform').on('change',function(){
+        validatePostalCodeExt();
+        validateRegister();
+    });
+
 
 
     $('#password').bind('input', function()

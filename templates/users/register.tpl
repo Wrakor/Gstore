@@ -39,7 +39,7 @@
                     <div class="col-xs-3 col-sm-3 col-md-3">
                         <div class="form-group has-feedback" onchange="getCity()">
                             <select  name="postalcodeform" id="postalcodeform" class="form-control input-sm">
-                                <option selected="selected" value="{$FORM_VALUES.postalcodeform}">Postal Code</option>
+                                <option selected="selected" value="-">Postal Code</option>
                             </select>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                     <div class="col-xs-2 col-sm-2 col-md-2">
                         <div class="form-group has-feedback">
                             <select name="postalextform" id="postalextform" class="form-control input-sm">
-                                <option selected="selected" value="">Ext</option>
+                                <option selected="selected" value="-">Ext</option>
                             </select>
                         </div>
                     </div>
