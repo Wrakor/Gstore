@@ -49,9 +49,28 @@
                     <span class="glyphicon form-control-feedback"></span>
                </div>
 
-                <div class="form-group has-feedback">
+               <!-- <div class="form-group has-feedback">
                     <input type="text" name="postalcode" id="postalcode" class="form-control input-lg" placeholder="Postal Code" tabindex="4" value="{$FORM_VALUES.postalcode}">
                     <span class="glyphicon form-control-feedback"></span>
+                </div> -->
+
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group has-feedback" onchange="getCities()">
+                            <select id="postalcode" class="form-control">
+                                <option value="PostalCode" selected="selected" value="{$FORM_VALUES.postalcode}">Postal Code</option>
+                            </select>
+                        </div>
+                    </div>
+                    <span> - </span>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group has-feedback">
+                            <select id="postalext" class="form-control">
+                                <option value="City" selected="selected" value="{$FORM_VALUES.postalcodeext}">Ext</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
 
 

@@ -61,17 +61,11 @@ function getCities($district){
 
 
 
-function getCityPostalCodes($city){
+function getPostalCodes(){
     global $conn;
-    $stmt = $conn->prepare("SELECT id FROM city WHERE name = ?");
-    $stmt->execute(array($city));
-    $row = $stmt->fetch();
-    $city_id = $row['id'];
-
-    $stmt = $conn->prepare("SELECT code FROM postalcode WHERE city_id=?");
-    $stmt->execute(array($city_id));
+    $stmt = $conn->prepare("SELECT code FROM postalcode");
+    $stmt->execute();
     return json_encode($stmt->fetchAll());
-
 }
 
 ?>
