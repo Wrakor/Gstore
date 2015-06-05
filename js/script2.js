@@ -454,7 +454,6 @@ $(document).ready(function()
         bindLoginValidation();
     }
     
-
     if(location.pathname.substring(location.pathname.lastIndexOf("/") + 1).split('#')[0] == "edituser.php"){
         getPostalCodes();
     }

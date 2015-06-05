@@ -18,11 +18,46 @@
                 <a href="{$BASE_URL}pages/users/edituser.php" class="list-group-item active"><span class="glyphicon glyphicon-cog"></span>Settings</a>
             </div>
         </div>
+        <!-- change Password modal -->
+        <div class="modal fade" id="changepw" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+            <div class="modal-header">
+                <h3>Change Password <span class="extra-title muted"></span></h3>
+            </div>
+            <div class="modal-body form-horizontal">
+                <div class="control-group">
+                    <label for="current_password" class="control-label">Current Password</label>
+                    <div class="controls">
+                        <input type="password" name="current_password">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="new_password" class="control-label">New Password</label>
+                    <div class="controls">
+                        <input type="password" name="new_password">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="confirm_password" class="control-label">Confirm Password</label>
+                    <div class="controls">
+                        <input type="password" name="confirm_password">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button href="#" class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                <button href="#" class="btn btn-primary" id="password_modal_save">Save changes</button>
+            </div>
+        </div>
+</div>
+            </div>
 
         <!-- Content -->
         <div class="col-md-9">
             <div class="row">
                 <div class="col-md-offset-1">
+
 
                     <h2>Profile <small>with your account information.</small>
                     </h2>
@@ -37,7 +72,8 @@
 
 
                                 <a class="btn btn-info btn-block" onclick="updatePhoto('{$BASE_URL}database/userimg/{$USERNAME}','{$BASE_URL}actions/users/userimageupload.php')">Change photo</a>
-                                <a class="btn btn-success btn-block" onclick="updateUser()">Update</a>
+                                <a class="btn btn-info btn-block" data-toggle="modal"
+                                   data-target="#changepw"">Change Password</a>
 
                             <!--<a href="profile.php" class="btn btn-info btn-block">Change photo</a>-->
                         </div>
@@ -72,37 +108,38 @@
                                     </tr>
                                         <th scope="row">Postal Code</th>
                                         <td><div class="form-group" style="width: 70px!important; display:-webkit-inline-box">
-                                                <select id="postalcodeform" class="form-control">
+                                                <select id="postalcodeform" onchange="getCity()" class="form-control">
                                                     <option value="{$data.userinfo[0].postalcode}" selected="selected">{$data.userinfo[0].postalcode}</option>
                                                 </select>
-                                                <label style="
-                                                       margin-left: 8px;
-                                                       margin-right: 8px;" > - </label>
+                                                <label style="margin-left: 8px;margin-right: 8px;" > - </label>
                                                 <select id="postalextform" class="form-control">
                                                     <option value="{$data.userinfo[0].postalcodeextra}" selected="selected">{$data.userinfo[0].postalcodeextra}</option>
                                                 </select>
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row">District</th>
-                                    <div>
-                                        <td><label type="text" name="district" id="distict"tabindex="9">{$data.userinfo[0].district}</label></td>
-                                    </div>
-                                </tr>
                             <tr>
                                 <th scope="row">City</th>
                                 <div>
-                                    <td><label type="text" name="city" id="city" tabindex="9">{$data.userinfo[0].city}</label></td>
+                                    <td><label type="text" name="citylb" id="citylb" tabindex="9">{$data.userinfo[0].city}</label></td>
                                 </div>
                             </tr>
+                                    <tr>
+                                        <th scope="row">District</th>
+                                        <div>
+                                            <td><label type="text" name="districlb" id="districlb"tabindex="9">{$data.userinfo[0].district}</label></td>
+                                        </div>
+                                    </tr>
                             <tr>
                                     </tbody>
                                 </table>
+
                             </div>
 
                         </div>
-
+                        <div class="col-md-3 col-md-offset-5">
+                            <a class="btn btn-success btn-block" onclick="updateUser()">Update Profile</a>
+                        </div>
                     </div>
 
 
