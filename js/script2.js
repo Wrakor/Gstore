@@ -5,11 +5,11 @@ function enableError($param) {
     if( $param.parent('div').hasClass("has-success") )
         $param.parent('div').removeClass("has-success");
 
-    if( !$param.next('span.glyphicon').hasClass("glyphicon-remove") )
+  /*  if( !$param.next('span.glyphicon').hasClass("glyphicon-remove") )
         $param.next('span.glyphicon').addClass("glyphicon-remove");
 
     if( $param.next('span.glyphicon').hasClass("glyphicon-ok") )
-        $param.next('span.glyphicon').removeClass("glyphicon-ok");
+        $param.next('span.glyphicon').removeClass("glyphicon-ok");*/
 }
 
 function disableError($param) {
@@ -19,11 +19,11 @@ function disableError($param) {
     if( !$param.parent('div').hasClass("has-success") )
         $param.parent('div').addClass("has-success");
 
-    if( $param.next('span.glyphicon').hasClass("glyphicon-remove") )
+  /*  if( $param.next('span.glyphicon').hasClass("glyphicon-remove") )
         $param.next('span.glyphicon').removeClass("glyphicon-remove");
 
     if( !$param.next('span.glyphicon').hasClass("glyphicon-ok") )
-        $param.next('span.glyphicon').addClass("glyphicon-ok");
+        $param.next('span.glyphicon').addClass("glyphicon-ok");*/
 }
 
 function isValidName(name) {
@@ -367,67 +367,63 @@ function validateLogin() {
     return 0;
 };
 
-$(document).ready(function()
+
+function bindRegistValidations(){
+
+$('#first_name').bind('input', function()
 {
+    validateFirstName();
+    validateRegister();
+});
 
-    $('#loginAccount').prop('disabled', true);
-    $('#registeraccount').prop('disabled', true);
+$('#last_name').bind('input', function()
+{
+    validateLastName();
+    validateRegister();
+});
 
-    if(window.location.hash == "#regist") { $("#registbutt").click(); }
+$('#display_name').bind('input', function()
+{
+    validateUsername();
+    validateRegister();
+});
 
-    $('#first_name').bind('input', function()
-    {
-        validateFirstName();
-        validateRegister();
-    });
+$('#email').bind('input', function()
+{
+    validateEmail();
+    validateRegister();
+});
 
-    $('#last_name').bind('input', function()
-    {
-        validateLastName();
-        validateRegister();
-    });
+$('#address').bind('input', function()
+{
+    validateAddress();
+    validateRegister();
+});
 
-    $('#display_name').bind('input', function()
-    {
-        validateUsername();
-        validateRegister();
-    });
+$('#postalcodeform').bind('change',function(){
+    validatePostalCode();
+    validateRegister();
+});
 
-    $('#email').bind('input', function()
-    {
-        validateEmail();
-        validateRegister();
-    });
+$('#postalextform').bind('change',function(){
+    validatePostalCodeExt();
+    validateRegister();
+});
 
-    $('#address').bind('input', function()
-    {
-        validateAddress();
-        validateRegister();
-    });
+$('#password').bind('input', function()
+{
+    validatePass1();
+    validateRegister();
+});
 
-    $('#postalcodeform').bind('change',function(){
-        validatePostalCode();
-        validateRegister();
-    });
+$('#password_confirmation').bind('input', function()
+{
+    validatePass2();
+    validateRegister();
+});
+};
 
-    $('#postalextform').bind('change',function(){
-        validatePostalCodeExt();
-        validateRegister();
-    });
-
-    $('#password').bind('input', function()
-    {
-        validatePass1();
-        validateRegister();
-    });
-
-    $('#password_confirmation').bind('input', function()
-    {
-        validatePass2();
-        validateRegister();
-    });
-
-
+function bindLoginValidation(){
     $('#usernameLogin').bind('input', function()
     {
         validateUsernameLogin();
@@ -438,6 +434,31 @@ $(document).ready(function()
         validatePasswordLogin();
         validateLogin();
     });
+}
+
+$(document).ready(function()
+{
+
+    $('#loginAccount').prop('disabled', true);
+    $('#registeraccount').prop('disabled', true);
+
+    if(window.location.hash == "#regist") {
+        $("#registbutt").click();
+        getPostalCodes();
+        bindRegistValidations();
+    }
+
+    if(window.location.hash == "#regist") {
+        $("#registbutt").click();
+        getPostalCodes();
+        bindLoginValidation();
+    }
+    
+
+    if(location.pathname.substring(location.pathname.lastIndexOf("/") + 1).split('#')[0] == "edituser.php"){
+        getPostalCodes();
+    }
+
 
 
 });
