@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-05-18 02:12:13
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-01 13:04:41
          compiled from "/opt/lbaw/lbaw1433/public_html/proto/templates/common/footer.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1109753468553dda7fa86b84-42664360%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2c29e45d2c8155c7f1d2e7f0c9e535c47dd4ea2b' => 
     array (
       0 => '/opt/lbaw/lbaw1433/public_html/proto/templates/common/footer.tpl',
-      1 => 1431904328,
+      1 => 1433148487,
       2 => 'file',
     ),
   ),
@@ -109,7 +109,7 @@ pages/information/info.php?sitemap">Site Map</a></li>
             <div class="col-md-6"></div>
             <div class="col-md-6">
                 © 2015 <span class="brand">G<b>STORE</b></span>. <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/information/info.php?license">GSTORE License</a>.
+pages/information/info.php?license">MIT License</a>.
             </div>
         </div>
 
@@ -121,11 +121,33 @@ pages/information/info.php?license">GSTORE License</a>.
         {{#each this}}
         <a class="col-sm-4 col-lg-4 col-md-4 product-list view-1 hvr-bounce-to-top" href="/~lbaw1433/proto/pages/products/item.php?id={{id}}">
             <div class="thumbnail thumbnail-full">
-                <img src="http://vignette2.wikia.nocookie.net/video151/images/b/bc/Borderlands_2_-_Ultimate_Vault_Hunter_Upgrade_Pack_2_-_The_Raid_of_Digistruct_Peak_Walkthrough/revision/latest?cb=20130904162339" style="height: 127px" alt="">
+                <img src="http://vignette2.wikia.nocookie.net/video151/images/b/bc/Borderlands_2_-_Ultimate_Vault_Hunter_Upgrade_Pack_2_-_The_Raid_of_Digistruct_Peak_Walkthrough/revision/latest?cb=20130904162339" alt="">
             </div>
 
             <h3>{{price}}€</h3>
             <h4>{{name}}</h4>
+            <p>{{description}}</p>
+            <div class="platforms">
+                <span class="icon-os-win-03"></span>
+                <span class="icon-os-apple"></span>
+                <span class="icon-os-linux_1_"></span>
+            </div>
+        </a>
+        {{/each}}
+    </script>
+
+
+
+    <script id="view2-template" type="text/x-handlebars-template">
+        {{#each this}}
+        <a class="col-sm-12 col-lg-12 col-md-12 product-list view-2 hvr-bounce-to-top" href="/~lbaw1433/proto/pages/products/item.php?id={{id}}">
+            <div class="thumbnail thumbnail-full">
+                <img src="http://vignette2.wikia.nocookie.net/video151/images/b/bc/Borderlands_2_-_Ultimate_Vault_Hunter_Upgrade_Pack_2_-_The_Raid_of_Digistruct_Peak_Walkthrough/revision/latest?cb=20130904162339" alt="">
+            </div>
+
+            <h3>{{price}}€</h3>
+            <h4>{{name}}</h4>
+            <p>{{description}}</p>
             <div class="platforms">
                 <span class="icon-os-win-03"></span>
                 <span class="icon-os-apple"></span>
@@ -142,7 +164,7 @@ lib/jquery/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
 <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-lib/bootstrap/js/bootstrap.min.js"></script>
+lib/bootstrap/js/bootstrap.js"></script>
 
 <!-- NOTY -->
 <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
@@ -152,9 +174,13 @@ lib/noty/jquery.noty.packaged.min.js"></script>
 <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 lib/dynatable/jquery.dynatable.js"></script>
 
-<!-- Dynatable.js -->
+<!-- Handlebars.js -->
 <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 lib/handlebars/handlebars-v3.0.3.js"></script>
+
+<!-- Typeahead.js -->
+<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+lib/typeahead/typeahead.js"></script>
 
 <!-- Custom script 3 :: dynatable -->
 <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
@@ -176,6 +202,10 @@ js/script4.js"></script>
 
 <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 js/builder.js"></script>
+
+<script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+js/search.js"></script>
+
 
 <!-- Custom -->
 <script>

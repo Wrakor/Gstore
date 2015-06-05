@@ -9,7 +9,6 @@
       !$_POST['password'] ||
       !$_POST['email'] ||
       !$_POST['address'] ||
-      !$_POST['postalcode'] ||
       !$_POST['password_confirmation'])
   {
     $_SESSION['error_messages'][] = 'All fields are mandatory';
@@ -26,11 +25,12 @@
   $password_confirmation = $_POST['password_confirmation'];
   $email = strip_tags($_POST['email']);
   $address = strip_tags($_POST['address']);
-  $postalcode = strip_tags($_POST['postalcode']);
+  $postalcode = strip_tags($_POST['postalcodeform']);
+  $postalcodeext = strip_tags($_POST['postalextform']);
 
   try
   {
-      createUser($first_name,$last_name,$username, $email, $password, $address, $postalcode);
+      createUser($first_name,$last_name,$username, $email, $password, $address, $postalcode,$postalcodeext);
   }
   catch (PDOException $e)
   {
@@ -49,7 +49,7 @@
   $_SESSION['success_messages'][] = 'User registered successfully'; 
   $message2 = "Registado!";
 
-  echo "<script type='text/javascript'>alert('$message2');</script>";
+  //echo "<script type='text/javascript'>alert('$message2');</script>";
 
   header("Location: $BASE_URL".'index.php');
 ?>

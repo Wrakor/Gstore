@@ -28,51 +28,37 @@
                     <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" tabindex="4" value="{$FORM_VALUES.email}">
                     <span class="glyphicon form-control-feedback"></span>
                 </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-6">
-                <div class="form-group has-feedback" onchange="getCities()">
-                    <select id="districtformselect" class="form-control">
-                        <option value="District" selected="selected" value="{$FORM_VALUES.district}">District</option>
-                    </select>
-                </div>
-                    </div>
-                        <div class="col-xs-12 col-sm-6 col-md-6">
-                        <div class="form-group has-feedback">
-                            <select id="cityformselect" class="form-control">
-                                <option value="City" selected="selected" value="{$FORM_VALUES.city}">City</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-               <div class="form-group  has-feedback">
+
+                <div class="form-group  has-feedback">
                     <input type="text" name="address" id="address" class="form-control input-lg" placeholder="Address" tabindex="4" value="{$FORM_VALUES.address}">
                     <span class="glyphicon form-control-feedback"></span>
-               </div>
-
-               <!-- <div class="form-group has-feedback">
-                    <input type="text" name="postalcode" id="postalcode" class="form-control input-lg" placeholder="Postal Code" tabindex="4" value="{$FORM_VALUES.postalcode}">
-                    <span class="glyphicon form-control-feedback"></span>
-                </div> -->
-
-
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-6">
-                        <div class="form-group has-feedback" onchange="getCities()">
-                            <select id="postalcode" class="form-control">
-                                <option value="PostalCode" selected="selected" value="{$FORM_VALUES.postalcode}">Postal Code</option>
-                            </select>
-                        </div>
-                    </div>
-                    <span> - </span>
-                    <div class="col-xs-12 col-sm-6 col-md-6">
-                        <div class="form-group has-feedback">
-                            <select id="postalext" class="form-control">
-                                <option value="City" selected="selected" value="{$FORM_VALUES.postalcodeext}">Ext</option>
-                            </select>
-                        </div>
-                    </div>
                 </div>
 
+                <div class="row" style="padding-left: 4%">
+
+                    <div class="col-xs-3 col-sm-3 col-md-3">
+                        <div class="form-group has-feedback" onchange="getCity()">
+                            <select  name="postalcodeform" id="postalcodeform" class="form-control input-sm">
+                                <option selected="selected" value="-">Postal Code</option>
+                            </select>
+                        </div>
+                    </div>
+                    <label class="col-sm-1" style="margin-left: -3%; margin-right:-5%;">-</label>
+                    <div class="col-xs-2 col-sm-2 col-md-2">
+                        <div class="form-group has-feedback">
+                            <select name="postalextform" id="postalextform" class="form-control input-sm">
+                                <option selected="selected" value="-">Ext</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3" style="padding-right:0%">
+                        <label id="citylb" class="form-control input-sm">City</label>
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3"style="padding-right:0%">
+                        <label id="districlb" class="form-control input-sm">District</label>
+                    </div>
+
+                </div>
 
                 <div class="row" id="contries">
                     <div class="col-xs-12 col-sm-6 col-md-6">

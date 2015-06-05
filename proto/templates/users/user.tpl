@@ -12,7 +12,7 @@
                 <a href="orderhistory.php" class="list-group-item"><span class="glyphicon glyphicon-euro"></span>Order History</a>
                 <a href="wishlist.php" class="list-group-item"><span class="glyphicon glyphicon-heart"></span>Wishlist</a>
                 <a href="favorites.php" class="list-group-item"><span class="glyphicon glyphicon-star"></span>Favorites</a>
-                <a href="settings.php" class="list-group-item"><span class="glyphicon glyphicon-cog"></span>Settings</a>
+                <a href="{$BASE_URL}pages/users/edituser.php" class="list-group-item"><span class="glyphicon glyphicon-cog"></span>Settings</a>
             </div>
         </div>
 
@@ -22,9 +22,6 @@
                 <div class="col-md-offset-1">
 
                     <h2>Profile <small>with your account information.</small>
-                        <ul class="view-modes list-inline pull-right">
-                            <li><a href="{$BASE_URL}/pages/users/edituser.php"><span class="glyphicon glyphicon-pencil"></span></a></li>
-                        </ul>
                     </h2>
 
                     <hr class="colorgraph">
@@ -35,6 +32,9 @@
                             <img data-src="holder.js/140x140" class="img-circle img-thumbnail" alt="140x140" style="width: 140px; height: 140px;" src="{$BASE_URL}database/userimg/{$USERNAME}" onerror="this.src='{$BASE_URL}database/userimg/default';" data-holder-rendered="true">
                         </div>
                         <div class="col-md-9">
+                            <ul class="list-unstyled">
+                                <li><a href="{$BASE_URL}pages/users/edituser.php"><span  style="padding-left: 85%" class="glyphicon glyphicon-pencil"></span></a></li>
+                            </ul>
                             <div class="table-responsive borderless">
                                 <table class="table table-hover">
                                     <tbody>
@@ -53,7 +53,7 @@
                                     </tr>
                                     <tr>
                                         <th scope="row">Country</th>
-                                        <td>Portal À força</td>
+                                        <td>Portugal</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Address</th>
@@ -69,7 +69,7 @@
                                     </tr>
                                     <tr>
                                         <th scope="row">Postal Code</th>
-                                        <td>{$data.userinfo[0].postalcode}</td>
+                                        <td>{$data.userinfo[0].postalcode}  - {$data.userinfo[0].postalcodeextra}</td>
                                     </tr>
                                     </tbody>
                                 </table>

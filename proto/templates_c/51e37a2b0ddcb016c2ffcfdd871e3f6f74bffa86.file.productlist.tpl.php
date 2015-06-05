@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-05-18 02:21:06
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-01 13:05:11
          compiled from "/opt/lbaw/lbaw1433/public_html/proto/templates/products/productlist.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:799678514553dda7f8af615-39136611%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '51e37a2b0ddcb016c2ffcfdd871e3f6f74bffa86' => 
     array (
       0 => '/opt/lbaw/lbaw1433/public_html/proto/templates/products/productlist.tpl',
-      1 => 1431904813,
+      1 => 1432048643,
       2 => 'file',
     ),
   ),
@@ -63,6 +63,37 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 
             </div>
+
+
+
+    <a class="col-sm-4 col-lg-4 col-md-4 product-list view-1 hvr-bounce-to-top" href="">
+        <div class="thumbnail thumbnail-full">
+            <img src="http://vignette2.wikia.nocookie.net/video151/images/b/bc/Borderlands_2_-_Ultimate_Vault_Hunter_Upgrade_Pack_2_-_The_Raid_of_Digistruct_Peak_Walkthrough/revision/latest?cb=20130904162339" alt="">
+        </div>
+
+        <h3>Price €</h3>
+        <h4>Title</h4>
+        <p>Description text</p>
+        <div class="platforms">
+            <span class="icon-os-win-03"></span>
+            <span class="icon-os-apple"></span>
+            <span class="icon-os-linux_1_"></span>
+        </div>
+    </a>
+
+    <a class="col-sm-12 col-lg-12 col-md-12 product-list view-2 hvr-bounce-to-top" href="">
+        <div class="thumbnail thumbnail-full">
+            <img src="http://vignette2.wikia.nocookie.net/video151/images/b/bc/Borderlands_2_-_Ultimate_Vault_Hunter_Upgrade_Pack_2_-_The_Raid_of_Digistruct_Peak_Walkthrough/revision/latest?cb=20130904162339" alt="">
+        </div>
+        <h3>Price €</h3>
+        <h4>Title</h4>
+        <p>Darkest Dungeon is a challenging gothic roguelike turn-based RPG about the psychological stresses of adventuring. Recruit, train, and lead a team of flawed heroes against unimaginable horrors, stress, famine, disease, and the ever-encroaching dark. Can you keep your heroes together when all hope is lost?</p>
+        <div class="platforms">
+            <span class="icon-os-win-03"></span>
+            <span class="icon-os-apple"></span>
+            <span class="icon-os-linux_1_"></span>
+        </div>
+    </a>
 
     <!--
                 <nav class="center-block text-center">

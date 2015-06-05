@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-05-14 18:07:18
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-01 13:04:41
          compiled from "/opt/lbaw/lbaw1433/public_html/proto/templates/common/nav.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1942999480553dda7f9eb809-09937145%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b4b2cd1c375b66428dc11894cff0cf1bd63a2c89' => 
     array (
       0 => '/opt/lbaw/lbaw1433/public_html/proto/templates/common/nav.tpl',
-      1 => 1431616030,
+      1 => 1433148487,
       2 => 'file',
     ),
   ),
@@ -23,6 +23,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'data' => 0,
     'category' => 0,
     'platform' => 0,
+    'ADMIN' => 0,
     'USERNAME' => 0,
   ),
   'has_nocache_code' => false,
@@ -113,12 +114,16 @@ pages/products/list.php?cat=<?php echo $_smarty_tpl->tpl_vars['category']->value
                 </li>
 
             </ul>
+
             <ul class="nav navbar-nav navbar-right">
                 <!--
-                <li><a href="backoffice.php"><span class="glyphicon glyphicon-lock"></span> Admin </a></li>
                 <li><a href="cart.php"><span class="badge">2</span><span class="glyphicon glyphicon-shopping-cart"></span> Cart </a></li>
-                <li><a href="profile.php"><span class="glyphicon glyphicon-user"></span> Profile </a></li>
                 -->
+                <?php if ($_smarty_tpl->tpl_vars['ADMIN']->value) {?>
+                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/admin/dashboard.php"><span class="glyphicon glyphicon-lock"></span> Backoffice </a></li>
+                <?php }?>
+
                 <?php if ($_smarty_tpl->tpl_vars['USERNAME']->value) {?>
                     <?php echo $_smarty_tpl->getSubTemplate ('common/menu_logged_in.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
@@ -126,7 +131,16 @@ pages/products/list.php?cat=<?php echo $_smarty_tpl->tpl_vars['category']->value
                     <?php echo $_smarty_tpl->getSubTemplate ('common/menu_logged_out.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
                 <?php }?>
+
+                <li class="search-button"><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
             </ul>
+
+            <form class="navbar-form navbar-right hide" role="search">
+                <div id="typeahead-products" class="form-group">
+                    <input id="typeahead" type="text" class="form-control typeahead" placeholder="Search for..." data-provide="typeahead">
+                </div>
+            </form>
+
         </div><!-- /.navbar-collapse -->
 
     </div><!-- /.container -->

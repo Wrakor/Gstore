@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-05-14 19:37:20
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-01 17:05:38
          compiled from "/opt/lbaw/lbaw1433/public_html/proto/templates/products/viewProduct.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2106566219554fad2bbd75a2-41543287%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'bb4316b0691e3c868f8a3d537f3edacd1029bc99' => 
     array (
       0 => '/opt/lbaw/lbaw1433/public_html/proto/templates/products/viewProduct.tpl',
-      1 => 1431621438,
+      1 => 1433171138,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'BASE_URL' => 0,
     'data' => 0,
-    'product' => 0,
-    'reviews' => 0,
+    'base_URL' => 0,
     'row' => 0,
   ),
   'has_nocache_code' => false,
@@ -33,6 +32,20 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php echo $_smarty_tpl->getSubTemplate ('common/nav.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
 
+<!--<script type="text/javascript">
+
+    window.onload = function() {
+        var submit = document.getElementById("submitreview");
+
+        submit.onclick = function() {
+            var e = document.getElementById("rating");
+            var rating = e.options[e.selectedIndex].value;
+            var text = document.getElementById("textbox").value;
+
+
+        }
+    }
+</script>-->
 
  <!-- Left side -->
 <div class="container">
@@ -57,8 +70,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
                     <!-- Product Information -->
 										 
-					<h2> <?php echo $_smarty_tpl->tpl_vars['product']->value['name'];?>
- </h2>					
+					<h2> <?php echo $_smarty_tpl->tpl_vars['data']->value['product']['name'];?>
+ </h2>
 
                     <hr class="colorgraph">
                 </div>
@@ -95,9 +108,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                         <span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart
                     </button>
 
-                    <button type="button" class="btn btn-lg btn-primary btn-block" type="submit" href="#">
-                        <span class="glyphicon glyphicon-heart"></span> Add to Wishlist
-                    </button>
+                    <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+actions/users/addToWishlist.php?id=<?php echo $_smarty_tpl->tpl_vars['data']->value['product']['id'];?>
+" class="btn btn-primary btn-block" role="button"> <span class="glyphicon glyphicon-ok-circle" style="color:white"></span> Add to Wishlist</a>
+
+                    <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+actions/users/addToFavorites.php?id=<?php echo $_smarty_tpl->tpl_vars['data']->value['product']['id'];?>
+" class="btn btn-danger btn-block" role="button"> <span class="glyphicon glyphicon-heart" style="color:white"></span> Add to Favorites</a>
                 </div>
 
             </div>
@@ -107,35 +124,51 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <div class="row">
                 <div class="col-md-12">
 
-                    <p> <?php echo $_smarty_tpl->tpl_vars['product']->value['description'];?>
- </p> 
+                    <p> <?php echo $_smarty_tpl->tpl_vars['data']->value['product']['description'];?>
+ </p>
                     <br>
+
+                    <!-- Submit Review -->
                     <h2>Submit your Review</h2>
                     <hr>
-                    <form>
+
+                    <form action="<?php echo $_smarty_tpl->tpl_vars['base_URL']->value;?>
+../../actions/users/addReview.php?id=<?php echo $_smarty_tpl->tpl_vars['data']->value['product']['id'];?>
+" method="post">
                         <h3>Rate
-                            <div class="rating">
+                            <!--<div class="rating">
                                 <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-                            </div>
+                            </div>-->
+                            <select name="rating">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
                         </h3>
-                        <textarea class="form-control" rows="3"></textarea>
-                        <button type="button" class="btn btn-lg btn-success btn-block" type="submit" href="#">
+                        <textarea class="form-control" rows="3" name="description" placeholder="Type your review..."></textarea>
+                        <button class="btn btn-lg btn-success btn-block" type="submit">
                             Submit Review
                         </button>
+                        <!--<a href="#" id="submitreview" class="btn btn-primary btn-success btn-block" role="button"> <span class="glyphicon glyphicon-log-in" style="color:white"></span> Submit Review</a>-->
                     </form>
 
                     <br>
+
+                    <!-- Reviews -->
+
                     <h2>Reviews</h2>
                     <hr>
-
-                    <!-- Comments -->
-					
+					<?php if (empty($_smarty_tpl->tpl_vars['data']->value['reviews'])) {?>
+                    No reviews yet!
+					<?php }?>
 					<?php  $_smarty_tpl->tpl_vars['row'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['row']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['reviews']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+ $_from = $_smarty_tpl->tpl_vars['data']->value['reviews']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['row']->key => $_smarty_tpl->tpl_vars['row']->value) {
 $_smarty_tpl->tpl_vars['row']->_loop = true;
 ?>
-                    <div class="row comment">
+                    <div class="row comment"><?php echo $_smarty_tpl->tpl_vars['row']->value['date'];?>
 
                         <!-- comment sample -->
                         <div class="col-sm-1">
@@ -147,20 +180,20 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
                         <div class="col-sm-11">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <div class="rate-system"> <?php echo $_smarty_tpl->tpl_vars['row']->value['score'];?>
-
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
+                                    <div class="rate-system">
+                                        <?php $_smarty_tpl->tpl_vars['var'] = new Smarty_Variable;$_smarty_tpl->tpl_vars['var']->step = 1;$_smarty_tpl->tpl_vars['var']->total = (int) ceil(($_smarty_tpl->tpl_vars['var']->step > 0 ? $_smarty_tpl->tpl_vars['row']->value['score']+1 - (1) : 1-($_smarty_tpl->tpl_vars['row']->value['score'])+1)/abs($_smarty_tpl->tpl_vars['var']->step));
+if ($_smarty_tpl->tpl_vars['var']->total > 0) {
+for ($_smarty_tpl->tpl_vars['var']->value = 1, $_smarty_tpl->tpl_vars['var']->iteration = 1;$_smarty_tpl->tpl_vars['var']->iteration <= $_smarty_tpl->tpl_vars['var']->total;$_smarty_tpl->tpl_vars['var']->value += $_smarty_tpl->tpl_vars['var']->step, $_smarty_tpl->tpl_vars['var']->iteration++) {
+$_smarty_tpl->tpl_vars['var']->first = $_smarty_tpl->tpl_vars['var']->iteration == 1;$_smarty_tpl->tpl_vars['var']->last = $_smarty_tpl->tpl_vars['var']->iteration == $_smarty_tpl->tpl_vars['var']->total;?>
+                                            <span class="glyphicon glyphicon-star"></span>
+                                        <?php }} ?>
                                     </div>
 
                                     <strong> <?php echo $_smarty_tpl->tpl_vars['row']->value['username'];?>
  </strong> <span class="text-muted">commented 5 days ago</span>
                                 </div>
                                 <div class="panel-body"> <?php echo $_smarty_tpl->tpl_vars['row']->value['comment'];?>
-                                    
+
                                 </div><!-- /panel-body -->
                             </div><!-- /panel panel-default -->
                         </div><!-- /col-sm-5 -->

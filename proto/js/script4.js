@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $.ajax({
+    /*$.ajax({
         url : "../../actions/users/getDistrict.php",
         type: "POST",
         success: function (dataCheck) {
@@ -35,6 +35,7 @@ $(document).ready(function(){
         var num = pad2(i);
         $('#postalcodeextraformselect').append('<option value=\"num\">'+num+'</option>');
     }
+    */
 });
 
 function pad2(number) {

@@ -23,7 +23,7 @@
                                 </label>
                             </div>
                             <input id="loginAccount" class="btn btn-lg btn-success btn-block" type="submit" value="Login">
-                            <button type="button" id="registbutt" class="btn btn-lg btn-primary btn-block" type="submit" href="#regist" data-toggle="modal" data-target="#signup" onclick="getCities()">I don't have an account!</button>
+                            <a type="button" id="registbutt" class="btn btn-lg btn-primary btn-block" type="submit" href="#regist" data-toggle="modal" data-target="#signup" onclick="getPostalCodes();bindRegistValidations();">I don't have an account!</a>
                         </fieldset>
                     </form>
                 </div>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-05-17 23:36:17
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-01 13:05:11
          compiled from "/opt/lbaw/lbaw1433/public_html/proto/templates/common/leftside.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1562922501553dda7fa7f995-86982350%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '116d027375421f2820931cc91ffecf0033887e26' => 
     array (
       0 => '/opt/lbaw/lbaw1433/public_html/proto/templates/common/leftside.tpl',
-      1 => 1431894975,
+      1 => 1432048643,
       2 => 'file',
     ),
   ),
@@ -31,16 +31,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
         <!-- Left Side -->
         <div class="col-md-3">
-
-            <!-- Search -->
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-                </span>
-            </div>
-
-            <br><br>
 
             <!-- Side Menu -->
             <p class="lead">Game Categories</p>

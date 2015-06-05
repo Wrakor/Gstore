@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-05-16 09:40:34
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-01 13:05:11
          compiled from "/opt/lbaw/lbaw1433/public_html/proto/templates/users/logout.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2085753733553e12233661b5-47531074%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'bf5a1d56f09a17eaf206eeab7afd8b89ae9a0f6f' => 
     array (
       0 => '/opt/lbaw/lbaw1433/public_html/proto/templates/users/logout.tpl',
-      1 => 1431758426,
+      1 => 1431940056,
       2 => 'file',
     ),
   ),

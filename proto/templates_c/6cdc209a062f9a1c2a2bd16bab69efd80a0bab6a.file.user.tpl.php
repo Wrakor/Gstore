@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-05-17 19:12:59
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-01 13:13:38
          compiled from "/opt/lbaw/lbaw1433/public_html/proto/templates/users/user.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:171532713255578946ba3a76-73987214%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6cdc209a062f9a1c2a2bd16bab69efd80a0bab6a' => 
     array (
       0 => '/opt/lbaw/lbaw1433/public_html/proto/templates/users/user.tpl',
-      1 => 1431875734,
+      1 => 1433152741,
       2 => 'file',
     ),
   ),
@@ -54,7 +54,8 @@ pages/users/user.php" class="list-group-item active"><span class="glyphicon glyp
 
                     <h2>Profile <small>with your account information.</small>
                         <ul class="view-modes list-inline pull-right">
-                            <li><a href="editprofile.php"><span class="glyphicon glyphicon-pencil"></span></a></li>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+/pages/users/edituser.php"><span class="glyphicon glyphicon-pencil"></span></a></li>
                         </ul>
                     </h2>
 

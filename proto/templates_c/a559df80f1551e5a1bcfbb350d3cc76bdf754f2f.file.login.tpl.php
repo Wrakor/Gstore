@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-05-10 21:09:59
+<?php /* Smarty version Smarty-3.1.15, created on 2015-05-25 12:09:55
          compiled from "/opt/lbaw/lbaw1433/public_html/proto/templates/users/login.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2038603980553dda7fa25cb2-99568500%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a559df80f1551e5a1bcfbb350d3cc76bdf754f2f' => 
     array (
       0 => '/opt/lbaw/lbaw1433/public_html/proto/templates/users/login.tpl',
-      1 => 1431284994,
+      1 => 1432544956,
       2 => 'file',
     ),
   ),
@@ -52,7 +52,7 @@ actions/users/login.php" method="post" enctype="multipart/form-data" accept-char
                                 </label>
                             </div>
                             <input id="loginAccount" class="btn btn-lg btn-success btn-block" type="submit" value="Login">
-                            <button type="button" id="registbutt" class="btn btn-lg btn-primary btn-block" type="submit" href="#" data-toggle="modal" data-target="#signup">I don't have an account!</button>
+                            <button type="button" id="registbutt" class="btn btn-lg btn-primary btn-block" type="submit" href="#" data-toggle="modal" data-target="#signup" onclick="getDistricts();">I don't have an account!</button>
                         </fieldset>
                     </form>
                 </div>
