@@ -97,4 +97,17 @@ function checkUsername($usr){
     return $row['cnt'];
 }
 
+function checkOldPassword($usr,$password){
+    global $conn;
+    $stmt = $conn->prepare("SELECT password from utilizador WHERE username=?");
+    $stmt->execute(array($usr));
+    $row = $stmt->fetch();
+    $currpassword = $row['password'];
+
+
+   if(/*sha1($password)*/ $password == $currpassword){
+        return 1 ;
+    }else return 0;
+}
+
 ?>

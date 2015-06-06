@@ -19,35 +19,35 @@
             </div>
         </div>
         <!-- change Password modal -->
-        <div class="modal fade" id="changepw" aria-hidden="true">
+        <div class="modal fade" id="changepw"  aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
             <div class="modal-header">
                 <h3>Change Password <span class="extra-title muted"></span></h3>
             </div>
             <div class="modal-body form-horizontal">
-                <div class="control-group">
+                <div class="control-group has-feedback">
                     <label for="current_password" class="control-label">Current Password</label>
                     <div class="controls">
-                        <input type="password" name="current_password">
+                        <input type="password" class="form-control" id="current_password" name="current_password">
                     </div>
                 </div>
                 <div class="control-group">
                     <label for="new_password" class="control-label">New Password</label>
-                    <div class="controls">
-                        <input type="password" name="new_password">
+                    <div class="controls has-feedback">
+                        <input type="password" class ="form-control" id="password" name="new_password">
                     </div>
                 </div>
                 <div class="control-group">
                     <label for="confirm_password" class="control-label">Confirm Password</label>
-                    <div class="controls">
-                        <input type="password" name="confirm_password">
+                    <div class="controls has-feedback">
+                        <input type="password" class="form-control" id="password_confirmation" name="confirm_password">
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button href="#" class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-                <button href="#" class="btn btn-primary" id="password_modal_save">Save changes</button>
+                <button href="#" class="btn btn-primary" id="password_modal_save" onclick="updatePassword()">Save changes</button>
             </div>
         </div>
 </div>
@@ -72,8 +72,7 @@
 
 
                                 <a class="btn btn-info btn-block" onclick="updatePhoto('{$BASE_URL}database/userimg/{$USERNAME}','{$BASE_URL}actions/users/userimageupload.php')">Change photo</a>
-                                <a class="btn btn-info btn-block" data-toggle="modal"
-                                   data-target="#changepw"">Change Password</a>
+                                <a class="btn btn-info btn-block" data-toggle="modal" data-target="#changepw" onclick="bindPasswordFields();">Change Password</a>
 
                             <!--<a href="profile.php" class="btn btn-info btn-block">Change photo</a>-->
                         </div>
@@ -95,19 +94,13 @@
                                         <td><input type="email" name="email" id="email" class="form-control" placeholder="Email Address" tabindex="4" value="{$data.userinfo[0].email}"></td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Password</td>
-                                        <td><input type="password" name="newpassword" id="newpassword" class="form-control" placeholder="New Password" tabindex="8"></td>
-
-                                    </tr>
-
-                                    <tr>
                                         <th scope="row">Address</th>
                                         <div>
                                         <td><input type="text" name="address" id="address" class="form-control" placeholder="Address" tabindex="9" value="{$data.userinfo[0].address}"></td>
                                         </div>
                                     </tr>
                                         <th scope="row">Postal Code</th>
-                                        <td><div class="form-group" style="width: 70px!important; display:-webkit-inline-box">
+                                        <td><div class="form-group" style="display:-webkit-inline-box">
                                                 <select id="postalcodeform" onchange="getCity()" class="form-control">
                                                     <option value="{$data.userinfo[0].postalcode}" selected="selected">{$data.userinfo[0].postalcode}</option>
                                                 </select>

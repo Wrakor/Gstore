@@ -453,9 +453,10 @@ $(document).ready(function()
         getPostalCodes();
         bindLoginValidation();
     }
-    
+
     if(location.pathname.substring(location.pathname.lastIndexOf("/") + 1).split('#')[0] == "edituser.php"){
         getPostalCodes();
+        $('#password_modal_save').prop('disabled',true);
     }
 
 
@@ -558,4 +559,71 @@ function getPostalCodes(){
         var num = pad2(i);
         $('#postalextform').append('<option value=\"'+num+'\">'+num+'</option>');
     }
+
+}
+
+
+function updatePassword(){
+
+
+    $.ajax({
+        url : "../../actions/users/updatePassword.php",
+        type: "POST",
+        data : {password:$('#current_password').val()},
+        success: function (dataCheck) {
+            alert(dataCheck);
+            if(dataCheck === 1) {
+                alert("alterou a password!");
+            }else{
+                alert("nao pintou");
+            }
+
+        },
+        error: function(data){
+           enableError($('#current_password').parent());
+        }
+
+    });
+
+}
+
+function validateUpdatePW(){
+    var pass1 = $('#password').val();
+    var pass2 = $('#password_confirmation').val();
+
+    if((isValidPassword(pass1) && isValidPassword(pass2)) && (pass1 === pass2)){
+        disableError($('#password'));
+        disableError($('#password_confirmation'));
+    }
+    else{
+        enableError($('#password'));
+        enableError($('#password_confirmation'));
+    }
+}
+
+function enableUpdatePW(){
+
+    if($('#password').parent().hasClass('has-success') && $('#password_confirmation').parent().hasClass('has-success') && $('#current_password').val().length >= 6){
+        $('#password_modal_save').removeProp('disabled');
+    }else
+        $('#password_modal_save').prop('disabled',true);
+}
+
+function bindPasswordFields(){
+
+    $('#current_password').bind('input', function() {
+        validateUpdatePW();
+        enableUpdatePW();
+    });
+
+    $('#password').bind('input', function() {
+        validateUpdatePW();
+        enableUpdatePW();
+    });
+
+    $('#password_confirmation').bind('input', function() {
+        validateUpdatePW();
+        enableUpdatePW();
+    });
+
 }
