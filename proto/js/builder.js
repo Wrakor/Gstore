@@ -1,13 +1,21 @@
-var
-
 // Function that renders the list items from our records
 function view1Writer(rowIndex, record, columns, cellWriter) {
 
-    var template = $('#view1-template').html();
-    var view = Handlebars.compile(template);  
-    generate('success','Success: template compiled!');
+    /* var template = $('#view1-template').html();
+     var view = Handlebars.compile(template);  
+     generate('success','Success: template compiled!');
 
-    return view(record);
+     return view(record);*/
+
+    console.log(record);
+    var cssClass = "col-md-4 product-list", li;
+
+
+    if (rowIndex % 3 === 0) { cssClass += ' first'; }
+    li = '<li class="' + cssClass + '"><div class="thumbnail"><div class="thumbnail-image"><img src=\" ' + record.externallink + ' \"> </div><div class="caption">' + record.price + '</div></div></li>';
+    return li;
+
+
 }
 
 // Function that creates our records from the DOM when the page is loaded
@@ -15,9 +23,17 @@ function view1Reader(index, item, record) {
 
     var $item = $(item);
 
-    record.id    = $item.find('.thumbnail-image').html();
+    record.externallink    = $item.find('.thumbnail-image').html();
     record.name  = $item.find('h4').text();
     record.price = $item.find('h3').text();
+
+    /* var $li = $(li),
+     $caption = $li.find('.caption');
+     record.thumbnail = $li.find('.thumbnail-image').html();
+     record.caption = $caption.html();
+     record.label = $caption.find('h3').text();
+     record.description = $caption.find('p').text();
+     record.color = $li.data('color');*/
 }
 
 $(document).ready(function(){
@@ -28,23 +44,25 @@ $(document).ready(function(){
 
         $.getJSON("../../actions/products/request.php", request, function(data, status){
             generate('success','Success: ajax request!');
+
+            console.log("teste");
             console.log(data);
 
-            var template = $('#view1-template').html();
-            var view = Handlebars.compile(template);  
+            //var template = $('#view1-template').html();
+            //var view = Handlebars.compile(template);  
             generate('success','Success: template compiled!');
 
-            $("#data").append (view(data));
+            //$("#data").append (view(data));
 
-            console.log(records);
+            //console.log(records);
 
-/*
-            $('#data').dynatable({
+
+            $('#uldata').dynatable({
                 table: {
-                    bodyRowSelector: 'a.view1'
+                    bodyRowSelector: 'li'
                 },
                 dataset: {
-                    records: records,
+                    records: data,
                     perPageDefault: 3,
                     perPageOptions: [3, 6]
                 },
@@ -66,7 +84,7 @@ $(document).ready(function(){
                     perPageSelect: true
                 }
             });
-        */
+
 
 
             //alert("Data: " + data + "\nStatus: " + status);

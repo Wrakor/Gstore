@@ -22,7 +22,7 @@ session_start();
     {
         //$BASE_DIR = "/Users/jrsc/BitBucket/lbaw1433/src/" . $SUB_FOLDER;
       //  if(!is_dir($BASE_DIR)){
-        $BASE_DIR = "/Users/cenas/PhpstormProjects/lbaw/src".$SUB_FOLDER;
+        $BASE_DIR = "C:/xampp/htdocs/lbaw/".$SUB_FOLDER;
       //  }
 
 
@@ -35,7 +35,7 @@ session_start();
     else
     {
         $BASE_DIR = '/' . $SUB_FOLDER;
-        $BASE_URL = '/' . $SUB_FOLDER;
+        $BASE_URL = '/lbaw/proto/' . $SUB_FOLDER;
 
         echo "erro";
         echo "<pre>"; var_dump($_SERVER); echo "</pre>";

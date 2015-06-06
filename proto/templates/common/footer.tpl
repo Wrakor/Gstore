@@ -35,14 +35,14 @@
 
             <div class="col-md-2">
                 {if $USERNAME}
-                <ul>
-                    <li>My Account<li>
-                    <li><a href="profile.php">Profile</a></li>
-                    <li><a href="orderhistory.php">Order History</a></li>
-                    <li><a href="wishlist.php">Wishlist</a></li>
-                    <li><a href="favorites.php">Favorites</a></li>
-                    <li><a href="settings.php">Settings</a></li>
-                </ul>
+                    <ul>
+                        <li>My Account<li>
+                        <li><a href="profile.php">Profile</a></li>
+                        <li><a href="orderhistory.php">Order History</a></li>
+                        <li><a href="wishlist.php">Wishlist</a></li>
+                        <li><a href="favorites.php">Favorites</a></li>
+                        <li><a href="settings.php">Settings</a></li>
+                    </ul>
                 {/if}
             </div>
 
@@ -81,47 +81,23 @@
     </div><!-- /.container -->
 </footer><!-- /footer -->
 
-{literal}
-    <script id="view1-template" type="text/x-handlebars-template">
-        {{#each this}}
-        <a class="col-sm-4 col-lg-4 col-md-4 product-list view-1 hvr-bounce-to-top" href="/~lbaw1433/proto/pages/products/item.php?id={{id}}">
-            <div class="thumbnail thumbnail-full">
-                <img src="http://vignette2.wikia.nocookie.net/video151/images/b/bc/Borderlands_2_-_Ultimate_Vault_Hunter_Upgrade_Pack_2_-_The_Raid_of_Digistruct_Peak_Walkthrough/revision/latest?cb=20130904162339" alt="">
-            </div>
-
-            <h3>{{price}}€</h3>
-            <h4>{{name}}</h4>
-            <p>{{description}}</p>
-            <div class="platforms">
-                <span class="icon-os-win-03"></span>
-                <span class="icon-os-apple"></span>
-                <span class="icon-os-linux_1_"></span>
-            </div>
-        </a>
-        {{/each}}
-    </script>
-{/literal}
 
 {literal}
     <script id="view2-template" type="text/x-handlebars-template">
         {{#each this}}
-        <a class="col-sm-12 col-lg-12 col-md-12 product-list view-2 hvr-bounce-to-top" href="/~lbaw1433/proto/pages/products/item.php?id={{id}}">
-            <div class="thumbnail thumbnail-full">
-                <img src="http://vignette2.wikia.nocookie.net/video151/images/b/bc/Borderlands_2_-_Ultimate_Vault_Hunter_Upgrade_Pack_2_-_The_Raid_of_Digistruct_Peak_Walkthrough/revision/latest?cb=20130904162339" alt="">
-            </div>
 
-            <h3>{{price}}€</h3>
-            <h4>{{name}}</h4>
-            <p>{{description}}</p>
-            <div class="platforms">
-                <span class="icon-os-win-03"></span>
-                <span class="icon-os-apple"></span>
-                <span class="icon-os-linux_1_"></span>
-            </div>
-        </a>
+
         {{/each}}
     </script>
 {/literal}
+
+
+
+
+
+
+
+
 
 <!-- jQuery -->
 <script src="{$BASE_URL}lib/jquery/jquery.min.js"></script>
