@@ -27,7 +27,8 @@
             <a class="list-group-item glyphicon glyphicon-menu-up" href=""></a>
             <a class="list-group-item glyphicon glyphicon-menu-down" href=""></a>
         </div>
-
+        <a href="#" class="btn primary" id="sorting-by-price-button">Sort by Price</a>
+        <a href="#" class="btn primary" id="sorting-by-name-button">Sort by Name</a>
         <ul  style="padding-top: 5%;" id="uldata" class="row-fluid list-unstyled nav ">
 
 
