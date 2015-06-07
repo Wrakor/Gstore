@@ -1,30 +1,30 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-06-08 01:23:27
-         compiled from "C:\xampp\htdocs\lbaw\final\templates\products\productlist.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:266805574b573823b38-34048598%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-08 00:43:55
+         compiled from "/Users/jrsc/BitBucket/lbaw1433/src/final/templates/products/productlist.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:17641833785574c92b1ccca0-98152342%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '926286154099f36c989f1324a853aeb5b10db954' => 
+    'acde0786c7af09c84d0f84ae97f8b52adf82530b' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\lbaw\\final\\templates\\products\\productlist.tpl',
-      1 => 1433719405,
+      0 => '/Users/jrsc/BitBucket/lbaw1433/src/final/templates/products/productlist.tpl',
+      1 => 1433715723,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '266805574b573823b38-34048598',
+  'nocache_hash' => '17641833785574c92b1ccca0-98152342',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_5574b573851e67_90360957',
   'variables' => 
   array (
     'BASE_URL' => 0,
     'data' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_5574c92b3588b5_62768477',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5574b573851e67_90360957')) {function content_5574b573851e67_90360957($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('common/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+<?php if ($_valid && !is_callable('content_5574c92b3588b5_62768477')) {function content_5574c92b3588b5_62768477($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('common/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
 
 <?php echo $_smarty_tpl->getSubTemplate ('common/nav.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
@@ -60,8 +60,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <a class="list-group-item glyphicon glyphicon-menu-up" href=""></a>
             <a class="list-group-item glyphicon glyphicon-menu-down" href=""></a>
         </div>
-        <a href="#" class="btn primary" id="sorting-by-price-button">Sort by Price</a>
-        <a href="#" class="btn primary" id="sorting-by-name-button">Sort by Name</a>
+
         <ul  style="padding-top: 5%;" id="uldata" class="row-fluid list-unstyled nav ">
 
 

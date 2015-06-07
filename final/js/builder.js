@@ -1,29 +1,6 @@
 // Function that renders the list items from our records
 function view1Writer(rowIndex, record, columns, cellWriter) {
 
-    /* var template = $('#view1-template').html();
-     var view = Handlebars.compile(template);  
-     generate('success','Success: template compiled!');
-
-     return view(record);*/
-
-    /*<a class="col-sm-4 col-lg-4 col-md-4 product-list view-1 hvr-bounce-to-top" href="">
-     <div class="thumbnail thumbnail-full">
-     <img src="http://vignette2.wikia.nocookie.net/video151/images/b/bc/Borderlands_2_-_Ultimate_Vault_Hunter_Upgrade_Pack_2_-_The_Raid_of_Digistruct_Peak_Walkthrough/revision/latest?cb=20130904162339" alt="">
-     </div>
-
-     <h3>Price €</h3>
-     <h4>Title</h4>
-     <p>Description text</p>
-     <div class="platforms">
-     <span class="icon-os-win-03"></span>
-     <span class="icon-os-apple"></span>
-     <span class="icon-os-linux_1_"></span>
-     </div>
-     </a>
-
-
-     */
     console.log(record);
     var cssClass = "col-sm-4 col-lg-4 col-md-4 product-list view-1 hvr-grow", li;
 
@@ -65,11 +42,6 @@ li += '</div>';
 
     return li;
 
-
-
-
-
-
 }
 
 // Function that creates our records from the DOM when the page is loaded
@@ -79,7 +51,8 @@ function view1Reader(index, item, record) {
 
     record.externallink    = $item.find('.thumbnail-image').html();
     record.name  = $item.find('h4').text();
-    record.price = $item.find('h3').text();
+    record.price = $item.find('h3').number();
+
 
     /* var $li = $(li),
      $caption = $li.find('.caption');
@@ -89,28 +62,73 @@ function view1Reader(index, item, record) {
      record.description = $caption.find('p').text();
      record.color = $li.data('color');*/
 }
+
+function priceSort(a, b, attr, direction) {
+
+    // Assuming we've created a separate function
+    // to get the average RGB value from an image.
+    // (see source for example above for getAverageRGB function)
+
+
+
+       var comparison = parseInt(a.price) - parseInt(b.price);
+
+    return direction > 0 ? comparison : -comparison;
+};
+
+
 function generateList(){
 
 
 
     var request = {'request':'products'};
 
+    $('#uldata')
+
+        .bind('dynatable:init', function(e, dynatable) {
+
+            $('#sorting-by-price-button').click( function(e) {
+
+                dynatable.sorts.clear();
+
+                if(!dynatable.bool| dynatable.bool == undefined) {
+
+                    dynatable.sorts.add('price', 1) // 1=ASCENDING, -1=DESCENDING
+                    dynatable.bool = true;
+                }else{
+                    dynatable.sorts.add('price', -1) // 1=ASCENDING, -1=DESCENDING
+                    dynatable.bool = false;
+                }
+                dynatable.process();
+                e.preventDefault();
+            });
+            $('#sorting-by-name-button').click( function(e) {
+
+                dynatable.sorts.clear();
+
+                if(!dynatable.bool| dynatable.bool == undefined) {
+
+                    dynatable.sorts.add('name', 1) // 1=ASCENDING, -1=DESCENDING
+                    dynatable.bool = true;
+                }else{
+                    dynatable.sorts.add('name', -1) // 1=ASCENDING, -1=DESCENDING
+                    dynatable.bool = false;
+                }
+                dynatable.process();
+                e.preventDefault();
+            });
+
+    })
+
+
+
     $.getJSON("../../actions/products/request.php", request, function(data, status){
-        // generate('success','Success: ajax request!');
 
 
+        $('#uldata')
 
-        //var template = $('#view1-template').html();
-        //var view = Handlebars.compile(template);  
-        //generate('success','Success: template compiled!');
 
-        //$("#data").append (view(data));
-        console.log("records: ");
-
-        console.log(data);
-        console.log("fim");
-
-        $('#uldata').dynatable({
+            .dynatable({
             table: {
                 bodyRowSelector: 'li'
             },
@@ -118,12 +136,16 @@ function generateList(){
                 records: data,
                 perPageDefault: 10,
                 perPageOptions: [3, 6]
+
             },
             writers: {
                 _rowWriter: view1Writer
             },
             readers: {
-                _rowReader: view1Reader
+                _rowReader: view1Reader,
+                price: function(el, record) {
+                    return Number(el.innerHTML) || 0;
+                }
             },
 
             params: {
@@ -148,23 +170,44 @@ function generateList(){
 
 function generateCategoryList(cat){
 
-
-
     var request = {'request':'products'};
 
+    $('#uldata').bind('dynatable:init', function(e, dynatable) {
+
+        $('#sorting-by-price-button').click( function(e) {
+
+            dynatable.sorts.clear();
+
+            if(!dynatable.bool| dynatable.bool == undefined) {
+
+                dynatable.sorts.add('price', 1) // 1=ASCENDING, -1=DESCENDING
+                dynatable.bool = true;
+            }else{
+                dynatable.sorts.add('price', -1) // 1=ASCENDING, -1=DESCENDING
+                dynatable.bool = false;
+            }
+            dynatable.process();
+            e.preventDefault();
+        });
+        $('#sorting-by-name-button').click( function(e) {
+
+            dynatable.sorts.clear();
+
+            if(!dynatable.bool| dynatable.bool == undefined) {
+
+                dynatable.sorts.add('name', 1) // 1=ASCENDING, -1=DESCENDING
+                dynatable.bool = true;
+            }else{
+                dynatable.sorts.add('name', -1) // 1=ASCENDING, -1=DESCENDING
+                dynatable.bool = false;
+            }
+            dynatable.process();
+            e.preventDefault();
+        });
+
+    });
+
     $.getJSON('../../actions/products/request.php?cat='+cat+'', request, function(data, status){
-        // generate('success','Success: ajax request!');
-
-
-        //var template = $('#view1-template').html();
-        //var view = Handlebars.compile(template);  
-        //generate('success','Success: template compiled!');
-
-        //$("#data").append (view(data));
-        console.log("records: ");
-
-        console.log(data);
-        console.log("fim");
 
         $('#uldata').dynatable({
             table: {
@@ -196,7 +239,6 @@ function generateCategoryList(cat){
 
 
 
-        //alert("Data: " + data + "\nStatus: " + status);
     });
 
 
@@ -218,24 +260,14 @@ function getUrlParameter(sParam)
 
 $(document).ready(function(){
 
-    //alert(getUrlParameter('cat'));
 
 
 
-    //alert(location.pathname.substring(location.pathname.lastIndexOf("/") + 1));
     if(location.pathname.substring(location.pathname.lastIndexOf("/") + 1).split('#')[0] == "list.php") {
-
         if (getUrlParameter('cat') == undefined) {
-
-            //alert("normal");
-
             generateList();
         } else {
-
-            //alert(getUrlParameter('cat'));
             generateCategoryList(getUrlParameter('cat'));
-
         }
     }
-
 });

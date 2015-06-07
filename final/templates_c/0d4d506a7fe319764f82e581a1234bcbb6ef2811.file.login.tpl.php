@@ -1,30 +1,30 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-06-07 23:55:41
-         compiled from "C:\xampp\htdocs\lbaw\final\templates\users\login.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:204525574b5739e3ec4-56499722%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-08 00:43:55
+         compiled from "/Users/jrsc/BitBucket/lbaw1433/src/final/templates/users/login.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:3021867465574c92b654b86-84438360%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '32815811532596ebfcd81d025840093fdcff350c' => 
+    '0d4d506a7fe319764f82e581a1234bcbb6ef2811' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\lbaw\\final\\templates\\users\\login.tpl',
-      1 => 1433714037,
+      0 => '/Users/jrsc/BitBucket/lbaw1433/src/final/templates/users/login.tpl',
+      1 => 1433715726,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '204525574b5739e3ec4-56499722',
+  'nocache_hash' => '3021867465574c92b654b86-84438360',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_5574b5739eb1e0_87787353',
   'variables' => 
   array (
     'BASE_URL' => 0,
     'FORM_VALUES' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_5574c92b6c50f2_68755325',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5574b5739eb1e0_87787353')) {function content_5574b5739eb1e0_87787353($_smarty_tpl) {?><div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="smallModal" aria-hidden="true">
+<?php if ($_valid && !is_callable('content_5574c92b6c50f2_68755325')) {function content_5574c92b6c50f2_68755325($_smarty_tpl) {?><div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="smallModal" aria-hidden="true">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
 
