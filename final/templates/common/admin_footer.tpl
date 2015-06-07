@@ -3,7 +3,7 @@
 <script id="sold-template" type="text/x-handlebars-template">
 
     {{#each this}}
-    <a href="http://localhost:8888/proto/pages/products/item.php?id={{id}}" class="list-group-item">
+    <a href="http://localhost:8888/final/pages/products/item.php?id={{id}}" class="list-group-item">
         <span class="label label-info">{{sold}}</span>
         <i class="fa fa-fw {{#if game}}fa-gamepad{{else}}fa-cube{{/if}}"></i> {{name}}
     </a>
