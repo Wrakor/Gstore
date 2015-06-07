@@ -1,29 +1,29 @@
 function enableError($param) {
-    if( !$param.parent('div').hasClass("has-error") )
-        $param.parent('div').addClass("has-error");
+    if( !$param.parent().hasClass("has-error") )
+        $param.parent().addClass("has-error");
 
-    if( $param.parent('div').hasClass("has-success") )
-        $param.parent('div').removeClass("has-success");
+    if( $param.parent().hasClass("has-success") )
+        $param.parent().removeClass("has-success");
 
-    /*  if( !$param.next('span.glyphicon').hasClass("glyphicon-remove") )
-     $param.next('span.glyphicon').addClass("glyphicon-remove");
+  /*  if( !$param.next('span.glyphicon').hasClass("glyphicon-remove") )
+        $param.next('span.glyphicon').addClass("glyphicon-remove");
 
-     if( $param.next('span.glyphicon').hasClass("glyphicon-ok") )
-     $param.next('span.glyphicon').removeClass("glyphicon-ok");*/
+    if( $param.next('span.glyphicon').hasClass("glyphicon-ok") )
+        $param.next('span.glyphicon').removeClass("glyphicon-ok");*/
 }
 
 function disableError($param) {
-    if( $param.parent('div').hasClass("has-error") )
-        $param.parent('div').removeClass("has-error");
+    if( $param.parent().hasClass("has-error") )
+        $param.parent().removeClass("has-error");
 
-    if( !$param.parent('div').hasClass("has-success") )
-        $param.parent('div').addClass("has-success");
+    if( !$param.parent().hasClass("has-success") )
+        $param.parent().addClass("has-success");
 
-    /*  if( $param.next('span.glyphicon').hasClass("glyphicon-remove") )
-     $param.next('span.glyphicon').removeClass("glyphicon-remove");
+  /*  if( $param.next('span.glyphicon').hasClass("glyphicon-remove") )
+        $param.next('span.glyphicon').removeClass("glyphicon-remove");
 
-     if( !$param.next('span.glyphicon').hasClass("glyphicon-ok") )
-     $param.next('span.glyphicon').addClass("glyphicon-ok");*/
+    if( !$param.next('span.glyphicon').hasClass("glyphicon-ok") )
+        $param.next('span.glyphicon').addClass("glyphicon-ok");*/
 }
 
 function isValidName(name) {
@@ -37,7 +37,7 @@ function isValidEmailAddress(name) {
 };
 
 function isValidAddress(name) {
-    var pattern = new RegExp(/^[a-zA-Z0-9 ]+$/i);
+    var pattern = new RegExp(/^([a-zA-Z]+ ){2,}([a-zA-Z]*)(, | )[0-9]+$/i);
     return pattern.test(name);
 };
 
@@ -243,7 +243,7 @@ function validatePostalCode(){
     var postal = $("#postalcodeform option:selected").val();
 
     if(postal == "-"){
-        enableError($('#postalcodeform'));
+         enableError($('#postalcodeform'));
     }
     else{
         disableError($('#postalcodeform'));
@@ -302,8 +302,8 @@ function validateRegister() {
             return 1;
         }
 
-        $('#registeraccount').prop('disabled', true);
-    }
+    $('#registeraccount').prop('disabled', true);
+}
     return 0;
 };
 
@@ -370,57 +370,57 @@ function validateLogin() {
 
 function bindRegistValidations(){
 
-    $('#first_name').bind('input', function()
-    {
-        validateFirstName();
-        validateRegister();
-    });
+$('#first_name').bind('input', function()
+{
+    validateFirstName();
+    validateRegister();
+});
 
-    $('#last_name').bind('input', function()
-    {
-        validateLastName();
-        validateRegister();
-    });
+$('#last_name').bind('input', function()
+{
+    validateLastName();
+    validateRegister();
+});
 
-    $('#display_name').bind('input', function()
-    {
-        validateUsername();
-        validateRegister();
-    });
+$('#display_name').bind('input', function()
+{
+    validateUsername();
+    validateRegister();
+});
 
-    $('#email').bind('input', function()
-    {
-        validateEmail();
-        validateRegister();
-    });
+$('#email').bind('input', function()
+{
+    validateEmail();
+    validateRegister();
+});
 
-    $('#address').bind('input', function()
-    {
-        validateAddress();
-        validateRegister();
-    });
+$('#address').bind('input', function()
+{
+    validateAddress();
+    validateRegister();
+});
 
-    $('#postalcodeform').bind('change',function(){
-        validatePostalCode();
-        validateRegister();
-    });
+$('#postalcodeform').bind('change',function(){
+    validatePostalCode();
+    validateRegister();
+});
 
-    $('#postalextform').bind('change',function(){
-        validatePostalCodeExt();
-        validateRegister();
-    });
+$('#postalextform').bind('change',function(){
+    validatePostalCodeExt();
+    validateRegister();
+});
 
-    $('#password').bind('input', function()
-    {
-        validatePass1();
-        validateRegister();
-    });
+$('#password').bind('input', function()
+{
+    validatePass1();
+    validateRegister();
+});
 
-    $('#password_confirmation').bind('input', function()
-    {
-        validatePass2();
-        validateRegister();
-    });
+$('#password_confirmation').bind('input', function()
+{
+    validatePass2();
+    validateRegister();
+});
 };
 
 function bindLoginValidation(){
@@ -435,6 +435,10 @@ function bindLoginValidation(){
         validateLogin();
     });
 }
+
+
+var myBackup;
+var origmail;
 
 $(document).ready(function()
 {
@@ -455,56 +459,64 @@ $(document).ready(function()
     }
 
     if(location.pathname.substring(location.pathname.lastIndexOf("/") + 1).split('#')[0] == "edituser.php"){
-
+        $('#updatebtn').prop('disabled', true);
         getPostalCodes();
+        origmail = $('#email').val();
+        myBackup = $('#changepw').clone();
         $('#password_modal_save').prop('disabled',true);
     }
 
-
-
-
+    if(location.pathname.substring(location.pathname.lastIndexOf("/") + 1).split('#')[0] == "user.php") {
+        if(window.location.hash == "#updated") {
+            generate('success', "User Updated!!!");
+            setTimeout(function () {
+                $.noty.closeAll()
+            }, 5000);
+            window.location.hash="";
+        }
+    }
 
 });
 
 
 
 function getDistricts(){
-    $.ajax({
-        url : "../../actions/users/getDistrict.php",
-        type: "POST",
-        success: function (dataCheck) {
-            parse = JSON.parse(dataCheck);
-            for(var i=0;i<parse.length;i++)
-                $('#districtformselect').append('<option value=\"'+parse[i]["name"]+'\">'+parse[i]["name"]+'</option>');
-        }
-    });
-
-    $.ajax({
-        url : "../../actions/users/getCities.php",
-        type: "POST",
-        data : {district :  $("#districtformselect option:selected").val()},
-        success: function (dataCheck) {
-            parse = JSON.parse(dataCheck);
-            for(var i=0;i<parse.length;i++)
-                $('#cityformselect').append('<option value=\"parse[i]["name"]\">'+parse[i]["name"]+'</option>');
-        }
-    });
-
-    $.ajax({
-        url : "../../actions/users/getCityPostalCodes.php",
-        type: "POST",
-        data : {city :  $("#cityformselect option:selected").val()},
-        success: function (dataCheck) {
-            parse = JSON.parse(dataCheck);
-            for(var i=0;i<parse.length;i++)
-                $('#postalcodeformselect').append('<option value=\"parse[i]["name"]\">'+parse[i]["code"]+'</option>');
-        }
-    });
-
-    for(var i=0;i<=999;i++){
-        var num = pad2(i);
-        $('#postalcodeextraformselect').append('<option value="'+num+'">'+num+'</option>');
+$.ajax({
+    url : "../../actions/users/getDistrict.php",
+    type: "POST",
+    success: function (dataCheck) {
+        parse = JSON.parse(dataCheck);
+        for(var i=0;i<parse.length;i++)
+            $('#districtformselect').append('<option value=\"'+parse[i]["name"]+'\">'+parse[i]["name"]+'</option>');
     }
+});
+
+$.ajax({
+    url : "../../actions/users/getCities.php",
+    type: "POST",
+    data : {district :  $("#districtformselect option:selected").val()},
+    success: function (dataCheck) {
+        parse = JSON.parse(dataCheck);
+        for(var i=0;i<parse.length;i++)
+            $('#cityformselect').append('<option value=\"parse[i]["name"]\">'+parse[i]["name"]+'</option>');
+    }
+});
+
+$.ajax({
+    url : "../../actions/users/getCityPostalCodes.php",
+    type: "POST",
+    data : {city :  $("#cityformselect option:selected").val()},
+    success: function (dataCheck) {
+        parse = JSON.parse(dataCheck);
+        for(var i=0;i<parse.length;i++)
+            $('#postalcodeformselect').append('<option value=\"parse[i]["name"]\">'+parse[i]["code"]+'</option>');
+    }
+});
+
+for(var i=0;i<=999;i++){
+    var num = pad2(i);
+    $('#postalcodeextraformselect').append('<option value="'+num+'">'+num+'</option>');
+}
 }
 
 function pad2(number) {
@@ -524,7 +536,7 @@ function getCity(){
         success: function (dataCheck) {
             parse = JSON.parse(dataCheck);
             var city = parse[0]["name"];
-            $('#citylb').html(city);
+                $('#citylb').html(city);
             $('#citylb').val(city);
 
             $.ajax({
@@ -574,16 +586,33 @@ function updatePassword(){
         type: "POST",
         data : {password:$('#current_password').val()},
         success: function (dataCheck) {
-            alert(dataCheck);
-            if(dataCheck === 1) {
-                alert("alterou a password!");
+
+            if(dataCheck == 1) {
+                $.ajax({
+                    url : "../../actions/users/updatePassword2.php",
+                    type: "POST",
+                    data : {password:$('#password').val()},
+                    success: function (dataCheck) {
+                        if(dataCheck == 1){
+                            clearChangePWModal();
+                            generate('success',"Password Changed!!!");
+                            setTimeout(function() {
+                                $.noty.closeAll()
+                            }, 5000);
+                        }
+                    }
+                });
             }else{
-                alert("nao pintou");
+                $('#current_password').parent().parent().addClass("has-error");
+                generate('error',"Wrong Current Password!!!");
+                setTimeout(function() {
+                    $.noty.closeAll()
+                }, 5000);
             }
 
         },
         error: function(data){
-            enableError($('#current_password').parent());
+           enableError($('#current_password').parent());
         }
 
     });
@@ -628,5 +657,146 @@ function bindPasswordFields(){
         validateUpdatePW();
         enableUpdatePW();
     });
+}
+
+function clearChangePWModal(){
+    $('#changepw').modal('hide').remove();
+    var myClone = myBackup.clone();
+    $('body').append(myClone);
+
+}
+
+
+function validateName(){
+
+    var fname = $('#name').val();
+
+
+    if ( !isValidName( fname ) || fname.length < 3 )
+    {
+        //console.log("JQuery Validation first name with at least 3 caracters" );
+
+        enableError( $('#name') );
+    }
+    else
+    {
+        disableError($('#name'));
+        return 1;
+    }
+
+    return 0;
+}
+
+
+function updatePhoto(urlimg,urlajax){
+    document.getElementById("userfile").click();
+
+    document.getElementById('userfile').onchange = function() {
+        var file = this.files[0];
+
+        var fd = new FormData();
+        fd.append("userfile", file);
+        // These extra params aren't necessary but show that you can include other data.
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', urlajax, true);
+        xhr.onload = function(e) {
+            if (this.status == 200) {
+                $("#photousr").attr("src", urlimg +"?rand_number=" + Math.random());
+
+                generate('success',"Photo Updated!!!");
+                setTimeout(function() {
+                    $.noty.closeAll()
+                }, 5000);
+            }
+            else{
+                generate('error',"Error Updating Photo!!!");
+                setTimeout(function() {
+                    $.noty.closeAll()
+                }, 5000);
+            }
+        };
+        xhr.send(fd)
+
+        // sendFile(this.files[0],urlajax);
+    };
+}
+
+function validateEmail2() {
+
+    var email = $('#email').val();
+    var flag=0;
+
+    if ( !isValidEmailAddress( email ) )
+    {
+        //console.log("JQuery Validation username needs to be between 3-20 characters: " );
+
+        enableError( $('#email') );
+    }
+    else if(origmail == email){
+        disableError($('#email'));
+
+    }
+    else
+    {
+        $.ajax({
+            type: "POST",
+            url : "../../actions/users/check_email.php",
+            data: { 'email': email }
+        }).success(function(data)
+        {
+
+            console.log(data);
+            if(data == "0")
+            {
+                //console.log("Ajax request: There is no user with this email!");
+
+                disableError( $('#email') );
+            }
+            else
+            {
+                //console.log("Ajax request: There is another user with this email!");
+
+                enableError( $('#email') );
+            }
+        });
+    }
+
+    console.log(flag==1);
+    return flag;
+};
+
+function validateUpdateButton()
+{
+    if(($('#email').parent().hasClass('has-success') || $('#name').parent().hasClass('has-success') || $('#address').parent().hasClass('has-success') || $('#postalextform').parent().hasClass('has-success') || $('#postalcodeform').parent().hasClass('has-success'))
+    && (!$('#email').parent().hasClass('has-error') && !$('#name').parent().hasClass('has-error') && !$('#address').parent().hasClass('has-error') && !$('#postalextform').parent().hasClass('has-error') && !$('#postalcodeform').parent().hasClass('has-error'))){
+        $('#updatebtn').removeProp('disabled');
+    }
+    else{
+        $('#updatebtn').prop('disabled', true);
+    }
+}
+
+function updateUser(){
+
+    var name = $('#name').val();
+    var email = $('#email').val();
+    var address = $('#address').val();
+    var postalcode=$("#postalcodeform option:selected").val()
+    var postalcodeextra=$("#postalextform option:selected").val();
+
+    var data = {name:name,email:email,address:address,postalcode:postalcode, postalcodeextra:postalcodeextra};
+
+    $.ajax({
+        url : "../../actions/users/updateuser.php",
+        type: "POST",
+        data : data
+    }).success(function(data){
+        if(data == "Success! Client created."){
+            var url = window.location.href;
+            var value = url.substring(url.lastIndexOf('/') + 1);
+            url = url.replace(value, 'user.php#updated');
+            window.location.replace(url);
+        }
+    })
 
 }

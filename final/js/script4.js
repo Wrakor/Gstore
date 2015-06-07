@@ -1,5 +1,5 @@
-$(document).ready(function(){
-    /*$.ajax({
+/*$(document).ready(function(){
+    $.ajax({
         url : "../../actions/users/getDistrict.php",
         type: "POST",
         success: function (dataCheck) {
@@ -35,7 +35,6 @@ $(document).ready(function(){
         var num = pad2(i);
         $('#postalcodeextraformselect').append('<option value=\"num\">'+num+'</option>');
     }
-    */
 });
 
 function pad2(number) {
@@ -89,26 +88,6 @@ function sendFile(file,url){
     });
 
 }
+*/
 
 
-function updatePhoto(urlimg,urlajax){
-    document.getElementById("userfile").click();
-
-    document.getElementById('userfile').onchange = function() {
-        var file = this.files[0];
-
-        var fd = new FormData();
-        fd.append("userfile", file);
-        // These extra params aren't necessary but show that you can include other data.
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', urlajax, true);
-        xhr.onload = function(e) {
-            if (this.status == 200) {
-                $("#photousr").attr("src", urlimg +"?rand_number=" + Math.random());
-            }
-        };
-       xhr.send(fd)
-
-       // sendFile(this.files[0],urlajax);
-    };
-}
