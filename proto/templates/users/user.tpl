@@ -33,7 +33,7 @@
                         </div>
                         <div class="col-md-9">
                             <ul class="list-unstyled">
-                                <li><a href="{$BASE_URL}pages/users/edituser.php"><span  style="padding-left: 85%" class="glyphicon glyphicon-pencil"></span></a></li>
+                                <li><a href="{$BASE_URL}pages/users/edituser.php" data-toggle="tooltip" data-original-title="Edit your profile" data-placement="right"><span  style="padding-left: 85%" class="glyphicon glyphicon-pencil"></span></a></li>
                             </ul>
                             <div class="table-responsive borderless">
                                 <table class="table table-hover">

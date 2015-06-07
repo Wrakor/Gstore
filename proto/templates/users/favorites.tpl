@@ -38,8 +38,8 @@
                                     <img src="{$product['externallink']}" style="max-width: 90px; max-height: 90px">
                                 </a>
                             </div>
-                            <div class="media-body">
-                                <h4 class="media-heading" style="margin-right: 15px">
+                            <div class="media-body" style=" text-align: justify; text-justify: inter-word;padding-right: 25px">
+                                <h4 class="media-heading">
                                     <span><a href="{$BASE_URL}pages/products/item.php?id={$product['id']}">{$product['name']}</a> </span>
                                     {if in_array("Mac", $platforms[$product['id']])}
                                         <span class="icon-os-apple"></span>
@@ -51,7 +51,7 @@
                                         <span class="icon-os-linux"></span>
                                     {/if}
                                     <a href="{$BASE_URL}actions/users/deleteFromFavorites.php?id={$product['id']}">
-                                        <span class="glyphicon glyphicon-remove pull-right"></span>
+                                        <span class="glyphicon glyphicon-remove pull-right" data-toggle="tooltip" data-original-title="Remove" data-placement="left"></span>
                                     </a></h4>
 
                                 <p>{$product['description']}</p>

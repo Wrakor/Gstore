@@ -138,7 +138,7 @@
                                         {/for}
                                     </div>
 
-                                    <strong> {$row['username']} </strong> <span class="text-muted">said </span>
+                                    <strong> {$row['username']} </strong> <span class="text-muted"> said:</span>
                                 </div>
                                 <div class="panel-body"> {$row['comment']}
                                 </div><!-- /panel-body -->
