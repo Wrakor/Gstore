@@ -12,7 +12,7 @@ function view1Writer(rowIndex, record, columns, cellWriter) {
 
 
     if (rowIndex % 3 === 0) { cssClass += ' first'; }
-    li = '<li class="' + cssClass + '"><div class="">' + record.name + '</div><a href="/lbaw/proto/pages/products/item.php?id='+record.id+'"><div class="thumbnail" ><div style="height: 143px; width: 191px;overflow: hidden;" class="thumbnail-image"><img src=\" ' + record.externallink + ' \"> </div><div style="display: inline; class="">' + record.price + '€</div><div style="float: right; class="rating">';
+    li = '<li class="' + cssClass + '"><div class="">' + record.name + '</div><a href="/proto/pages/products/item.php?id='+record.id+'"><div class="thumbnail" ><div style="height: 143px; width: 191px;overflow: hidden;" class="thumbnail-image"><img src=\" ' + record.externallink + ' \"> </div><div style="display: inline; class="">' + record.price + '€</div><div style="float: right; class="rating">';
     if(record.score==0){
         li+= '<span class="glyphicon glyphicon-star-empty"></span>';
     }else{
