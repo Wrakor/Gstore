@@ -5,11 +5,11 @@ function enableError($param) {
     if( $param.parent('div').hasClass("has-success") )
         $param.parent('div').removeClass("has-success");
 
-  /*  if( !$param.next('span.glyphicon').hasClass("glyphicon-remove") )
-        $param.next('span.glyphicon').addClass("glyphicon-remove");
+    /*  if( !$param.next('span.glyphicon').hasClass("glyphicon-remove") )
+     $param.next('span.glyphicon').addClass("glyphicon-remove");
 
-    if( $param.next('span.glyphicon').hasClass("glyphicon-ok") )
-        $param.next('span.glyphicon').removeClass("glyphicon-ok");*/
+     if( $param.next('span.glyphicon').hasClass("glyphicon-ok") )
+     $param.next('span.glyphicon').removeClass("glyphicon-ok");*/
 }
 
 function disableError($param) {
@@ -19,11 +19,11 @@ function disableError($param) {
     if( !$param.parent('div').hasClass("has-success") )
         $param.parent('div').addClass("has-success");
 
-  /*  if( $param.next('span.glyphicon').hasClass("glyphicon-remove") )
-        $param.next('span.glyphicon').removeClass("glyphicon-remove");
+    /*  if( $param.next('span.glyphicon').hasClass("glyphicon-remove") )
+     $param.next('span.glyphicon').removeClass("glyphicon-remove");
 
-    if( !$param.next('span.glyphicon').hasClass("glyphicon-ok") )
-        $param.next('span.glyphicon').addClass("glyphicon-ok");*/
+     if( !$param.next('span.glyphicon').hasClass("glyphicon-ok") )
+     $param.next('span.glyphicon').addClass("glyphicon-ok");*/
 }
 
 function isValidName(name) {
@@ -243,7 +243,7 @@ function validatePostalCode(){
     var postal = $("#postalcodeform option:selected").val();
 
     if(postal == "-"){
-         enableError($('#postalcodeform'));
+        enableError($('#postalcodeform'));
     }
     else{
         disableError($('#postalcodeform'));
@@ -302,8 +302,8 @@ function validateRegister() {
             return 1;
         }
 
-    $('#registeraccount').prop('disabled', true);
-}
+        $('#registeraccount').prop('disabled', true);
+    }
     return 0;
 };
 
@@ -370,57 +370,57 @@ function validateLogin() {
 
 function bindRegistValidations(){
 
-$('#first_name').bind('input', function()
-{
-    validateFirstName();
-    validateRegister();
-});
+    $('#first_name').bind('input', function()
+    {
+        validateFirstName();
+        validateRegister();
+    });
 
-$('#last_name').bind('input', function()
-{
-    validateLastName();
-    validateRegister();
-});
+    $('#last_name').bind('input', function()
+    {
+        validateLastName();
+        validateRegister();
+    });
 
-$('#display_name').bind('input', function()
-{
-    validateUsername();
-    validateRegister();
-});
+    $('#display_name').bind('input', function()
+    {
+        validateUsername();
+        validateRegister();
+    });
 
-$('#email').bind('input', function()
-{
-    validateEmail();
-    validateRegister();
-});
+    $('#email').bind('input', function()
+    {
+        validateEmail();
+        validateRegister();
+    });
 
-$('#address').bind('input', function()
-{
-    validateAddress();
-    validateRegister();
-});
+    $('#address').bind('input', function()
+    {
+        validateAddress();
+        validateRegister();
+    });
 
-$('#postalcodeform').bind('change',function(){
-    validatePostalCode();
-    validateRegister();
-});
+    $('#postalcodeform').bind('change',function(){
+        validatePostalCode();
+        validateRegister();
+    });
 
-$('#postalextform').bind('change',function(){
-    validatePostalCodeExt();
-    validateRegister();
-});
+    $('#postalextform').bind('change',function(){
+        validatePostalCodeExt();
+        validateRegister();
+    });
 
-$('#password').bind('input', function()
-{
-    validatePass1();
-    validateRegister();
-});
+    $('#password').bind('input', function()
+    {
+        validatePass1();
+        validateRegister();
+    });
 
-$('#password_confirmation').bind('input', function()
-{
-    validatePass2();
-    validateRegister();
-});
+    $('#password_confirmation').bind('input', function()
+    {
+        validatePass2();
+        validateRegister();
+    });
 };
 
 function bindLoginValidation(){
@@ -454,9 +454,9 @@ $(document).ready(function()
         bindLoginValidation();
     }
 
-
     if(location.pathname.substring(location.pathname.lastIndexOf("/") + 1).split('#')[0] == "edituser.php"){
         getPostalCodes();
+        $('#password_modal_save').prop('disabled',true);
     }
 
 
@@ -466,42 +466,42 @@ $(document).ready(function()
 
 
 function getDistricts(){
-$.ajax({
-    url : "../../actions/users/getDistrict.php",
-    type: "POST",
-    success: function (dataCheck) {
-        parse = JSON.parse(dataCheck);
-        for(var i=0;i<parse.length;i++)
-            $('#districtformselect').append('<option value=\"'+parse[i]["name"]+'\">'+parse[i]["name"]+'</option>');
-    }
-});
+    $.ajax({
+        url : "../../actions/users/getDistrict.php",
+        type: "POST",
+        success: function (dataCheck) {
+            parse = JSON.parse(dataCheck);
+            for(var i=0;i<parse.length;i++)
+                $('#districtformselect').append('<option value=\"'+parse[i]["name"]+'\">'+parse[i]["name"]+'</option>');
+        }
+    });
 
-$.ajax({
-    url : "../../actions/users/getCities.php",
-    type: "POST",
-    data : {district :  $("#districtformselect option:selected").val()},
-    success: function (dataCheck) {
-        parse = JSON.parse(dataCheck);
-        for(var i=0;i<parse.length;i++)
-            $('#cityformselect').append('<option value=\"parse[i]["name"]\">'+parse[i]["name"]+'</option>');
-    }
-});
+    $.ajax({
+        url : "../../actions/users/getCities.php",
+        type: "POST",
+        data : {district :  $("#districtformselect option:selected").val()},
+        success: function (dataCheck) {
+            parse = JSON.parse(dataCheck);
+            for(var i=0;i<parse.length;i++)
+                $('#cityformselect').append('<option value=\"parse[i]["name"]\">'+parse[i]["name"]+'</option>');
+        }
+    });
 
-$.ajax({
-    url : "../../actions/users/getCityPostalCodes.php",
-    type: "POST",
-    data : {city :  $("#cityformselect option:selected").val()},
-    success: function (dataCheck) {
-        parse = JSON.parse(dataCheck);
-        for(var i=0;i<parse.length;i++)
-            $('#postalcodeformselect').append('<option value=\"parse[i]["name"]\">'+parse[i]["code"]+'</option>');
-    }
-});
+    $.ajax({
+        url : "../../actions/users/getCityPostalCodes.php",
+        type: "POST",
+        data : {city :  $("#cityformselect option:selected").val()},
+        success: function (dataCheck) {
+            parse = JSON.parse(dataCheck);
+            for(var i=0;i<parse.length;i++)
+                $('#postalcodeformselect').append('<option value=\"parse[i]["name"]\">'+parse[i]["code"]+'</option>');
+        }
+    });
 
-for(var i=0;i<=999;i++){
-    var num = pad2(i);
-    $('#postalcodeextraformselect').append('<option value="'+num+'">'+num+'</option>');
-}
+    for(var i=0;i<=999;i++){
+        var num = pad2(i);
+        $('#postalcodeextraformselect').append('<option value="'+num+'">'+num+'</option>');
+    }
 }
 
 function pad2(number) {
@@ -521,7 +521,7 @@ function getCity(){
         success: function (dataCheck) {
             parse = JSON.parse(dataCheck);
             var city = parse[0]["name"];
-                $('#citylb').html(city);
+            $('#citylb').html(city);
             $('#citylb').val(city);
 
             $.ajax({
@@ -559,4 +559,71 @@ function getPostalCodes(){
         var num = pad2(i);
         $('#postalextform').append('<option value=\"'+num+'\">'+num+'</option>');
     }
+
+}
+
+
+function updatePassword(){
+
+
+    $.ajax({
+        url : "../../actions/users/updatePassword.php",
+        type: "POST",
+        data : {password:$('#current_password').val()},
+        success: function (dataCheck) {
+            alert(dataCheck);
+            if(dataCheck === 1) {
+                alert("alterou a password!");
+            }else{
+                alert("nao pintou");
+            }
+
+        },
+        error: function(data){
+            enableError($('#current_password').parent());
+        }
+
+    });
+
+}
+
+function validateUpdatePW(){
+    var pass1 = $('#password').val();
+    var pass2 = $('#password_confirmation').val();
+
+    if((isValidPassword(pass1) && isValidPassword(pass2)) && (pass1 === pass2)){
+        disableError($('#password'));
+        disableError($('#password_confirmation'));
+    }
+    else{
+        enableError($('#password'));
+        enableError($('#password_confirmation'));
+    }
+}
+
+function enableUpdatePW(){
+
+    if($('#password').parent().hasClass('has-success') && $('#password_confirmation').parent().hasClass('has-success') && $('#current_password').val().length >= 6){
+        $('#password_modal_save').removeProp('disabled');
+    }else
+        $('#password_modal_save').prop('disabled',true);
+}
+
+function bindPasswordFields(){
+
+    $('#current_password').bind('input', function() {
+        validateUpdatePW();
+        enableUpdatePW();
+    });
+
+    $('#password').bind('input', function() {
+        validateUpdatePW();
+        enableUpdatePW();
+    });
+
+    $('#password_confirmation').bind('input', function() {
+        validateUpdatePW();
+        enableUpdatePW();
+    });
+
 }

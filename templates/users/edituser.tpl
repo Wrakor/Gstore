@@ -46,7 +46,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button href="#" class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                <button href="#" class="btn" data-dismiss="modal" aria-hidden="true" onclick="clearChangePWModal()">Close</button>
                 <button href="#" class="btn btn-primary" id="password_modal_save" onclick="updatePassword()">Save changes</button>
             </div>
         </div>
@@ -86,26 +86,26 @@
                                     </tr>
                                     <tr>
                                         <th scope="row">Name</th>
-                                        <td><input type="text" name="name" id="name" class="form-control" placeholder="Name" tabindex="1" value="{$data.userinfo[0].name}">
+                                        <td class="has-feedback"><input type="text" name="name" id="name" oninput="validateName();validateUpdateButton();" class="form-control" placeholder="Name" tabindex="1" value="{$data.userinfo[0].name}">
                                         </td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Email</th>
-                                        <td><input type="email" name="email" id="email" class="form-control" placeholder="Email Address" tabindex="4" value="{$data.userinfo[0].email}"></td>
+                                        <td class="has-feedback"><input type="email" oninput="validateEmail2();validateUpdateButton();" name="email" id="email" class="form-control" placeholder="Email Address" tabindex="4" value="{$data.userinfo[0].email}"></td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Address</th>
                                         <div>
-                                        <td><input type="text" name="address" id="address" class="form-control" placeholder="Address" tabindex="9" value="{$data.userinfo[0].address}"></td>
+                                        <td class="has-feedback"><input type="text" oninput="validateAddress();validateUpdateButton();" name="address" id="address" class="form-control" placeholder="Address" tabindex="9" value="{$data.userinfo[0].address}"></td>
                                         </div>
                                     </tr>
                                         <th scope="row">Postal Code</th>
-                                        <td><div class="form-group" style="display:-webkit-inline-box">
-                                                <select id="postalcodeform" onchange="getCity()" class="form-control">
+                                        <td><div class="form-group col-md-6" style="display:-webkit-inline-box">
+                                                <select id="postalcodeform " onchange="getCity();validatePostalCode();validateUpdateButton();" class="form-control">
                                                     <option value="{$data.userinfo[0].postalcode}" selected="selected">{$data.userinfo[0].postalcode}</option>
                                                 </select>
-                                                <label style="margin-left: 8px;margin-right: 8px;" > - </label>
-                                                <select id="postalextform" class="form-control">
+                                                <label class="col-md-3" > - </label>
+                                                <select id="postalextform" onchange="validatePostalCode();validateUpdateButton();" class="form-control">
                                                     <option value="{$data.userinfo[0].postalcodeextra}" selected="selected">{$data.userinfo[0].postalcodeextra}</option>
                                                 </select>
                                             </div>
@@ -131,7 +131,7 @@
 
                         </div>
                         <div class="col-md-3 col-md-offset-5">
-                            <a class="btn btn-success btn-block" onclick="updateUser()">Update Profile</a>
+                            <button class="btn btn-success btn-block" id="updatebtn" onclick="updateUser()">Update Profile</button>
                         </div>
                     </div>
 

@@ -8,12 +8,15 @@ function generate(type, text) {
         closeWith   : ['hover','click'],
         theme       : 'relax',
         maxVisible  : 10,
+        timout:5000,
+        timeout :true,
         animation   : {
             open  : 'animated bounceInRight',
             close : 'animated bounceOutRight',
             easing: 'swing',
             speed : 500
-        }
+        },
+        buttons:false
     });
     console.log('html: ' + n.options.id);
 }
