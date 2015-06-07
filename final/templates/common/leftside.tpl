@@ -9,6 +9,9 @@
             <p class="lead">Game Categories</p>
             <div class="list-group">
 
+                <a href="{$BASE_URL}pages/products/list.php" class="list-group-item hvr-bounce-to-right {if !isset($data.title[0].plat) && $category.id == $data.title[0].id}active{/if}">All Categories</a>
+
+
                 {foreach $data.gameCategories as $category}
 
                 <a href="{$BASE_URL}pages/products/list.php?cat={$category.id}" class="list-group-item hvr-bounce-to-right {if !isset($data.title[0].plat) && $category.id == $data.title[0].id}active{/if}">{$category.name}</a>
