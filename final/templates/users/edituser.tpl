@@ -11,17 +11,53 @@
         <div class="col-md-3">
             <p class="lead">My Account</p>
             <div class="list-group side-menu">
-                <a href="{$BASE_URL}pages/users/user.php" class="list-group-item active"><span class="glyphicon glyphicon-list-alt"></span>Personal Information</a>
+                <a href="{$BASE_URL}pages/users/user.php" class="list-group-item"><span class="glyphicon glyphicon-list-alt"></span>Personal Information</a>
                 <a href="orderhistory.php" class="list-group-item"><span class="glyphicon glyphicon-euro"></span>Order History</a>
                 <a href="wishlist.php" class="list-group-item"><span class="glyphicon glyphicon-heart"></span>Wishlist</a>
                 <a href="favorites.php" class="list-group-item"><span class="glyphicon glyphicon-star"></span>Favorites</a>
+                <a href="{$BASE_URL}pages/users/edituser.php" class="list-group-item active"><span class="glyphicon glyphicon-cog"></span>Settings</a>
             </div>
         </div>
+        <!-- change Password modal -->
+        <div class="modal fade" id="changepw"  aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+            <div class="modal-header">
+                <h3>Change Password <span class="extra-title muted"></span></h3>
+            </div>
+            <div class="modal-body form-horizontal">
+                <div class="control-group has-feedback">
+                    <label for="current_password" class="control-label">Current Password</label>
+                    <div class="controls">
+                        <input type="password" class="form-control" id="current_password" name="current_password">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="new_password" class="control-label">New Password</label>
+                    <div class="controls has-feedback">
+                        <input type="password" class ="form-control" id="password" name="new_password">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="confirm_password" class="control-label">Confirm Password</label>
+                    <div class="controls has-feedback">
+                        <input type="password" class="form-control" id="password_confirmation" name="confirm_password">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button href="#" class="btn" data-dismiss="modal" aria-hidden="true" onclick="clearChangePWModal()">Close</button>
+                <button href="#" class="btn btn-primary" id="password_modal_save" onclick="updatePassword()">Save changes</button>
+            </div>
+        </div>
+</div>
+            </div>
 
         <!-- Content -->
         <div class="col-md-9">
             <div class="row">
                 <div class="col-md-offset-1">
+
 
                     <h2>Profile <small>with your account information.</small>
                     </h2>
@@ -36,7 +72,7 @@
 
 
                                 <a class="btn btn-info btn-block" onclick="updatePhoto('{$BASE_URL}database/userimg/{$USERNAME}','{$BASE_URL}actions/users/userimageupload.php')">Change photo</a>
-                                <a class="btn btn-success btn-block" onclick="updateUser()">Update</a>
+                                <a class="btn btn-info btn-block" data-toggle="modal" data-target="#changepw" onclick="bindPasswordFields();">Change Password</a>
 
                             <!--<a href="profile.php" class="btn btn-info btn-block">Change photo</a>-->
                         </div>
@@ -50,58 +86,53 @@
                                     </tr>
                                     <tr>
                                         <th scope="row">Name</th>
-                                        <td><input type="text" name="name" id="name" class="form-control" placeholder="Name" tabindex="1" value="{$data.userinfo[0].name}">
+                                        <td class="has-feedback"><input type="text" name="name" id="name" oninput="validateName();validateUpdateButton();" class="form-control" placeholder="Name" tabindex="1" value="{$data.userinfo[0].name}">
                                         </td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Email</th>
-                                        <td><input type="email" name="email" id="email" class="form-control" placeholder="Email Address" tabindex="4" value="{$data.userinfo[0].email}"></td>
+                                        <td class="has-feedback"><input type="email" oninput="validateEmail2();validateUpdateButton();" name="email" id="email" class="form-control" placeholder="Email Address" tabindex="4" value="{$data.userinfo[0].email}"></td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row">Password</td>
-                                        <td><input type="password" name="newpassword" id="newpassword" class="form-control" placeholder="New Password" tabindex="8"></td>
-
-                                    </tr>
-
                                     <tr>
                                         <th scope="row">Address</th>
                                         <div>
-                                        <td><input type="text" name="address" id="address" class="form-control" placeholder="Address" tabindex="9" value="{$data.userinfo[0].address}"></td>
+                                        <td class="has-feedback"><input type="text" oninput="validateAddress();validateUpdateButton();" name="address" id="address" class="form-control" placeholder="Address" tabindex="9" value="{$data.userinfo[0].address}"></td>
                                         </div>
                                     </tr>
                                         <th scope="row">Postal Code</th>
-                                        <td><div class="form-group" style="width: 70px!important; display:-webkit-inline-box">
-                                                <select id="postalcodeform" class="form-control">
+                                        <td><div class="form-group col-md-6" style="display:-webkit-inline-box">
+                                                <select id="postalcodeform" onchange="getCity();validatePostalCode();validateUpdateButton();" class="form-control">
                                                     <option value="{$data.userinfo[0].postalcode}" selected="selected">{$data.userinfo[0].postalcode}</option>
                                                 </select>
-                                                <label style="
-                                                       margin-left: 8px;
-                                                       margin-right: 8px;" > - </label>
-                                                <select id="postalextform" class="form-control">
+                                                <label class="col-md-3" > - </label>
+                                                <select id="postalextform" onchange="validatePostalCode();validateUpdateButton();" class="form-control">
                                                     <option value="{$data.userinfo[0].postalcodeextra}" selected="selected">{$data.userinfo[0].postalcodeextra}</option>
                                                 </select>
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row">District</th>
-                                    <div>
-                                        <td><label type="text" name="district" id="distict"tabindex="9">{$data.userinfo[0].district}</label></td>
-                                    </div>
-                                </tr>
                             <tr>
                                 <th scope="row">City</th>
                                 <div>
-                                    <td><label type="text" name="city" id="city" tabindex="9">{$data.userinfo[0].city}</label></td>
+                                    <td><label type="text" name="citylb" id="citylb" tabindex="9">{$data.userinfo[0].city}</label></td>
                                 </div>
                             </tr>
+                                    <tr>
+                                        <th scope="row">District</th>
+                                        <div>
+                                            <td><label type="text" name="districlb" id="districlb"tabindex="9">{$data.userinfo[0].district}</label></td>
+                                        </div>
+                                    </tr>
                             <tr>
                                     </tbody>
                                 </table>
+
                             </div>
 
                         </div>
-
+                        <div class="col-md-3 col-md-offset-5">
+                            <button class="btn btn-success btn-block" id="updatebtn" onclick="updateUser()">Update Profile</button>
+                        </div>
                     </div>
 
 
