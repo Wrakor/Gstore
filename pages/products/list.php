@@ -2,11 +2,12 @@
     include_once('../../config/init.php');
     include_once($BASE_DIR .'database/products.php');
 
-    //echo "<pre>"; var_dump($_GET); echo "</pre>";
+    echo "<pre>"; var_dump($_GET); echo "</pre>";
 
     if( isset($_GET['cat']) ) {
         $products = array_merge( getAllGamesFromGameCategory($_GET['cat']) , getAllRelatedProductsFromRelatedProductCategory($_GET['cat']) );
         $title = array_merge( getGameCategory($_GET['cat']) , getRelatedProductCategory($_GET['cat']) );
+
     }
     else if( isset($_GET['plat']) ) {
         $products = getAllGamesWithPlatform($_GET['plat']);
@@ -35,7 +36,7 @@
     $relatedProductCategories = getRelatedProductCategories();
 
 
-    //echo "<pre>"; var_dump($title); echo "</pre>";
+
 
   
     foreach ($products as $key => $product)
@@ -58,13 +59,15 @@
     $products[$key]['media'] = $media;*/
     }
 
-    //echo "<pre>"; var_dump($products); echo "</pre>";
+
 
     $data['products'] = $products;
     $data['title'] = $title;
     $data['gameCategories'] = $gameCategories;
     $data['gamePlatforms'] = $gamePlatforms;
     $data['relatedProductCategories'] = $relatedProductCategories;
+
+
 
     $smarty->assign('storage',$storage);
     $smarty->assign('data', $data);
