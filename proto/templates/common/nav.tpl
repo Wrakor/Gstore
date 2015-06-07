@@ -59,6 +59,13 @@
                     </ul>
                 </li>
 
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Accessibility <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li id="incfont"><a>Increase font size <span data-toggle="tooltip" data-original-title="Increase Font Size" data-placement="bottom" class="glyphicon glyphicon-text-size"><span class="glyphicon glyphicon-triangle-top"></span></span></a></li>
+                        <li id="decfont"><a>Decrease font size <span data-toggle="tooltip" data-original-title="Decrease Font Size" data-placement="bottom" class="glyphicon glyphicon-text-size"><span class="glyphicon glyphicon-triangle-bottom"></span></span></a></li>
+                    </ul>
+                </li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
