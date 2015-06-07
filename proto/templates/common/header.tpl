@@ -54,6 +54,36 @@
         }
     </script>
 
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+            $('[data-toggle="tooltip"]').tooltip();
+            $('#incfont').click(function(){
+
+                curSize= parseInt($('.container').css('font-size')) + 2;
+
+                if(curSize<=20)
+
+                $('.container').css('font-size', curSize);
+
+            });
+
+            $('#decfont').click(function(){
+
+                curSize= parseInt($('.container').css('font-size')) - 2;
+
+                if(curSize>=12)
+
+                $('.container').css('font-size', curSize);
+
+            });
+
+        });
+
+    </script>
+
 </head>
 
 <body>
