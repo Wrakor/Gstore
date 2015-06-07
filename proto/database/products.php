@@ -71,8 +71,41 @@ function getAllGamesFromGameCategory($id) {
               AND Product.medianum = Media.id';
     $stmt = $conn->prepare($query);
     $stmt->execute(array($id));
+    $games = $stmt->fetchAll();
 
-    return $stmt->fetchAll();
+
+
+    foreach($games as $key => $value){
+
+
+        $stmt = $conn->prepare("SELECT platform_id FROM GamePlatform WHERE game_id  = ?");
+        //echo "<pre>"; var_dump($games[$key]["product_id"]); echo "</pre>";
+        $stmt->execute(array($games[$key]["id"]));
+        $aux4 =  $stmt->fetchAll();
+        //echo "<pre>"; var_dump($aux4); echo "</pre>";
+        $games[$key]["platforms"] = [];
+        foreach($aux4 as $key2 => $value2){
+
+            //echo "<pre>"; var_dump($value2); echo "</pre>";
+
+            $stmt = $conn->prepare("SELECT name FROM Platform WHERE id = ?");
+            //echo "<pre>"; var_dump($aux4[$key2]["platform_id"]); echo "</pre>";
+            $stmt->execute(array($aux4[$key2]["platform_id"]));
+            $aux5 =  $stmt->fetch();
+
+
+
+            array_push($games[$key]["platforms"], $aux5);
+            //echo "<pre>"; var_dump($games[$key]["platforms"]); echo "</pre>";
+
+        }
+
+    }
+    //$games[0]["categories"]= "Windows";
+    //array_push($games[0]["categories"], "Windows");
+
+    //echo "<pre>"; var_dump($games); echo "</pre>";
+    return $games;
 }
 
 function getAllRelatedProducts() {

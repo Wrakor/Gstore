@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-06-06 19:18:07
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-07 20:42:55
          compiled from "C:\xampp\htdocs\lbaw\proto\templates\common\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:654455732b4fb4f243-08635433%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '57d45db6536a5114c326f943fcfde74d91dd522a' => 
     array (
       0 => 'C:\\xampp\\htdocs\\lbaw\\proto\\templates\\common\\header.tpl',
-      1 => 1433610599,
+      1 => 1433702051,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_55732b4fb6f7d7_99052860',
   'variables' => 
   array (
     'BASE_URL' => 0,
@@ -25,8 +27,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'sucess' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_55732b4fb6f7d7_99052860',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_55732b4fb6f7d7_99052860')) {function content_55732b4fb6f7d7_99052860($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="en">
@@ -90,6 +90,36 @@ css/style.css" rel="stylesheet">
 //            alert(strDirectory);
 //            document.FileForm.Directory.value = strDirectory;
         }
+    </script>
+
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+            $('[data-toggle="tooltip"]').tooltip();
+            $('#incfont').click(function(){
+
+                curSize= parseInt($('.container').css('font-size')) + 2;
+
+                if(curSize<=20)
+
+                $('.container').css('font-size', curSize);
+
+            });
+
+            $('#decfont').click(function(){
+
+                curSize= parseInt($('.container').css('font-size')) - 2;
+
+                if(curSize>=12)
+
+                $('.container').css('font-size', curSize);
+
+            });
+
+        });
+
     </script>
 
 </head>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-06-06 19:18:07
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-07 20:42:55
          compiled from "C:\xampp\htdocs\lbaw\proto\templates\common\nav.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2932155732b4fbbccb5-87993623%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '34dcdc354048a26f6d30f36487a0e13a31b51393' => 
     array (
       0 => 'C:\\xampp\\htdocs\\lbaw\\proto\\templates\\common\\nav.tpl',
-      1 => 1433610599,
+      1 => 1433702051,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_55732b4fbfd371_55204994',
   'variables' => 
   array (
     'BASE_URL' => 0,
@@ -25,8 +27,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'USERNAME' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_55732b4fbfd371_55204994',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_55732b4fbfd371_55204994')) {function content_55732b4fbfd371_55204994($_smarty_tpl) {?><!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -113,6 +113,13 @@ pages/products/list.php?cat=<?php echo $_smarty_tpl->tpl_vars['category']->value
                     </ul>
                 </li>
 
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Accessibility <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li id="incfont"><a>Increase font size <span data-toggle="tooltip" data-original-title="Increase Font Size" data-placement="bottom" class="glyphicon glyphicon-text-size"><span class="glyphicon glyphicon-triangle-top"></span></span></a></li>
+                        <li id="decfont"><a>Decrease font size <span data-toggle="tooltip" data-original-title="Decrease Font Size" data-placement="bottom" class="glyphicon glyphicon-text-size"><span class="glyphicon glyphicon-triangle-bottom"></span></span></a></li>
+                    </ul>
+                </li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">

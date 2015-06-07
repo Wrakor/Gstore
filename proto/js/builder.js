@@ -146,12 +146,96 @@ function generateList(){
 
 };
 
-$(document).ready(function(){
-    if(location.pathname.substring(location.pathname.lastIndexOf("/") + 1).split('#')[0] == "list.php"){
+function generateCategoryList(cat){
 
-        generateList();
 
+
+    var request = {'request':'products'};
+
+    $.getJSON('../../actions/products/request.php?cat='+cat+'', request, function(data, status){
+        // generate('success','Success: ajax request!');
+
+
+        //var template = $('#view1-template').html();
+        //var view = Handlebars.compile(template);  
+        //generate('success','Success: template compiled!');
+
+        //$("#data").append (view(data));
+        console.log("records: ");
+
+        console.log(data);
+        console.log("fim");
+
+        $('#uldata').dynatable({
+            table: {
+                bodyRowSelector: 'li'
+            },
+            dataset: {
+                records: data,
+                perPageDefault: 10,
+                perPageOptions: [3, 6]
+            },
+            writers: {
+                _rowWriter: view1Writer
+            },
+            readers: {
+                _rowReader: view1Reader
+            },
+
+            params: {
+                records: "games"
+            },
+
+            features: {
+                paginate: true,
+                search: true,
+                recordCount: true,
+                perPageSelect: false
+            }
+        });
+
+
+
+        //alert("Data: " + data + "\nStatus: " + status);
+    });
+
+
+};
+
+function getUrlParameter(sParam)
+{
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++)
+    {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam)
+        {
+            return sParameterName[1];
+        }
     }
+}
 
+$(document).ready(function(){
+
+    //alert(getUrlParameter('cat'));
+
+
+
+    //alert(location.pathname.substring(location.pathname.lastIndexOf("/") + 1));
+    if(location.pathname.substring(location.pathname.lastIndexOf("/") + 1).split('#')[0] == "list.php") {
+
+        if (getUrlParameter('cat') == undefined) {
+
+            //alert("normal");
+
+            generateList();
+        } else {
+
+            //alert(getUrlParameter('cat'));
+            generateCategoryList(getUrlParameter('cat'));
+
+        }
+    }
 
 });

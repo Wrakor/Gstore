@@ -7,7 +7,7 @@
     if( isset($_GET['cat']) ) {
         $products = array_merge( getAllGamesFromGameCategory($_GET['cat']) , getAllRelatedProductsFromRelatedProductCategory($_GET['cat']) );
         $title = array_merge( getGameCategory($_GET['cat']) , getRelatedProductCategory($_GET['cat']) );
-       // echo "<pre>"; var_dump(json_encode($products)); echo "</pre>";
+
     }
     else if( isset($_GET['plat']) ) {
         $products = getAllGamesWithPlatform($_GET['plat']);
