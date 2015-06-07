@@ -439,6 +439,7 @@ function bindLoginValidation(){
 
 var myBackup;
 var origmail;
+
 $(document).ready(function()
 {
 
@@ -465,7 +466,15 @@ $(document).ready(function()
         $('#password_modal_save').prop('disabled',true);
     }
 
-
+    if(location.pathname.substring(location.pathname.lastIndexOf("/") + 1).split('#')[0] == "user.php") {
+        if(window.location.hash == "#updated") {
+            generate('success', "User Updated!!!");
+            setTimeout(function () {
+                $.noty.closeAll()
+            }, 5000);
+            window.location.hash="";
+        }
+    }
 
 });
 
@@ -771,20 +780,23 @@ function updateUser(){
 
     var name = $('#name').val();
     var email = $('#email').val();
-    var password = $('#newpassword').val();
-    var country = $('#country').val();
     var address = $('#address').val();
-    var city = $('#city').val();
-    var district = $('#district').val();
     var postalcode=$("#postalcodeform option:selected").val()
     var postalcodeextra=$("#postalextform option:selected").val();
 
-    var data = {name:name,email:email,password:password,country:country,address:address,city:city,district:district,postalcode:postalcode, postalcodeextra: postalcodeextra};
+    var data = {name:name,email:email,address:address,postalcode:postalcode, postalcodeextra:postalcodeextra};
 
     $.ajax({
         url : "../../actions/users/updateuser.php",
         type: "POST",
         data : data
-    });
+    }).success(function(data){
+        if(data == "Success! Client created."){
+            var url = window.location.href;
+            var value = url.substring(url.lastIndexOf('/') + 1);
+            url = url.replace(value, 'user.php#updated');
+            window.location.replace(url);
+        }
+    })
 
 }

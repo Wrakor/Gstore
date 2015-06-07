@@ -101,7 +101,7 @@
                                     </tr>
                                         <th scope="row">Postal Code</th>
                                         <td><div class="form-group col-md-6" style="display:-webkit-inline-box">
-                                                <select id="postalcodeform " onchange="getCity();validatePostalCode();validateUpdateButton();" class="form-control">
+                                                <select id="postalcodeform" onchange="getCity();validatePostalCode();validateUpdateButton();" class="form-control">
                                                     <option value="{$data.userinfo[0].postalcode}" selected="selected">{$data.userinfo[0].postalcode}</option>
                                                 </select>
                                                 <label class="col-md-3" > - </label>
