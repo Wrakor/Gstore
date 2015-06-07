@@ -10,7 +10,7 @@
                 <div class="panel-body">
                     <form accept-charset="UTF-8" role="form">
                         <fieldset>
-                            <input class="btn btn-lg btn-success btn-block" type="submit" href="{$BASE_URL}actions/users/logout.php" value="Yes">
+                            <a class="btn btn-lg btn-success btn-block" type="submit" href="{$BASE_URL}actions/users/logout.php" value="Yes"> Yes</a>
                             <input class="btn btn-lg btn-danger btn-block" href="#" value="No, not yet!">
                         </fieldset>
                     </form>

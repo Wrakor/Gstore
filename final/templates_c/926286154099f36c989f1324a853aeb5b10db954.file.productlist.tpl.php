@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-06-07 23:49:11
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-08 01:23:27
          compiled from "C:\xampp\htdocs\lbaw\final\templates\products\productlist.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:266805574b573823b38-34048598%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '926286154099f36c989f1324a853aeb5b10db954' => 
     array (
       0 => 'C:\\xampp\\htdocs\\lbaw\\final\\templates\\products\\productlist.tpl',
-      1 => 1433713657,
+      1 => 1433719405,
       2 => 'file',
     ),
   ),
@@ -60,7 +60,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <a class="list-group-item glyphicon glyphicon-menu-up" href=""></a>
             <a class="list-group-item glyphicon glyphicon-menu-down" href=""></a>
         </div>
-
+        <a href="#" class="btn primary" id="sorting-by-price-button">Sort by Price</a>
+        <a href="#" class="btn primary" id="sorting-by-name-button">Sort by Name</a>
         <ul  style="padding-top: 5%;" id="uldata" class="row-fluid list-unstyled nav ">
 
 
