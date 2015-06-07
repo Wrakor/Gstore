@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-05-27 00:41:42
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-07 18:07:01
          compiled from "/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/admin/users.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2031788435555cede4889d16-39722515%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '5795fd1c50aeeb3c98b8bab7a0a0dda051871dbf' => 
     array (
       0 => '/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/admin/users.tpl',
-      1 => 1432679950,
+      1 => 1433693192,
       2 => 'file',
     ),
   ),
@@ -226,7 +226,7 @@ $_smarty_tpl->tpl_vars['type']->_loop = true;
                                 </span>
                         </button>
                         <button type="button" class="btn btn-warning" href="#" action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-actions/admin/users.php?userData">
+actions/admin/users.php?data">
                                 <span class="fa-stack fa-lg">
                                   <i class="fa fa-edit fa-stack-2x"></i>
                                 </span>

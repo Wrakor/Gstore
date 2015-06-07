@@ -164,4 +164,95 @@ function getRelatedProductCategory($id) {
     return $stmt->fetchAll();
 }
 
+function getCategoriesForGames()
+{
+    global $conn;
+
+    try {
+        $query = 'SELECT * FROM "teste"."AllCategories" WHERE type NOT IN ("related") ORDER BY type DESC';
+        $stmt = $conn->prepare($query);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
+    catch (PDOException $e)
+    {
+        errorLog("getCategoriesForGames",$e);
+        return "DB Error! Could not fetch categories for games.";
+    }
+}
+
+function getCategoriesForRelated()
+{
+    global $conn;
+
+    try {
+        $query = 'SELECT * FROM "teste"."AllCategories" WHERE type == "related" ORDER BY type DESC, name';
+        $stmt = $conn->prepare($query);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
+    catch (PDOException $e)
+    {
+        errorLog("getCategoriesForRelated",$e);
+        return "DB Error! Could not fetch categories for related products.";
+    }
+}
+
+function getProducts() {
+    global $conn;
+
+    try {
+        $query = 'SELECT * FROM "teste"."AllProducts"';
+        $stmt = $conn->prepare($query);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
+    catch (PDOException $e)
+    {
+        errorLog("getProducts",$e);
+        return "DB Error! Could not fetch products from view.";
+    }
+}
+
+function setProductActive($id) {
+    global $conn;
+
+    try {
+        $stmt = $conn->prepare("UPDATE product
+                                SET active = TRUE
+                                WHERE id = ?");
+        $stmt->execute(array($id));
+
+        return "Success! Product state updated.";
+    }
+    catch (PDOException $e)
+    {
+        errorLog("setProductActive",$e);
+        return "DB Error! Product state not updated.";
+    }
+}
+
+function setProductInactive($id) {
+    global $conn;
+
+    try {
+        $stmt = $conn->prepare("UPDATE product
+                                SET active = FALSE
+                                WHERE id = ?");
+        $stmt->execute(array($id));
+
+        return "Success! Product state updated.";
+    }
+    catch (PDOException $e)
+    {
+        errorLog("setProductInactive",$e);
+        return "DB Error! Product state not updated.";
+    }
+}
+
+
+
 ?>

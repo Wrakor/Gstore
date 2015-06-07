@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-05-20 22:48:05
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-07 13:03:53
          compiled from "/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/admin/dashboard.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2130666216555c556f9c82d5-11549954%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8d6e2efe1e6e4ca053105a2a3d3dd60224c896b8' => 
     array (
       0 => '/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/admin/dashboard.tpl',
-      1 => 1432153791,
+      1 => 1433675026,
       2 => 'file',
     ),
   ),
@@ -22,6 +22,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'data' => 0,
     'BASE_URL' => 0,
     'item' => 0,
+    'event' => 0,
     'order' => 0,
   ),
   'has_nocache_code' => false,
@@ -165,26 +166,29 @@ pages/products/item.php?id=<?php echo $_smarty_tpl->tpl_vars['item']->value['id'
             <div class="panel-body">
                 <div id="events" class="list-group">
 
-                    <a href="#" class="list-group-item">
-                        <span class="badge">23 minutes ago</span>
-                        <i class="fa fa-fw fa-truck"></i> order #392 has shipped
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <span class="badge">46 minutes ago</span>
-                        <i class="fa fa-fw fa-archive"></i> new order #392
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <span class="badge">1 hour ago</span>
-                        <i class="fa fa-fw fa-user"></i> new user #michaelknight31
-                    </a>
+                    <?php  $_smarty_tpl->tpl_vars['event'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['event']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['data']->value['events']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['event']->key => $_smarty_tpl->tpl_vars['event']->value) {
+$_smarty_tpl->tpl_vars['event']->_loop = true;
+?>
 
-                    <a href="#" class="list-group-item">
-                        <span class="badge">two days ago</span>
-                        <i class="fa fa-fw fa-support"></i> support request by #rambo91
-                    </a>
+                        <a class="list-group-item">
+                            <span class="badge"><?php echo $_smarty_tpl->tpl_vars['event']->value['time'];?>
+</span>
+
+                            <?php if ($_smarty_tpl->tpl_vars['event']->value['type']=='order') {?><i class="fa fa-fw fa-archive"></i> new order #<?php echo $_smarty_tpl->tpl_vars['event']->value['id'];?>
+
+                            <?php } elseif ($_smarty_tpl->tpl_vars['event']->value['type']=='user') {?><i class="fa fa-fw fa-user"></i> new user #<?php echo $_smarty_tpl->tpl_vars['event']->value['id'];?>
+
+                            <?php } elseif ($_smarty_tpl->tpl_vars['event']->value['type']=='review') {?><i class="fa fa-fw fa-newspaper-o"></i> new review #<?php echo $_smarty_tpl->tpl_vars['event']->value['id'];?>
+<?php }?>
+                        </a>
+
+                    <?php } ?>
+
                 </div>
                 <div class="text-right">
-                    <a href="#">View More <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="#" id="events-view-all">View More <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
         </div>

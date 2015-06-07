@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-05-24 23:42:44
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-07 22:38:36
          compiled from "/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/common/admin_footer.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1249424758555c556fce15e2-20273609%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '4d217164ae7f9e8d6ad67866383cbafa8cae26a5' => 
     array (
       0 => '/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/common/admin_footer.tpl',
-      1 => 1432503758,
+      1 => 1433709328,
       2 => 'file',
     ),
   ),
@@ -39,6 +39,22 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 
 
+    <script id="events-template" type="text/x-handlebars-template">
+
+        {{#each this}}
+        <a class="list-group-item">
+            <span class="badge">{{time}}</span>
+
+            {{#whenequal type 'order'  }}<i class="fa fa-fw fa-archive"></i> new order #{{id}}{{/whenequal}}
+            {{#whenequal type 'user'   }}<i class="fa fa-fw fa-user"></i> new user #{{id}}{{/whenequal}}
+            {{#whenequal type 'review' }}<i class="fa fa-fw fa-newspaper-o"></i> new review u#{{id}}{{/whenequal}}
+        </a>
+        {{/each}}
+
+    </script>
+
+
+
     <script id="transactions-template" type="text/x-handlebars-template">
 
         {{#each this}}
@@ -46,26 +62,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <td>{{id}}</td>
             <td>{{created}}</td>
             <td>{{totalprice}}€</td>
-        </tr>
-        {{/each}}
-
-    </script>
-
-<?php }?>
-
-<?php if (isset($_smarty_tpl->tpl_vars['data']->value['nav']['users'])) {?>
-
-    <script id="datatable-template" type="text/x-handlebars-template">
-
-        {{#each this}}
-        <tr id="id-{{id}}" class="active-{{#if active}}1{{else}}0{{/if}}">
-            <td><input id="input-{{id}}" type="checkbox"></td>
-            <td>{{id}}</td>
-            <td>{{#if access}}{{access}}{{else}}Client{{/if}}</td>
-            <td>{{email}}</td>
-            <td>{{username}}</td>
-            <td>{{registered}}</td>
-            <td>{{online}}</td>
         </tr>
         {{/each}}
 
@@ -106,6 +102,15 @@ lib/datatables.js/jquery.dataTables.min.js"></script>
 js/admin_users.js"></script>
     <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 js/user.form.validation.js"></script>
+<?php }?>
+
+<?php if (isset($_smarty_tpl->tpl_vars['data']->value['nav']['products'])) {?>
+    <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+lib/datatables.js/jquery.dataTables.min.js"></script>
+    <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+js/admin_product.js"></script>
+    <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+js/product.form.validation.js"></script>
 <?php }?>
 
 

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-05-22 19:16:06
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-07 19:07:46
          compiled from "/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/common/admin_header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2105155417555c556fc99659-71872417%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c7e005a19e16b7ee5dfbb4244b950a20d701e77c' => 
     array (
       0 => '/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/common/admin_header.tpl',
-      1 => 1432314735,
+      1 => 1433696864,
       2 => 'file',
     ),
   ),
@@ -71,7 +71,7 @@ lib/noty/animate.css" rel="stylesheet">
     <link href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 lib/noty/buttons.css" rel="stylesheet">
 
-    <?php if (isset($_smarty_tpl->tpl_vars['data']->value['nav']['users'])) {?>
+    <?php if (isset($_smarty_tpl->tpl_vars['data']->value['nav']['users'])||isset($_smarty_tpl->tpl_vars['data']->value['nav']['products'])) {?>
         <!-- Datatables CSS -->
         <link href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 lib/datatables.js/jquery.dataTables.css" rel="stylesheet">

@@ -1,5 +1,29 @@
 <?php
 
+function how_long_ago($timestamp)
+{
+    date_default_timezone_set('Europe/Lisboa');
+
+    $delta_time = time() - strtotime($timestamp);
+
+    $days = floor($delta_time / 86400);
+    $hours = floor($delta_time / 3600);
+    $minutes = floor($delta_time / 60);
+    $seconds = $delta_time;
+
+
+    if ($days > 0)
+        $result = "{$days} days ago";
+    elseif ($hours > 0)
+        $result = "{$hours} hours ago";
+    elseif ($minutes > 0)
+        $result = "{$minutes} minutes ago";
+    else
+        $result = "{$seconds} seconds ago";
+
+    return $result;
+}
+
 function getOnlineUsersLastHour() { // ''
     global $conn;
 
@@ -64,6 +88,24 @@ function isGame($id) {
     $stmt->execute(array($id));
 
     return $stmt->fetch();
+}
+
+function getRecentEvents($number) {
+    global $conn;
+
+    $query = 'SELECT *
+              FROM "teste"."Events"
+              ORDER BY "timestamp" DESC
+              LIMIT ?';
+    $stmt = $conn->prepare($query);
+    $stmt->execute(array($number));
+
+    $events = $stmt->fetchAll();
+
+    foreach($events as $key => $value)
+        $events[$key]['time'] = how_long_ago($events[$key]['timestamp']);
+
+    return $events;
 }
 
 function getRecentTransactions($number) {

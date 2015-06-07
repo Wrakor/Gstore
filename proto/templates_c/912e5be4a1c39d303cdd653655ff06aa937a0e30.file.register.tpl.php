@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-05-18 14:05:23
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-01 13:54:56
          compiled from "/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/users/register.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:20317678365559d5832e5674-27588973%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '912e5be4a1c39d303cdd653655ff06aa937a0e30' => 
     array (
       0 => '/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/users/register.tpl',
-      1 => 1431288594,
+      1 => 1433156882,
       2 => 'file',
     ),
   ),
@@ -15,16 +15,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_5559d5833195c6_70365796',
   'variables' => 
   array (
     'BASE_URL' => 0,
     'FORM_VALUES' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_5559d5833195c6_70365796',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5559d5833195c6_70365796')) {function content_5559d5833195c6_70365796($_smarty_tpl) {?><div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="normalModal" aria-hidden="true">
+<?php if ($_valid && !is_callable('content_5559d5833195c6_70365796')) {function content_5559d5833195c6_70365796($_smarty_tpl) {?>
+<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="normalModal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
 
@@ -58,6 +59,24 @@ actions/users/register.php" method="post" enctype="multipart/form-data">
 ">
                     <span class="glyphicon form-control-feedback"></span>
                 </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="form-group has-feedback" onchange="getCities()">
+                    <select id="districtformselect" class="form-control">
+                        <option value="District" selected="selected" value="<?php echo $_smarty_tpl->tpl_vars['FORM_VALUES']->value['district'];?>
+">District</option>
+                    </select>
+                </div>
+                    </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group has-feedback">
+                            <select id="cityformselect" class="form-control">
+                                <option value="City" selected="selected" value="<?php echo $_smarty_tpl->tpl_vars['FORM_VALUES']->value['city'];?>
+">City</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
                <div class="form-group  has-feedback">
                     <input type="text" name="address" id="address" class="form-control input-lg" placeholder="Address" tabindex="4" value="<?php echo $_smarty_tpl->tpl_vars['FORM_VALUES']->value['address'];?>
 ">
@@ -71,7 +90,7 @@ actions/users/register.php" method="post" enctype="multipart/form-data">
                 </div>
 
 
-                <div class="row">
+                <div class="row" id="contries">
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group has-feedback">
                             <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="5" value="<?php echo $_smarty_tpl->tpl_vars['FORM_VALUES']->value['password'];?>
@@ -87,7 +106,6 @@ actions/users/register.php" method="post" enctype="multipart/form-data">
                         </div>
                     </div>
                 </div>
-
                 <hr class="colorgraph">
                 <div class="row text-center">
                     <div class="col-md-12"><input id="registeraccount" type="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
@@ -97,4 +115,5 @@ actions/users/register.php" method="post" enctype="multipart/form-data">
 
         </div>
     </div>
-</div> <!-- /.modal for #signup --><?php }} ?>
+</div> <!-- /.modal for #signup -->
+<?php }} ?>

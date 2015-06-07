@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-05-19 20:30:49
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-01 13:55:05
          compiled from "/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/products/viewProduct.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1321818724555b04b825a9e7-92556001%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '333e995c2b3f89202bc3700c671ef49b041f32c4' => 
     array (
       0 => '/Users/jrsc/BitBucket/lbaw1433/src/proto/templates/products/viewProduct.tpl',
-      1 => 1432060230,
+      1 => 1433156882,
       2 => 'file',
     ),
   ),
@@ -93,9 +93,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                         <span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart
                     </button>
 
-                    <button type="button" class="btn btn-lg btn-primary btn-block" type="submit" href="#">
-                        <span class="glyphicon glyphicon-heart"></span> Add to Wishlist
-                    </button>
+                    <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+actions/users/addToWishlist.php?id=<?php echo $_smarty_tpl->tpl_vars['data']->value['product']['id'];?>
+" class="btn btn-primary btn-block" role="button"> <span class="glyphicon glyphicon-heart"></span> Add to Wishlist</a>
                 </div>
 
             </div>

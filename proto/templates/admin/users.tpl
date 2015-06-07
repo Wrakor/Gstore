@@ -182,7 +182,7 @@
                                   <i class="fa fa-user-plus fa-stack-2x"></i>
                                 </span>
                         </button>
-                        <button type="button" class="btn btn-warning" href="#" action="{$BASE_URL}actions/admin/users.php?userData">
+                        <button type="button" class="btn btn-warning" href="#" action="{$BASE_URL}actions/admin/users.php?data">
                                 <span class="fa-stack fa-lg">
                                   <i class="fa fa-edit fa-stack-2x"></i>
                                 </span>
