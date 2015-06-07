@@ -12,7 +12,16 @@ function view1Writer(rowIndex, record, columns, cellWriter) {
 
 
     if (rowIndex % 3 === 0) { cssClass += ' first'; }
-    li = '<li class="' + cssClass + '"><div class="thumbnail"><div class="thumbnail-image"><img src=\" ' + record.externallink + ' \"> </div><div class="caption">' + record.price + '</div></div></li>';
+    li = '<li class="' + cssClass + '"><div class="">' + record.name + '</div><a href="/lbaw/proto/pages/products/item.php?id='+record.id+'"><div class="thumbnail" ><div style="height: 143px; width: 191px;overflow: hidden;" class="thumbnail-image"><img src=\" ' + record.externallink + ' \"> </div><div style="display: inline; class="">' + record.price + '€</div><div style="float: right; class="rating">';
+    if(record.score==0){
+        li+= '<span class="glyphicon glyphicon-star-empty"></span>';
+    }else{
+        for(var i=0; i<record.score;i++){
+            li+='<span class="glyphicon glyphicon-star"></span>';
+        }
+
+    }
+    li+='</div></div></a></li>';
     return li;
 
 
@@ -45,8 +54,7 @@ $(document).ready(function(){
         $.getJSON("../../actions/products/request.php", request, function(data, status){
             generate('success','Success: ajax request!');
 
-            console.log("teste");
-            console.log(data);
+
 
             //var template = $('#view1-template').html();
             //var view = Handlebars.compile(template);  
@@ -63,7 +71,7 @@ $(document).ready(function(){
                 },
                 dataset: {
                     records: data,
-                    perPageDefault: 3,
+                    perPageDefault: 10,
                     perPageOptions: [3, 6]
                 },
                 writers: {
@@ -74,14 +82,14 @@ $(document).ready(function(){
                 },
 
                 params: {
-                    records: data
+                    records: "games"
                 },
 
                 features: {
                     paginate: true,
                     search: true,
                     recordCount: true,
-                    perPageSelect: true
+                    perPageSelect: false
                 }
             });
 
