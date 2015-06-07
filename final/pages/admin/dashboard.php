@@ -9,12 +9,12 @@
     $data['orders'] = getNewOrders();
 
     $data['sold'] = getMostSoldItems(5);
-    // falta o events
+    $data['events'] = getRecentEvents(5);
     $data['transactions'] = getRecentTransactions(5);
 
-    //echo "<pre>"; var_dump($data['online']); echo "</pre>";
-
     $data['nav']['dashboard'] = true;
+
+    //echo "<pre>"; var_dump($data); echo "</pre>";
 
     $smarty->assign('data', $data);
     $smarty->display('admin/dashboard.tpl');
