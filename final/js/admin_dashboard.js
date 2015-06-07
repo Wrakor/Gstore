@@ -1,7 +1,16 @@
+Handlebars.registerHelper('whenequal', function(val1, val2, options) {
+    if(val1==val2){
+        return options.fn(this);
+    }
+});
+
 var template_sold = $('#sold-template').html();
 var view_sold = Handlebars.compile(template_sold);  
 
-var template_transactions= $('#transactions-template').html();
+var template_events = $('#events-template').html();
+var view_events = Handlebars.compile(template_events);  
+
+var template_transactions = $('#transactions-template').html();
 var view_transactions = Handlebars.compile(template_transactions);  
 
 function update_online () {
@@ -56,7 +65,24 @@ function update_sold() {
 };
 
 function update_events() {
+    if ( $('#events').hasClass('more') ) {
+        $.getJSON("../../actions/admin/dashboard.php?events&more", function (data) {
 
+            $('#events').empty();
+            $('#events').append(view_events(data));
+
+            //console.log(data);
+        });
+    }
+    else {
+        $.getJSON("../../actions/admin/dashboard.php?events", function (data) {
+
+            $('#events').empty();
+            $('#events').append(view_events(data));
+
+            //console.log(data);
+        });
+    }
 };
 
 function update_transactions() {
@@ -102,6 +128,18 @@ $( document ).ready(function() {
         else {
             $("#sold").addClass("more");
             $("#sold-view-all").html('View Less <i class="fa fa-arrow-circle-left"></i>');
+        }
+    });
+
+    $("#events-view-all").click(function(){
+        if ( $("#events").hasClass("more") ) {
+
+            $("#events").removeClass("more");
+            $("#events-view-all").html('View More <i class="fa fa-arrow-circle-right"></i>');
+        }
+        else {
+            $("#events").addClass("more");
+            $("#events-view-all").html('View Less <i class="fa fa-arrow-circle-left"></i>');
         }
     });
 

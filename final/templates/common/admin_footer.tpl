@@ -13,6 +13,22 @@
 {/literal}
 
 {literal}
+    <script id="events-template" type="text/x-handlebars-template">
+
+        {{#each this}}
+        <a class="list-group-item">
+            <span class="badge">{{time}}</span>
+
+            {{#whenequal type 'order'  }}<i class="fa fa-fw fa-archive"></i> new order #{{id}}{{/whenequal}}
+            {{#whenequal type 'user'   }}<i class="fa fa-fw fa-user"></i> new user #{{id}}{{/whenequal}}
+            {{#whenequal type 'review' }}<i class="fa fa-fw fa-newspaper-o"></i> new review u#{{id}}{{/whenequal}}
+        </a>
+        {{/each}}
+
+    </script>
+{/literal}
+
+{literal}
     <script id="transactions-template" type="text/x-handlebars-template">
 
         {{#each this}}
@@ -20,26 +36,6 @@
             <td>{{id}}</td>
             <td>{{created}}</td>
             <td>{{totalprice}}€</td>
-        </tr>
-        {{/each}}
-
-    </script>
-{/literal}
-{/if}
-
-{if isset($data.nav.users) }
-{literal}
-    <script id="datatable-template" type="text/x-handlebars-template">
-
-        {{#each this}}
-        <tr id="id-{{id}}" class="active-{{#if active}}1{{else}}0{{/if}}">
-            <td><input id="input-{{id}}" type="checkbox"></td>
-            <td>{{id}}</td>
-            <td>{{#if access}}{{access}}{{else}}Client{{/if}}</td>
-            <td>{{email}}</td>
-            <td>{{username}}</td>
-            <td>{{registered}}</td>
-            <td>{{online}}</td>
         </tr>
         {{/each}}
 
@@ -71,6 +67,12 @@
     <script src="{$BASE_URL}lib/datatables.js/jquery.dataTables.min.js"></script>
     <script src="{$BASE_URL}js/admin_users.js"></script>
     <script src="{$BASE_URL}js/user.form.validation.js"></script>
+{/if}
+
+{if isset($data.nav.products) }
+    <script src="{$BASE_URL}lib/datatables.js/jquery.dataTables.min.js"></script>
+    <script src="{$BASE_URL}js/admin_product.js"></script>
+    <script src="{$BASE_URL}js/product.form.validation.js"></script>
 {/if}
 
 

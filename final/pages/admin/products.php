@@ -1,14 +1,17 @@
 <?php
     include_once('../../config/init.php');
-    include_once($BASE_DIR .'database/users.php');
+    include_once($BASE_DIR .'database/products.php');
 
     unset($data);
 
     $data['nav']['products'] = true;
 
-    //echo "<pre>"; var_dump($_SESSION); echo "</pre>";
+    $data['categories']['games'] = getCategoriesForGames();
+    $data['categories']['related'] = getCategoriesForRelated();
+
+    echo "<pre>"; var_dump($data); echo "</pre>";
 
     $smarty->assign('data', $data);
-    $smarty->display('admin/products.tpl');
+    //$smarty->display('admin/products.tpl');
 
 ?>

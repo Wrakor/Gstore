@@ -124,26 +124,21 @@
             <div class="panel-body">
                 <div id="events" class="list-group">
 
-                    <a href="#" class="list-group-item">
-                        <span class="badge">23 minutes ago</span>
-                        <i class="fa fa-fw fa-truck"></i> order #392 has shipped
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <span class="badge">46 minutes ago</span>
-                        <i class="fa fa-fw fa-archive"></i> new order #392
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <span class="badge">1 hour ago</span>
-                        <i class="fa fa-fw fa-user"></i> new user #michaelknight31
-                    </a>
+                    {foreach $data.events as $event}
 
-                    <a href="#" class="list-group-item">
-                        <span class="badge">two days ago</span>
-                        <i class="fa fa-fw fa-support"></i> support request by #rambo91
-                    </a>
+                        <a class="list-group-item">
+                            <span class="badge">{$event.time}</span>
+
+                            {if $event.type eq 'order'}<i class="fa fa-fw fa-archive"></i> new order #{$event.id}
+                            {elseif $event.type eq 'user'}<i class="fa fa-fw fa-user"></i> new user #{$event.id}
+                            {elseif $event.type eq 'review'}<i class="fa fa-fw fa-newspaper-o"></i> new review #{$event.id}{/if}
+                        </a>
+
+                    {/foreach}
+
                 </div>
                 <div class="text-right">
-                    <a href="#">View More <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="#" id="events-view-all">View More <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
         </div>

@@ -20,6 +20,12 @@ else if (isset($_GET['sold'])) {
     else
         echo json_encode(getMostSoldItems(5));
 }
+else if (isset($_GET['events'])) {
+    if (isset($_GET['more']))
+        echo json_encode(getRecentEvents(20));
+    else
+        echo json_encode(getRecentEvents(5));
+}
 else if (isset($_GET['transactions'])) {
     if (isset($_GET['more']))
         echo json_encode(getRecentTransactions(20));

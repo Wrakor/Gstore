@@ -11,7 +11,7 @@ function update_table() {
 
     $('#table-template-placeholder').empty();
 
-    $.getJSON("../../actions/admin/users.php?list", {}
+    $.getJSON("../../actions/admin/products.php?list", {}
 
     ).success(function( data ) {
 
@@ -25,11 +25,10 @@ function update_table() {
             table.row.add([
                 '<input id="input-'+item['id']+'" type="checkbox">',
                 item['id'],
-                (item['access'] == null ) ? 'Client' : item['access'],
-                item['email'],
-                item['username'],
-                item['registered'],
-                item['online'],
+                (item['type'] === 'game' ) ? '<i class="fa fa-fw fa-gamepad"></i> game' : '<i class="fa fa-fw fa-cube"></i> related',
+                item['name'],
+                item['score'],
+                item['stock'],
                 item['active']
             ]).draw();
 
@@ -254,8 +253,8 @@ function fill($form,data) {
     $form.find('#access').prop('disabled', true);
 
     $form.find('h2 small').html('id: '+json['id']);
-    $form.find('#username').val(json['username']);
-    $form.find('#username').change();
+    $form.find('#productname').val(json['productname']);
+    $form.find('#productname').change();
     $form.find('#email').val(json['email']);
     $form.find('#email').change();
 
@@ -277,7 +276,7 @@ function setup_submit()
     $form2 = $('.row.form.number2');
     $table = $('#datatable');
 
-    $( "#form-create-user" ).submit(function( event ) {
+    $( "#form-create-product" ).submit(function( event ) {
 
         event.preventDefault();
 
@@ -305,10 +304,10 @@ function setup_submit()
     });
 
     $(".row.form.number1 .table-ops").on('click','button:first-child',function(){
-        $( "#form-create-user" ).submit();
+        $( "#form-create-product" ).submit();
     });
 
-    $( "#form-edit-user" ).submit(function( event ) {
+    $( "#form-edit-product" ).submit(function( event ) {
 
         event.preventDefault();
 
@@ -336,7 +335,7 @@ function setup_submit()
     });
 
     $(".row.form.number2 .table-ops").on('click','button:first-child',function(){
-        $( "#form-edit-user" ).submit();
+        $( "#form-edit-product" ).submit();
     });
 };
 

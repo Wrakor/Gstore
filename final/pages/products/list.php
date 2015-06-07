@@ -1,8 +1,6 @@
 <?php
     include_once('../../config/init.php');
-    include_once($BASE_DIR .'database/products.php');
-
-
+    include_once($BASE_DIR . 'database/products.php');
 
     if( isset($_GET['cat']) ) {
         $products = array_merge( getAllGamesFromGameCategory($_GET['cat']) , getAllRelatedProductsFromRelatedProductCategory($_GET['cat']) );
@@ -35,9 +33,6 @@
     $gameCategories = getGameCategories();
     $gamePlatforms = getAllGamePlatforms();
     $relatedProductCategories = getRelatedProductCategories();
-
-
-
 
   
     foreach ($products as $key => $product)
