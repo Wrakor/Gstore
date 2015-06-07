@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-06-07 23:19:47
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-07 23:49:11
          compiled from "C:\xampp\htdocs\lbaw\final\templates\products\productlist.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:266805574b573823b38-34048598%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '926286154099f36c989f1324a853aeb5b10db954' => 
     array (
       0 => 'C:\\xampp\\htdocs\\lbaw\\final\\templates\\products\\productlist.tpl',
-      1 => 1433711551,
+      1 => 1433713657,
       2 => 'file',
     ),
   ),
@@ -15,14 +15,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_5574b573851e67_90360957',
   'variables' => 
   array (
     'BASE_URL' => 0,
     'data' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_5574b573851e67_90360957',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5574b573851e67_90360957')) {function content_5574b573851e67_90360957($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('common/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
@@ -61,7 +61,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <a class="list-group-item glyphicon glyphicon-menu-down" href=""></a>
         </div>
 
-        <ul  style="padding-top: 5%;" id="uldata" class="row-fluid list-unstyled nav">
+        <ul  style="padding-top: 5%;" id="uldata" class="row-fluid list-unstyled nav ">
 
 
         </ul>

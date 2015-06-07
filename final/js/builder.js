@@ -25,7 +25,7 @@ function view1Writer(rowIndex, record, columns, cellWriter) {
 
      */
     console.log(record);
-    var cssClass = "col-sm-4 col-lg-4 col-md-4 product-list view-1", li;
+    var cssClass = "col-sm-4 col-lg-4 col-md-4 product-list view-1 hvr-grow", li;
 
 
     if (rowIndex % 3 === 0) { cssClass += ' first'; }
