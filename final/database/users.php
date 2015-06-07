@@ -72,13 +72,30 @@ function createClient($username,$email,$password,$name,$address,$postal4_id,$pos
     return;
 }
 
-  function isLoginCorrect($username, $password) {
-    global $conn;
-    $stmt = $conn->prepare("SELECT * FROM Utilizador WHERE username = ? AND password = ?");
-    $stmt->execute(array($username, $password/*sha1($password)*/));
-    return $stmt->fetch() == true;
+  function isLoginCorrect($username, $password)
+  {
+      global $conn;
+      try {
 
-  }
+          $conn->query("SET TRANSACTION ISOLATION LEVEL SERIALIZABLE");
+          $conn->beginTransaction();
+          $stmt = $conn->prepare("SELECT * FROM Utilizador WHERE username = ? AND password = ?");
+          $stmt->execute(array($username,sha1($password)));
+
+          $stmt = $conn->prepare("UPDATE utilizador SET online = now() WHERE username = ?");
+          $stmt->execute(array($username));
+          $conn->commit();
+      }
+      catch(PDOException $e)
+    {
+        $conn->rollBack();
+        errorLog("Login error", $e);
+        return false;
+    }
+
+    return true;
+
+}
 
 
 function updatePassword($username, $password) {
@@ -86,7 +103,7 @@ function updatePassword($username, $password) {
     $stmt = $conn->prepare("UPDATE utilizador
                             SET password= ?
                             WHERE username = ?");
-    return $stmt->execute(array($password, $username/*sha1($password)*/));
+    return $stmt->execute(array($password, sha1($password)));
 }
 
 
@@ -153,7 +170,7 @@ function checkOldPassword($usr,$password){
     $currpassword = $row['password'];
 
 
-   if(/*sha1($password)*/ $password == $currpassword){
+   if(sha1($password) == $currpassword){
         return 1 ;
     }else return 0;
 }
