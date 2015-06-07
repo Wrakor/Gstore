@@ -16,7 +16,7 @@
                 {/foreach}
             </div>
 
-            <button id="lol">ajax request test</button>
+
 
         </div>
 

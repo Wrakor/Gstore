@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-06-07 00:45:56
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-07 20:31:38
          compiled from "C:\xampp\htdocs\lbaw\proto\templates\products\productlist.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2773155732b4fa60b40-48182368%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '75fdd11182a089134fb202f5efa5e49221865166' => 
     array (
       0 => 'C:\\xampp\\htdocs\\lbaw\\proto\\templates\\products\\productlist.tpl',
-      1 => 1433630755,
+      1 => 1433701897,
       2 => 'file',
     ),
   ),
@@ -61,9 +61,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <a class="list-group-item glyphicon glyphicon-menu-down" href=""></a>
         </div>
 
-        <ul style="padding-top: 5%;" id="uldata" class="row-fluid list-unstyled">
+        <ul  style="padding-top: 5%;" id="uldata" class="row-fluid list-unstyled nav">
 
-            <!-- ... //-->
+
         </ul>
 
 

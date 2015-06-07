@@ -455,9 +455,12 @@ $(document).ready(function()
     }
 
     if(location.pathname.substring(location.pathname.lastIndexOf("/") + 1).split('#')[0] == "edituser.php"){
+
         getPostalCodes();
         $('#password_modal_save').prop('disabled',true);
     }
+
+
 
 
 

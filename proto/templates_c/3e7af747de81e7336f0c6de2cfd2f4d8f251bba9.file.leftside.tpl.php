@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-06-06 19:18:07
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-07 04:24:05
          compiled from "C:\xampp\htdocs\lbaw\proto\templates\common\leftside.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1184555732b4fd0b375-72502034%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '3e7af747de81e7336f0c6de2cfd2f4d8f251bba9' => 
     array (
       0 => 'C:\\xampp\\htdocs\\lbaw\\proto\\templates\\common\\leftside.tpl',
-      1 => 1433610599,
+      1 => 1433643842,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_55732b4fd1c3c2_18673893',
   'variables' => 
   array (
     'data' => 0,
@@ -22,8 +24,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'category' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_55732b4fd1c3c2_18673893',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_55732b4fd1c3c2_18673893')) {function content_55732b4fd1c3c2_18673893($_smarty_tpl) {?><!-- Page Content -->
 <div class="container">
@@ -50,7 +50,7 @@ pages/products/list.php?cat=<?php echo $_smarty_tpl->tpl_vars['category']->value
                 <?php } ?>
             </div>
 
-            <button id="lol">ajax request test</button>
+
 
         </div>
 

@@ -10,9 +10,11 @@ if ( isset($_GET) ) {
     $data = getAllGames();
     $json = json_encode( $data );
 
+    //echo "<pre>"; var_dump($json); echo "</pre>";
+
     echo $json;
 
-    //echo "<pre>"; var_dump($data); echo "</pre>";
+
     //echo "<pre>"; var_dump($json); echo "</pre>";
 }
 

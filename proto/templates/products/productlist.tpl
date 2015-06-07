@@ -28,9 +28,9 @@
             <a class="list-group-item glyphicon glyphicon-menu-down" href=""></a>
         </div>
 
-        <ul style="padding-top: 5%;" id="uldata" class="row-fluid list-unstyled">
+        <ul  style="padding-top: 5%;" id="uldata" class="row-fluid list-unstyled nav">
 
-            <!-- ... //-->
+
         </ul>
 
 
