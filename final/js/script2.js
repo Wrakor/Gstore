@@ -452,11 +452,26 @@ $(document).ready(function()
         bindRegistValidations();
     }
 
-    if(window.location.hash == "#regist") {
+    if(window.location.hash == "#registerror") {
         $("#registbutt").click();
         getPostalCodes();
         bindLoginValidation();
+        generate('error', "Error registing User!!!");
+        setTimeout(function () {
+            $.noty.closeAll()
+        }, 5000);
+        window.location.hash="";
     }
+
+    if(window.location.hash == "#registed") {
+        generate('success', "User Registed!!!");
+        setTimeout(function () {
+            $.noty.closeAll()
+        }, 5000);
+        window.location.hash="";
+
+    }
+
 
     if(location.pathname.substring(location.pathname.lastIndexOf("/") + 1).split('#')[0] == "edituser.php"){
         $('#updatebtn').prop('disabled', true);
@@ -468,12 +483,70 @@ $(document).ready(function()
 
     if(location.pathname.substring(location.pathname.lastIndexOf("/") + 1).split('#')[0] == "user.php") {
         if(window.location.hash == "#updated") {
-            generate('success', "User Updated!!!");
+            generate('success', "User Information Updated!");
             setTimeout(function () {
                 $.noty.closeAll()
             }, 5000);
             window.location.hash="";
         }
+    }
+
+    //if(location.pathname.substring(location.pathname.lastIndexOf("/") + 1).split('#')[0] == "addToWishlist.php") {
+        if(window.location.hash == "#wishlistupdated") {
+            generate('success', "Wishlist Updated!");
+            setTimeout(function () {
+                $.noty.closeAll()
+            }, 5000);
+            window.location.hash="";
+        }
+    //}
+
+    if(window.location.hash == "#loggedin") {
+        generate('success', "Welcome !!!");
+        setTimeout(function () {
+            $.noty.closeAll();
+        }, 5000);
+        window.location.hash="";
+    }
+
+    if(window.location.hash == "#errorlogin") {
+        generate('error', "Error Logging in !!!");
+        setTimeout(function () {
+            $.noty.closeAll()
+        }, 5000);
+        window.location.hash="";
+    }
+
+    if(window.location.hash == "#favoritesupdated") {
+        generate('success', "Favorites Updated!");
+        setTimeout(function () {
+            $.noty.closeAll()
+        }, 5000);
+        window.location.hash="";
+    }
+
+    if(window.location.hash == "#review") {
+        generate('success', "Review Submited!");
+        setTimeout(function () {
+            $.noty.closeAll()
+        }, 5000);
+        window.location.hash="";
+    }
+
+    if(window.location.hash == "#favoriteremoved") {
+        generate('information', "Favorite Removed!");
+        setTimeout(function () {
+            $.noty.closeAll()
+        }, 5000);
+        window.location.hash="";
+    }
+
+    if(window.location.hash == "#wishlistremoved") {
+        generate('information', "Game removed!");
+        setTimeout(function () {
+            $.noty.closeAll()
+        }, 5000);
+        window.location.hash="";
     }
 
 });

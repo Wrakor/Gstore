@@ -2,7 +2,7 @@
 function getUserInfo($username){
     global $conn;
     $query ='SELECT utilizador.username as username, utilizador.id as userid, utilizador.email as email, client.name as name, client.address as address,client.postalcodeextra as postalcodeextra ,postalcode.code as postalcode, city.name as city, district.name as district  FROM client, utilizador, postalcode, city, district
-WHERE utilizador.username=? AND utilizador.id = client.user_id AND client.postalcode = postalcode.id AND postalcodeextra = client.postalcodeextra  AND city.id = postalcode.city_id AND district.id = city.district_id ';
+WHERE utilizador.username=? AND utilizador.id = client.user_id AND client.postalcode = postalcode.id AND postalcodeextra = client.postalcodeextra  AND city.id = postalcode.city_id AND city.district_id = district.id ';
 
     $stmt = $conn->prepare($query);
 
@@ -54,16 +54,38 @@ function getBuyOrders($user_id) {
 
 function addToWishlist($user_id, $product_id) {
     global $conn;
-    $query = 'INSERT INTO Wishlist(client_id, product_id) VALUES (?, ?)';
+
+    $query = 'SELECT * FROM Wishlist where client_id = ? AND product_id = ?';
     $stmt = $conn->prepare($query);
     $stmt->execute(array($user_id, $product_id));
+
+    if (count($stmt->fetchAll()) == 0) {
+        $query = 'INSERT INTO Wishlist(client_id, product_id) VALUES (?, ?)';
+        $stmt = $conn->prepare($query);
+        $stmt->execute(array($user_id, $product_id));
+
+        return 0;
+    }
+
+    return 1;
 }
 
 function addToFavorites($user_id, $product_id) {
     global $conn;
-    $query = 'INSERT INTO Favorites(client_id, product_id) VALUES (?, ?)';
+
+    $query = 'SELECT * FROM Favorites where client_id = ? AND product_id = ?';
     $stmt = $conn->prepare($query);
     $stmt->execute(array($user_id, $product_id));
+
+    if (count($stmt->fetchAll()) == 0) {
+        $query = 'INSERT INTO Favorites(client_id, product_id) VALUES (?, ?)';
+        $stmt = $conn->prepare($query);
+        $stmt->execute(array($user_id, $product_id));
+
+        return 0;
+    }
+
+    return 1;
 }
 
 function addReview($user_id, $product_id, $score, $comment) {

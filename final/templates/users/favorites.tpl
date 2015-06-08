@@ -21,7 +21,7 @@
             <div class="row">
                 <div class="col-md-offset-1">
 
-                    <h2>Wishlist <small>The games you want... badly!</small></h2>
+                    <h2>Favorites <small>The games you really liked!</small></h2>
                     <hr class="colorgraph">
                     <div class="container-fluid">
                         <div class="list-group view-modes">
