@@ -55,11 +55,7 @@
                 <!-- Product Price and Buttons-->
                 <div class="col-md-3">
 
-                    <h3>
-                        <div class="rating">
-                            <span>☆</span>
-                        </div>
-                    </h3>
+                  <br>
                     <div class="text-center">
 
                         <h1> {$data.product.price} €</h1>

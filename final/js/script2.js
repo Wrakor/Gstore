@@ -476,6 +476,32 @@ $(document).ready(function()
         }
     }
 
+    //if(location.pathname.substring(location.pathname.lastIndexOf("/") + 1).split('#')[0] == "addToWishlist.php") {
+        if(window.location.hash == "#wishlistupdated") {
+            generate('success', "Wishlist Updated!");
+            setTimeout(function () {
+                $.noty.closeAll()
+            }, 5000);
+            window.location.hash="";
+        }
+    //}
+
+    if(window.location.hash == "#favoritesupdated") {
+        generate('success', "Favorites Updated!");
+        setTimeout(function () {
+            $.noty.closeAll()
+        }, 5000);
+        window.location.hash="";
+    }
+
+    if(window.location.hash == "#review") {
+        generate('success', "Review Submited!");
+        setTimeout(function () {
+            $.noty.closeAll()
+        }, 5000);
+        window.location.hash="";
+    }
+
 });
 
 

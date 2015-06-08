@@ -7,7 +7,7 @@ function view1Writer(rowIndex, record, columns, cellWriter) {
 
     if (rowIndex % 3 === 0) { cssClass += ' first'; }
     li = '<li >'
-    li += '<a class="' + cssClass + '" href="/proto/pages/products/item.php?id='+record.id+'">';
+    li += '<a class="' + cssClass + '" href="/~lbaw1433/final/pages/products/item.php?id='+record.id+'">';
     li += '<div class="thumbnail">';
     li += '<img src=\" ' + record.externallink + ' \"></div>';
     li += '<h3>'+record.price +'€</h3>';
