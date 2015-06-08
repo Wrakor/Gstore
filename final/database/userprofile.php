@@ -129,4 +129,23 @@ function addToCart($user_id, $product_id) {
     return 1;
 }
 
+function purchase($userid) {
+    global $conn;
+
+    $query = 'SELECT SUM(Product.price) FROM Cart, Product WHERE Cart.product_id = Product.id AND Cart.user_id = ?';
+    $stmt = $conn->prepare($query);
+    $stmt->execute(array($userid));
+    $totalPrice = $stmt->fetchAll();
+
+    $query = 'INSERT INTO Buyorder(client_id, orderdate, totalprice, status_id) VALUES (?, ?, ?, ?)';
+    $stmt = $conn->prepare($query);
+    $date = date('Y-m-d', time());
+    echo '<pre>'; var_dump($totalPrice[0]["sum"]); echo '</pre>';
+    $stmt->execute(array($userid, $date, $totalPrice[0]["sum"], 1));
+
+    $query = 'DELETE FROM Cart WHERE user_id = ?';
+    $stmt = $conn->prepare($query);
+    $stmt->execute(array($userid));
+}
+
 ?>

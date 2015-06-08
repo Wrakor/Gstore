@@ -30,6 +30,9 @@
                             <a class="list-group-item glyphicon glyphicon-list" href=""></a>
                         </div>
                     </div>
+                    {if count($wishlist) eq 0}
+                        No Products in your Wishlist!<br><br>
+                    {/if}
                         {foreach $wishlist as $product}
                         <div class="media product-list">
                             <div class="media-left media-top">

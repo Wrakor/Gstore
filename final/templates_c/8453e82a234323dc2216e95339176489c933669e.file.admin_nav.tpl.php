@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-06-08 00:45:13
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-09 00:22:50
          compiled from "/Users/jrsc/BitBucket/lbaw1433/src/final/templates/common/admin_nav.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:3615072495574c9790642b5-06802015%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8453e82a234323dc2216e95339176489c933669e' => 
     array (
       0 => '/Users/jrsc/BitBucket/lbaw1433/src/final/templates/common/admin_nav.tpl',
-      1 => 1433715726,
+      1 => 1433802072,
       2 => 'file',
     ),
   ),
@@ -15,14 +15,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_5574c9790b9c63_66542231',
   'variables' => 
   array (
     'BASE_URL' => 0,
     'data' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_5574c9790b9c63_66542231',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5574c9790b9c63_66542231')) {function content_5574c9790b9c63_66542231($_smarty_tpl) {?><!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -65,9 +65,8 @@ pages/admin/users.php"><span class="fa fa-fw fa-users"></span> Users</a>
                 <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 pages/admin/products.php"><i class="fa fa-fw fa-table"></i> Products</a>
             </li>
-            <li class="<?php if (isset($_smarty_tpl->tpl_vars['data']->value['nav']['categories'])) {?>active<?php }?>">
-                <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/admin/categories.php"><span class="glyphicon glyphicon-folder-open"></span> Categories</a>
+            <li class="<?php if (isset($_smarty_tpl->tpl_vars['data']->value['nav']['categories'])) {?>active<?php }?>" class="disabled">
+                <a><span class="glyphicon glyphicon-folder-open"></span> Categories</a>
             </li>
             <li class="disabled">
                 <a><span class="fa fa-fw fa-support"></span> Support</a>

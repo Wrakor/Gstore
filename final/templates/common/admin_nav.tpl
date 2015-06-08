@@ -34,8 +34,8 @@
             <li class="{if isset($data.nav.products)}active{/if}">
                 <a href="{$BASE_URL}pages/admin/products.php"><i class="fa fa-fw fa-table"></i> Products</a>
             </li>
-            <li class="{if isset($data.nav.categories)}active{/if}">
-                <a href="{$BASE_URL}pages/admin/categories.php"><span class="glyphicon glyphicon-folder-open"></span> Categories</a>
+            <li class="{if isset($data.nav.categories)}active{/if}" class="disabled">
+                <a><span class="glyphicon glyphicon-folder-open"></span> Categories</a>
             </li>
             <li class="disabled">
                 <a><span class="fa fa-fw fa-support"></span> Support</a>

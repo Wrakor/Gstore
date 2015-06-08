@@ -69,6 +69,8 @@
 
                     <a href="{$BASE_URL}actions/users/addToFavorites.php?id={$data.product.id}" class="btn btn-danger btn-block" role="button"> <span class="glyphicon glyphicon-heart" style="color:white"></span> Add to Favorites</a>
 
+                    <a href="{$BASE_URL}actions/users/addToCart.php?id={$data.product.id}" class="btn btn-success btn-block" role="button"> <span class="glyphicon glyphicon-shopping-cart" style="color:white"></span> Add to Cart</a>
+
 
 
                 </div>

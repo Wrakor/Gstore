@@ -20,9 +20,10 @@ if( strcmp($_SERVER['SERVER_NAME'],'gnomo.fe.up.pt')==0 )
 }
 else if (strcmp($_SERVER['SERVER_NAME'],'localhost')==0)
 {
-    //$BASE_DIR = "/Users/jrsc/BitBucket/lbaw1433/src/" . $SUB_FOLDER;
-    $BASE_DIR = "C:/xampp/htdocs/lbaw/" . $SUB_FOLDER;
-    $BASE_URL = '/lbaw/' . $SUB_FOLDER;
+    $BASE_DIR = "/Users/jrsc/BitBucket/lbaw1433/src/" . $SUB_FOLDER;
+    $BASE_URL = '/' . $SUB_FOLDER;
+    //$BASE_DIR = "C:/xampp/htdocs/lbaw/" . $SUB_FOLDER;
+    //$BASE_URL = '/lbaw/' . $SUB_FOLDER;
 
 
 
