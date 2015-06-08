@@ -1,5 +1,9 @@
 <?php
     include_once('../../config/init.php');
+
+if(!(isset($_SESSION["username"]) && isset($_SESSION["admin"])))
+    header('Location: '.$BASE_URL);
+
     include_once($BASE_DIR .'database/dashboard.php');
 
     unset($data);

@@ -1,7 +1,10 @@
 <?php
 include_once('../../config/init.php');
-include_once($BASE_DIR .'database/products.php');
 
+if(!(isset($_SESSION["username"]) && isset($_SESSION["admin"])))
+    header('Location: '.$BASE_URL);
+
+include_once($BASE_DIR .'database/products.php');
 
 function typeOf()
 {
@@ -204,12 +207,11 @@ function productData(& $msg) {
  * Main Block
  * * * * * * * */
 
-// missing: verify session data is admin-product
-
 if (isset($_GET['create']))
     create($msg);
 else if (isset($_GET['edit']))
-    /*edit($msg)*/;
+    /*edit($msg)*/
+    $msg = "Currently unavailable!";
 else if (isset($_GET['active']))
     active($msg);
 else if (isset($_GET['inactive']))
@@ -222,5 +224,6 @@ else
     $msg = "There is no request like that available!";
 
 echo $msg;
+
 
 ?>

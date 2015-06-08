@@ -1,5 +1,9 @@
 <?php
 include_once('../../config/init.php');
+
+if(!(isset($_SESSION["username"]) && isset($_SESSION["admin"])))
+    header('Location: '.$BASE_URL);
+
 include_once($BASE_DIR .'database/users.php');
 
 //echo "<pre>"; var_dump($_SESSION); echo "</pre>";
@@ -194,8 +198,6 @@ function userData(& $msg) {
  * Main Block
  * * * * * * * */
 
-// missing: verify session data is admin-user
-
 if (isset($_GET['create']))
     create($msg);
 else if (isset($_GET['edit']))
@@ -212,5 +214,7 @@ else
     $msg = "There is no request like that available!";
 
 echo $msg;
+
+
 
 ?>

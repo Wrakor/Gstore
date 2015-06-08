@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-06-08 16:31:50
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-09 00:28:38
          compiled from "/Users/jrsc/BitBucket/lbaw1433/src/final/templates/common/header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:10664429225574c92b3ac653-25815333%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '72df712826db0a8dc773406c24bf80e63f582c7e' => 
     array (
       0 => '/Users/jrsc/BitBucket/lbaw1433/src/final/templates/common/header.tpl',
-      1 => 1433773882,
+      1 => 1433801429,
       2 => 'file',
     ),
   ),
@@ -37,6 +37,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+
+    
 
     <title>GSTORE</title>
 
@@ -69,7 +71,6 @@ lib/dynatable/jquery.dynatable.css" rel="stylesheet">
     <!-- Our Version CSS -->
     <link href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 css/style.css" rel="stylesheet">
-
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
