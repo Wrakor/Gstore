@@ -486,6 +486,22 @@ $(document).ready(function()
         }
     //}
 
+    if(window.location.hash == "#loggedin") {
+        generate('success', "Welcome !!!");
+        setTimeout(function () {
+            $.noty.closeAll()
+        }, 5000);
+        window.location.hash="";
+    }
+
+    if(window.location.hash == "#errorlogin") {
+        generate('error', "Wrong Login !!!");
+        setTimeout(function () {
+            $.noty.closeAll()
+        }, 5000);
+        window.location.hash="";
+    }
+
     if(window.location.hash == "#favoritesupdated") {
         generate('success', "Favorites Updated!");
         setTimeout(function () {
