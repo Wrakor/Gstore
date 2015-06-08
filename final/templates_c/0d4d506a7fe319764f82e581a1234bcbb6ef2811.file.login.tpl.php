@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-06-08 00:43:55
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-08 01:55:15
          compiled from "/Users/jrsc/BitBucket/lbaw1433/src/final/templates/users/login.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:3021867465574c92b654b86-84438360%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0d4d506a7fe319764f82e581a1234bcbb6ef2811' => 
     array (
       0 => '/Users/jrsc/BitBucket/lbaw1433/src/final/templates/users/login.tpl',
-      1 => 1433715726,
+      1 => 1433719545,
       2 => 'file',
     ),
   ),
@@ -15,14 +15,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_5574c92b6c50f2_68755325',
   'variables' => 
   array (
     'BASE_URL' => 0,
     'FORM_VALUES' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_5574c92b6c50f2_68755325',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5574c92b6c50f2_68755325')) {function content_5574c92b6c50f2_68755325($_smarty_tpl) {?><div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="smallModal" aria-hidden="true">
     <div class="modal-dialog modal-sm">
@@ -52,7 +52,7 @@ actions/users/login.php" method="post" enctype="multipart/form-data" accept-char
                                 </label>
                             </div>
                             <input id="loginAccount" class="btn btn-lg btn-success btn-block" type="submit" value="Login">
-                            <button type="button" id="registbutt" class="btn btn-lg btn-primary btn-block" type="submit" href="#" data-toggle="modal" data-target="#signup" onclick="getPostalCodes()">I don't have an account!</button>
+                            <button type="button" id="registbutt" class="btn btn-lg btn-primary btn-block" type="submit" href="#" data-toggle="modal" data-target="#signup" onclick="getPostalCodes(); bindRegistValidations();">I don't have an account!</button>
                         </fieldset>
                     </form>
                 </div>
