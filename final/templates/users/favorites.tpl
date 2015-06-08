@@ -30,6 +30,9 @@
                             <a class="list-group-item glyphicon glyphicon-list" href=""></a>
                         </div>
                     </div>
+                    {if count($favorites) eq 0}
+                        No Favorites Yet!<br><br>
+                    {/if}
                     {foreach $favorites as $product}
                         <div class="media product-list">
                             <div class="media-left media-top">

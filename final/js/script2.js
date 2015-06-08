@@ -564,6 +564,22 @@ $(document).ready(function()
         window.location.hash="";
     }
 
+    if(window.location.hash == "#purchase") {
+        generate('success', "Purchase complete!");
+        setTimeout(function () {
+            $.noty.closeAll()
+        }, 5000);
+        window.location.hash="";
+    }
+
+    if(window.location.hash == "#nologin") {
+        generate('error', "You need to be logged in!");
+        setTimeout(function () {
+            $.noty.closeAll()
+        }, 5000);
+        window.location.hash="";
+    }
+
 });
 
 

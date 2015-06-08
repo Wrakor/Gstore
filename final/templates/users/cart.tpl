@@ -16,6 +16,9 @@
                     <h2>Shopping Cart <small>There are so many games... I can't decide!</small></h2>
                     <hr class="colorgraph">
 
+                    {if count($cart) eq 0}
+                        Cart is empty!<br><br>
+                    {/if}
                         {foreach $cart as $product}
                         <div class="media product-list">
                             <div class="media-left media-top">
@@ -40,9 +43,14 @@
 
                                 <p>{$product['description']}</p>
                             </div>
+
+
                         </div>
                         {/foreach}
 
+                    {if count($cart) neq 0}
+                        <a href="{$BASE_URL}actions/users/purchase.php" class="btn btn-success" role="button"> <span class="glyphicon glyphicon-shopping-cart" style="color:white"></span> Purchase </a>
+                    {/if}
 
                 </div>
             </div>
