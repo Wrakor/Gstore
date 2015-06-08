@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-06-08 05:45:13
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-08 20:09:12
          compiled from "C:\xampp\htdocs\lbaw\final\templates\common\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:82095574b57388f662-51641761%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '5de545fa682bcd93a55a4f5f2e2ebc1b61706f5d' => 
     array (
       0 => 'C:\\xampp\\htdocs\\lbaw\\final\\templates\\common\\header.tpl',
-      1 => 1433735096,
+      1 => 1433786950,
       2 => 'file',
     ),
   ),
@@ -24,7 +24,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'error' => 0,
     'SUCCESS_MESSAGES' => 0,
     'success' => 0,
-    'sucess' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -70,6 +69,14 @@ lib/dynatable/jquery.dynatable.css" rel="stylesheet">
     <!-- Our Version CSS -->
     <link href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 css/style.css" rel="stylesheet">
+
+    <!-- angularjs -->
+    <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+angularjs/bower_components/angular/angular.js"></script>
+    <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+angularjs/GStore/js/GStore.js"></script>
+    <script src="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+js/ngCart.js"></script>
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -126,7 +133,10 @@ css/style.css" rel="stylesheet">
 
 <body>
 
-<body>
+<body ng-app="ngCart" class="ng-scope">
+
+<div><label></label></div>
+
 
 <div id="error_messages">
     <?php  $_smarty_tpl->tpl_vars['error'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['error']->_loop = false;
@@ -134,8 +144,8 @@ css/style.css" rel="stylesheet">
 foreach ($_from as $_smarty_tpl->tpl_vars['error']->key => $_smarty_tpl->tpl_vars['error']->value) {
 $_smarty_tpl->tpl_vars['error']->_loop = true;
 ?>
-        <div class="error"><?php echo $_smarty_tpl->tpl_vars['error']->value;?>
-<a class="close" href="#">X</a></div>
+      <!--  <div class="error"><?php echo $_smarty_tpl->tpl_vars['error']->value;?>
+<a class="close" href="#">X</a></div> -->
     <?php } ?>
 </div>
 <div id="success_messages">
@@ -144,10 +154,8 @@ $_smarty_tpl->tpl_vars['error']->_loop = true;
 foreach ($_from as $_smarty_tpl->tpl_vars['success']->key => $_smarty_tpl->tpl_vars['success']->value) {
 $_smarty_tpl->tpl_vars['success']->_loop = true;
 ?>
-        <div class="success"><?php echo $_smarty_tpl->tpl_vars['success']->value;?>
-<a class="close" href="#">X</a></div>
-        <script>generate("success",<?php echo $_smarty_tpl->tpl_vars['sucess']->value;?>
-);</script>
+       <!-- <div class="success"><?php echo $_smarty_tpl->tpl_vars['success']->value;?>
+<a class="close" href="#">X</a></div> -->
     <?php } ?>
 </div>
 

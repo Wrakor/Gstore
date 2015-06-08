@@ -9,8 +9,6 @@ function store( data )
 
         localStorage.setItem(''+key,data[key]);
 
-        data[key].forEach(function(entry) {
-            console.log(entry);
-        });
+
     }
 }

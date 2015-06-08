@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-06-08 04:37:27
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-08 18:48:05
          compiled from "C:\xampp\htdocs\lbaw\final\templates\products\productlist.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:266805574b573823b38-34048598%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '926286154099f36c989f1324a853aeb5b10db954' => 
     array (
       0 => 'C:\\xampp\\htdocs\\lbaw\\final\\templates\\products\\productlist.tpl',
-      1 => 1433731000,
+      1 => 1433781944,
       2 => 'file',
     ),
   ),
@@ -42,7 +42,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <li class="active"><?php echo $_smarty_tpl->tpl_vars['data']->value['title'][0]['name'];?>
 </li>
     </ol>
-
 
     <!-- Product List -->
     <h2><?php echo $_smarty_tpl->tpl_vars['data']->value['title'][0]['name'];?>

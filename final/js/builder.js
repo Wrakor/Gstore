@@ -1,11 +1,11 @@
 function view1Writer(rowIndex, record, columns, cellWriter) {
     var cssClass = "col-sm-4 col-lg-4 col-md-4 product-list view-1 hvr-grow", li;
     if (rowIndex % 3 === 0) { cssClass += ' first'; }
-    li = '<li><a class="'+cssClass+' " href="/~lbaw1433/final/pages/products/item.php?id='+record.id+'">';
-    li += '<div class="thumbnail thumbnail-full">';
+    li = '<a class="'+cssClass+' "  href="/~lbaw1433/final/pages/products/item.php?id='+record.id+'">';
+    li += '<div class="thumbnail thumbnail-full" >';
     li += '<img src=\"' + record.externallink + ' " alt="'+record.description+'" \"></div>';
     li += '<h3>'+record.price +'€</h3>';
-    li += '<h4 style="height: 40px;">'+record.name +'</h4>';
+    li += '<h4 style="height: 40px;" >'+record.name +'</h4>';
     li += '<p>'+record.description+'</p>';
     li += ' <div class="platforms">';
     for(var i= 0; i<record.platforms.length; i++){
@@ -25,14 +25,16 @@ function view1Writer(rowIndex, record, columns, cellWriter) {
             li += '<span class="glyphicon glyphicon-star"></span>';
         }
     }
-    li += '</a></li>';
+
+
+    li += '</a>'
     return li;
 }
 
 function view2Writer(rowIndex, record, columns, cellWriter) {
     var cssClass = "col-sm-12 col-lg-12 col-md-12 product-list view-2 hvr-glow", li;
     if (rowIndex % 3 === 0) { cssClass += ' first'; }
-    li = '<li><a class="'+cssClass+' " style="margin-bottom: 2%;" href="/~lbaw1433/final/pages/products/item.php?id='+record.id+'">';
+    li = '<a class="'+cssClass+' " style="margin-bottom: 2%;" href="/~lbaw1433/final/pages/products/item.php?id='+record.id+'">';
     li+= '<div style="  height: 98px;" class="thumbnail thumbnail-full">';
     li+= '<img style="  height: 98px;" src="' + record.externallink + ' " alt="'+record.description+'" \"></div>';
     li+= '<h3>'+record.price+'€</h3>';
@@ -48,7 +50,7 @@ function view2Writer(rowIndex, record, columns, cellWriter) {
             li +='<span class="icon-os-linux_1_"></span>';
         }
     }
-    li += '</div></a></li>';
+    li += '</div></a>';
     return li;
 }
 function view3Writer(rowIndex, record, columns, cellWriter) {
@@ -122,7 +124,7 @@ function generateList(){
     $.getJSON("../../actions/products/request.php", request, function(data, status){
         $('#uldata').dynatable({
             table: {
-                bodyRowSelector: 'li'
+                bodyRowSelector: 'a'
             },
             dataset: {
                 records: data,
@@ -181,7 +183,7 @@ function generateList2(){
     $.getJSON("../../actions/products/request.php", request, function(data, status){
         $('#uldata2').dynatable({
             table: {
-                bodyRowSelector: 'li'
+                bodyRowSelector: 'a'
             },
             dataset: {
                 records: data,
