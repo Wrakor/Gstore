@@ -452,11 +452,26 @@ $(document).ready(function()
         bindRegistValidations();
     }
 
-    if(window.location.hash == "#regist") {
+    if(window.location.hash == "#registerror") {
         $("#registbutt").click();
         getPostalCodes();
         bindLoginValidation();
+        generate('error', "Error registing User!!!");
+        setTimeout(function () {
+            $.noty.closeAll()
+        }, 5000);
+        window.location.hash="";
     }
+
+    if(window.location.hash == "#registed") {
+        generate('success', "User Registed!!!");
+        setTimeout(function () {
+            $.noty.closeAll()
+        }, 5000);
+        window.location.hash="";
+
+    }
+
 
     if(location.pathname.substring(location.pathname.lastIndexOf("/") + 1).split('#')[0] == "edituser.php"){
         $('#updatebtn').prop('disabled', true);
@@ -489,7 +504,7 @@ $(document).ready(function()
     if(window.location.hash == "#loggedin") {
         generate('success', "Welcome !!!");
         setTimeout(function () {
-            $.noty.closeAll()
+            $.noty.closeAll();
         }, 5000);
         window.location.hash="";
     }
