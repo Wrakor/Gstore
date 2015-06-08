@@ -1,5 +1,204 @@
 <?php
 
+function createProduct($type,$name,$price,$description,$url,$gcat,$pcat,$rcat) {
+    global $conn;
+
+    try {
+        $conn->query("SET TRANSACTION ISOLATION LEVEL SERIALIZABLE");
+        $conn->beginTransaction();
+
+        $query = "INSERT INTO Product(name,price,description) VALUES(?,?,?)";
+        $stmt = $conn->prepare($query);
+        $stmt->execute(array($name,$price,$description));
+
+        $row = getProductIDByName($name);
+        $product_id = $row['id'];
+
+        if ($type === 1)
+        {
+            $query = "INSERT INTO Game(product_id) VALUES(?)";
+            $stmt = $conn->prepare($query);
+            $stmt->execute(array($product_id));
+
+            foreach($gcat as $key=>$value)
+            {
+                $query = "INSERT INTO gamecategorygame(gamecategory_id,game_id) VALUES(?,?)";
+                $stmt = $conn->prepare($query);
+                $stmt->execute(array($value-1,$product_id));
+            }
+
+            foreach($pcat as $key=>$value)
+            {
+                $query = "INSERT INTO gameplatform(platform_id,game_id) VALUES(?,?)";
+                $stmt = $conn->prepare($query);
+                $stmt->execute(array($value-1,$product_id));
+            }
+        }
+        else if ($type === 2)
+        {
+            $query = "INSERT INTO RelatedProduct(product_id) VALUES(?)";
+            $stmt = $conn->prepare($query);
+            $stmt->execute(array($product_id));
+
+            foreach($rcat as $key=>$value)
+            {
+                $query = "INSERT INTO relatedproductcategoryrelatedproduct(category_id,related_id) VALUES(?,?)";
+                $stmt = $conn->prepare($query);
+                $stmt->execute(array($value-1,$product_id));
+            }
+        }
+
+        $query = "INSERT INTO Media(product_id,name,externallink) VALUES(?,?,?)";
+        $stmt = $conn->prepare($query);
+        $stmt->execute(array($product_id,'main',$url));
+
+        $row = getMediaIDForProductID($product_id);
+        $media_id = $row['id'];
+
+        $query = "INSERT INTO Image(media_id) VALUES(?)";
+        $stmt = $conn->prepare($query);
+        $stmt->execute(array($media_id));
+
+        $query = "UPDATE Product SET medianum = ? WHERE id = ?";
+        $stmt = $conn->prepare($query);
+        $stmt->execute(array($media_id,$product_id));
+
+        $conn->commit();
+
+        return "Success! Product created.";
+    }
+    catch (PDOException $e)
+    {
+        $conn->rollBack();
+        errorLog("createClient",$e);
+        return "DB Error! Product not created." . $e;
+    }
+
+    return;
+}
+
+function getProductIDByName($name)
+{
+    global $conn;
+
+    try {
+        $stmt = $conn->prepare("SELECT id FROM product WHERE product.name = ?");
+        $stmt->execute(array($name));
+        $id = $stmt->fetch();
+
+        return $id;
+    }
+    catch (PDOException $e)
+    {
+        errorLog("getProductByName",$e);
+        return null;
+    }
+
+    return;
+}
+
+function getMediaIDForProductID($product_id)
+{
+    global $conn;
+
+    try {
+        $stmt = $conn->prepare("SELECT id FROM media WHERE media.product_id = ?");
+        $stmt->execute(array($product_id));
+        $id = $stmt->fetch();
+
+        return $id;
+    }
+    catch (PDOException $e)
+    {
+        errorLog("getMediaIDForProductID",$e);
+        return null;
+    }
+
+    return;
+}
+
+function getPlatformIDByName($name)
+{
+    global $conn;
+
+    try {
+        $stmt = $conn->prepare("SELECT id FROM platform WHERE platform.name = ?");
+        $stmt->execute(array($name));
+        $id = $stmt->fetch();
+
+        return $id;
+    }
+    catch (PDOException $e)
+    {
+        errorLog("getPlatformIDByName",$e);
+        return null;
+    }
+
+    return;
+}
+
+
+
+function isValidGCat($id)
+{
+    global $conn;
+
+    try {
+        $stmt = $conn->prepare("SELECT * FROM gamecategory WHERE gamecategory.category_id = ?");
+        $stmt->execute(array($id));
+        $row = $stmt->fetch();
+
+        return (count($row)>0);
+    }
+    catch (PDOException $e)
+    {
+        errorLog("isValidGCat",$e);
+        return false;
+    }
+
+    return;
+}
+
+function isValidRCat($id)
+{
+    global $conn;
+
+    try {
+        $stmt = $conn->prepare("SELECT * FROM relatedproductcategory WHERE relatedproductcategory.category_id = ?");
+        $stmt->execute(array($id));
+        $row = $stmt->fetch();
+
+        return (count($row)>0);
+    }
+    catch (PDOException $e)
+    {
+        errorLog("isValidRCat",$e);
+        return false;
+    }
+
+    return;
+}
+
+function isValidPCat($id)
+{
+    global $conn;
+
+    try {
+        $stmt = $conn->prepare("SELECT * FROM platform WHERE platform.id = ?");
+        $stmt->execute(array($id));
+        $row = $stmt->fetch();
+
+        return (count($row)>0);
+    }
+    catch (PDOException $e)
+    {
+        errorLog("isValidPCat",$e);
+        return false;
+    }
+
+    return;
+}
+
 function getAllProductNames() {
     global $conn;
     $query = 'SELECT Product.name FROM Product';

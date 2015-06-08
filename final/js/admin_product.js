@@ -108,7 +108,7 @@ function setup_interaction() {
                     generate('warning', data);
                 }
             }).error( function(xhr, textStatus, errorThrown) {
-                generate('error',"An error occured!");
+                generate('error',"An error occured! " + errorThrown);
             });
 
         });
@@ -137,7 +137,7 @@ function setup_interaction() {
                     generate('warning', data);
                 }
             }).error( function(xhr, textStatus, errorThrown) {
-                generate('error',"An error occured!");
+                generate('error',"An error occured! " + errorThrown);
             });
         });
     });
@@ -165,7 +165,7 @@ function setup_interaction() {
                     generate('warning', data);
                 }
             }).error( function(xhr, textStatus, errorThrown) {
-                generate('error',"An error occured!");
+                generate('error',"An error occured! " + errorThrown);
             });
         });
 
@@ -183,13 +183,17 @@ function setup_interaction() {
         var $related = $form1.find('.related-form');
         var $common = $form1.find('.common');
 
-        if (id == '1')
+        if (id == '1') {
             $game.show();
+            $common.show()
+        }
         else
             $game.hide();
 
-        if (id == '2')
+        if (id == '2') {
             $related.show();
+            $common.show()
+        }
         else
             $related.hide();
 
@@ -221,7 +225,7 @@ function setup_interaction() {
                 else if (name == 'related-category')
                     prefix = 'rcat';
 
-                $subform.append('<input type="hidden" id="'+prefix+'-'+id+'" name="'+prefix+'-'+id+'" value="'+id+'">');
+                $subform.append('<input type="hidden" id="'+prefix+'" name="'+prefix+'[]" value="'+id+'">');
             }
 
             $(this).prop('selectedIndex',0);
@@ -280,11 +284,13 @@ function toggleCheckbox($checkbox) {
 }
 
 function clean($form) {
+    $form.find('.has-feedback').removeClass('has-error');
+    $form.find('span.form-control-feedback').removeClass('glyphicon-remove');
     $form.find('select').prop('selectedIndex',0);
     $form.find('input').val('');
     $form.find('input[type="hidden"]').remove();
     $form.find('.category_selection').empty();
-    $form.find('.game-form, .related-form, input.common').hide();
+    $form.find('.game-form, .related-form, .common').hide();
 }
 
 function clear_selects($form)
@@ -362,7 +368,7 @@ function setup_submit()
                 generate('warning', data);
             }
         }).error( function(xhr, textStatus, errorThrown) {
-                generate('error',"An error occured!");
+                generate('error',"An error occured! " + errorThrown);
         });
     });
 
@@ -393,7 +399,7 @@ function setup_submit()
                 generate('warning', data);
             }
         }).error( function(xhr, textStatus, errorThrown) {
-            generate('error',"An error occured!");
+            generate('error',"An error occured! " + errorThrown);
         });
     });
 

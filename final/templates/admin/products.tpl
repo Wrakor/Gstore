@@ -111,8 +111,6 @@
                 <p class="help-text hide"></p>
             </div>
 
-            <hr>
-
             <div class="form-group has-feedback common" style="display:none">
                 <input type="text" name="url" id="url" class="form-control " placeholder="image url" tabindex="8">
                 <p class="help-text hide">Invalid url!</p>

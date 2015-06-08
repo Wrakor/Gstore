@@ -28,16 +28,16 @@
         $conn->commit();
 
       return "Success! Client created.";
-  }
-catch (PDOException $e)
-    {
-        $conn->rollBack();
-        errorLog("createClient",$e);
-        return "DB Error! Client not created.";
-    }
+      }
+      catch (PDOException $e)
+      {
+            $conn->rollBack();
+            errorLog("createClient",$e);
+            return "DB Error! Client not created.";
+      }
 
-    return;
-}
+      return;
+  }
 
 
 

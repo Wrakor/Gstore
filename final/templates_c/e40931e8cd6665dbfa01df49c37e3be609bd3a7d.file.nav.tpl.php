@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-06-08 00:43:55
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-08 16:31:50
          compiled from "/Users/jrsc/BitBucket/lbaw1433/src/final/templates/common/nav.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:6319891635574c92b461bb9-15810004%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'e40931e8cd6665dbfa01df49c37e3be609bd3a7d' => 
     array (
       0 => '/Users/jrsc/BitBucket/lbaw1433/src/final/templates/common/nav.tpl',
-      1 => 1433715726,
+      1 => 1433773882,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_5574c92b5849a3_73177124',
   'variables' => 
   array (
     'BASE_URL' => 0,
@@ -25,8 +27,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'USERNAME' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_5574c92b5849a3_73177124',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5574c92b5849a3_73177124')) {function content_5574c92b5849a3_73177124($_smarty_tpl) {?><!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -115,7 +115,7 @@ pages/products/list.php?cat=<?php echo $_smarty_tpl->tpl_vars['category']->value
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Accessibility <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
+                    <ul class="dropdown-menu" role="menu" style="cursor: default">
                         <li id="incfont"><a>Increase font size <span data-toggle="tooltip" data-original-title="Increase Font Size" data-placement="bottom" class="glyphicon glyphicon-text-size"><span class="glyphicon glyphicon-triangle-top"></span></span></a></li>
                         <li id="decfont"><a>Decrease font size <span data-toggle="tooltip" data-original-title="Decrease Font Size" data-placement="bottom" class="glyphicon glyphicon-text-size"><span class="glyphicon glyphicon-triangle-bottom"></span></span></a></li>
                     </ul>

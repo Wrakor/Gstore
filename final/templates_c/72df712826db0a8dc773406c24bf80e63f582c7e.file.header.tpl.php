@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-06-08 00:43:55
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-08 16:31:50
          compiled from "/Users/jrsc/BitBucket/lbaw1433/src/final/templates/common/header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:10664429225574c92b3ac653-25815333%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '72df712826db0a8dc773406c24bf80e63f582c7e' => 
     array (
       0 => '/Users/jrsc/BitBucket/lbaw1433/src/final/templates/common/header.tpl',
-      1 => 1433715726,
+      1 => 1433773882,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_5574c92b43ef12_15605824',
   'variables' => 
   array (
     'BASE_URL' => 0,
@@ -22,11 +24,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'error' => 0,
     'SUCCESS_MESSAGES' => 0,
     'success' => 0,
-    'sucess' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_5574c92b43ef12_15605824',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5574c92b43ef12_15605824')) {function content_5574c92b43ef12_15605824($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="en">
@@ -134,8 +133,8 @@ css/style.css" rel="stylesheet">
 foreach ($_from as $_smarty_tpl->tpl_vars['error']->key => $_smarty_tpl->tpl_vars['error']->value) {
 $_smarty_tpl->tpl_vars['error']->_loop = true;
 ?>
-        <div class="error"><?php echo $_smarty_tpl->tpl_vars['error']->value;?>
-<a class="close" href="#">X</a></div>
+      <!--  <div class="error"><?php echo $_smarty_tpl->tpl_vars['error']->value;?>
+<a class="close" href="#">X</a></div> -->
     <?php } ?>
 </div>
 <div id="success_messages">
@@ -144,10 +143,8 @@ $_smarty_tpl->tpl_vars['error']->_loop = true;
 foreach ($_from as $_smarty_tpl->tpl_vars['success']->key => $_smarty_tpl->tpl_vars['success']->value) {
 $_smarty_tpl->tpl_vars['success']->_loop = true;
 ?>
-        <div class="success"><?php echo $_smarty_tpl->tpl_vars['success']->value;?>
-<a class="close" href="#">X</a></div>
-        <script>generate("success",<?php echo $_smarty_tpl->tpl_vars['sucess']->value;?>
-);</script>
+       <!-- <div class="success"><?php echo $_smarty_tpl->tpl_vars['success']->value;?>
+<a class="close" href="#">X</a></div> -->
     <?php } ?>
 </div>
 

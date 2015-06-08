@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-06-08 16:06:17
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-08 19:18:29
          compiled from "/Users/jrsc/BitBucket/lbaw1433/src/final/templates/admin/products.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:828507895574dfab92ea24-57450378%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2223edcdc3a7310408553fbc9940976edf7d494e' => 
     array (
       0 => '/Users/jrsc/BitBucket/lbaw1433/src/final/templates/admin/products.tpl',
-      1 => 1433772311,
+      1 => 1433783775,
       2 => 'file',
     ),
   ),
@@ -159,8 +159,6 @@ $_smarty_tpl->tpl_vars['cat']->_loop = true;
                 <textarea rows="5" name="description" id="description" class="form-control" placeholder="Description" tabindex="7" value=""></textarea>
                 <p class="help-text hide"></p>
             </div>
-
-            <hr>
 
             <div class="form-group has-feedback common" style="display:none">
                 <input type="text" name="url" id="url" class="form-control " placeholder="image url" tabindex="8">
