@@ -1,4 +1,7 @@
 <li>
+    <a href="{$BASE_URL}pages/users/cart.php"><span class="badge"></span><span class="glyphicon glyphicon-shopping-cart"></span> Cart </a>
+</li>
+<li>
     <a href="{$BASE_URL}pages/users/user.php">
         <span class="glyphicon glyphicon-user"></span> {$USERNAME} </a>
 </li>
