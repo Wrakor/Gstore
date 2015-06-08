@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-06-08 01:23:27
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-08 04:37:27
          compiled from "C:\xampp\htdocs\lbaw\final\templates\products\productlist.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:266805574b573823b38-34048598%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '926286154099f36c989f1324a853aeb5b10db954' => 
     array (
       0 => 'C:\\xampp\\htdocs\\lbaw\\final\\templates\\products\\productlist.tpl',
-      1 => 1433719405,
+      1 => 1433731000,
       2 => 'file',
     ),
   ),
@@ -55,10 +55,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
         <div class="list-group view-modes">
             <a class="list-group-item glyphicon glyphicon-th disabled" href=""></a>
-            <a class="list-group-item glyphicon glyphicon-th-list" href=""></a>
-            <a class="list-group-item glyphicon glyphicon-list" href=""></a>
-            <a class="list-group-item glyphicon glyphicon-menu-up" href=""></a>
-            <a class="list-group-item glyphicon glyphicon-menu-down" href=""></a>
+            <a class="list-group-item glyphicon glyphicon-th-list" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/products/list2.php"></a>
+            <a class="list-group-item glyphicon glyphicon-list" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/products/list3.php"></a>
+            <a class="list-group-item glyphicon glyphicon-menu-up disabled" href=""></a>
+            <a class="list-group-item glyphicon glyphicon-menu-down" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/products/list2.php"></a>
         </div>
         <a href="#" class="btn primary" id="sorting-by-price-button">Sort by Price</a>
         <a href="#" class="btn primary" id="sorting-by-name-button">Sort by Name</a>

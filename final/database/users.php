@@ -4,27 +4,28 @@
     global $conn;
 
       try {
-          $conn->query("SET TRANSACTION ISOLATION LEVEL SERIALIZABLE");
-          $conn->beginTransaction();
-    $name_comp = $firstname.' '.$lastname;
-    $stmt = $conn->prepare("INSERT INTO Utilizador(email, username, password) VALUES (?, ?, ?)");
-    $stmt->execute(array($email, $username,sha1($password)));
+        $conn->query("SET TRANSACTION ISOLATION LEVEL SERIALIZABLE");
+        $conn->beginTransaction();
 
- 
-    $stmt = $conn->prepare("SELECT id FROM utilizador WHERE username = ?");
-    $stmt->execute(array($username));
-    $row = $stmt->fetch();
-    $user_id = $row['id'];
+        $name_comp = $firstname.' '.$lastname;
+        $stmt = $conn->prepare("INSERT INTO Utilizador(email, username, password) VALUES (?, ?, ?)");
+        $stmt->execute(array($email, $username,sha1($password)));
 
-      $stmt = $conn->prepare("SELECT id FROM postalcode WHERE code = ?");
-      $stmt->execute(array($postal_code));
-      $row = $stmt->fetch();
-      $postal_id = $row['id'];
 
-    $stmt2 = $conn->prepare("INSERT INTO client VALUES (?,?,?,?,?)");
-    $stmt2->execute(array($user_id,$name_comp,$address,$postal_id,$postal_code_ext));
+        $stmt = $conn->prepare("SELECT id FROM utilizador WHERE username = ?");
+        $stmt->execute(array($username));
+        $row = $stmt->fetch();
+        $user_id = $row['id'];
 
-      $conn->commit();
+        $stmt = $conn->prepare("SELECT id FROM postalcode WHERE code = ?");
+        $stmt->execute(array($postal_code));
+        $row = $stmt->fetch();
+        $postal_id = $row['id'];
+
+        $stmt2 = $conn->prepare("INSERT INTO client VALUES (?,?,?,?,?)");
+        $stmt2->execute(array($user_id,$name_comp,$address,$postal_id,$postal_code_ext));
+
+        $conn->commit();
 
       return "Success! Client created.";
   }

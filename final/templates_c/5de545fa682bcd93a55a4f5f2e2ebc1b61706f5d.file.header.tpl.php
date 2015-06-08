@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-06-07 23:19:47
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-08 05:45:13
          compiled from "C:\xampp\htdocs\lbaw\final\templates\common\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:82095574b57388f662-51641761%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '5de545fa682bcd93a55a4f5f2e2ebc1b61706f5d' => 
     array (
       0 => 'C:\\xampp\\htdocs\\lbaw\\final\\templates\\common\\header.tpl',
-      1 => 1433711551,
+      1 => 1433735096,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_5574b5738a8cc8_95027330',
   'variables' => 
   array (
     'BASE_URL' => 0,
@@ -25,8 +27,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'sucess' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_5574b5738a8cc8_95027330',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5574b5738a8cc8_95027330')) {function content_5574b5738a8cc8_95027330($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="en">

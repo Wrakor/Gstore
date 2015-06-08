@@ -6,12 +6,13 @@
 
     $data['nav']['products'] = true;
 
-    $data['categories']['games'] = getCategoriesForGames();
-    $data['categories']['related'] = getCategoriesForRelated();
+    $data['categories']['platforms'] = getAllGamePlatforms();
+    $data['categories']['games'] = getGameCategories();
+    $data['categories']['related'] = getRelatedProductCategories();
 
-    echo "<pre>"; var_dump($data); echo "</pre>";
+    //echo "<pre>"; var_dump($data); echo "</pre>";
 
     $smarty->assign('data', $data);
-    //$smarty->display('admin/products.tpl');
+    $smarty->display('admin/products.tpl');
 
 ?>

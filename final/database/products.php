@@ -231,42 +231,6 @@ function getRelatedProductCategory($id) {
     return $stmt->fetchAll();
 }
 
-function getCategoriesForGames()
-{
-    global $conn;
-
-    try {
-        $query = 'SELECT * FROM "teste"."AllCategories" WHERE type NOT IN ("related") ORDER BY type DESC';
-        $stmt = $conn->prepare($query);
-        $stmt->execute();
-
-        return $stmt->fetchAll();
-    }
-    catch (PDOException $e)
-    {
-        errorLog("getCategoriesForGames",$e);
-        return "DB Error! Could not fetch categories for games.";
-    }
-}
-
-function getCategoriesForRelated()
-{
-    global $conn;
-
-    try {
-        $query = 'SELECT * FROM "teste"."AllCategories" WHERE type == "related" ORDER BY type DESC, name';
-        $stmt = $conn->prepare($query);
-        $stmt->execute();
-
-        return $stmt->fetchAll();
-    }
-    catch (PDOException $e)
-    {
-        errorLog("getCategoriesForRelated",$e);
-        return "DB Error! Could not fetch categories for related products.";
-    }
-}
-
 function getProducts() {
     global $conn;
 

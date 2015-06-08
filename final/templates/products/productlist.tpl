@@ -21,10 +21,10 @@
 
         <div class="list-group view-modes">
             <a class="list-group-item glyphicon glyphicon-th disabled" href=""></a>
-            <a class="list-group-item glyphicon glyphicon-th-list" href=""></a>
-            <a class="list-group-item glyphicon glyphicon-list" href=""></a>
-            <a class="list-group-item glyphicon glyphicon-menu-up" href=""></a>
-            <a class="list-group-item glyphicon glyphicon-menu-down" href=""></a>
+            <a class="list-group-item glyphicon glyphicon-th-list" href="{$BASE_URL}pages/products/list2.php"></a>
+            <a class="list-group-item glyphicon glyphicon-list" href="{$BASE_URL}pages/products/list3.php"></a>
+            <a class="list-group-item glyphicon glyphicon-menu-up disabled" href=""></a>
+            <a class="list-group-item glyphicon glyphicon-menu-down" href="{$BASE_URL}pages/products/list2.php"></a>
         </div>
         <a href="#" class="btn primary" id="sorting-by-price-button">Sort by Price</a>
         <a href="#" class="btn primary" id="sorting-by-name-button">Sort by Name</a>

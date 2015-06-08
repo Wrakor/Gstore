@@ -21,6 +21,11 @@
     $data['gamePlatforms'] = $gamePlatforms;
     $data['relatedProductCategories'] = $relatedProductCategories;
 
+    // round score to 2 decimal places
+    $data['product']['score'] = $data['product']['score']*10;
+    $data['product']['score'] = round($data['product']['score']);
+    $data['product']['score'] = $data['product']['score']/10;
+
     $smarty->assign('data', $data);
     $smarty->display('products/viewProduct.tpl');
 ?>

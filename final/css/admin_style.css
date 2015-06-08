@@ -73,3 +73,26 @@ table.dataTable.display tbody tr.odd.active-false .sorting_1,
 table.dataTable.display tbody tr.even.active-false .sorting_1{
     background-color: #fc775f;
 }
+
+.category_selection .badge
+{
+    color:black;
+    margin:10px 5px;
+}
+
+.category_selection .badge:nth-of-type(8n+1){ background:#c4e17f; }
+.category_selection .badge:nth-of-type(8n+2){ background:#f7fdca; }
+.category_selection .badge:nth-of-type(8n+3){ background:#fecf71; }
+.category_selection .badge:nth-of-type(8n+4){ background:#f0776c; }
+.category_selection .badge:nth-of-type(8n+5){ background:#db9dbe; }
+.category_selection .badge:nth-of-type(8n+6){ background:#c49cde; }
+.category_selection .badge:nth-of-type(8n+7){ background:#669ae1; }
+.category_selection .badge:nth-of-type(8n+8){ background:#62c2e4; }
+
+#form-create-product .badge,
+#form-edit-product .badge
+{ cursor: pointer; }
+
+#form-create-product .category_selection .badge:hover,
+#form-edit-product .category_selection .badge:hover
+{ background-color:#333; color:white; }
