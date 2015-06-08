@@ -18,6 +18,7 @@
         $_SESSION['username'] = $username;
         $_SESSION['success_messages'][] = 'Login successful';
 
+
         $temp = isAdmin('username');
 
         if ( is_array($temp)  )
