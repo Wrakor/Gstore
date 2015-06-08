@@ -95,10 +95,7 @@
 
 <body>
 
-<body ng-app="ngCart" class="ng-scope">
-
-<div><label></label></div>
-
+<body>
 
 <div id="error_messages">
     {foreach $ERROR_MESSAGES as $error}
