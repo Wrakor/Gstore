@@ -219,9 +219,9 @@ function getAllProducts() {
 
 function getAllGames() {
     global $conn;
-    $query = 'SELECT Product.*, Media.externallink FROM Product, Game, Media WHERE Product.id = Game.product_id AND Product.medianum = Media.id';
+    $query = 'SELECT Product.*, Media.externallink FROM Product, Game, Media WHERE Product.id = Game.product_id AND Product.medianum = Media.id AND Product.active=?';
     $stmt = $conn->prepare($query);
-    $stmt->execute();
+    $stmt->execute(array(true));
 
     $games = $stmt->fetchAll();
 
@@ -267,9 +267,10 @@ function getAllGamesFromGameCategory($id) {
               WHERE GameCategoryGame.gamecategory_id = ?
               AND Game.product_id = GameCategoryGame.game_id
               AND Product.id = Game.product_id
-              AND Product.medianum = Media.id';
+              AND Product.medianum = Media.id
+              AND Product.active=?';
     $stmt = $conn->prepare($query);
-    $stmt->execute(array($id));
+    $stmt->execute(array($id,true));
     $games = $stmt->fetchAll();
 
 
