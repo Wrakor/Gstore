@@ -7,6 +7,9 @@ $productid = $_GET['id'];
 $rating = $_POST['rating'];
 $description = $_POST['description'];
 
-addReview($userid, $productid, $rating, $description);
-
-header("Location: $BASE_URL"."pages/products/item.php?id=".$productid."#review");
+if ($userid != null) {
+    addReview($userid, $productid, $rating, $description);
+    header("Location: $BASE_URL"."pages/products/item.php?id=".$productid."#review");
+}
+else
+    header("Location: $BASE_URL"."pages/products/item.php?id=".$productid."#nologin");

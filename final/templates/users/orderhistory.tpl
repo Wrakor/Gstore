@@ -33,6 +33,9 @@
                             </tr>
                             </thead>
                             <tbody>
+                            {if count($buyorders) eq 0}
+                                No buy orders yet!<br><br>
+                            {/if}
                             {foreach $buyorders as $order}
                             {if $order['name'] eq "Awaiting Shipment"}
                             <tr class="warning">
