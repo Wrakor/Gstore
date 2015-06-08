@@ -515,6 +515,7 @@ $(document).ready(function()
             $.noty.closeAll()
         }, 5000);
         window.location.hash="";
+        $("#login").click();
     }
 
     if(window.location.hash == "#favoritesupdated") {

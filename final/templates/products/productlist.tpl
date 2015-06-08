@@ -12,7 +12,6 @@
         <li class="active">{$data.title[0].name}</li>
     </ol>
 
-
     <!-- Product List -->
     <h2>{$data.title[0].name} <small> {$data.title[0].note}</small></h2>
 
