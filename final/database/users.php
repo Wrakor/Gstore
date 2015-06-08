@@ -78,15 +78,24 @@ function createClient($username,$email,$password,$name,$address,$postal4_id,$pos
       $ret = null;
       try {
 
-          $stmt = $conn->prepare("UPDATE utilizador SET online = now() WHERE username = ?");
-          $stmt->execute(array($username));
-
           $conn->query("SET TRANSACTION ISOLATION LEVEL SERIALIZABLE");
           $conn->beginTransaction();
           $stmt = $conn->prepare("SELECT * FROM Utilizador WHERE username = ? AND password = ?");
           $stmt->execute(array($username,sha1($password)));
-          $ret = $stmt->fetch() == true;
+          $ret = $stmt->fetch();
+
+          if($ret['active'] == FALSE){
+              $ret = false;
+          }
+          else {
+              $stmt = $conn->prepare("UPDATE utilizador SET online = now() WHERE username = ?");
+              $stmt->execute(array($username));
+              $ret = true;
+          }
+
           $conn->commit();
+
+
       }
       catch(PDOException $e)
     {

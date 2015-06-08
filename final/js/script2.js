@@ -510,7 +510,7 @@ $(document).ready(function()
     }
 
     if(window.location.hash == "#errorlogin") {
-        generate('error', "Wrong Login !!!");
+        generate('error', "Error Logging in !!!");
         setTimeout(function () {
             $.noty.closeAll()
         }, 5000);
