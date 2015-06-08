@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-06-08 20:17:15
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-08 22:03:32
          compiled from "C:\xampp\htdocs\lbaw\final\templates\products\viewProduct.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:93865575c9b8e9c5d3-27861034%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'eaeffcb00df4149afb527acbffba7026fd7f88ed' => 
     array (
       0 => 'C:\\xampp\\htdocs\\lbaw\\final\\templates\\products\\viewProduct.tpl',
-      1 => 1433787435,
+      1 => 1433793804,
       2 => 'file',
     ),
   ),
@@ -112,7 +112,7 @@ actions/users/addToFavorites.php?id=<?php echo $_smarty_tpl->tpl_vars['data']->v
 " name="<?php echo $_smarty_tpl->tpl_vars['data']->value['product']['name'];?>
 " price="<?php echo $_smarty_tpl->tpl_vars['data']->value['product']['price'];?>
 " quantity="1" quantity-max="30" data="item">Add to Cart</ngcart-addtocart>
-
+                    <ngcart-checkout service="log">Checkout</ngcart-checkout>
 
 
                 </div>

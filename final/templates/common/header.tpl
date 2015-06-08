@@ -9,6 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    
+
     <title>GSTORE</title>
 
     <!-- Bootstrap Core CSS -->

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-06-08 20:16:42
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-08 22:38:29
          compiled from "C:\xampp\htdocs\lbaw\final\templates\common\nav.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:13985574b57390c4c7-59837815%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '904c6cac1f0811a63af7a858022bce5ca47ae29f' => 
     array (
       0 => 'C:\\xampp\\htdocs\\lbaw\\final\\templates\\common\\nav.tpl',
-      1 => 1433787400,
+      1 => 1433795088,
       2 => 'file',
     ),
   ),
@@ -123,10 +123,10 @@ pages/products/list.php?cat=<?php echo $_smarty_tpl->tpl_vars['category']->value
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <!--
+
                 <li><a href="cart.php"><span class="badge">2</span><span class="glyphicon glyphicon-shopping-cart"></span> Cart </a></li>
-                -->
-                <ngcart-summary></ngcart-summary>
+
+
 
 
                 <?php if ($_smarty_tpl->tpl_vars['ADMIN']->value) {?>

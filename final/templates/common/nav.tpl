@@ -69,10 +69,10 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <!--
+
                 <li><a href="cart.php"><span class="badge">2</span><span class="glyphicon glyphicon-shopping-cart"></span> Cart </a></li>
-                -->
-                <ngcart-summary></ngcart-summary>
+
+
 
 
                 {if $ADMIN}

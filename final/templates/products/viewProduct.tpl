@@ -68,7 +68,6 @@
                     <a href="{$BASE_URL}actions/users/addToWishlist.php?id={$data.product.id}" class="btn btn-primary btn-block" role="button"> <span class="glyphicon glyphicon-ok-circle" style="color:white"></span> Add to Wishlist</a>
 
                     <a href="{$BASE_URL}actions/users/addToFavorites.php?id={$data.product.id}" class="btn btn-danger btn-block" role="button"> <span class="glyphicon glyphicon-heart" style="color:white"></span> Add to Favorites</a>
-                    <ngcart-addtocart  id="{$data.product.id}" name="{$data.product.name}" price="{$data.product.price}" quantity="1" quantity-max="30" data="item">Add to Cart</ngcart-addtocart>
 
 
 

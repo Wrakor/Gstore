@@ -7,11 +7,13 @@
     if(isset($_SESSION["username"]))
         $userinfo = getUserInfo($_SESSION['username']);
 
-    $wishlist = getWishlist($userinfo[0]['userid']);
+    $cart = getCart($userinfo[0]['userid']);
+
+
 
     // converter resultados num so array (por defeito vem em arrays dentro de arrays)
-    for ($i = 0; $i < count($wishlist); $i++) {
-        $id = $wishlist[$i]['id'];
+    for ($i = 0; $i < count($cart); $i++) {
+        $id = $cart[$i]['product_id'];
         $temp = getGamePlatforms($id);
 
         for ($j = 0; $j < count($temp); $j++) {
@@ -23,7 +25,7 @@
 
 
 
-    $smarty->assign('wishlist',$wishlist);
+    $smarty->assign('cart',$cart);
     $smarty->assign('platforms',$platforms);
-    $smarty->display('users/wishlist.tpl');
+    $smarty->display('users/cart.tpl');
 ?>
