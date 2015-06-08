@@ -468,7 +468,7 @@ $(document).ready(function()
 
     if(location.pathname.substring(location.pathname.lastIndexOf("/") + 1).split('#')[0] == "user.php") {
         if(window.location.hash == "#updated") {
-            generate('success', "User Updated!!!");
+            generate('success', "User Information Updated!");
             setTimeout(function () {
                 $.noty.closeAll()
             }, 5000);
