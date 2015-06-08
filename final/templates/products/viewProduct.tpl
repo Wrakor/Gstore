@@ -98,7 +98,7 @@
                                 <option value="3">3</option>
                                 <option value="4">4</option>
                                 <option value="5">5</option>
-                            </select>
+                            </select> ☆
                         </h3>
                         <textarea class="form-control" rows="3" name="description" placeholder="Type your review..."></textarea>
                         <button class="btn btn-lg btn-success btn-block" type="submit">
