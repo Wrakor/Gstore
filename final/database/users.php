@@ -75,15 +75,17 @@ function createClient($username,$email,$password,$name,$address,$postal4_id,$pos
   function isLoginCorrect($username, $password)
   {
       global $conn;
+      $ret = null;
       try {
+
+          $stmt = $conn->prepare("UPDATE utilizador SET online = now() WHERE username = ?");
+          $stmt->execute(array($username));
 
           $conn->query("SET TRANSACTION ISOLATION LEVEL SERIALIZABLE");
           $conn->beginTransaction();
           $stmt = $conn->prepare("SELECT * FROM Utilizador WHERE username = ? AND password = ?");
           $stmt->execute(array($username,sha1($password)));
-
-          $stmt = $conn->prepare("UPDATE utilizador SET online = now() WHERE username = ?");
-          $stmt->execute(array($username));
+          $ret = $stmt->fetch() == true;
           $conn->commit();
       }
       catch(PDOException $e)
@@ -93,7 +95,7 @@ function createClient($username,$email,$password,$name,$address,$postal4_id,$pos
         return false;
     }
 
-    return true;
+    return $ret;
 
 }
 
