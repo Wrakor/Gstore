@@ -9,6 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    
+
     <title>GSTORE</title>
 
     <!-- Bootstrap Core CSS -->
@@ -32,7 +34,6 @@
 
     <!-- Our Version CSS -->
     <link href="{$BASE_URL}css/style.css" rel="stylesheet">
-
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

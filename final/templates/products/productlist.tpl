@@ -4,6 +4,8 @@
 
 {include file='common/leftside.tpl'}
 
+
+
 <div class="col-md-9">
 
     <!-- Crumbs -->
@@ -11,7 +13,6 @@
         <li><a href="{$BASE_URL}">Home</a></li>
         <li class="active">{$data.title[0].name}</li>
     </ol>
-
 
     <!-- Product List -->
     <h2>{$data.title[0].name} <small> {$data.title[0].note}</small></h2>
@@ -29,6 +30,7 @@
         </div>
         <a href="#" class="btn primary" id="sorting-by-price-button">Sort by Price</a>
         <a href="#" class="btn primary" id="sorting-by-name-button">Sort by Name</a>
+
         <ul  style="padding-top: 5%;" id="uldata" class="row-fluid list-unstyled nav ">
 
 

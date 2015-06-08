@@ -515,6 +515,7 @@ $(document).ready(function()
             $.noty.closeAll()
         }, 5000);
         window.location.hash="";
+        $("#login").click();
     }
 
     if(window.location.hash == "#favoritesupdated") {
@@ -543,6 +544,20 @@ $(document).ready(function()
 
     if(window.location.hash == "#wishlistremoved") {
         generate('information', "Game removed!");
+        setTimeout(function () {
+            $.noty.closeAll()
+        }, 5000);
+        window.location.hash="";
+    }
+    if(window.location.hash == "#cartremoved") {
+        generate('information', "Product removed from cart!");
+        setTimeout(function () {
+            $.noty.closeAll()
+        }, 5000);
+        window.location.hash="";
+    }
+    if(window.location.hash == "#cartupdated") {
+        generate('success', "Product added to cart!");
         setTimeout(function () {
             $.noty.closeAll()
         }, 5000);

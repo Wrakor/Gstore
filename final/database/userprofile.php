@@ -93,4 +93,40 @@ function addReview($user_id, $product_id, $score, $comment) {
     $query = 'INSERT INTO Review(user_id, product_id, score, comment) VALUES(?,?,?,?)';
     $stmt = $conn->prepare($query);
     $stmt->execute(array($user_id, $product_id, $score, $comment));}
+
+function getCart($user_id) {
+    global $conn;
+    $query = 'SELECT Product.*, Media.externallink FROM Product, Game, Media, Cart WHERE Product.id = Game.product_id AND Product.medianum = Media.id AND Game.product_id = Cart.product_id AND Cart.user_id = ?';
+    //$query = 'SELECT product_id FROM cart WHERE user_id = 1';
+    $stmt = $conn->prepare($query);
+    $stmt->execute(array($user_id));
+    return $stmt->fetchAll();
+
+}
+
+function deleteFromCart($productid, $userid) {
+    global $conn;
+    $query = 'DELETE FROM Cart WHERE product_id = ? and user_id = ?';
+    $stmt = $conn->prepare($query);
+    $stmt->execute(array($productid, $userid));
+}
+
+function addToCart($user_id, $product_id) {
+    global $conn;
+
+    $query = 'SELECT * FROM Cart where user_id = ? AND product_id = ?';
+    $stmt = $conn->prepare($query);
+    $stmt->execute(array($user_id, $product_id));
+
+    if (count($stmt->fetchAll()) == 0) {
+        $query = 'INSERT INTO Cart(user_id, product_id) VALUES (?, ?)';
+        $stmt = $conn->prepare($query);
+        $stmt->execute(array($user_id, $product_id));
+
+        return 0;
+    }
+
+    return 1;
+}
+
 ?>

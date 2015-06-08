@@ -135,6 +135,9 @@
 <script src="{$BASE_URL}js/search.js"></script>
 
 
+
+
+
 <!-- Custom -->
 <script>
     var data = {json_encode($data)};

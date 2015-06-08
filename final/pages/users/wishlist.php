@@ -21,6 +21,8 @@
         $platforms[$id] = $temp;
     }
 
+
+
     $smarty->assign('wishlist',$wishlist);
     $smarty->assign('platforms',$platforms);
     $smarty->display('users/wishlist.tpl');

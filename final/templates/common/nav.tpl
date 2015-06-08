@@ -69,9 +69,12 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <!--
+
                 <li><a href="cart.php"><span class="badge">2</span><span class="glyphicon glyphicon-shopping-cart"></span> Cart </a></li>
-                -->
+
+
+
+
                 {if $ADMIN}
                     <li><a href="{$BASE_URL}pages/admin/dashboard.php"><span class="glyphicon glyphicon-lock"></span> Backoffice </a></li>
                 {/if}
@@ -102,3 +105,5 @@
     {include file='users/login.tpl'}
     {include file='users/register.tpl'}
 {/if}
+
+
