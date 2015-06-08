@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-06-08 22:03:32
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-09 00:29:42
          compiled from "C:\xampp\htdocs\lbaw\final\templates\products\viewProduct.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:93865575c9b8e9c5d3-27861034%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'eaeffcb00df4149afb527acbffba7026fd7f88ed' => 
     array (
       0 => 'C:\\xampp\\htdocs\\lbaw\\final\\templates\\products\\viewProduct.tpl',
-      1 => 1433793804,
+      1 => 1433802580,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'BASE_URL' => 0,
     'data' => 0,
-    'base_URL' => 0,
     'row' => 0,
+    'base_URL' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -108,25 +108,59 @@ actions/users/addToWishlist.php?id=<?php echo $_smarty_tpl->tpl_vars['data']->va
                     <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 actions/users/addToFavorites.php?id=<?php echo $_smarty_tpl->tpl_vars['data']->value['product']['id'];?>
 " class="btn btn-danger btn-block" role="button"> <span class="glyphicon glyphicon-heart" style="color:white"></span> Add to Favorites</a>
-                    <ngcart-addtocart  id="<?php echo $_smarty_tpl->tpl_vars['data']->value['product']['id'];?>
-" name="<?php echo $_smarty_tpl->tpl_vars['data']->value['product']['name'];?>
-" price="<?php echo $_smarty_tpl->tpl_vars['data']->value['product']['price'];?>
-" quantity="1" quantity-max="30" data="item">Add to Cart</ngcart-addtocart>
-                    <ngcart-checkout service="log">Checkout</ngcart-checkout>
+
 
 
                 </div>
 
             </div>
-            <ngcart-cart> </ngcart-cart>
 
+            <?php  $_smarty_tpl->tpl_vars['row'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['row']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['data']->value['product']['platforms']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['row']->key => $_smarty_tpl->tpl_vars['row']->value) {
+$_smarty_tpl->tpl_vars['row']->_loop = true;
+?>
+
+                <?php if ($_smarty_tpl->tpl_vars['row']->value['name']=="Windows") {?>
+                    <span class="icon-os-win-03"></span>
+                <?php }?>
+                <?php if ($_smarty_tpl->tpl_vars['row']->value['name']=="Mac") {?>
+                    <span class="icon-os-apple"></span>
+                <?php }?>
+                <?php if ($_smarty_tpl->tpl_vars['row']->value['name']=="Linux") {?>
+                    <span class="icon-os-linux_1_"></span>
+                <?php }?>
+
+
+
+            <?php } ?>
+            <p>
+            <?php  $_smarty_tpl->tpl_vars['row'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['row']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['data']->value['product']['categories']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['row']->key => $_smarty_tpl->tpl_vars['row']->value) {
+$_smarty_tpl->tpl_vars['row']->_loop = true;
+?>
+
+                <span class="badge"><?php echo $_smarty_tpl->tpl_vars['row']->value['name'];?>
+</span>
+
+
+
+
+            <?php } ?>
+            </p>
             <!-- Product Description -->
             <div class="row">
                 <div class="col-md-12">
 
                     <p> <?php echo $_smarty_tpl->tpl_vars['data']->value['product']['description'];?>
  </p>
+
+
                     <br>
+
+
+
 
                     <!-- Submit Review -->
                     <h2>Submit your Review</h2>

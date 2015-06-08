@@ -184,6 +184,14 @@ function getGamePlatforms($id) {
 
     return $stmt->fetchAll();
 }
+function getGameCategoryList($id) {
+    global $conn;
+
+    $stmt = $conn->prepare('SELECT Category.name FROM Product, Game, GameCategoryGame, Category WHERE Product.id = ? AND Product.id = Game.product_id AND Game.product_id = GameCategoryGame.game_id AND GameCategoryGame.gameCategory_id = Category.id');
+    $stmt->execute(array($id));
+
+    return $stmt->fetchAll();
+}
 
 function getReviews($id)
 {

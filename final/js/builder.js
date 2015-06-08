@@ -382,6 +382,63 @@ function generateCategoryList2(cat){
     });
 };
 
+function generateCategoryList(cat){
+    var request = {'request':'products'};
+    $('#uldata2').bind('dynatable:init', function(e, dynatable) {
+        $('#sorting-by-price-button').click( function(e) {
+            dynatable.sorts.clear();
+            if(!dynatable.bool| dynatable.bool == undefined) {
+                dynatable.sorts.add('price', 1) // 1=ASCENDING, -1=DESCENDING
+                dynatable.bool = true;
+            }else{
+                dynatable.sorts.add('price', -1) // 1=ASCENDING, -1=DESCENDING
+                dynatable.bool = false;
+            }
+            dynatable.process();
+            e.preventDefault();
+        });
+        $('#sorting-by-name-button').click( function(e) {
+            dynatable.sorts.clear();
+            if(!dynatable.bool| dynatable.bool == undefined) {
+                dynatable.sorts.add('name', 1) // 1=ASCENDING, -1=DESCENDING
+                dynatable.bool = true;
+            }else{
+                dynatable.sorts.add('name', -1) // 1=ASCENDING, -1=DESCENDING
+                dynatable.bool = false;
+            }
+            dynatable.process();
+            e.preventDefault();
+        });
+    });
+    $.getJSON('../../actions/products/request.php?cat='+cat+'', request, function(data, status){
+        $('#uldata').dynatable({
+            table: {
+                bodyRowSelector: 'li'
+            },
+            dataset: {
+                records: data,
+                perPageDefault: 10,
+                perPageOptions: [3, 6]
+            },
+            writers: {
+                _rowWriter: view1Writer
+            },
+            readers: {
+                _rowReader: view1Reader
+            },
+            params: {
+                records: "games"
+            },
+            features: {
+                paginate: true,
+                search: true,
+                recordCount: true,
+                perPageSelect: false
+            }
+        });
+    });
+};
+
 
 
 function getUrlParameter(sParam)
