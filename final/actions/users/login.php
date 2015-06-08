@@ -25,9 +25,12 @@
             $_SESSION['admin'] = $temp;
         }
 
+        header("Location: $BASE_URL".'index.php#loggedin');
+
     } else {
         $_SESSION['error_messages'][] = 'Login failed';
+        header("Location: $BASE_URL".'index.php#errorlogin');
     }
 
-    header("Location: $BASE_URL".'index.php');
+
 ?>
