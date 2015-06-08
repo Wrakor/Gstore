@@ -1,8 +1,38 @@
-{include file='common/admin_header.tpl'}
+<?php /* Smarty version Smarty-3.1.15, created on 2015-06-08 16:06:17
+         compiled from "/Users/jrsc/BitBucket/lbaw1433/src/final/templates/admin/products.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:828507895574dfab92ea24-57450378%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '2223edcdc3a7310408553fbc9940976edf7d494e' => 
+    array (
+      0 => '/Users/jrsc/BitBucket/lbaw1433/src/final/templates/admin/products.tpl',
+      1 => 1433772311,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '828507895574dfab92ea24-57450378',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_5574dfabba7e15_66033827',
+  'variables' => 
+  array (
+    'BASE_URL' => 0,
+    'data' => 0,
+    'cat' => 0,
+    'type' => 0,
+  ),
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_5574dfabba7e15_66033827')) {function content_5574dfabba7e15_66033827($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('common/admin_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
 
 <div id="wrapper">
 
-{include file='common/admin_nav.tpl'}
+<?php echo $_smarty_tpl->getSubTemplate ('common/admin_nav.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
 
 <div id="page-wrapper">
 
@@ -38,7 +68,8 @@
     </div>
     <div class="col-lg-10 col-md-10 col-xs-10">
 
-        <form id="form-create-product" name="form-create-product" action="{$BASE_URL}actions/admin/products.php?create" method="POST" enctype="multipart/form-data">
+        <form id="form-create-product" name="form-create-product" action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+actions/admin/products.php?create" method="POST" enctype="multipart/form-data">
             <h2>New Product <small> mostly for adding products.. ofc</small></h2>
             <hr>
             <div class="form-group has-feedback">
@@ -55,9 +86,15 @@
 
                 <select class="form-control" name="game-category" id="game-category" tabindex="1">
                     <option id="0">Select a Game Category</option>
-                    {foreach $data.categories.games as $cat}
-                        <option id="{$cat.id + 1}">{$cat.name}</option>
-                    {/foreach}
+                    <?php  $_smarty_tpl->tpl_vars['cat'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['cat']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['data']->value['categories']['games']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['cat']->key => $_smarty_tpl->tpl_vars['cat']->value) {
+$_smarty_tpl->tpl_vars['cat']->_loop = true;
+?>
+                        <option id="<?php echo $_smarty_tpl->tpl_vars['cat']->value['id']+1;?>
+"><?php echo $_smarty_tpl->tpl_vars['cat']->value['name'];?>
+</option>
+                    <?php } ?>
                 </select>
 
                 <p class="help-text hide">Select at least one category!</p>
@@ -70,9 +107,15 @@
 
                 <select class="form-control" name="game-platform" id="game-platform" tabindex="2">
                     <option id="0">Select a Game Platform</option>
-                    {foreach $data.categories.platforms as $cat}
-                        <option id="{$cat.id + 1}">{$cat.name}</option>
-                    {/foreach}
+                    <?php  $_smarty_tpl->tpl_vars['cat'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['cat']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['data']->value['categories']['platforms']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['cat']->key => $_smarty_tpl->tpl_vars['cat']->value) {
+$_smarty_tpl->tpl_vars['cat']->_loop = true;
+?>
+                        <option id="<?php echo $_smarty_tpl->tpl_vars['cat']->value['id']+1;?>
+"><?php echo $_smarty_tpl->tpl_vars['cat']->value['name'];?>
+</option>
+                    <?php } ?>
                 </select>
 
                 <p class="help-text hide">Select at least one category!</p>
@@ -85,9 +128,15 @@
 
                 <select class="form-control" name="related-category" id="related-category" tabindex="3">
                     <option id="0">Select a Related Product Category</option>
-                    {foreach $data.categories.related as $cat}
-                        <option id="{$cat.id + 1}">{$cat.name}</option>
-                    {/foreach}
+                    <?php  $_smarty_tpl->tpl_vars['cat'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['cat']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['data']->value['categories']['related']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['cat']->key => $_smarty_tpl->tpl_vars['cat']->value) {
+$_smarty_tpl->tpl_vars['cat']->_loop = true;
+?>
+                        <option id="<?php echo $_smarty_tpl->tpl_vars['cat']->value['id']+1;?>
+"><?php echo $_smarty_tpl->tpl_vars['cat']->value['name'];?>
+</option>
+                    <?php } ?>
                 </select>
 
                 <p class="help-text hide">Select at least one category!</p>
@@ -142,16 +191,23 @@
     </div>
     <div class="col-lg-10 col-md-10 col-xs-10">
 
-        <form id="form-edit-product" name="form-edit-product" action="{$BASE_URL}actions/admin/products.php?edit" method="POST" enctype="multipart/form-data">
+        <form id="form-edit-product" name="form-edit-product" action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+actions/admin/products.php?edit" method="POST" enctype="multipart/form-data">
             <h2>Edit product <small> id:</small></h2>
             <hr>
             <div class="form-group has-feedback">
                 <select class="form-control" name="access" id="access" tabindex="0">
                     <option id="0">Select Access Level</option>
                     <option id="1">Client</option>
-                    {foreach $data.admintypes as $type}
-                        <option id="{$type.id + 1}">{$type.name}</option>
-                    {/foreach}
+                    <?php  $_smarty_tpl->tpl_vars['type'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['type']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['data']->value['admintypes']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['type']->key => $_smarty_tpl->tpl_vars['type']->value) {
+$_smarty_tpl->tpl_vars['type']->_loop = true;
+?>
+                        <option id="<?php echo $_smarty_tpl->tpl_vars['type']->value['id']+1;?>
+"><?php echo $_smarty_tpl->tpl_vars['type']->value['name'];?>
+</option>
+                    <?php } ?>
                 </select>
                 <p class="help-text hide">Select another option!</p>
             </div>
@@ -208,17 +264,20 @@
                                   <i class="fa fa-plus fa-stack-2x"></i>
                                 </span>
             </button>
-            <button type="button" class="btn btn-warning" href="#" action="{$BASE_URL}actions/admin/products.php?data">
+            <button type="button" class="btn btn-warning" href="#" action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+actions/admin/products.php?data">
                                 <span class="fa-stack fa-lg">
                                   <i class="fa fa-edit fa-stack-2x"></i>
                                 </span>
             </button>
-            <button type="button" class="btn btn-info" action="{$BASE_URL}actions/admin/products.php?active">
+            <button type="button" class="btn btn-info" action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+actions/admin/products.php?active">
                                 <span class="fa-stack fa-lg">
                                   <i class="fa fa-bolt fa-stack-2x"></i>
                                 </span>
             </button>
-            <button type="button" class="btn btn-danger" action="{$BASE_URL}actions/admin/products.php?inactive">
+            <button type="button" class="btn btn-danger" action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+actions/admin/products.php?inactive">
                                 <span class="fa-stack fa-lg">
                                   <i class="fa fa-ban fa-stack-2x"></i>
                                 </span>
@@ -269,4 +328,5 @@
 </div><!-- /#wrapper -->
 
 
-{include file='common/admin_footer.tpl'}
+<?php echo $_smarty_tpl->getSubTemplate ('common/admin_footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+<?php }} ?>

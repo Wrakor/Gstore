@@ -12,26 +12,14 @@ function check_create_client() { return isset($_POST['first']) && isset($_POST['
 
 function validate_product_generic() {
 
-    $regex_productname = "/^[a-zA-Z0-9]{2,}$/i";
-    $regex_password = "/[a-zA-Z0-9]{6,}$/i";
+    $regex_productname = "/^[a-zA-Z0-9-]+$/i";
+    $regex_price       = "/^[0-9]+(.[0-9][0-9]?)+$/i";
+    $regex_url         = "/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/i";
 
     return (
         preg_match($regex_productname, $_POST['productname'])    &&
-        filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) &&
-        preg_match($regex_password, $_POST['password'])
-    );
-}
-function validate_product_client() {
-
-    $regex_name     = "/^[a-zA-Z]+([ ][a-zA-Z]+)*$/i";
-    $regex_address  = "/^[a-zA-Z]+([ ][a-zA-Z0-9]+)*$/i";
-    $regex_postal   = "/^[0-9]{4}[-][0-9]{3}$/i";
-
-    return (
-        preg_match($regex_name, $_POST['first'])      &&
-        preg_match($regex_name, $_POST['last'])       &&
-        preg_match($regex_address, $_POST['address']) &&
-        preg_match($regex_postal, $_POST['postal'])
+        preg_match($regex_price      , $_POST['price']) &&
+        preg_match($regex_url        , $_POST['url'])
     );
 }
 

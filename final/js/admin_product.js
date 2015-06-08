@@ -176,23 +176,74 @@ function setup_interaction() {
         $data.show();
     });
 
-    $form1.on("change",'select#access',function () {
+    $form1.on("change",'select#type',function () {
 
         var id = $(this).children(":selected").attr("id");
-        var $extra = $form1.find('.form-client');
+        var $game = $form1.find('.game-form');
+        var $related = $form1.find('.related-form');
+        var $common = $form1.find('.common');
 
         if (id == '1')
-            $extra.show();
+            $game.show();
         else
-            $extra.hide();
+            $game.hide();
+
+        if (id == '2')
+            $related.show();
+        else
+            $related.hide();
+
+        if (id == '0')
+            $common.hide();
+        else
+            $common.show();
+
+        clear_selects($form1);
     });
+
+    $form1.on("change",'select#game-category, select#game-platform, select#related-category',function () {
+
+            var id = $(this).children(":selected").attr("id");
+            var value = $(this).children(":selected").val();
+            var name = $(this).attr("name");
+
+            var $game = $(this).parent().find('.category_selection');
+            var $subform = $(this).parent();
+
+            if (id != '0' &&  !existsBadge($subform,id))
+            {
+                $game.append('<span class="badge" id="'+id+'">'+ value +'</span>');
+
+                if (name == 'game-category')
+                    prefix = 'gcat';
+                else if (name == 'game-platform')
+                    prefix = 'pcat';
+                else if (name == 'related-category')
+                    prefix = 'rcat';
+
+                $subform.append('<input type="hidden" id="'+prefix+'-'+id+'" name="'+prefix+'-'+id+'" value="'+id+'">');
+            }
+
+            $(this).prop('selectedIndex',0);
+
+        });
+
+        $form1.find(".form-group").on("click",'.badge', function () {
+                   id = $(this).attr("id");
+                   $parent = $(this).parent().parent();
+
+                   $parent.find('input[type="hidden"][id$="-'+id+'"]').remove();
+                   $(this).remove();
+                });
+
+
 
     $form2.on("change",'select#access',function () {
 
         var id = $(this).children(":selected").attr("id");
-        var $extra = $form2.find('.form-client');
+        var $extra = $form1.find('.form-client');
 
-        if (id == '1')
+        if (id == '2')
             $extra.show();
         else
             $extra.hide();
@@ -217,6 +268,10 @@ function setup_interaction() {
     });
 }
 
+function existsBadge($where,id) {
+    return ($where.find('input[type="hidden"]#gcat-'+id).length > 0) || ($where.find('input[type="hidden"]#pcat-'+id).length > 0) || ($where.find('input[type="hidden"]#rcat-'+id).length > 0);
+}
+
 function toggleCheckbox($checkbox) {
     if ( $checkbox.is( ":checked" ) )
         $checkbox.prop( "checked", false );
@@ -227,7 +282,15 @@ function toggleCheckbox($checkbox) {
 function clean($form) {
     $form.find('select').prop('selectedIndex',0);
     $form.find('input').val('');
-    $form.find('.form-client').hide();
+    $form.find('input[type="hidden"]').remove();
+    $form.find('.category_selection').empty();
+    $form.find('.game-form, .related-form, input.common').hide();
+}
+
+function clear_selects($form)
+{
+    $form.find('.category_selection').empty();
+    $form.find('input[type="hidden"]').remove();
 }
 
 function fill($form,data) {
