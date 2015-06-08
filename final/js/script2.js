@@ -519,7 +519,7 @@ $(document).ready(function()
     }
 
     if(window.location.hash == "#favoriteremoved") {
-        generate('success', "Favorite Removed!");
+        generate('information', "Favorite Removed!");
         setTimeout(function () {
             $.noty.closeAll()
         }, 5000);
@@ -527,7 +527,7 @@ $(document).ready(function()
     }
 
     if(window.location.hash == "#wishlistremoved") {
-        generate('success', "Wishlist Removed!");
+        generate('information', "Game removed!");
         setTimeout(function () {
             $.noty.closeAll()
         }, 5000);

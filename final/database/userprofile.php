@@ -54,16 +54,38 @@ function getBuyOrders($user_id) {
 
 function addToWishlist($user_id, $product_id) {
     global $conn;
-    $query = 'INSERT INTO Wishlist(client_id, product_id) VALUES (?, ?)';
+
+    $query = 'SELECT * FROM Wishlist where client_id = ? AND product_id = ?';
     $stmt = $conn->prepare($query);
     $stmt->execute(array($user_id, $product_id));
+
+    if (count($stmt->fetchAll()) == 0) {
+        $query = 'INSERT INTO Wishlist(client_id, product_id) VALUES (?, ?)';
+        $stmt = $conn->prepare($query);
+        $stmt->execute(array($user_id, $product_id));
+
+        return 0;
+    }
+
+    return 1;
 }
 
 function addToFavorites($user_id, $product_id) {
     global $conn;
-    $query = 'INSERT INTO Favorites(client_id, product_id) VALUES (?, ?)';
+
+    $query = 'SELECT * FROM Favorites where client_id = ? AND product_id = ?';
     $stmt = $conn->prepare($query);
     $stmt->execute(array($user_id, $product_id));
+
+    if (count($stmt->fetchAll()) == 0) {
+        $query = 'INSERT INTO Favorites(client_id, product_id) VALUES (?, ?)';
+        $stmt = $conn->prepare($query);
+        $stmt->execute(array($user_id, $product_id));
+
+        return 0;
+    }
+
+    return 1;
 }
 
 function addReview($user_id, $product_id, $score, $comment) {
