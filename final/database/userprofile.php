@@ -2,7 +2,7 @@
 function getUserInfo($username){
     global $conn;
     $query ='SELECT utilizador.username as username, utilizador.id as userid, utilizador.email as email, client.name as name, client.address as address,client.postalcodeextra as postalcodeextra ,postalcode.code as postalcode, city.name as city, district.name as district  FROM client, utilizador, postalcode, city, district
-WHERE utilizador.username=? AND utilizador.id = client.user_id AND client.postalcode = postalcode.id AND postalcodeextra = client.postalcodeextra  AND city.id = postalcode.city_id AND district.id = city.district_id ';
+WHERE utilizador.username=? AND utilizador.id = client.user_id AND client.postalcode = postalcode.id AND postalcodeextra = client.postalcodeextra  AND city.id = postalcode.city_id AND city.district_id = district.id ';
 
     $stmt = $conn->prepare($query);
 
