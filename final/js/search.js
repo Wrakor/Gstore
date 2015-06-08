@@ -25,7 +25,7 @@ $( document ).ready(function() {
 
     $( "#typeahead" ).keyup(function(e) {
         var str = $( "#typeahead" ).val();
-        var domain = "http://localhost:8888/final/pages/products/list.php?name=";
+        var domain = "/~lbaw1433/final/pages/products/list.php?name="; 
         var url = domain + str;
 
         if (e.keyCode == 13)
