@@ -1,0 +1,2 @@
+{"timestamp":1433720016,"method":"createAdmin","exception":{"errorInfo":["23505",7,"ERROR:  duplicate key value violates unique constraint \"utilizador_username_key\"\nDETAIL:  Key (username)=(adminconteudo) already exists."]}}
+{"timestamp":1433720027,"method":"createAdmin","exception":{"errorInfo":["23505",7,"ERROR:  duplicate key value violates unique constraint \"utilizador_username_key\"\nDETAIL:  Key (username)=(adminconteudo) already exists."]}}
