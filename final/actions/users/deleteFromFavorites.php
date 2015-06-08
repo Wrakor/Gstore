@@ -3,6 +3,6 @@
     include_once($BASE_DIR .'database/userprofile.php');
 
     deleteFromFavorites($_GET['id']);
-    header("Location: $BASE_URL"."pages/users/favorites.php");
+    header("Location: $BASE_URL"."pages/users/favorites.php#favoriteremoved");
     exit();
 ?>

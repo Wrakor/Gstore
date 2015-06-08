@@ -502,6 +502,22 @@ $(document).ready(function()
         window.location.hash="";
     }
 
+    if(window.location.hash == "#favoriteremoved") {
+        generate('success', "Favorite Removed!");
+        setTimeout(function () {
+            $.noty.closeAll()
+        }, 5000);
+        window.location.hash="";
+    }
+
+    if(window.location.hash == "#wishlistremoved") {
+        generate('success', "Wishlist Removed!");
+        setTimeout(function () {
+            $.noty.closeAll()
+        }, 5000);
+        window.location.hash="";
+    }
+
 });
 
 
