@@ -42,23 +42,7 @@
                         {/foreach}
                     </ul>
                 </li>
-
-                <!-- Related Products -->
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Related Products <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="{$BASE_URL}pages/products/list.php?related">All Related Products</a></li>
-                        <li><hr></li>
-                        <li role="presentation" class="dropdown-header"><b>By Category</b></li>
-
-                        {foreach $data.relatedProductCategories as $category}
-
-                            <li class="{if !isset($data.title[0].plat) && $category.id == $data.title[0].id}active{/if}"><a href="{$BASE_URL}pages/products/list.php?cat={$category.id}">{$category.name}</a></li>
-
-                        {/foreach}
-                    </ul>
-                </li>
-
+                
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Accessibility <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu" style="cursor: default">
