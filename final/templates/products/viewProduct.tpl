@@ -55,11 +55,7 @@
                 <!-- Product Price and Buttons-->
                 <div class="col-md-3">
 
-                    <h3>
-                        <div class="rating">
-                            <span>☆</span>
-                        </div>
-                    </h3>
+                  <br>
                     <div class="text-center">
 
                         <h1> {$data.product.price} €</h1>
@@ -102,7 +98,7 @@
                                 <option value="3">3</option>
                                 <option value="4">4</option>
                                 <option value="5">5</option>
-                            </select>
+                            </select> ☆
                         </h3>
                         <textarea class="form-control" rows="3" name="description" placeholder="Type your review..."></textarea>
                         <button class="btn btn-lg btn-success btn-block" type="submit">
@@ -125,7 +121,7 @@
                         <!-- comment sample -->
                         <div class="col-sm-1">
                             <div class="thumbnail">
-                                <img data-src="holder.js/140x140" class="img-responsive user-photo" alt="140x140"  src="../../img/michael_knight.jpg" data-holder-rendered="true">
+                                <img data-src="holder.js/140x140" class="img-responsive user-photo" alt="140x140"  src="{$BASE_URL}database/userimg/{$row['username']}" onerror="this.src='{$BASE_URL}database/userimg/default'" data-holder-rendered="true">
                             </div><!-- /thumbnail -->
                         </div><!-- /col-sm-1 -->
 

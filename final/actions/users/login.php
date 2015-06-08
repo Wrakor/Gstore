@@ -18,6 +18,7 @@
         $_SESSION['username'] = $username;
         $_SESSION['success_messages'][] = 'Login successful';
 
+
         $temp = isAdmin('username');
 
         if ( is_array($temp)  )
@@ -25,9 +26,12 @@
             $_SESSION['admin'] = $temp;
         }
 
+        header("Location: $BASE_URL".'index.php#loggedin');
+
     } else {
         $_SESSION['error_messages'][] = 'Login failed';
+        header("Location: $BASE_URL".'index.php#errorlogin');
     }
 
-    header("Location: $BASE_URL".'index.php');
+
 ?>

@@ -9,4 +9,4 @@ $description = $_POST['description'];
 
 addReview($userid, $productid, $rating, $description);
 
-header("Location: $BASE_URL"."pages/products/item.php?id=".$productid);
+header("Location: $BASE_URL"."pages/products/item.php?id=".$productid."#review");
