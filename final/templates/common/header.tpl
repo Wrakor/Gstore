@@ -35,12 +35,6 @@
     <!-- Our Version CSS -->
     <link href="{$BASE_URL}css/style.css" rel="stylesheet">
 
-    <!-- angularjs -->
-    <script src="{$BASE_URL}angularjs/bower_components/angular/angular.js"></script>
-    <script src="{$BASE_URL}angularjs/GStore/js/GStore.js"></script>
-    <script src="{$BASE_URL}js/ngCart.js"></script>
-
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
