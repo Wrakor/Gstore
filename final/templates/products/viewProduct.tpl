@@ -76,14 +76,43 @@
                 </div>
 
             </div>
-            <ngcart-cart> </ngcart-cart>
 
+            {foreach $data.product.platforms as $row}
+
+                {if $row.name =="Windows"}
+                    <span class="icon-os-win-03"></span>
+                {/if}
+                {if $row.name =="Mac"}
+                    <span class="icon-os-apple"></span>
+                {/if}
+                {if $row.name =="Linux"}
+                    <span class="icon-os-linux_1_"></span>
+                {/if}
+
+
+
+            {/foreach}
+            <p>
+            {foreach $data.product.categories as $row}
+
+                <span class="badge">{$row.name}</span>
+
+
+
+
+            {/foreach}
+            </p>
             <!-- Product Description -->
             <div class="row">
                 <div class="col-md-12">
 
                     <p> {$data.product.description} </p>
+
+
                     <br>
+
+
+
 
                     <!-- Submit Review -->
                     <h2>Submit your Review</h2>

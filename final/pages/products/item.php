@@ -6,13 +6,14 @@
 
     $product = getProduct($_GET['id']);
     $product['platforms'] = getGamePlatforms($product['id']);
+    $product['categories']= getGameCategoryList($product['id']);
     $reviews = getReviews($_GET['id']);
 
     $gameCategories = getGameCategories();
     $gamePlatforms = getAllGamePlatforms();
     $relatedProductCategories = getRelatedProductCategories();
 
-    //echo "<pre>"; var_dump($product); echo "</pre>";
+
 
     $data['product'] = $product;
     $data['reviews'] = $reviews;
@@ -25,6 +26,8 @@
     $data['product']['score'] = $data['product']['score']*10;
     $data['product']['score'] = round($data['product']['score']);
     $data['product']['score'] = $data['product']['score']/10;
+
+
 
     $smarty->assign('data', $data);
     $smarty->display('products/viewProduct.tpl');

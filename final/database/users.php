@@ -115,7 +115,7 @@ function updatePassword($username, $password) {
     $stmt = $conn->prepare("UPDATE utilizador
                             SET password= ?
                             WHERE username = ?");
-    return $stmt->execute(array($password, sha1($password)));
+    return $stmt->execute(array(sha1($password),$username));
 }
 
 
