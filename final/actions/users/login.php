@@ -21,12 +21,13 @@
 
         $temp = isAdmin('username');
 
-        if ( is_array($temp)  )
+        if ( count($temp) > 0  )
         {
             $_SESSION['admin'] = $temp;
+            header("Location: $BASE_URL".'pages/admin/');
         }
-
-        header("Location: $BASE_URL".'index.php#loggedin');
+        else
+            header("Location: $BASE_URL".'index.php#loggedin');
 
     } else {
         $_SESSION['error_messages'][] = 'Login failed';
